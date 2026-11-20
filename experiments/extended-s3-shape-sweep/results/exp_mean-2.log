@@ -1,0 +1,175 @@
+Executing action: monitor
+Running idf_monitor in directory /home/kostis/Desktop/ESP-NN/extended-shape-run-1/exp_mean/esp-nn/bench_app
+Executing "/home/kostis/.espressif/python_env/idf5.5_py3.10_env/bin/python /home/kostis/esp_s3/esp-idf/tools/idf_monitor.py -p /dev/ttyACM0 -b 115200 --toolchain-prefix xtensa-esp32s3-elf- --target esp32s3 --revision 0 /home/kostis/Desktop/ESP-NN/extended-shape-run-1/exp_mean/esp-nn/bench_app/build/bench_app.elf /home/kostis/Desktop/ESP-NN/extended-shape-run-1/exp_mean/esp-nn/bench_app/build/bootloader/bootloader.elf -m '/home/kostis/.espressif/python_env/idf5.5_py3.10_env/bin/python' '/home/kostis/esp_s3/esp-idf/tools/idf.py' '-p' '/dev/ttyACM0'"...
+[0;33m--- esp-idf-monitor 1.8.0 on /dev/ttyACM0 115200[0m
+[0;33m--- Quit: Ctrl+] | Menu: Ctrl+T | Help: Ctrl+T followed by Ctrl+H[0m
+ESP-ROM:esp32s3-20210327
+Build:Mar 27 2021
+rst:0x15 (USB_UART_CHIP_RESET),boot:0x2a (SPI_FAST_FLASH_BOOT)
+Saved PC:0x4200bcfc
+[0m--- 0x4200bcfc: [0;33mesp_nn_mean_nhwc_s8_ansi[0m[0m at [0;32m/home/kostis/Desktop/ESP-NN/extended-shape-run-1/exp_mean/esp-nn/src/common/esp_nn_mean_ansi.c[0m[0m:[1;31m33[0m
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fce2820,len:0x158c
+load:0x403c8700,len:0xd24
+[0m--- 0x403c8700: [0;33m_stext[0m[0m at [0;32m??[0m[0m:[1;31m?[0m
+load:0x403cb700,len:0x2f34
+entry 0x403c8924
+[0m--- 0x403c8924: [0;33mcall_start_cpu0[0m[0m at [0;32m/home/kostis/esp_s3/esp-idf/components/bootloader/subproject/main/bootloader_start.c[0m[0m:[1;31m25[0m
+[0;32mI (24) boot: ESP-IDF v5.5.1-dirty 2nd stage bootloader[0m
+[0;32mI (24) boot: compile time Nov 20 2026 22:30:13[0m
+[0;32mI (25) boot: Multicore bootloader[0m
+[0;32mI (25) boot: chip revision: v0.2[0m
+[0;32mI (28) boot: efuse block revision: v1.3[0m
+[0;32mI (32) boot.esp32s3: Boot SPI Speed : 80MHz[0m
+[0;32mI (36) boot.esp32s3: SPI Mode       : DIO[0m
+[0;32mI (39) boot.esp32s3: SPI Flash Size : 2MB[0m
+[0;32mI (43) boot: Enabling RNG early entropy source...[0m
+[0;32mI (48) boot: Partition Table:[0m
+[0;32mI (50) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (56) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (63) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (70) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (76) boot: End of partition table[0m
+[0;32mI (79) esp_image: segment 0: paddr=00010020 vaddr=3c020020 size=0afb0h ( 44976) map[0m
+[0;32mI (95) esp_image: segment 1: paddr=0001afd8 vaddr=3fc8fd00 size=02f70h ( 12144) load[0m
+[0;32mI (98) esp_image: segment 2: paddr=0001df50 vaddr=40374000 size=020c8h (  8392) load[0m
+[0;32mI (103) esp_image: segment 3: paddr=00020020 vaddr=42000020 size=1fecch (130764) map[0m
+[0;32mI (132) esp_image: segment 4: paddr=0003fef4 vaddr=403760c8 size=09b48h ( 39752) load[0m
+[0;32mI (141) esp_image: segment 5: paddr=00049a44 vaddr=50000000 size=00020h (    32) load[0m
+[0;32mI (147) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (147) boot: Disabling RNG early entropy source...[0m
+[0;32mI (159) octal_psram: vendor id    : 0x0d (AP)[0m
+[0;32mI (159) octal_psram: dev id       : 0x02 (generation 3)[0m
+[0;32mI (159) octal_psram: density      : 0x03 (64 Mbit)[0m
+[0;32mI (161) octal_psram: good-die     : 0x01 (Pass)[0m
+[0;32mI (166) octal_psram: Latency      : 0x01 (Fixed)[0m
+[0;32mI (170) octal_psram: VCC          : 0x01 (3V)[0m
+[0;32mI (174) octal_psram: SRF          : 0x01 (Fast Refresh)[0m
+[0;32mI (179) octal_psram: BurstType    : 0x01 (Hybrid Wrap)[0m
+[0;32mI (184) octal_psram: BurstLen     : 0x01 (32 Byte)[0m
+[0;32mI (188) octal_psram: Readlatency  : 0x02 (10 cycles@Fixed)[0m
+[0;32mI (194) octal_psram: DriveStrength: 0x00 (1/1)[0m
+[0;32mI (198) MSPI Timing: PSRAM timing tuning index: 5[0m
+[0;32mI (202) esp_psram: Found 8MB PSRAM device[0m
+[0;32mI (206) esp_psram: Speed: 80MHz[0m
+[0;32mI (209) cpu_start: Multicore app[0m
+[0;32mI (513) esp_psram: SPI SRAM memory test OK[0m
+[0;32mI (522) cpu_start: Pro cpu start user code[0m
+[0;32mI (522) cpu_start: cpu freq: 240000000 Hz[0m
+[0;32mI (522) app_init: Application information:[0m
+[0;32mI (523) app_init: Project name:     bench_app[0m
+[0;32mI (526) app_init: App version:      v1.5.0[0m
+[0;32mI (530) app_init: Compile time:     Nov 20 2026 22:30:14[0m
+[0;32mI (535) app_init: ELF file SHA256:  59e5dc404...[0m
+[0;32mI (540) app_init: ESP-IDF:          v5.5.1-dirty[0m
+[0;32mI (544) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (548) efuse_init: Max chip rev:     v0.99 [0m
+[0;32mI (552) efuse_init: Chip rev:         v0.2[0m
+[0;32mI (556) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (562) heap_init: At 3FC935B8 len 00056158 (344 KiB): RAM[0m
+[0;32mI (567) heap_init: At 3FCE9710 len 00005724 (21 KiB): RAM[0m
+[0;32mI (572) heap_init: At 600FE000 len 00001FE8 (7 KiB): RTCRAM[0m
+[0;32mI (578) esp_psram: Adding pool of 8192K of PSRAM memory to heap allocator[0m
+[0;32mI (585) spi_flash: detected chip: gd[0m
+[0;32mI (587) spi_flash: flash io: dio[0m
+[0;33mW (590) spi_flash: Detected size(8192k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;32mI (603) sleep_gpio: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (609) sleep_gpio: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (616) main_task: Started on CPU0[0m
+[0;32mI (626) main_task: Calling app_main()[0m
+BENCH_START target=esp32s3 idf=v5.5.1-dirty cpu_mhz=240 psram=1 iters=9 seed=0xc0ffee42
+EXTBENCH_HEAP internal_largest=335872
+EXTBENCH_VERSION=1 MEAN_CASES=42 POOL_CASES=48
+BENCH op=mean variant=esp_nn mem=int ansi=5286 opt=1641 ratio=3.22 result=ok shape="input 7x7x16"
+BENCH op=mean variant=esp_nn mem=int ansi=117310 opt=83635 ratio=1.40 result=ok shape="input 14x14x120"
+BENCH op=mean variant=esp_nn mem=int ansi=1334 opt=1496 ratio=0.89 result=ok shape="input 1x1x16"
+BENCH op=mean variant=esp_nn mem=int ansi=1686 opt=1506 ratio=1.12 result=ok shape="input 2x2x16"
+BENCH op=mean variant=esp_nn mem=int ansi=2150 opt=1521 ratio=1.41 result=ok shape="input 3x3x16"
+BENCH op=mean variant=esp_nn mem=int ansi=2742 opt=1542 ratio=1.78 result=ok shape="input 4x4x16"
+BENCH op=mean variant=esp_nn mem=int ansi=10502 opt=3187 ratio=3.30 result=ok shape="input 7x7x32"
+BENCH op=mean variant=esp_nn mem=int ansi=20934 opt=6279 ratio=3.33 result=ok shape="input 7x7x64"
+BENCH op=mean variant=esp_nn mem=int ansi=41798 opt=12463 ratio=3.35 result=ok shape="input 7x7x128"
+BENCH op=mean variant=esp_nn mem=int ansi=83526 opt=24831 ratio=3.36 result=ok shape="input 7x7x256"
+BENCH op=mean variant=esp_nn mem=int ansi=15702 opt=2082 ratio=7.54 result=ok shape="input 14x14x16"
+BENCH op=mean variant=esp_nn mem=int ansi=31334 opt=4069 ratio=7.70 result=ok shape="input 14x14x32"
+BENCH op=mean variant=esp_nn mem=int ansi=62598 opt=8043 ratio=7.78 result=ok shape="input 14x14x64"
+BENCH op=mean variant=esp_nn mem=int ansi=125126 opt=15991 ratio=7.82 result=ok shape="input 14x14x128"
+BENCH op=mean variant=esp_nn mem=int ansi=55350 opt=3846 ratio=14.39 result=ok shape="input 28x28x16"
+BENCH op=mean variant=esp_nn mem=int ansi=110630 opt=7597 ratio=14.56 result=ok shape="input 28x28x32"
+BENCH op=mean variant=esp_nn mem=int ansi=221190 opt=15099 ratio=14.65 result=ok shape="input 28x28x64"
+BENCH op=mean variant=esp_nn mem=int ansi=71286 opt=4566 ratio=15.61 result=ok shape="input 32x32x16"
+BENCH op=mean variant=esp_nn mem=int ansi=142502 opt=9037 ratio=15.77 result=ok shape="input 32x32x32"
+BENCH op=mean variant=esp_nn mem=int ansi=284934 opt=17979 ratio=15.85 result=ok shape="input 32x32x64"
+BENCH op=mean variant=esp_nn mem=int ansi=272294 opt=13779 ratio=19.76 result=ok shape="input 63x65x16"
+BENCH op=mean variant=esp_nn mem=int ansi=272502 opt=214047 ratio=1.27 result=ok shape="input 64x64x16"
+BENCH op=mean variant=esp_nn mem=int ansi=3230 opt=2250 ratio=1.44 result=ok shape="input 8x8x8"
+BENCH op=mean variant=esp_nn mem=int ansi=4810 opt=3318 ratio=1.45 result=ok shape="input 8x8x12"
+BENCH op=mean variant=esp_nn mem=int ansi=5995 opt=4306 ratio=1.39 result=ok shape="input 8x8x15"
+BENCH op=mean variant=esp_nn mem=int ansi=6785 opt=4729 ratio=1.43 result=ok shape="input 8x8x17"
+BENCH op=mean variant=esp_nn mem=int ansi=9550 opt=6523 ratio=1.46 result=ok shape="input 8x8x24"
+BENCH op=mean variant=esp_nn mem=int ansi=12315 opt=8579 ratio=1.44 result=ok shape="input 8x8x31"
+BENCH op=mean variant=esp_nn mem=int ansi=13105 opt=9001 ratio=1.46 result=ok shape="input 8x8x33"
+BENCH op=mean variant=esp_nn mem=ext ansi=117310 opt=83635 ratio=1.40 result=ok shape="input 14x14x120"
+BENCH op=mean variant=esp_nn mem=ext ansi=125126 opt=15991 ratio=7.82 result=ok shape="input 14x14x128"
+BENCH op=mean variant=esp_nn mem=ext ansi=5286 opt=1641 ratio=3.22 result=ok shape="input 7x7x16"
+BENCH op=mean variant=esp_nn mem=ext ansi=10502 opt=3187 ratio=3.30 result=ok shape="input 7x7x32"
+BENCH op=mean variant=esp_nn mem=ext ansi=20934 opt=6279 ratio=3.33 result=ok shape="input 7x7x64"
+BENCH op=mean variant=esp_nn mem=ext ansi=110630 opt=7597 ratio=14.56 result=ok shape="input 28x28x32"
+BENCH op=mean variant=esp_nn mem=ext ansi=351929 opt=147440 ratio=2.39 result=ok shape="input 28x28x64"
+BENCH op=mean variant=esp_nn mem=ext ansi=22466566 opt=1419136 ratio=15.83 result=ok shape="input 32x32x128"
+BENCH op=mean variant=esp_nn mem=ext ansi=451243 opt=339985 ratio=1.33 result=ok shape="input 64x64x16"
+BENCH op=mean variant=esp_nn mem=ext ansi=441988 opt=180070 ratio=2.45 result=ok shape="input 63x65x16"
+BENCH op=mean variant=esp_nn mem=int ansi=17670 opt=2262 ratio=7.81 result=ok shape="input 1x256x16"
+BENCH op=mean variant=esp_nn mem=int ansi=70470 opt=8763 ratio=8.04 result=ok shape="input 1x256x64"
+BENCH op=mean variant=esp_nn mem=ext ansi=66822 opt=4566 ratio=14.63 result=ok shape="input 1x1024x16"
+BENCH op=max_pool variant=esp_nn mem=int ansi=467197 opt=60506 ratio=7.72 result=ok shape="input 16x16x16, filter 3x3, pad 1, stride 1"
+BENCH op=max_pool variant=esp_nn mem=ext ansi=3739637 opt=373662 ratio=10.01 result=ok shape="input 12x12x128, filter 5x5, pad 2, stride 1"
+BENCH op=max_pool variant=esp_nn mem=int ansi=25129 opt=3626 ratio=6.93 result=ok shape="input 4x4x16, filter 3x3, pad 1, stride 1"
+BENCH op=max_pool variant=esp_nn mem=int ansi=40881 opt=5704 ratio=7.17 result=ok shape="input 5x5x16, filter 3x3, pad 1, stride 1"
+BENCH op=max_pool variant=esp_nn mem=int ansi=83887 opt=11312 ratio=7.42 result=ok shape="input 7x7x16, filter 3x3, pad 1, stride 1"
+BENCH op=max_pool variant=esp_nn mem=int ansi=111141 opt=14842 ratio=7.49 result=ok shape="input 8x8x16, filter 3x3, pad 1, stride 1"
+BENCH op=max_pool variant=esp_nn mem=int ansi=922237 opt=109490 ratio=8.42 result=ok shape="input 16x16x32, filter 3x3, pad 1, stride 1"
+BENCH op=max_pool variant=esp_nn mem=int ansi=1832317 opt=207458 ratio=8.83 result=ok shape="input 16x16x64, filter 3x3, pad 1, stride 1"
+BENCH op=max_pool variant=esp_nn mem=int ansi=3652517 opt=403394 ratio=9.05 result=ok shape="input 16x16x128, filter 3x3, pad 1, stride 1"
+BENCH op=max_pool variant=esp_nn mem=int ansi=1915437 opt=244762 ratio=7.83 result=ok shape="input 32x32x16, filter 3x3, pad 1, stride 1"
+BENCH op=max_pool variant=esp_nn mem=int ansi=3783637 opt=445106 ratio=8.50 result=ok shape="input 32x32x32, filter 3x3, pad 1, stride 1"
+BENCH op=max_pool variant=esp_nn mem=int ansi=7520051 opt=845794 ratio=8.89 result=ok shape="input 32x32x64, filter 3x3, pad 1, stride 1"
+BENCH op=max_pool variant=esp_nn mem=ext ansi=8524816 opt=1044216 ratio=8.16 result=ok shape="input 24x24x128, filter 3x3, pad 1, stride 1"
+BENCH op=max_pool variant=esp_nn mem=ext ansi=15314218 opt=1852899 ratio=8.27 result=ok shape="input 32x32x128, filter 3x3, pad 1, stride 1"
+BENCH op=max_pool variant=esp_nn mem=ext ansi=7865371 opt=1081067 ratio=7.28 result=ok shape="input 64x64x16, filter 3x3, pad 1, stride 1"
+BENCH op=max_pool variant=esp_nn mem=ext ansi=15638346 opt=1987340 ratio=7.87 result=ok shape="input 64x64x32, filter 3x3, pad 1, stride 1"
+BENCH op=max_pool variant=esp_nn mem=int ansi=100403 opt=11818 ratio=8.50 result=ok shape="input 6x6x16, filter 5x5, pad 2, stride 1"
+BENCH op=max_pool variant=esp_nn mem=int ansi=143407 opt=16572 ratio=8.65 result=ok shape="input 7x7x16, filter 5x5, pad 2, stride 1"
+BENCH op=max_pool variant=esp_nn mem=int ansi=473537 opt=52522 ratio=9.02 result=ok shape="input 12x12x16, filter 5x5, pad 2, stride 1"
+BENCH op=max_pool variant=esp_nn mem=int ansi=940097 opt=98386 ratio=9.56 result=ok shape="input 12x12x32, filter 5x5, pad 2, stride 1"
+BENCH op=max_pool variant=esp_nn mem=int ansi=1873217 opt=190114 ratio=9.85 result=ok shape="input 12x12x64, filter 5x5, pad 2, stride 1"
+BENCH op=max_pool variant=esp_nn mem=int ansi=3739489 opt=373570 ratio=10.01 result=ok shape="input 12x12x128, filter 5x5, pad 2, stride 1"
+BENCH op=max_pool variant=esp_nn mem=int ansi=875773 opt=95898 ratio=9.13 result=ok shape="input 16x16x16, filter 5x5, pad 2, stride 1"
+BENCH op=max_pool variant=esp_nn mem=int ansi=3466652 opt=349026 ratio=9.93 result=ok shape="input 16x16x64, filter 5x5, pad 2, stride 1"
+BENCH op=max_pool variant=esp_nn mem=ext ansi=8170024 opt=870397 ratio=9.39 result=ok shape="input 24x24x64, filter 5x5, pad 2, stride 1"
+BENCH op=max_pool variant=esp_nn mem=ext ansi=29709234 opt=3104452 ratio=9.57 result=ok shape="input 32x32x128, filter 5x5, pad 2, stride 1"
+BENCH op=max_pool variant=esp_nn mem=ext ansi=15393327 opt=1731498 ratio=8.89 result=ok shape="input 64x64x16, filter 5x5, pad 2, stride 1"
+BENCH op=max_pool variant=esp_nn mem=int ansi=239677 opt=36014 ratio=6.66 result=ok shape="input 16x16x8, filter 3x3, pad 1, stride 1"
+BENCH op=max_pool variant=esp_nn mem=int ansi=353437 opt=82794 ratio=4.27 result=ok shape="input 16x16x12, filter 3x3, pad 1, stride 1"
+BENCH op=max_pool variant=esp_nn mem=int ansi=438757 opt=438801 ratio=1.00 result=ok shape="input 16x16x15, filter 3x3, pad 1, stride 1"
+BENCH op=max_pool variant=esp_nn mem=int ansi=694717 opt=84998 ratio=8.17 result=ok shape="input 16x16x24, filter 3x3, pad 1, stride 1"
+BENCH op=max_pool variant=esp_nn mem=int ansi=893797 opt=893841 ratio=1.00 result=ok shape="input 16x16x31, filter 3x3, pad 1, stride 1"
+BENCH op=max_pool variant=esp_nn mem=int ansi=2603025 opt=264650 ratio=9.84 result=ok shape="input 16x16x48, filter 5x5, pad 2, stride 1"
+BENCH op=max_pool variant=esp_nn mem=int ansi=6489339 opt=644342 ratio=10.07 result=ok shape="input 16x16x120, filter 5x5, pad 2, stride 1"
+BENCH op=max_pool variant=esp_nn mem=int ansi=80037 opt=11842 ratio=6.76 result=ok shape="input 16x16x16, filter 2x2, pad 0, stride 2"
+BENCH op=max_pool variant=esp_nn mem=int ansi=156837 opt=20546 ratio=7.63 result=ok shape="input 16x16x32, filter 2x2, pad 0, stride 2"
+BENCH op=max_pool variant=esp_nn mem=ext ansi=1385433 opt=303100 ratio=4.57 result=ok shape="input 32x32x64, filter 2x2, pad 0, stride 2"
+BENCH op=max_pool variant=esp_nn mem=ext ansi=2802261 opt=623118 ratio=4.50 result=ok shape="input 32x32x128, filter 2x2, pad 0, stride 2"
+BENCH op=max_pool variant=esp_nn mem=int ansi=116997 opt=15384 ratio=7.61 result=ok shape="input 16x16x16, filter 3x3, pad 1, stride 2"
+BENCH op=max_pool variant=esp_nn mem=int ansi=458277 opt=52122 ratio=8.79 result=ok shape="input 16x16x64, filter 3x3, pad 1, stride 2"
+BENCH op=max_pool variant=esp_nn mem=int ansi=376299 opt=48122 ratio=7.82 result=ok shape="input 16x16x16, filter 3x3, pad 0, stride 1"
+BENCH op=max_pool variant=esp_nn mem=int ansi=1099073 opt=111490 ratio=9.86 result=ok shape="input 16x16x32, filter 5x5, pad 0, stride 1"
+BENCH op=max_pool variant=esp_nn mem=int ansi=5127 opt=922 ratio=5.56 result=ok shape="input 2x2x16, filter 3x3, pad 1, stride 1"
+BENCH op=max_pool variant=esp_nn mem=int ansi=37417 opt=4746 ratio=7.88 result=ok shape="input 4x4x16, filter 5x5, pad 2, stride 1"
+BENCH op=max_pool variant=esp_nn mem=ext ansi=467197 opt=60506 ratio=7.72 result=ok shape="input 16x16x16, filter 3x3, pad 1, stride 1"
+BENCH op=max_pool variant=esp_nn mem=ext ansi=922237 opt=109490 ratio=8.42 result=ok shape="input 16x16x32, filter 3x3, pad 1, stride 1"
+BENCH op=max_pool variant=esp_nn mem=ext ansi=3466646 opt=349026 ratio=9.93 result=ok shape="input 16x16x64, filter 5x5, pad 2, stride 1"
+BENCH op=max_pool variant=esp_nn mem=ext ansi=3712587 opt=399322 ratio=9.30 result=ok shape="input 32x32x16, filter 5x5, pad 2, stride 1"
+EXTBENCH_STACK main_high_water_bytes=1764
+BENCH_DONE cases=90 failures=0 skipped=0

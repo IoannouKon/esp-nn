@@ -1,0 +1,482 @@
+{
+  "target": {
+    "exp_mean": {
+      "all": {
+        "count": 42,
+        "wins": 28,
+        "losses": 4,
+        "neutral": 10,
+        "median_speedup": 2.2347258204204223,
+        "geomean_speedup": 2.8005740149603686,
+        "best": {
+          "shape": "input 63x65x16",
+          "mem": "int",
+          "speedup": 15.529211118368531
+        },
+        "worst": {
+          "shape": "input 1x1x16",
+          "mem": "int",
+          "speedup": 0.7252673796791443
+        }
+      },
+      "eligible": {
+        "count": 31,
+        "wins": 28,
+        "losses": 3,
+        "neutral": 0,
+        "median_speedup": 5.393371757925072,
+        "geomean_speedup": 4.040683090784722,
+        "best": {
+          "shape": "input 63x65x16",
+          "mem": "int",
+          "speedup": 15.529211118368531
+        },
+        "worst": {
+          "shape": "input 1x1x16",
+          "mem": "int",
+          "speedup": 0.7252673796791443
+        }
+      },
+      "fallback": {
+        "count": 11,
+        "wins": 0,
+        "losses": 1,
+        "neutral": 10,
+        "median_speedup": 0.998018417064926,
+        "geomean_speedup": 0.9967143475426792,
+        "best": {
+          "shape": "input 14x14x120",
+          "mem": "ext",
+          "speedup": 1.0006695761343936
+        },
+        "worst": {
+          "shape": "input 8x8x8",
+          "mem": "int",
+          "speedup": 0.988
+        }
+      },
+      "memory": {
+        "int": {
+          "count": 31,
+          "wins": 19,
+          "losses": 4,
+          "neutral": 8,
+          "median_speedup": 2.2451027233635927,
+          "geomean_speedup": 2.7695756895137924,
+          "best": {
+            "shape": "input 63x65x16",
+            "mem": "int",
+            "speedup": 15.529211118368531
+          },
+          "worst": {
+            "shape": "input 1x1x16",
+            "mem": "int",
+            "speedup": 0.7252673796791443
+          }
+        },
+        "ext": {
+          "count": 11,
+          "wins": 9,
+          "losses": 0,
+          "neutral": 2,
+          "median_speedup": 2.2243489174772515,
+          "geomean_speedup": 2.8898122556360777,
+          "best": {
+            "shape": "input 1x1024x16",
+            "mem": "ext",
+            "speedup": 11.888961892247043
+          },
+          "worst": {
+            "shape": "input 64x64x16",
+            "mem": "ext",
+            "speedup": 0.9999088195067429
+          }
+        }
+      },
+      "path_by_memory": {
+        "QACC SIMD|ext": {
+          "count": 9,
+          "wins": 9,
+          "losses": 0,
+          "neutral": 0,
+          "median_speedup": 2.2451027233635927,
+          "geomean_speedup": 3.6581137188648847,
+          "best": {
+            "shape": "input 1x1024x16",
+            "mem": "ext",
+            "speedup": 11.888961892247043
+          },
+          "worst": {
+            "shape": "input 63x65x16",
+            "mem": "ext",
+            "speedup": 1.8757649802854446
+          }
+        },
+        "QACC SIMD|int": {
+          "count": 22,
+          "wins": 19,
+          "losses": 3,
+          "neutral": 0,
+          "median_speedup": 5.526828196453402,
+          "geomean_speedup": 4.2084922408240875,
+          "best": {
+            "shape": "input 63x65x16",
+            "mem": "int",
+            "speedup": 15.529211118368531
+          },
+          "worst": {
+            "shape": "input 1x1x16",
+            "mem": "int",
+            "speedup": 0.7252673796791443
+          }
+        },
+        "scalar fallback|ext": {
+          "count": 2,
+          "wins": 0,
+          "losses": 0,
+          "neutral": 2,
+          "median_speedup": 1.0002891978205684,
+          "geomean_speedup": 1.0002891254976505,
+          "best": {
+            "shape": "input 14x14x120",
+            "mem": "ext",
+            "speedup": 1.0006695761343936
+          },
+          "worst": {
+            "shape": "input 64x64x16",
+            "mem": "ext",
+            "speedup": 0.9999088195067429
+          }
+        },
+        "scalar fallback|int": {
+          "count": 9,
+          "wins": 0,
+          "losses": 1,
+          "neutral": 8,
+          "median_speedup": 0.9975471408860953,
+          "geomean_speedup": 0.9959216889748101,
+          "best": {
+            "shape": "input 14x14x120",
+            "mem": "int",
+            "speedup": 1.0006695761343936
+          },
+          "worst": {
+            "shape": "input 8x8x8",
+            "mem": "int",
+            "speedup": 0.988
+          }
+        }
+      }
+    },
+    "opt2": {
+      "all": {
+        "count": 48,
+        "wins": 42,
+        "losses": 0,
+        "neutral": 6,
+        "median_speedup": 4.959633033850312,
+        "geomean_speedup": 3.914268250326623,
+        "best": {
+          "shape": "input 32x32x16, filter 5x5, pad 2, stride 1",
+          "mem": "ext",
+          "speedup": 11.882815057283143
+        },
+        "worst": {
+          "shape": "input 16x16x8, filter 3x3, pad 1, stride 1",
+          "mem": "int",
+          "speedup": 0.9926407761638323
+        }
+      },
+      "eligible": {
+        "count": 32,
+        "wins": 32,
+        "losses": 0,
+        "neutral": 0,
+        "median_speedup": 7.972023229487055,
+        "geomean_speedup": 6.4745756965310335,
+        "best": {
+          "shape": "input 32x32x16, filter 5x5, pad 2, stride 1",
+          "mem": "ext",
+          "speedup": 11.882815057283143
+        },
+        "worst": {
+          "shape": "input 32x32x128, filter 3x3, pad 1, stride 1",
+          "mem": "ext",
+          "speedup": 1.5659815570601165
+        }
+      },
+      "fallback": {
+        "count": 16,
+        "wins": 10,
+        "losses": 0,
+        "neutral": 6,
+        "median_speedup": 1.3276645708796995,
+        "geomean_speedup": 1.430635936576317,
+        "best": {
+          "shape": "input 16x16x64, filter 3x3, pad 1, stride 2",
+          "mem": "int",
+          "speedup": 2.5999900234449043
+        },
+        "worst": {
+          "shape": "input 16x16x8, filter 3x3, pad 1, stride 1",
+          "mem": "int",
+          "speedup": 0.9926407761638323
+        }
+      },
+      "memory": {
+        "int": {
+          "count": 34,
+          "wins": 28,
+          "losses": 0,
+          "neutral": 6,
+          "median_speedup": 6.557608295375475,
+          "geomean_speedup": 4.00028548860994,
+          "best": {
+            "shape": "input 16x16x16, filter 5x5, pad 2, stride 1",
+            "mem": "int",
+            "speedup": 10.716057660073751
+          },
+          "worst": {
+            "shape": "input 16x16x8, filter 3x3, pad 1, stride 1",
+            "mem": "int",
+            "speedup": 0.9926407761638323
+          }
+        },
+        "ext": {
+          "count": 14,
+          "wins": 14,
+          "losses": 0,
+          "neutral": 0,
+          "median_speedup": 3.684683294785449,
+          "geomean_speedup": 3.712990991690889,
+          "best": {
+            "shape": "input 32x32x16, filter 5x5, pad 2, stride 1",
+            "mem": "ext",
+            "speedup": 11.882815057283143
+          },
+          "worst": {
+            "shape": "input 32x32x128, filter 2x2, pad 0, stride 2",
+            "mem": "ext",
+            "speedup": 1.287056276877445
+          }
+        }
+      },
+      "path_by_memory": {
+        "32-bit SIMD|int": {
+          "count": 1,
+          "wins": 0,
+          "losses": 0,
+          "neutral": 1,
+          "median_speedup": 0.9999154599582131,
+          "geomean_speedup": 0.9999154599582131,
+          "best": {
+            "shape": "input 16x16x12, filter 3x3, pad 1, stride 1",
+            "mem": "int",
+            "speedup": 0.9999154599582131
+          },
+          "worst": {
+            "shape": "input 16x16x12, filter 3x3, pad 1, stride 1",
+            "mem": "int",
+            "speedup": 0.9999154599582131
+          }
+        },
+        "64-bit SIMD|int": {
+          "count": 3,
+          "wins": 0,
+          "losses": 0,
+          "neutral": 3,
+          "median_speedup": 0.9968685861725209,
+          "geomean_speedup": 0.9963609528180736,
+          "best": {
+            "shape": "input 16x16x120, filter 5x5, pad 2, stride 1",
+            "mem": "int",
+            "speedup": 0.9995857954201695
+          },
+          "worst": {
+            "shape": "input 16x16x8, filter 3x3, pad 1, stride 1",
+            "mem": "int",
+            "speedup": 0.9926407761638323
+          }
+        },
+        "ANSI fallback|int": {
+          "count": 2,
+          "wins": 0,
+          "losses": 0,
+          "neutral": 2,
+          "median_speedup": 0.9999881081918571,
+          "geomean_speedup": 0.9999881081836132,
+          "best": {
+            "shape": "input 16x16x31, filter 3x3, pad 1, stride 1",
+            "mem": "int",
+            "speedup": 0.9999921686908736
+          },
+          "worst": {
+            "shape": "input 16x16x15, filter 3x3, pad 1, stride 1",
+            "mem": "int",
+            "speedup": 0.9999840476928405
+          }
+        },
+        "Opt1 128-bit SIMD fallback|ext": {
+          "count": 2,
+          "wins": 2,
+          "losses": 0,
+          "neutral": 0,
+          "median_speedup": 1.304043649984124,
+          "geomean_speedup": 1.3039330006633203,
+          "best": {
+            "shape": "input 32x32x64, filter 2x2, pad 0, stride 2",
+            "mem": "ext",
+            "speedup": 1.321031023090803
+          },
+          "worst": {
+            "shape": "input 32x32x128, filter 2x2, pad 0, stride 2",
+            "mem": "ext",
+            "speedup": 1.287056276877445
+          }
+        },
+        "Opt1 128-bit SIMD fallback|int": {
+          "count": 8,
+          "wins": 8,
+          "losses": 0,
+          "neutral": 0,
+          "median_speedup": 1.8548615773673094,
+          "geomean_speedup": 1.9179799344374793,
+          "best": {
+            "shape": "input 16x16x64, filter 3x3, pad 1, stride 2",
+            "mem": "int",
+            "speedup": 2.5999900234449043
+          },
+          "worst": {
+            "shape": "input 2x2x16, filter 3x3, pad 1, stride 1",
+            "mem": "int",
+            "speedup": 1.3342981186685963
+          }
+        },
+        "Opt2 sliding SIMD|ext": {
+          "count": 12,
+          "wins": 12,
+          "losses": 0,
+          "neutral": 0,
+          "median_speedup": 4.546854304669401,
+          "geomean_speedup": 4.420472217067926,
+          "best": {
+            "shape": "input 32x32x16, filter 5x5, pad 2, stride 1",
+            "mem": "ext",
+            "speedup": 11.882815057283143
+          },
+          "worst": {
+            "shape": "input 32x32x128, filter 3x3, pad 1, stride 1",
+            "mem": "ext",
+            "speedup": 1.5659815570601165
+          }
+        },
+        "Opt2 sliding SIMD|int": {
+          "count": 20,
+          "wins": 20,
+          "losses": 0,
+          "neutral": 0,
+          "median_speedup": 8.24264789940278,
+          "geomean_speedup": 8.14060910157319,
+          "best": {
+            "shape": "input 16x16x16, filter 5x5, pad 2, stride 1",
+            "mem": "int",
+            "speedup": 10.716057660073751
+          },
+          "worst": {
+            "shape": "input 4x4x16, filter 3x3, pad 1, stride 1",
+            "mem": "int",
+            "speedup": 4.538172715894868
+          }
+        }
+      }
+    }
+  },
+  "controls": {
+    "exp_mean": {
+      "count": 48,
+      "wins": 0,
+      "losses": 0,
+      "neutral": 48,
+      "median_speedup": 1.0,
+      "geomean_speedup": 1.0000002096260907,
+      "best": {
+        "shape": "input 64x64x16, filter 3x3, pad 1, stride 1",
+        "mem": "ext",
+        "speedup": 1.0000235882327095
+      },
+      "worst": {
+        "shape": "input 64x64x32, filter 3x3, pad 1, stride 1",
+        "mem": "ext",
+        "speedup": 0.9999879237019489
+      }
+    },
+    "opt2": {
+      "count": 42,
+      "wins": 0,
+      "losses": 0,
+      "neutral": 42,
+      "median_speedup": 1.0,
+      "geomean_speedup": 1.0,
+      "best": {
+        "shape": "input 14x14x120",
+        "mem": "ext",
+        "speedup": 1.0
+      },
+      "worst": {
+        "shape": "input 14x14x120",
+        "mem": "ext",
+        "speedup": 1.0
+      }
+    }
+  },
+  "captures": [
+    {
+      "build": "stock",
+      "boot": 1,
+      "log": "stock-1.log",
+      "monitor_elapsed_s": 12.76,
+      "timeout_s": 1200,
+      "timeout_hit": false
+    },
+    {
+      "build": "exp_mean",
+      "boot": 1,
+      "log": "exp_mean-1.log",
+      "monitor_elapsed_s": 12.52,
+      "timeout_s": 1200,
+      "timeout_hit": false
+    },
+    {
+      "build": "opt2",
+      "boot": 1,
+      "log": "opt2-1.log",
+      "monitor_elapsed_s": 12.31,
+      "timeout_s": 1200,
+      "timeout_hit": false
+    },
+    {
+      "build": "stock",
+      "boot": 2,
+      "log": "stock-2.log",
+      "monitor_elapsed_s": 12.75,
+      "timeout_s": 1200,
+      "timeout_hit": false
+    },
+    {
+      "build": "opt2",
+      "boot": 2,
+      "log": "opt2-2.log",
+      "monitor_elapsed_s": 12.31,
+      "timeout_s": 1200,
+      "timeout_hit": false
+    },
+    {
+      "build": "exp_mean",
+      "boot": 2,
+      "log": "exp_mean-2.log",
+      "monitor_elapsed_s": 12.78,
+      "timeout_s": 1200,
+      "timeout_hit": false
+    }
+  ]
+}

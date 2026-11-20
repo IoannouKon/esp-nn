@@ -1,0 +1,872 @@
+{
+  "version": 1,
+  "mean": [
+    {
+      "h": 7,
+      "w": 7,
+      "ch": 16,
+      "mem": "int",
+      "shape": "input 7x7x16",
+      "opt_eligible": true
+    },
+    {
+      "h": 14,
+      "w": 14,
+      "ch": 120,
+      "mem": "int",
+      "shape": "input 14x14x120",
+      "opt_eligible": false
+    },
+    {
+      "h": 1,
+      "w": 1,
+      "ch": 16,
+      "mem": "int",
+      "shape": "input 1x1x16",
+      "opt_eligible": true
+    },
+    {
+      "h": 2,
+      "w": 2,
+      "ch": 16,
+      "mem": "int",
+      "shape": "input 2x2x16",
+      "opt_eligible": true
+    },
+    {
+      "h": 3,
+      "w": 3,
+      "ch": 16,
+      "mem": "int",
+      "shape": "input 3x3x16",
+      "opt_eligible": true
+    },
+    {
+      "h": 4,
+      "w": 4,
+      "ch": 16,
+      "mem": "int",
+      "shape": "input 4x4x16",
+      "opt_eligible": true
+    },
+    {
+      "h": 7,
+      "w": 7,
+      "ch": 32,
+      "mem": "int",
+      "shape": "input 7x7x32",
+      "opt_eligible": true
+    },
+    {
+      "h": 7,
+      "w": 7,
+      "ch": 64,
+      "mem": "int",
+      "shape": "input 7x7x64",
+      "opt_eligible": true
+    },
+    {
+      "h": 7,
+      "w": 7,
+      "ch": 128,
+      "mem": "int",
+      "shape": "input 7x7x128",
+      "opt_eligible": true
+    },
+    {
+      "h": 7,
+      "w": 7,
+      "ch": 256,
+      "mem": "int",
+      "shape": "input 7x7x256",
+      "opt_eligible": true
+    },
+    {
+      "h": 14,
+      "w": 14,
+      "ch": 16,
+      "mem": "int",
+      "shape": "input 14x14x16",
+      "opt_eligible": true
+    },
+    {
+      "h": 14,
+      "w": 14,
+      "ch": 32,
+      "mem": "int",
+      "shape": "input 14x14x32",
+      "opt_eligible": true
+    },
+    {
+      "h": 14,
+      "w": 14,
+      "ch": 64,
+      "mem": "int",
+      "shape": "input 14x14x64",
+      "opt_eligible": true
+    },
+    {
+      "h": 14,
+      "w": 14,
+      "ch": 128,
+      "mem": "int",
+      "shape": "input 14x14x128",
+      "opt_eligible": true
+    },
+    {
+      "h": 28,
+      "w": 28,
+      "ch": 16,
+      "mem": "int",
+      "shape": "input 28x28x16",
+      "opt_eligible": true
+    },
+    {
+      "h": 28,
+      "w": 28,
+      "ch": 32,
+      "mem": "int",
+      "shape": "input 28x28x32",
+      "opt_eligible": true
+    },
+    {
+      "h": 28,
+      "w": 28,
+      "ch": 64,
+      "mem": "int",
+      "shape": "input 28x28x64",
+      "opt_eligible": true
+    },
+    {
+      "h": 32,
+      "w": 32,
+      "ch": 16,
+      "mem": "int",
+      "shape": "input 32x32x16",
+      "opt_eligible": true
+    },
+    {
+      "h": 32,
+      "w": 32,
+      "ch": 32,
+      "mem": "int",
+      "shape": "input 32x32x32",
+      "opt_eligible": true
+    },
+    {
+      "h": 32,
+      "w": 32,
+      "ch": 64,
+      "mem": "int",
+      "shape": "input 32x32x64",
+      "opt_eligible": true
+    },
+    {
+      "h": 63,
+      "w": 65,
+      "ch": 16,
+      "mem": "int",
+      "shape": "input 63x65x16",
+      "opt_eligible": true
+    },
+    {
+      "h": 64,
+      "w": 64,
+      "ch": 16,
+      "mem": "int",
+      "shape": "input 64x64x16",
+      "opt_eligible": false
+    },
+    {
+      "h": 8,
+      "w": 8,
+      "ch": 8,
+      "mem": "int",
+      "shape": "input 8x8x8",
+      "opt_eligible": false
+    },
+    {
+      "h": 8,
+      "w": 8,
+      "ch": 12,
+      "mem": "int",
+      "shape": "input 8x8x12",
+      "opt_eligible": false
+    },
+    {
+      "h": 8,
+      "w": 8,
+      "ch": 15,
+      "mem": "int",
+      "shape": "input 8x8x15",
+      "opt_eligible": false
+    },
+    {
+      "h": 8,
+      "w": 8,
+      "ch": 17,
+      "mem": "int",
+      "shape": "input 8x8x17",
+      "opt_eligible": false
+    },
+    {
+      "h": 8,
+      "w": 8,
+      "ch": 24,
+      "mem": "int",
+      "shape": "input 8x8x24",
+      "opt_eligible": false
+    },
+    {
+      "h": 8,
+      "w": 8,
+      "ch": 31,
+      "mem": "int",
+      "shape": "input 8x8x31",
+      "opt_eligible": false
+    },
+    {
+      "h": 8,
+      "w": 8,
+      "ch": 33,
+      "mem": "int",
+      "shape": "input 8x8x33",
+      "opt_eligible": false
+    },
+    {
+      "h": 14,
+      "w": 14,
+      "ch": 120,
+      "mem": "ext",
+      "shape": "input 14x14x120",
+      "opt_eligible": false
+    },
+    {
+      "h": 14,
+      "w": 14,
+      "ch": 128,
+      "mem": "ext",
+      "shape": "input 14x14x128",
+      "opt_eligible": true
+    },
+    {
+      "h": 7,
+      "w": 7,
+      "ch": 16,
+      "mem": "ext",
+      "shape": "input 7x7x16",
+      "opt_eligible": true
+    },
+    {
+      "h": 7,
+      "w": 7,
+      "ch": 32,
+      "mem": "ext",
+      "shape": "input 7x7x32",
+      "opt_eligible": true
+    },
+    {
+      "h": 7,
+      "w": 7,
+      "ch": 64,
+      "mem": "ext",
+      "shape": "input 7x7x64",
+      "opt_eligible": true
+    },
+    {
+      "h": 28,
+      "w": 28,
+      "ch": 32,
+      "mem": "ext",
+      "shape": "input 28x28x32",
+      "opt_eligible": true
+    },
+    {
+      "h": 28,
+      "w": 28,
+      "ch": 64,
+      "mem": "ext",
+      "shape": "input 28x28x64",
+      "opt_eligible": true
+    },
+    {
+      "h": 32,
+      "w": 32,
+      "ch": 128,
+      "mem": "ext",
+      "shape": "input 32x32x128",
+      "opt_eligible": true
+    },
+    {
+      "h": 64,
+      "w": 64,
+      "ch": 16,
+      "mem": "ext",
+      "shape": "input 64x64x16",
+      "opt_eligible": false
+    },
+    {
+      "h": 63,
+      "w": 65,
+      "ch": 16,
+      "mem": "ext",
+      "shape": "input 63x65x16",
+      "opt_eligible": true
+    },
+    {
+      "h": 1,
+      "w": 256,
+      "ch": 16,
+      "mem": "int",
+      "shape": "input 1x256x16",
+      "opt_eligible": true
+    },
+    {
+      "h": 1,
+      "w": 256,
+      "ch": 64,
+      "mem": "int",
+      "shape": "input 1x256x64",
+      "opt_eligible": true
+    },
+    {
+      "h": 1,
+      "w": 1024,
+      "ch": 16,
+      "mem": "ext",
+      "shape": "input 1x1024x16",
+      "opt_eligible": true
+    }
+  ],
+  "max_pool": [
+    {
+      "w": 16,
+      "h": 16,
+      "ch": 16,
+      "f": 3,
+      "stride": 1,
+      "pad": 1,
+      "mem": "int",
+      "shape": "input 16x16x16, filter 3x3, pad 1, stride 1",
+      "opt_eligible": true
+    },
+    {
+      "w": 12,
+      "h": 12,
+      "ch": 128,
+      "f": 5,
+      "stride": 1,
+      "pad": 2,
+      "mem": "ext",
+      "shape": "input 12x12x128, filter 5x5, pad 2, stride 1",
+      "opt_eligible": true
+    },
+    {
+      "w": 4,
+      "h": 4,
+      "ch": 16,
+      "f": 3,
+      "stride": 1,
+      "pad": 1,
+      "mem": "int",
+      "shape": "input 4x4x16, filter 3x3, pad 1, stride 1",
+      "opt_eligible": true
+    },
+    {
+      "w": 5,
+      "h": 5,
+      "ch": 16,
+      "f": 3,
+      "stride": 1,
+      "pad": 1,
+      "mem": "int",
+      "shape": "input 5x5x16, filter 3x3, pad 1, stride 1",
+      "opt_eligible": true
+    },
+    {
+      "w": 7,
+      "h": 7,
+      "ch": 16,
+      "f": 3,
+      "stride": 1,
+      "pad": 1,
+      "mem": "int",
+      "shape": "input 7x7x16, filter 3x3, pad 1, stride 1",
+      "opt_eligible": true
+    },
+    {
+      "w": 8,
+      "h": 8,
+      "ch": 16,
+      "f": 3,
+      "stride": 1,
+      "pad": 1,
+      "mem": "int",
+      "shape": "input 8x8x16, filter 3x3, pad 1, stride 1",
+      "opt_eligible": true
+    },
+    {
+      "w": 16,
+      "h": 16,
+      "ch": 32,
+      "f": 3,
+      "stride": 1,
+      "pad": 1,
+      "mem": "int",
+      "shape": "input 16x16x32, filter 3x3, pad 1, stride 1",
+      "opt_eligible": true
+    },
+    {
+      "w": 16,
+      "h": 16,
+      "ch": 64,
+      "f": 3,
+      "stride": 1,
+      "pad": 1,
+      "mem": "int",
+      "shape": "input 16x16x64, filter 3x3, pad 1, stride 1",
+      "opt_eligible": true
+    },
+    {
+      "w": 16,
+      "h": 16,
+      "ch": 128,
+      "f": 3,
+      "stride": 1,
+      "pad": 1,
+      "mem": "int",
+      "shape": "input 16x16x128, filter 3x3, pad 1, stride 1",
+      "opt_eligible": true
+    },
+    {
+      "w": 32,
+      "h": 32,
+      "ch": 16,
+      "f": 3,
+      "stride": 1,
+      "pad": 1,
+      "mem": "int",
+      "shape": "input 32x32x16, filter 3x3, pad 1, stride 1",
+      "opt_eligible": true
+    },
+    {
+      "w": 32,
+      "h": 32,
+      "ch": 32,
+      "f": 3,
+      "stride": 1,
+      "pad": 1,
+      "mem": "int",
+      "shape": "input 32x32x32, filter 3x3, pad 1, stride 1",
+      "opt_eligible": true
+    },
+    {
+      "w": 32,
+      "h": 32,
+      "ch": 64,
+      "f": 3,
+      "stride": 1,
+      "pad": 1,
+      "mem": "int",
+      "shape": "input 32x32x64, filter 3x3, pad 1, stride 1",
+      "opt_eligible": true
+    },
+    {
+      "w": 24,
+      "h": 24,
+      "ch": 128,
+      "f": 3,
+      "stride": 1,
+      "pad": 1,
+      "mem": "ext",
+      "shape": "input 24x24x128, filter 3x3, pad 1, stride 1",
+      "opt_eligible": true
+    },
+    {
+      "w": 32,
+      "h": 32,
+      "ch": 128,
+      "f": 3,
+      "stride": 1,
+      "pad": 1,
+      "mem": "ext",
+      "shape": "input 32x32x128, filter 3x3, pad 1, stride 1",
+      "opt_eligible": true
+    },
+    {
+      "w": 64,
+      "h": 64,
+      "ch": 16,
+      "f": 3,
+      "stride": 1,
+      "pad": 1,
+      "mem": "ext",
+      "shape": "input 64x64x16, filter 3x3, pad 1, stride 1",
+      "opt_eligible": true
+    },
+    {
+      "w": 64,
+      "h": 64,
+      "ch": 32,
+      "f": 3,
+      "stride": 1,
+      "pad": 1,
+      "mem": "ext",
+      "shape": "input 64x64x32, filter 3x3, pad 1, stride 1",
+      "opt_eligible": true
+    },
+    {
+      "w": 6,
+      "h": 6,
+      "ch": 16,
+      "f": 5,
+      "stride": 1,
+      "pad": 2,
+      "mem": "int",
+      "shape": "input 6x6x16, filter 5x5, pad 2, stride 1",
+      "opt_eligible": true
+    },
+    {
+      "w": 7,
+      "h": 7,
+      "ch": 16,
+      "f": 5,
+      "stride": 1,
+      "pad": 2,
+      "mem": "int",
+      "shape": "input 7x7x16, filter 5x5, pad 2, stride 1",
+      "opt_eligible": true
+    },
+    {
+      "w": 12,
+      "h": 12,
+      "ch": 16,
+      "f": 5,
+      "stride": 1,
+      "pad": 2,
+      "mem": "int",
+      "shape": "input 12x12x16, filter 5x5, pad 2, stride 1",
+      "opt_eligible": true
+    },
+    {
+      "w": 12,
+      "h": 12,
+      "ch": 32,
+      "f": 5,
+      "stride": 1,
+      "pad": 2,
+      "mem": "int",
+      "shape": "input 12x12x32, filter 5x5, pad 2, stride 1",
+      "opt_eligible": true
+    },
+    {
+      "w": 12,
+      "h": 12,
+      "ch": 64,
+      "f": 5,
+      "stride": 1,
+      "pad": 2,
+      "mem": "int",
+      "shape": "input 12x12x64, filter 5x5, pad 2, stride 1",
+      "opt_eligible": true
+    },
+    {
+      "w": 12,
+      "h": 12,
+      "ch": 128,
+      "f": 5,
+      "stride": 1,
+      "pad": 2,
+      "mem": "int",
+      "shape": "input 12x12x128, filter 5x5, pad 2, stride 1",
+      "opt_eligible": true
+    },
+    {
+      "w": 16,
+      "h": 16,
+      "ch": 16,
+      "f": 5,
+      "stride": 1,
+      "pad": 2,
+      "mem": "int",
+      "shape": "input 16x16x16, filter 5x5, pad 2, stride 1",
+      "opt_eligible": true
+    },
+    {
+      "w": 16,
+      "h": 16,
+      "ch": 64,
+      "f": 5,
+      "stride": 1,
+      "pad": 2,
+      "mem": "int",
+      "shape": "input 16x16x64, filter 5x5, pad 2, stride 1",
+      "opt_eligible": true
+    },
+    {
+      "w": 24,
+      "h": 24,
+      "ch": 64,
+      "f": 5,
+      "stride": 1,
+      "pad": 2,
+      "mem": "ext",
+      "shape": "input 24x24x64, filter 5x5, pad 2, stride 1",
+      "opt_eligible": true
+    },
+    {
+      "w": 32,
+      "h": 32,
+      "ch": 128,
+      "f": 5,
+      "stride": 1,
+      "pad": 2,
+      "mem": "ext",
+      "shape": "input 32x32x128, filter 5x5, pad 2, stride 1",
+      "opt_eligible": true
+    },
+    {
+      "w": 64,
+      "h": 64,
+      "ch": 16,
+      "f": 5,
+      "stride": 1,
+      "pad": 2,
+      "mem": "ext",
+      "shape": "input 64x64x16, filter 5x5, pad 2, stride 1",
+      "opt_eligible": true
+    },
+    {
+      "w": 16,
+      "h": 16,
+      "ch": 8,
+      "f": 3,
+      "stride": 1,
+      "pad": 1,
+      "mem": "int",
+      "shape": "input 16x16x8, filter 3x3, pad 1, stride 1",
+      "opt_eligible": false
+    },
+    {
+      "w": 16,
+      "h": 16,
+      "ch": 12,
+      "f": 3,
+      "stride": 1,
+      "pad": 1,
+      "mem": "int",
+      "shape": "input 16x16x12, filter 3x3, pad 1, stride 1",
+      "opt_eligible": false
+    },
+    {
+      "w": 16,
+      "h": 16,
+      "ch": 15,
+      "f": 3,
+      "stride": 1,
+      "pad": 1,
+      "mem": "int",
+      "shape": "input 16x16x15, filter 3x3, pad 1, stride 1",
+      "opt_eligible": false
+    },
+    {
+      "w": 16,
+      "h": 16,
+      "ch": 24,
+      "f": 3,
+      "stride": 1,
+      "pad": 1,
+      "mem": "int",
+      "shape": "input 16x16x24, filter 3x3, pad 1, stride 1",
+      "opt_eligible": false
+    },
+    {
+      "w": 16,
+      "h": 16,
+      "ch": 31,
+      "f": 3,
+      "stride": 1,
+      "pad": 1,
+      "mem": "int",
+      "shape": "input 16x16x31, filter 3x3, pad 1, stride 1",
+      "opt_eligible": false
+    },
+    {
+      "w": 16,
+      "h": 16,
+      "ch": 48,
+      "f": 5,
+      "stride": 1,
+      "pad": 2,
+      "mem": "int",
+      "shape": "input 16x16x48, filter 5x5, pad 2, stride 1",
+      "opt_eligible": true
+    },
+    {
+      "w": 16,
+      "h": 16,
+      "ch": 120,
+      "f": 5,
+      "stride": 1,
+      "pad": 2,
+      "mem": "int",
+      "shape": "input 16x16x120, filter 5x5, pad 2, stride 1",
+      "opt_eligible": false
+    },
+    {
+      "w": 16,
+      "h": 16,
+      "ch": 16,
+      "f": 2,
+      "stride": 2,
+      "pad": 0,
+      "mem": "int",
+      "shape": "input 16x16x16, filter 2x2, pad 0, stride 2",
+      "opt_eligible": false
+    },
+    {
+      "w": 16,
+      "h": 16,
+      "ch": 32,
+      "f": 2,
+      "stride": 2,
+      "pad": 0,
+      "mem": "int",
+      "shape": "input 16x16x32, filter 2x2, pad 0, stride 2",
+      "opt_eligible": false
+    },
+    {
+      "w": 32,
+      "h": 32,
+      "ch": 64,
+      "f": 2,
+      "stride": 2,
+      "pad": 0,
+      "mem": "ext",
+      "shape": "input 32x32x64, filter 2x2, pad 0, stride 2",
+      "opt_eligible": false
+    },
+    {
+      "w": 32,
+      "h": 32,
+      "ch": 128,
+      "f": 2,
+      "stride": 2,
+      "pad": 0,
+      "mem": "ext",
+      "shape": "input 32x32x128, filter 2x2, pad 0, stride 2",
+      "opt_eligible": false
+    },
+    {
+      "w": 16,
+      "h": 16,
+      "ch": 16,
+      "f": 3,
+      "stride": 2,
+      "pad": 1,
+      "mem": "int",
+      "shape": "input 16x16x16, filter 3x3, pad 1, stride 2",
+      "opt_eligible": false
+    },
+    {
+      "w": 16,
+      "h": 16,
+      "ch": 64,
+      "f": 3,
+      "stride": 2,
+      "pad": 1,
+      "mem": "int",
+      "shape": "input 16x16x64, filter 3x3, pad 1, stride 2",
+      "opt_eligible": false
+    },
+    {
+      "w": 16,
+      "h": 16,
+      "ch": 16,
+      "f": 3,
+      "stride": 1,
+      "pad": 0,
+      "mem": "int",
+      "shape": "input 16x16x16, filter 3x3, pad 0, stride 1",
+      "opt_eligible": false
+    },
+    {
+      "w": 16,
+      "h": 16,
+      "ch": 32,
+      "f": 5,
+      "stride": 1,
+      "pad": 0,
+      "mem": "int",
+      "shape": "input 16x16x32, filter 5x5, pad 0, stride 1",
+      "opt_eligible": false
+    },
+    {
+      "w": 2,
+      "h": 2,
+      "ch": 16,
+      "f": 3,
+      "stride": 1,
+      "pad": 1,
+      "mem": "int",
+      "shape": "input 2x2x16, filter 3x3, pad 1, stride 1",
+      "opt_eligible": false
+    },
+    {
+      "w": 4,
+      "h": 4,
+      "ch": 16,
+      "f": 5,
+      "stride": 1,
+      "pad": 2,
+      "mem": "int",
+      "shape": "input 4x4x16, filter 5x5, pad 2, stride 1",
+      "opt_eligible": false
+    },
+    {
+      "w": 16,
+      "h": 16,
+      "ch": 16,
+      "f": 3,
+      "stride": 1,
+      "pad": 1,
+      "mem": "ext",
+      "shape": "input 16x16x16, filter 3x3, pad 1, stride 1",
+      "opt_eligible": true
+    },
+    {
+      "w": 16,
+      "h": 16,
+      "ch": 32,
+      "f": 3,
+      "stride": 1,
+      "pad": 1,
+      "mem": "ext",
+      "shape": "input 16x16x32, filter 3x3, pad 1, stride 1",
+      "opt_eligible": true
+    },
+    {
+      "w": 16,
+      "h": 16,
+      "ch": 64,
+      "f": 5,
+      "stride": 1,
+      "pad": 2,
+      "mem": "ext",
+      "shape": "input 16x16x64, filter 5x5, pad 2, stride 1",
+      "opt_eligible": true
+    },
+    {
+      "w": 32,
+      "h": 32,
+      "ch": 16,
+      "f": 5,
+      "stride": 1,
+      "pad": 2,
+      "mem": "ext",
+      "shape": "input 32x32x16, filter 5x5, pad 2, stride 1",
+      "opt_eligible": true
+    }
+  ],
+  "notes": "Eligibility presumes 16-byte aligned disjoint input/output allocations from Espressif bench_harness. Optimize-path eligibility is based on inspected v1.5.0 experiment dispatch; verification on board is separate."
+}
