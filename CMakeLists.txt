@@ -30,6 +30,7 @@ if(CONFIG_IDF_TARGET_ESP32S3)
         "src/activation_functions/esp_nn_relu_s8_esp32s3.S"
         "src/activation_functions/esp_nn_hard_swish_s8_esp32s3.c"
         "src/common/esp_nn_mean_s8_esp32s3.c"
+        "src/common/esp_nn_mean_qacc_s8_esp32s3.S"
         "src/basic_math/esp_nn_add_s8_esp32s3.S"
         "src/basic_math/esp_nn_add_mt_esp32s3.c"
         "src/basic_math/esp_nn_mul_s8_esp32s3.S"
