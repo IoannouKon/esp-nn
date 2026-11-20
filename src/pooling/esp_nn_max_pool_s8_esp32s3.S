@@ -24,6 +24,7 @@
 // Called only from esp_nn_max_pool_s8_esp32s3() in esp_nn_max_pool_s8_esp32s3.c:
 // channels % 4 == 0, buffers 8-byte aligned when channels % 8 == 0
 // (ee.vld.l.64 / ee.vst.l.64) and 4-byte aligned otherwise (ee.vldbc.32 / s32i)
+// The 8-byte branch also checks whether it can use 16-byte loads and stores.
 
 esp_nn_max_pool_s8_esp32s3_asm: # 0x4
     # int8_min = 0
@@ -114,6 +115,13 @@ esp_nn_max_pool_s8_esp32s3_asm: # 0x4
     sub     a15,a11,a15                 # [24]
     s32i.n  a15,a1,40               # [25]  gra_spill_temp_9
 
+    // The low four bits must be zero in both buffer addresses and channels.
+    // Every pixel and every 16-channel group then stays 16-byte aligned.
+    l32i    a4,a1,96
+    or      a4,a4,a12
+    or      a4,a4,a5
+    extui   a4,a4,0,4
+
 .Lt_0_21506:    # 0x229
     l32i    a8,a1,4                 # [0]  gra_spill_temp_0
     beqz.n  a8,.Lt_0_21762          # [2]
@@ -163,6 +171,8 @@ esp_nn_max_pool_s8_esp32s3_asm: # 0x4
     s32i    a13,a1,24                   # [19]  gra_spill_temp_5
     add.n   a10,a10,a7                  # [16]
     s32i    a10,a1,72                   # [21]  gra_spill_temp_17
+
+    beqz    a4,.Lpool128_pixel
 
 .Lt_0_23042:    # 0x29a
     l32i    a8,a1,8                 # [0]  gra_spill_temp_1
@@ -261,6 +271,47 @@ esp_nn_max_pool_s8_esp32s3_asm: # 0x4
     bnez    a9,.Lt_0_21506              # [19]
 
     retw.n                          # [0] // exit
+
+.Lpool128_pixel:
+    // The shared pixel loop supplies clipped bounds. Set up the starting
+    // address and byte row stride once for all 16-channel groups.
+    l32i    a13,a1,8                  // first filter row
+    l32i    a10,a1,92                 // input y origin
+    sub     a14,a15,a13               // rows in the clipped window
+    l32i    a3,a1,28                  // columns in the clipped window
+    add.n   a10,a10,a13
+    mull    a10,a10,a11
+    l32i    a13,a1,24                 // first valid input x
+    add.n   a10,a10,a13
+    mull    a10,a10,a5
+    add.n   a10,a10,a12
+    mull    a6,a11,a5                 // input row stride in bytes
+    l32i    a8,a1,16                  // output cursor
+    l32i    a9,a1,12                  // end of output pixel
+
+.Lpool128_channels:
+    mv.qr   q1,q3                     // INT8_MIN, also the empty-window max
+    blti    a14,1,.Lpool128_store
+    blti    a3,1,.Lpool128_store
+    mov.n   a13,a14
+    mov.n   a7,a10
+.Lpool128_row:
+    mov.n   a2,a7
+    loopgtz a3,.Lpool128_row_end
+    ee.vld.128.xp q0,a2,a5
+    ee.vmax.s8 q1,q1,q0
+.Lpool128_row_end:
+    add.n   a7,a7,a6
+    addi.n  a13,a13,-1
+    bnez    a13,.Lpool128_row
+
+.Lpool128_store:
+    ee.vmin.s8 q2,q1,q4
+    ee.vmax.s8 q2,q2,q5
+    ee.vst.128.ip q2,a8,16
+    addi.n  a10,a10,16
+    blt     a8,a9,.Lpool128_channels
+    j       .Lt_0_22530
 
 .LBB25_esp_nn_max_pool_s8_esp32s3:  # 0x36d // if (channels % 4 == 0)
 
