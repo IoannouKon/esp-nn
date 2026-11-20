@@ -1,0 +1,1 @@
+4201267c T esp_nn_max_pool_s8_esp32s3

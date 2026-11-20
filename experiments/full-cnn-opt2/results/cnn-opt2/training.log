@@ -1,0 +1,128 @@
+2026-11-20 20:41:38.775153: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+Downloading data from https://storage.googleapis.com/tensorflow/tf-keras-datasets/mnist.npz
+    8192/11490434 [..............................] - ETA: 0s   40960/11490434 [..............................] - ETA: 14s   65536/11490434 [..............................] - ETA: 19s   81920/11490434 [..............................] - ETA: 28s  131072/11490434 [..............................] - ETA: 22s  172032/11490434 [..............................] - ETA: 20s  229376/11490434 [..............................] - ETA: 17s  327680/11490434 [..............................] - ETA: 14s  442368/11490434 [>.............................] - ETA: 11s  622592/11490434 [>.............................] - ETA: 9s   942080/11490434 [=>............................] - ETA: 6s 1327104/11490434 [==>...........................] - ETA: 4s 1916928/11490434 [====>.........................] - ETA: 3s 2744320/11490434 [======>.......................] - ETA: 2s 3547136/11490434 [========>.....................] - ETA: 1s 5079040/11490434 [============>.................] - ETA: 1s 7225344/11490434 [=================>............] - ETA: 0s 9371648/11490434 [=======================>......] - ETA: 0s11419648/11490434 [============================>.] - ETA: 0s11490434/11490434 [==============================] - 1s 0us/step
+Model: "sequential"
+_________________________________________________________________
+ Layer (type)                Output Shape              Param #   
+=================================================================
+ conv2d (Conv2D)             (None, 14, 14, 16)        160       
+                                                                 
+ max_pooling2d (MaxPooling2  (None, 14, 14, 16)        0         
+ D)                                                              
+                                                                 
+ conv2d_1 (Conv2D)           (None, 7, 7, 32)          4640      
+                                                                 
+ max_pooling2d_1 (MaxPoolin  (None, 7, 7, 32)          0         
+ g2D)                                                            
+                                                                 
+ flatten (Flatten)           (None, 1568)              0         
+                                                                 
+ dense (Dense)               (None, 10)                15690     
+                                                                 
+=================================================================
+Total params: 20490 (80.04 KB)
+Trainable params: 20490 (80.04 KB)
+Non-trainable params: 0 (0.00 Byte)
+_________________________________________________________________
+2026-11-20 20:41:43.322136: W external/local_tsl/tsl/framework/cpu_allocator_impl.cc:83] Allocation of 188160000 exceeds 10% of free system memory.
+2026-11-20 20:41:43.691895: W external/local_tsl/tsl/framework/cpu_allocator_impl.cc:83] Allocation of 188160000 exceeds 10% of free system memory.
+Epoch 1/4
+2026-11-20 20:41:44.852886: W external/local_tsl/tsl/framework/cpu_allocator_impl.cc:83] Allocation of 16793280 exceeds 10% of free system memory.
+2026-11-20 20:41:44.855712: W external/local_tsl/tsl/framework/cpu_allocator_impl.cc:83] Allocation of 16793280 exceeds 10% of free system memory.
+2026-11-20 20:41:44.875081: W external/local_tsl/tsl/framework/cpu_allocator_impl.cc:83] Allocation of 16793280 exceeds 10% of free system memory.
+469/469 - 12s - loss: 0.4334 - accuracy: 0.8770 - 12s/epoch - 25ms/step
+Epoch 2/4
+469/469 - 10s - loss: 0.1024 - accuracy: 0.9680 - 10s/epoch - 22ms/step
+Epoch 3/4
+469/469 - 11s - loss: 0.0729 - accuracy: 0.9774 - 11s/epoch - 24ms/step
+Epoch 4/4
+469/469 - 9s - loss: 0.0603 - accuracy: 0.9807 - 9s/epoch - 20ms/step
+/tmp/espnn-cnn-train/lib/python3.10/site-packages/tensorflow/lite/python/convert.py:953: UserWarning: Statistics for quantized inputs were expected, but not specified; continuing anyway.
+  warnings.warn(
+2026-11-20 20:42:28.268162: W tensorflow/compiler/mlir/lite/python/tf_tfl_flatbuffer_helpers.cc:378] Ignored output_format.
+2026-11-20 20:42:28.268204: W tensorflow/compiler/mlir/lite/python/tf_tfl_flatbuffer_helpers.cc:381] Ignored drop_control_dependency.
+2026-11-20 20:42:28.268492: I tensorflow/cc/saved_model/reader.cc:83] Reading SavedModel from: /tmp/tmpxkpd0xe3
+2026-11-20 20:42:28.269501: I tensorflow/cc/saved_model/reader.cc:51] Reading meta graph with tags { serve }
+2026-11-20 20:42:28.269520: I tensorflow/cc/saved_model/reader.cc:146] Reading SavedModel debug info (if present) from: /tmp/tmpxkpd0xe3
+2026-11-20 20:42:28.271923: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:388] MLIR V1 optimization pass is not enabled
+2026-11-20 20:42:28.272775: I tensorflow/cc/saved_model/loader.cc:233] Restoring SavedModel bundle.
+2026-11-20 20:42:28.306352: I tensorflow/cc/saved_model/loader.cc:217] Running initialization op on SavedModel bundle at path: /tmp/tmpxkpd0xe3
+2026-11-20 20:42:28.317217: I tensorflow/cc/saved_model/loader.cc:316] SavedModel load for tags { serve }; Status: success: OK. Took 48727 microseconds.
+2026-11-20 20:42:28.337489: I tensorflow/compiler/mlir/tensorflow/utils/dump_mlir_util.cc:269] disabling MLIR crash reproducer, set env var `MLIR_CRASH_REPRODUCER_DIRECTORY` to enable.
+Summary on the non-converted ops:
+---------------------------------
+ * Accepted dialects: tfl, builtin, func
+ * Non-Converted Ops: 7, Total Ops 16, % non-converted = 43.75 %
+ * 7 ARITH ops
+
+- arith.constant:    7 occurrences  (f32: 6, i32: 1)
+
+
+
+  (f32: 2)
+  (f32: 1)
+  (f32: 2)
+  (f32: 1)
+fully_quantize: 0, inference_type: 6, input_inference_type: INT8, output_inference_type: INT8
+INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+{
+  "tensorflow": "2.15.1",
+  "seed": 1729,
+  "epochs": 4,
+  "batch_size": 128,
+  "train_samples": 60000,
+  "test_samples": 10000,
+  "float_test_accuracy": 0.9839000105857849,
+  "int8_test_accuracy": 0.9835,
+  "int8_test_correct": 9835,
+  "max_pool_layers": [
+    {
+      "shape": [
+        1,
+        14,
+        14,
+        16
+      ],
+      "filter": 3,
+      "stride": 1,
+      "padding": "SAME"
+    },
+    {
+      "shape": [
+        1,
+        7,
+        7,
+        32
+      ],
+      "filter": 5,
+      "stride": 1,
+      "padding": "SAME"
+    }
+  ],
+  "fixed_test_index": 0,
+  "fixed_label": 7,
+  "host_output": [
+    -32,
+    -4,
+    44,
+    14,
+    -24,
+    -25,
+    -103,
+    98,
+    -24,
+    30
+  ],
+  "input_quantization": [
+    0.003921568859368563,
+    -128
+  ],
+  "output_quantization": [
+    0.1566666066646576,
+    26
+  ],
+  "model_sha256": "163d2e5014411841e814e927967887ae4d42ae283b12116b55514a3f0daaef47",
+  "input_sha256": "1f84c643695b1a774441f8f8b6a29ba99024fd234c0cfe98ba6095dc270077f8"
+}
+

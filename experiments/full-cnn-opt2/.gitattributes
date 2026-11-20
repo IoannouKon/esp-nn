@@ -1,0 +1,7 @@
+# Preserve the serial monitor's original line endings and control bytes.
+results/cnn-opt2/stock.log -text -diff
+results/cnn-opt2/opt2.log -text -diff
+results/cnn-opt2/probe.log -text -diff
+results/cnn-opt2/training.log -text -whitespace
+cnn_opt2/main/input.bin binary
+cnn_opt2/main/model.tflite binary

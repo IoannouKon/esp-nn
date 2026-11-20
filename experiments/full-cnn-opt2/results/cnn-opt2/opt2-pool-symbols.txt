@@ -1,0 +1,2 @@
+42012680 T esp_nn_max_pool_s8_esp32s3
+4201ff50 T esp_nn_max_pool_s8_esp32s3_sliding_row_asm
