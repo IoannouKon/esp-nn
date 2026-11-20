@@ -1,0 +1,4 @@
+1024 stock compile commands; 1025 candidate compile commands
+Added: ['<SOURCE>/src/common/esp_nn_mean_qacc_s8_esp32s3.S']
+Missing: []
+Changed: []

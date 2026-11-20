@@ -1,0 +1,45 @@
+   text	   data	    bss	    dec	    hex	filename
+ 232901	  56464	 508713	 798078	  c2d7e	ESP_NN_EXP_MEAN_Agent_Kit/build/stock-bench/bench_app.elf
+    978	      0	      0	    978	    3d2	ESP_NN_EXP_MEAN_Agent_Kit/build/stock-bench/esp-idf/esp-nn/CMakeFiles/__idf_esp-nn.dir/src/common/esp_nn_mean_s8_esp32s3.c.obj
+   0:	004136        	entry	a1, 32
+   0:	004136        	entry	a1, 32
+Disassembly of section .text.esp_nn_mean_nhwc_s8_esp32s3:
+   0:	00c136        	entry	a1, 96
+420267cc 00000007 T esp_nn_get_mean_scratch_size_esp32s3
+4200cabc 000003b6 T esp_nn_mean_nhwc_s8_esp32s3
+420267d4 00000005 T esp_nn_set_mean_scratch_buf_esp32s3
+   text	   data	    bss	    dec	    hex	filename
+ 233437	  56464	 508713	 798614	  c2f96	ESP_NN_EXP_MEAN_Agent_Kit/build/candidate-bench/bench_app.elf
+   1478	      0	      0	   1478	    5c6	ESP_NN_EXP_MEAN_Agent_Kit/build/candidate-bench/esp-idf/esp-nn/CMakeFiles/__idf_esp-nn.dir/src/common/esp_nn_mean_s8_esp32s3.c.obj
+   0:	004136        	entry	a1, 32
+   0:	004136        	entry	a1, 32
+Disassembly of section .text.esp_nn_mean_nhwc_s8_esp32s3:
+   0:	012136        	entry	a1, 144
+  b7:	0008e0        	callx8	a8
+420269bc 00000007 T esp_nn_get_mean_scratch_size_esp32s3
+4200cac4 0000059e T esp_nn_mean_nhwc_s8_esp32s3
+420269cc 00000028 T esp_nn_mean_s8_16ch_qacc
+420269c4 00000005 T esp_nn_set_mean_scratch_buf_esp32s3
+   text	   data	    bss	    dec	    hex	filename
+     40	      0	      0	     40	     28	ESP_NN_EXP_MEAN_Agent_Kit/build/candidate-bench/esp-idf/esp-nn/CMakeFiles/__idf_esp-nn.dir/src/common/esp_nn_mean_qacc_s8_esp32s3.S.obj
+
+ESP_NN_EXP_MEAN_Agent_Kit/build/candidate-bench/esp-idf/esp-nn/CMakeFiles/__idf_esp-nn.dir/src/common/esp_nn_mean_qacc_s8_esp32s3.S.obj:     file format elf32-xtensa-le
+
+
+Disassembly of section .text:
+
+00000000 <esp_nn_mean_s8_16ch_qacc>:
+   0:	004136        	entry	a1, 32
+   3:	180c      	movi.n	a8, 1
+   5:	006182        	s32i	a8, a1, 0
+   8:	cdbb14        	ee.vldbc.8	q1, a1
+   b:	250844        	ee.zero.qacc
+   e:	208220        	or	a8, a2, a2
+  11:	05a376        	loopgtz	a3, 1a <esp_nn_mean_s8_16ch_qacc+0x1a>
+  14:	8d2484        	ee.vld.128.xp	q0, a8, a4
+  17:	1a28c4        	ee.vmulas.s8.qacc	q0, q1
+  1a:	0c0154        	ee.st.qacc_l.l.128.ip	a5, 16
+  1d:	1d0454        	ee.st.qacc_l.h.32.ip	a5, 16
+  20:	0d0154        	ee.st.qacc_h.l.128.ip	a5, 16
+  23:	120154        	ee.st.qacc_h.h.32.ip	a5, 4
+  26:	f01d      	retw.n

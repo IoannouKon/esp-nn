@@ -1,0 +1,1122 @@
+{
+  "config": {
+    "target": "esp32s3",
+    "idf": "v5.5.1-dirty",
+    "cpu_mhz": "240",
+    "psram": "1",
+    "iters": "9",
+    "seed": "0xc0ffee42"
+  },
+  "stock_runs": 2,
+  "candidate_runs": 2,
+  "stock_warnings": [
+    "BENCH_WARN op=fully_connected esp_nn=353738 esp_nn_operands_8mod16=311644 limit=110% shape=\"length 320, 320 outputs, input offset -3\"",
+    "BENCH_WARN op=fully_connected esp_nn=353738 esp_nn_operands_8mod16=311644 limit=110% shape=\"length 320, 320 outputs, input offset -3\""
+  ],
+  "candidate_warnings": [
+    "BENCH_WARN op=fully_connected esp_nn=353738 esp_nn_operands_8mod16=311644 limit=110% shape=\"length 320, 320 outputs, input offset -3\"",
+    "BENCH_WARN op=fully_connected esp_nn=353738 esp_nn_operands_8mod16=311644 limit=110% shape=\"length 320, 320 outputs, input offset -3\""
+  ],
+  "rows": [
+    {
+      "op": "add",
+      "variant": "esp_nn",
+      "mem": "ext",
+      "shape": "size 1615",
+      "stock_cycles": [
+        60398,
+        60398
+      ],
+      "candidate_cycles": [
+        60398,
+        60398
+      ],
+      "stock_median": 60398.0,
+      "candidate_median": 60398.0,
+      "speedup": 1.0,
+      "reduction_percent": 0.0,
+      "delta_cycles": 0.0,
+      "ranges_overlap": true
+    },
+    {
+      "op": "avg_pool",
+      "variant": "esp_nn",
+      "mem": "ext",
+      "shape": "input 12x12x128, filter 5x5, pad 2, stride 1",
+      "stock_cycles": [
+        948108,
+        948108
+      ],
+      "candidate_cycles": [
+        948108,
+        948109
+      ],
+      "stock_median": 948108.0,
+      "candidate_median": 948108.5,
+      "speedup": 0.9999994726341974,
+      "reduction_percent": -5.273660806574778e-05,
+      "delta_cycles": 0.5,
+      "ranges_overlap": true
+    },
+    {
+      "op": "avg_pool",
+      "variant": "esp_nn",
+      "mem": "int",
+      "shape": "input 16x16x16, filter 3x3, pad 1, stride 1",
+      "stock_cycles": [
+        149373,
+        149373
+      ],
+      "candidate_cycles": [
+        149373,
+        149373
+      ],
+      "stock_median": 149373.0,
+      "candidate_median": 149373.0,
+      "speedup": 1.0,
+      "reduction_percent": 0.0,
+      "delta_cycles": 0.0,
+      "ranges_overlap": true
+    },
+    {
+      "op": "conv",
+      "variant": "esp_nn",
+      "mem": "ext",
+      "shape": "input 10x10x3, filter 64x3x3x3, pad 0, stride 1",
+      "stock_cycles": [
+        511965,
+        511965
+      ],
+      "candidate_cycles": [
+        511965,
+        511965
+      ],
+      "stock_median": 511965.0,
+      "candidate_median": 511965.0,
+      "speedup": 1.0,
+      "reduction_percent": 0.0,
+      "delta_cycles": 0.0,
+      "ranges_overlap": true
+    },
+    {
+      "op": "conv",
+      "variant": "esp_nn",
+      "mem": "ext",
+      "shape": "input 10x10x64, filter 64x1x1x64, pad 0, stride 1",
+      "stock_cycles": [
+        302693,
+        302693
+      ],
+      "candidate_cycles": [
+        302693,
+        302693
+      ],
+      "stock_median": 302693.0,
+      "candidate_median": 302693.0,
+      "speedup": 1.0,
+      "reduction_percent": 0.0,
+      "delta_cycles": 0.0,
+      "ranges_overlap": true
+    },
+    {
+      "op": "conv",
+      "variant": "esp_nn",
+      "mem": "ext",
+      "shape": "input 8x8x16, filter 16x1x1x16, pad 0, stride 1",
+      "stock_cycles": [
+        36021,
+        36021
+      ],
+      "candidate_cycles": [
+        36021,
+        36021
+      ],
+      "stock_median": 36021.0,
+      "candidate_median": 36021.0,
+      "speedup": 1.0,
+      "reduction_percent": 0.0,
+      "delta_cycles": 0.0,
+      "ranges_overlap": true
+    },
+    {
+      "op": "conv",
+      "variant": "esp_nn",
+      "mem": "ext",
+      "shape": "input 8x8x3, filter 64x3x3x3, pad 0, stride 1",
+      "stock_cycles": [
+        297745,
+        297745
+      ],
+      "candidate_cycles": [
+        297745,
+        297745
+      ],
+      "stock_median": 297745.0,
+      "candidate_median": 297745.0,
+      "speedup": 1.0,
+      "reduction_percent": 0.0,
+      "delta_cycles": 0.0,
+      "ranges_overlap": true
+    },
+    {
+      "op": "conv",
+      "variant": "esp_nn",
+      "mem": "int",
+      "shape": "input 8x8x16, filter 16x3x3x16, pad 0, stride 2",
+      "stock_cycles": [
+        24346,
+        24346
+      ],
+      "candidate_cycles": [
+        24346,
+        24346
+      ],
+      "stock_median": 24346.0,
+      "candidate_median": 24346.0,
+      "speedup": 1.0,
+      "reduction_percent": 0.0,
+      "delta_cycles": 0.0,
+      "ranges_overlap": true
+    },
+    {
+      "op": "depthwise_conv",
+      "variant": "esp_nn",
+      "mem": "ext",
+      "shape": "input 12x12x4, filter 8x5x5x4, pad (1,1), stride (1,1)",
+      "stock_cycles": [
+        260647,
+        260647
+      ],
+      "candidate_cycles": [
+        260647,
+        260647
+      ],
+      "stock_median": 260647.0,
+      "candidate_median": 260647.0,
+      "speedup": 1.0,
+      "reduction_percent": 0.0,
+      "delta_cycles": 0.0,
+      "ranges_overlap": true
+    },
+    {
+      "op": "depthwise_conv",
+      "variant": "esp_nn",
+      "mem": "ext",
+      "shape": "input 16x16x16, filter 1x3x3x16, pad (0,0), stride (1,1)",
+      "stock_cycles": [
+        117749,
+        117749
+      ],
+      "candidate_cycles": [
+        117749,
+        117749
+      ],
+      "stock_median": 117749.0,
+      "candidate_median": 117749.0,
+      "speedup": 1.0,
+      "reduction_percent": 0.0,
+      "delta_cycles": 0.0,
+      "ranges_overlap": true
+    },
+    {
+      "op": "depthwise_conv",
+      "variant": "esp_nn",
+      "mem": "ext",
+      "shape": "input 18x18x16, filter 1x3x3x16, pad (0,0), stride (1,1)",
+      "stock_cycles": [
+        153511,
+        153511
+      ],
+      "candidate_cycles": [
+        153511,
+        153511
+      ],
+      "stock_median": 153511.0,
+      "candidate_median": 153511.0,
+      "speedup": 1.0,
+      "reduction_percent": 0.0,
+      "delta_cycles": 0.0,
+      "ranges_overlap": true
+    },
+    {
+      "op": "depthwise_conv",
+      "variant": "esp_nn",
+      "mem": "int",
+      "shape": "input 10x10x16, filter 1x3x3x16, pad (1,1), stride (1,1)",
+      "stock_cycles": [
+        63154,
+        63154
+      ],
+      "candidate_cycles": [
+        63154,
+        63154
+      ],
+      "stock_median": 63154.0,
+      "candidate_median": 63154.0,
+      "speedup": 1.0,
+      "reduction_percent": 0.0,
+      "delta_cycles": 0.0,
+      "ranges_overlap": true
+    },
+    {
+      "op": "depthwise_conv",
+      "variant": "esp_nn",
+      "mem": "int",
+      "shape": "input 1x192x256, filter 1x1x3x256, pad (0,1), stride (1,2)",
+      "stock_cycles": [
+        1071073,
+        1071073
+      ],
+      "candidate_cycles": [
+        1071073,
+        1071073
+      ],
+      "stock_median": 1071073.0,
+      "candidate_median": 1071073.0,
+      "speedup": 1.0,
+      "reduction_percent": 0.0,
+      "delta_cycles": 0.0,
+      "ranges_overlap": true
+    },
+    {
+      "op": "depthwise_conv",
+      "variant": "esp_nn",
+      "mem": "int",
+      "shape": "input 1x384x128, filter 1x1x3x128, pad (0,1), stride (1,1)",
+      "stock_cycles": [
+        2137831,
+        2137831
+      ],
+      "candidate_cycles": [
+        2137831,
+        2137831
+      ],
+      "stock_median": 2137831.0,
+      "candidate_median": 2137831.0,
+      "speedup": 1.0,
+      "reduction_percent": 0.0,
+      "delta_cycles": 0.0,
+      "ranges_overlap": true
+    },
+    {
+      "op": "fully_connected",
+      "variant": "esp_nn",
+      "mem": "ext",
+      "shape": "length 128, 256 outputs, input offset -3",
+      "stock_cycles": [
+        59023,
+        59023
+      ],
+      "candidate_cycles": [
+        59023,
+        59023
+      ],
+      "stock_median": 59023.0,
+      "candidate_median": 59023.0,
+      "speedup": 1.0,
+      "reduction_percent": 0.0,
+      "delta_cycles": 0.0,
+      "ranges_overlap": true
+    },
+    {
+      "op": "fully_connected",
+      "variant": "esp_nn",
+      "mem": "ext",
+      "shape": "length 128, 256 outputs, input offset 0",
+      "stock_cycles": [
+        38770,
+        38770
+      ],
+      "candidate_cycles": [
+        38770,
+        38770
+      ],
+      "stock_median": 38770.0,
+      "candidate_median": 38770.0,
+      "speedup": 1.0,
+      "reduction_percent": 0.0,
+      "delta_cycles": 0.0,
+      "ranges_overlap": true
+    },
+    {
+      "op": "fully_connected",
+      "variant": "esp_nn",
+      "mem": "ext",
+      "shape": "length 256, 256 outputs, input offset -3",
+      "stock_cycles": [
+        79122,
+        79122
+      ],
+      "candidate_cycles": [
+        79122,
+        79122
+      ],
+      "stock_median": 79122.0,
+      "candidate_median": 79122.0,
+      "speedup": 1.0,
+      "reduction_percent": 0.0,
+      "delta_cycles": 0.0,
+      "ranges_overlap": true
+    },
+    {
+      "op": "fully_connected",
+      "variant": "esp_nn",
+      "mem": "ext",
+      "shape": "length 320, 320 outputs, input offset -3",
+      "stock_cycles": [
+        353738,
+        353738
+      ],
+      "candidate_cycles": [
+        353738,
+        353738
+      ],
+      "stock_median": 353738.0,
+      "candidate_median": 353738.0,
+      "speedup": 1.0,
+      "reduction_percent": 0.0,
+      "delta_cycles": 0.0,
+      "ranges_overlap": true
+    },
+    {
+      "op": "fully_connected",
+      "variant": "esp_nn",
+      "mem": "ext",
+      "shape": "length 512, 128 outputs, input offset -3",
+      "stock_cycles": [
+        65125,
+        65125
+      ],
+      "candidate_cycles": [
+        65125,
+        65125
+      ],
+      "stock_median": 65125.0,
+      "candidate_median": 65125.0,
+      "speedup": 1.0,
+      "reduction_percent": 0.0,
+      "delta_cycles": 0.0,
+      "ranges_overlap": true
+    },
+    {
+      "op": "fully_connected",
+      "variant": "esp_nn",
+      "mem": "ext",
+      "shape": "length 64, 256 outputs, input offset -3",
+      "stock_cycles": [
+        38543,
+        38543
+      ],
+      "candidate_cycles": [
+        38543,
+        38543
+      ],
+      "stock_median": 38543.0,
+      "candidate_median": 38543.0,
+      "speedup": 1.0,
+      "reduction_percent": 0.0,
+      "delta_cycles": 0.0,
+      "ranges_overlap": true
+    },
+    {
+      "op": "fully_connected",
+      "variant": "esp_nn",
+      "mem": "int",
+      "shape": "length 271, 3 outputs, input offset 7",
+      "stock_cycles": [
+        1571,
+        1571
+      ],
+      "candidate_cycles": [
+        1571,
+        1571
+      ],
+      "stock_median": 1571.0,
+      "candidate_median": 1571.0,
+      "speedup": 1.0,
+      "reduction_percent": 0.0,
+      "delta_cycles": 0.0,
+      "ranges_overlap": true
+    },
+    {
+      "op": "fully_connected",
+      "variant": "esp_nn_operands_8mod16",
+      "mem": "ext",
+      "shape": "length 128, 256 outputs, input offset -3",
+      "stock_cycles": [
+        59023,
+        59023
+      ],
+      "candidate_cycles": [
+        59023,
+        59023
+      ],
+      "stock_median": 59023.0,
+      "candidate_median": 59023.0,
+      "speedup": 1.0,
+      "reduction_percent": 0.0,
+      "delta_cycles": 0.0,
+      "ranges_overlap": true
+    },
+    {
+      "op": "fully_connected",
+      "variant": "esp_nn_operands_8mod16",
+      "mem": "ext",
+      "shape": "length 128, 256 outputs, input offset 0",
+      "stock_cycles": [
+        59023,
+        59023
+      ],
+      "candidate_cycles": [
+        59023,
+        59023
+      ],
+      "stock_median": 59023.0,
+      "candidate_median": 59023.0,
+      "speedup": 1.0,
+      "reduction_percent": 0.0,
+      "delta_cycles": 0.0,
+      "ranges_overlap": true
+    },
+    {
+      "op": "fully_connected",
+      "variant": "esp_nn_operands_8mod16",
+      "mem": "ext",
+      "shape": "length 256, 256 outputs, input offset -3",
+      "stock_cycles": [
+        109253,
+        109253
+      ],
+      "candidate_cycles": [
+        109253,
+        109253
+      ],
+      "stock_median": 109253.0,
+      "candidate_median": 109253.0,
+      "speedup": 1.0,
+      "reduction_percent": 0.0,
+      "delta_cycles": 0.0,
+      "ranges_overlap": true
+    },
+    {
+      "op": "fully_connected",
+      "variant": "esp_nn_operands_8mod16",
+      "mem": "ext",
+      "shape": "length 320, 320 outputs, input offset -3",
+      "stock_cycles": [
+        311644,
+        311644
+      ],
+      "candidate_cycles": [
+        311644,
+        311644
+      ],
+      "stock_median": 311644.0,
+      "candidate_median": 311644.0,
+      "speedup": 1.0,
+      "reduction_percent": 0.0,
+      "delta_cycles": 0.0,
+      "ranges_overlap": true
+    },
+    {
+      "op": "fully_connected",
+      "variant": "esp_nn_operands_8mod16",
+      "mem": "ext",
+      "shape": "length 512, 128 outputs, input offset -3",
+      "stock_cycles": [
+        103390,
+        103390
+      ],
+      "candidate_cycles": [
+        103390,
+        103390
+      ],
+      "stock_median": 103390.0,
+      "candidate_median": 103390.0,
+      "speedup": 1.0,
+      "reduction_percent": 0.0,
+      "delta_cycles": 0.0,
+      "ranges_overlap": true
+    },
+    {
+      "op": "fully_connected",
+      "variant": "esp_nn_operands_8mod16",
+      "mem": "ext",
+      "shape": "length 64, 256 outputs, input offset -3",
+      "stock_cycles": [
+        38543,
+        38543
+      ],
+      "candidate_cycles": [
+        38543,
+        38543
+      ],
+      "stock_median": 38543.0,
+      "candidate_median": 38543.0,
+      "speedup": 1.0,
+      "reduction_percent": 0.0,
+      "delta_cycles": 0.0,
+      "ranges_overlap": true
+    },
+    {
+      "op": "fully_connected",
+      "variant": "esp_nn_operands_8mod16",
+      "mem": "int",
+      "shape": "length 271, 3 outputs, input offset 7",
+      "stock_cycles": [
+        1571,
+        1571
+      ],
+      "candidate_cycles": [
+        1571,
+        1571
+      ],
+      "stock_median": 1571.0,
+      "candidate_median": 1571.0,
+      "speedup": 1.0,
+      "reduction_percent": 0.0,
+      "delta_cycles": 0.0,
+      "ranges_overlap": true
+    },
+    {
+      "op": "fully_connected_batch",
+      "variant": "esp_nn",
+      "mem": "int",
+      "shape": "batch 16, length 64, 64 outputs",
+      "stock_cycles": [
+        139747,
+        139747
+      ],
+      "candidate_cycles": [
+        139747,
+        139747
+      ],
+      "stock_median": 139747.0,
+      "candidate_median": 139747.0,
+      "speedup": 1.0,
+      "reduction_percent": 0.0,
+      "delta_cycles": 0.0,
+      "ranges_overlap": true
+    },
+    {
+      "op": "fully_connected_batch",
+      "variant": "esp_nn",
+      "mem": "int",
+      "shape": "batch 32, length 64, 128 outputs",
+      "stock_cycles": [
+        541539,
+        541539
+      ],
+      "candidate_cycles": [
+        541539,
+        541539
+      ],
+      "stock_median": 541539.0,
+      "candidate_median": 541539.0,
+      "speedup": 1.0,
+      "reduction_percent": 0.0,
+      "delta_cycles": 0.0,
+      "ranges_overlap": true
+    },
+    {
+      "op": "fully_connected_batch",
+      "variant": "esp_nn",
+      "mem": "int",
+      "shape": "batch 4, length 128, 192 outputs",
+      "stock_cycles": [
+        141795,
+        141795
+      ],
+      "candidate_cycles": [
+        141795,
+        141795
+      ],
+      "stock_median": 141795.0,
+      "candidate_median": 141795.0,
+      "speedup": 1.0,
+      "reduction_percent": 0.0,
+      "delta_cycles": 0.0,
+      "ranges_overlap": true
+    },
+    {
+      "op": "fully_connected_batch",
+      "variant": "esp_nn",
+      "mem": "int",
+      "shape": "batch 4, length 128, 200 outputs",
+      "stock_cycles": [
+        147699,
+        147699
+      ],
+      "candidate_cycles": [
+        147699,
+        147699
+      ],
+      "stock_median": 147699.0,
+      "candidate_median": 147699.0,
+      "speedup": 1.0,
+      "reduction_percent": 0.0,
+      "delta_cycles": 0.0,
+      "ranges_overlap": true
+    },
+    {
+      "op": "fully_connected_batch",
+      "variant": "esp_nn",
+      "mem": "int",
+      "shape": "batch 48, length 160, 32 outputs",
+      "stock_cycles": [
+        247651,
+        247651
+      ],
+      "candidate_cycles": [
+        247651,
+        247651
+      ],
+      "stock_median": 247651.0,
+      "candidate_median": 247651.0,
+      "speedup": 1.0,
+      "reduction_percent": 0.0,
+      "delta_cycles": 0.0,
+      "ranges_overlap": true
+    },
+    {
+      "op": "fully_connected_batch",
+      "variant": "esp_nn",
+      "mem": "int",
+      "shape": "batch 5, length 32, 32 outputs",
+      "stock_cycles": [
+        20266,
+        20266
+      ],
+      "candidate_cycles": [
+        20266,
+        20266
+      ],
+      "stock_median": 20266.0,
+      "candidate_median": 20266.0,
+      "speedup": 1.0,
+      "reduction_percent": 0.0,
+      "delta_cycles": 0.0,
+      "ranges_overlap": true
+    },
+    {
+      "op": "fully_connected_batch",
+      "variant": "esp_nn",
+      "mem": "int",
+      "shape": "batch 64, length 128, 256 outputs",
+      "stock_cycles": [
+        2462352,
+        2462348
+      ],
+      "candidate_cycles": [
+        2462345,
+        2462352
+      ],
+      "stock_median": 2462350.0,
+      "candidate_median": 2462348.5,
+      "speedup": 1.000000609174534,
+      "reduction_percent": 6.091741628931712e-05,
+      "delta_cycles": -1.5,
+      "ranges_overlap": true
+    },
+    {
+      "op": "fully_connected_batch",
+      "variant": "esp_nn",
+      "mem": "int",
+      "shape": "batch 66, length 16, 16 outputs",
+      "stock_cycles": [
+        116449,
+        116449
+      ],
+      "candidate_cycles": [
+        116449,
+        116449
+      ],
+      "stock_median": 116449.0,
+      "candidate_median": 116449.0,
+      "speedup": 1.0,
+      "reduction_percent": 0.0,
+      "delta_cycles": 0.0,
+      "ranges_overlap": true
+    },
+    {
+      "op": "fully_connected_batch",
+      "variant": "esp_nn_scratch",
+      "mem": "int",
+      "shape": "batch 16, length 64, 64 outputs",
+      "stock_cycles": [
+        46999,
+        46999
+      ],
+      "candidate_cycles": [
+        46999,
+        46999
+      ],
+      "stock_median": 46999.0,
+      "candidate_median": 46999.0,
+      "speedup": 1.0,
+      "reduction_percent": 0.0,
+      "delta_cycles": 0.0,
+      "ranges_overlap": true
+    },
+    {
+      "op": "fully_connected_batch",
+      "variant": "esp_nn_scratch",
+      "mem": "int",
+      "shape": "batch 32, length 64, 128 outputs",
+      "stock_cycles": [
+        185081,
+        185081
+      ],
+      "candidate_cycles": [
+        185081,
+        185081
+      ],
+      "stock_median": 185081.0,
+      "candidate_median": 185081.0,
+      "speedup": 1.0,
+      "reduction_percent": 0.0,
+      "delta_cycles": 0.0,
+      "ranges_overlap": true
+    },
+    {
+      "op": "fully_connected_batch",
+      "variant": "esp_nn_scratch",
+      "mem": "int",
+      "shape": "batch 4, length 128, 192 outputs",
+      "stock_cycles": [
+        92457,
+        92457
+      ],
+      "candidate_cycles": [
+        92457,
+        92457
+      ],
+      "stock_median": 92457.0,
+      "candidate_median": 92457.0,
+      "speedup": 1.0,
+      "reduction_percent": 0.0,
+      "delta_cycles": 0.0,
+      "ranges_overlap": true
+    },
+    {
+      "op": "fully_connected_batch",
+      "variant": "esp_nn_scratch",
+      "mem": "int",
+      "shape": "batch 4, length 128, 200 outputs",
+      "stock_cycles": [
+        96365,
+        96365
+      ],
+      "candidate_cycles": [
+        96365,
+        96365
+      ],
+      "stock_median": 96365.0,
+      "candidate_median": 96365.0,
+      "speedup": 1.0,
+      "reduction_percent": 0.0,
+      "delta_cycles": 0.0,
+      "ranges_overlap": true
+    },
+    {
+      "op": "fully_connected_batch",
+      "variant": "esp_nn_scratch",
+      "mem": "int",
+      "shape": "batch 48, length 160, 32 outputs",
+      "stock_cycles": [
+        105835,
+        105835
+      ],
+      "candidate_cycles": [
+        105835,
+        105835
+      ],
+      "stock_median": 105835.0,
+      "candidate_median": 105835.0,
+      "speedup": 1.0,
+      "reduction_percent": 0.0,
+      "delta_cycles": 0.0,
+      "ranges_overlap": true
+    },
+    {
+      "op": "fully_connected_batch",
+      "variant": "esp_nn_scratch",
+      "mem": "int",
+      "shape": "batch 5, length 32, 32 outputs",
+      "stock_cycles": [
+        10743,
+        10743
+      ],
+      "candidate_cycles": [
+        10743,
+        10743
+      ],
+      "stock_median": 10743.0,
+      "candidate_median": 10743.0,
+      "speedup": 1.0,
+      "reduction_percent": 0.0,
+      "delta_cycles": 0.0,
+      "ranges_overlap": true
+    },
+    {
+      "op": "fully_connected_batch",
+      "variant": "esp_nn_scratch",
+      "mem": "int",
+      "shape": "batch 64, length 128, 256 outputs",
+      "stock_cycles": [
+        967869,
+        967869
+      ],
+      "candidate_cycles": [
+        967869,
+        967869
+      ],
+      "stock_median": 967869.0,
+      "candidate_median": 967869.0,
+      "speedup": 1.0,
+      "reduction_percent": 0.0,
+      "delta_cycles": 0.0,
+      "ranges_overlap": true
+    },
+    {
+      "op": "fully_connected_batch",
+      "variant": "esp_nn_scratch",
+      "mem": "int",
+      "shape": "batch 66, length 16, 16 outputs",
+      "stock_cycles": [
+        41059,
+        41059
+      ],
+      "candidate_cycles": [
+        41059,
+        41059
+      ],
+      "stock_median": 41059.0,
+      "candidate_median": 41059.0,
+      "speedup": 1.0,
+      "reduction_percent": 0.0,
+      "delta_cycles": 0.0,
+      "ranges_overlap": true
+    },
+    {
+      "op": "hard_swish",
+      "variant": "esp_nn",
+      "mem": "ext",
+      "shape": "size 12544",
+      "stock_cycles": [
+        99253,
+        99253
+      ],
+      "candidate_cycles": [
+        99253,
+        99253
+      ],
+      "stock_median": 99253.0,
+      "candidate_median": 99253.0,
+      "speedup": 1.0,
+      "reduction_percent": 0.0,
+      "delta_cycles": 0.0,
+      "ranges_overlap": true
+    },
+    {
+      "op": "max_pool",
+      "variant": "esp_nn",
+      "mem": "ext",
+      "shape": "input 12x12x128, filter 5x5, pad 2, stride 1",
+      "stock_cycles": [
+        373745,
+        373745
+      ],
+      "candidate_cycles": [
+        373745,
+        373745
+      ],
+      "stock_median": 373745.0,
+      "candidate_median": 373745.0,
+      "speedup": 1.0,
+      "reduction_percent": 0.0,
+      "delta_cycles": 0.0,
+      "ranges_overlap": true
+    },
+    {
+      "op": "max_pool",
+      "variant": "esp_nn",
+      "mem": "int",
+      "shape": "input 16x16x16, filter 3x3, pad 1, stride 1",
+      "stock_cycles": [
+        60506,
+        60506
+      ],
+      "candidate_cycles": [
+        60506,
+        60506
+      ],
+      "stock_median": 60506.0,
+      "candidate_median": 60506.0,
+      "speedup": 1.0,
+      "reduction_percent": 0.0,
+      "delta_cycles": 0.0,
+      "ranges_overlap": true
+    },
+    {
+      "op": "mean",
+      "variant": "esp_nn",
+      "mem": "int",
+      "shape": "input 14x14x120",
+      "stock_cycles": [
+        83691,
+        83691
+      ],
+      "candidate_cycles": [
+        83635,
+        83635
+      ],
+      "stock_median": 83691.0,
+      "candidate_median": 83635.0,
+      "speedup": 1.0006695761343936,
+      "reduction_percent": 0.06691281021854202,
+      "delta_cycles": -56.0,
+      "ranges_overlap": false
+    },
+    {
+      "op": "mean",
+      "variant": "esp_nn",
+      "mem": "int",
+      "shape": "input 7x7x16",
+      "stock_cycles": [
+        3585,
+        3585
+      ],
+      "candidate_cycles": [
+        1641,
+        1641
+      ],
+      "stock_median": 3585.0,
+      "candidate_median": 1641.0,
+      "speedup": 2.1846435100548445,
+      "reduction_percent": 54.22594142259414,
+      "delta_cycles": -1944.0,
+      "ranges_overlap": false
+    },
+    {
+      "op": "mul",
+      "variant": "esp_nn",
+      "mem": "ext",
+      "shape": "size 1615",
+      "stock_cycles": [
+        6775,
+        6775
+      ],
+      "candidate_cycles": [
+        6775,
+        6775
+      ],
+      "stock_median": 6775.0,
+      "candidate_median": 6775.0,
+      "speedup": 1.0,
+      "reduction_percent": 0.0,
+      "delta_cycles": 0.0,
+      "ranges_overlap": true
+    },
+    {
+      "op": "mul_broadcast",
+      "variant": "esp_nn",
+      "mem": "ext",
+      "shape": "49 positions x 576 channels",
+      "stock_cycles": [
+        148915,
+        148915
+      ],
+      "candidate_cycles": [
+        148915,
+        148915
+      ],
+      "stock_median": 148915.0,
+      "candidate_median": 148915.0,
+      "speedup": 1.0,
+      "reduction_percent": 0.0,
+      "delta_cycles": 0.0,
+      "ranges_overlap": true
+    },
+    {
+      "op": "relu6",
+      "variant": "esp_nn",
+      "mem": "int",
+      "shape": "size 1615",
+      "stock_cycles": [
+        599,
+        599
+      ],
+      "candidate_cycles": [
+        599,
+        599
+      ],
+      "stock_median": 599.0,
+      "candidate_median": 599.0,
+      "speedup": 1.0,
+      "reduction_percent": 0.0,
+      "delta_cycles": 0.0,
+      "ranges_overlap": true
+    },
+    {
+      "op": "softmax",
+      "variant": "esp_nn",
+      "mem": "int",
+      "shape": "height 1, width 1000",
+      "stock_cycles": [
+        153859,
+        153859
+      ],
+      "candidate_cycles": [
+        153859,
+        153859
+      ],
+      "stock_median": 153859.0,
+      "candidate_median": 153859.0,
+      "speedup": 1.0,
+      "reduction_percent": 0.0,
+      "delta_cycles": 0.0,
+      "ranges_overlap": true
+    },
+    {
+      "op": "softmax",
+      "variant": "esp_nn",
+      "mem": "int",
+      "shape": "height 1, width 256",
+      "stock_cycles": [
+        98220,
+        98220
+      ],
+      "candidate_cycles": [
+        98220,
+        98220
+      ],
+      "stock_median": 98220.0,
+      "candidate_median": 98220.0,
+      "speedup": 1.0,
+      "reduction_percent": 0.0,
+      "delta_cycles": 0.0,
+      "ranges_overlap": true
+    },
+    {
+      "op": "softmax",
+      "variant": "esp_nn",
+      "mem": "int",
+      "shape": "height 8, width 32",
+      "stock_cycles": [
+        101055,
+        101055
+      ],
+      "candidate_cycles": [
+        101055,
+        101055
+      ],
+      "stock_median": 101055.0,
+      "candidate_median": 101055.0,
+      "speedup": 1.0,
+      "reduction_percent": 0.0,
+      "delta_cycles": 0.0,
+      "ranges_overlap": true
+    }
+  ]
+}

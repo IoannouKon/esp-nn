@@ -1,0 +1,4 @@
+ CMakeLists.txt                           |  1 +
+ src/common/esp_nn_mean_qacc_s8_esp32s3.S | 35 +++++++++++++++++++
+ src/common/esp_nn_mean_s8_esp32s3.c      | 58 ++++++++++++++++++++++++++++++--
+ 3 files changed, 92 insertions(+), 2 deletions(-)

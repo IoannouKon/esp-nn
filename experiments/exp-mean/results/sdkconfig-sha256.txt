@@ -1,0 +1,3 @@
+a185c620162ebe86aab4721c9fe440f8680333e6b4b76c2af327f47c102f945b  /home/kostis/Desktop/ESP-NN/ESP_NN_EXP_MEAN_Agent_Kit/results/candidate-bench.sdkconfig
+6651d825784b1d2df263980b2c6976917a76072aeb75d0afb10ec24857b141c2  /home/kostis/Desktop/ESP-NN/ESP_NN_EXP_MEAN_Agent_Kit/results/candidate-test.sdkconfig
+a185c620162ebe86aab4721c9fe440f8680333e6b4b76c2af327f47c102f945b  /home/kostis/Desktop/ESP-NN/ESP_NN_EXP_MEAN_Agent_Kit/results/stock-bench.sdkconfig

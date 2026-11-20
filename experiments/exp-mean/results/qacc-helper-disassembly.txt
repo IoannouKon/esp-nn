@@ -1,0 +1,21 @@
+
+/tmp/espmean-helper.o:     file format elf32-xtensa-le
+
+
+Disassembly of section .text:
+
+00000000 <esp_nn_mean_s8_16ch_qacc>:
+   0:	004136        	entry	a1, 32
+   3:	180c      	movi.n	a8, 1
+   5:	006182        	s32i	a8, a1, 0
+   8:	cdbb14        	ee.vldbc.8	q1, a1
+   b:	250844        	ee.zero.qacc
+   e:	208220        	or	a8, a2, a2
+  11:	05a376        	loopgtz	a3, 1a <esp_nn_mean_s8_16ch_qacc+0x1a>
+  14:	8d2484        	ee.vld.128.xp	q0, a8, a4
+  17:	1a28c4        	ee.vmulas.s8.qacc	q0, q1
+  1a:	0c0154        	ee.st.qacc_l.l.128.ip	a5, 16
+  1d:	1d0454        	ee.st.qacc_l.h.32.ip	a5, 16
+  20:	0d0154        	ee.st.qacc_h.l.128.ip	a5, 16
+  23:	120154        	ee.st.qacc_h.h.32.ip	a5, 4
+  26:	f01d      	retw.n

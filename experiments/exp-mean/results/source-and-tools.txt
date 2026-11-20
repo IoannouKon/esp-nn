@@ -1,0 +1,24 @@
+## HEAD (no branch)
+ace42ac7721119cd543fc40ffe719e601fa8f20f
+## experiment/s3-global-mean-qacc
+ M CMakeLists.txt
+ A src/common/esp_nn_mean_qacc_s8_esp32s3.S
+ M src/common/esp_nn_mean_s8_esp32s3.c
+ace42ac7721119cd543fc40ffe719e601fa8f20f
+## experiment/s3-max-pool-128...fork/experiment/s3-max-pool-128
+edb003c6770491abb74766835f4c803b9d4f5a20
+00b5a54a8800a0dd07769211fcc3ca5bc2cc4816
+4ae31e1034f993a37b759a988924f2b6c8a358c8
+336ca042334c1f4b64b6a859b1607215def76909
+f7cb65180d9b3539b21775936c41d6fc7a417eac
+00b5a54a8800a0dd07769211fcc3ca5bc2cc4816
+4ae31e1034f993a37b759a988924f2b6c8a358c8
+336ca042334c1f4b64b6a859b1607215def76909
+f7cb65180d9b3539b21775936c41d6fc7a417eac
+v5.5.1-dirty
+fcae32885b0296b32044cb99ecbdc50d98dddb83
+ M examples/get-started/blink/main/blink_example_main.c
+ M examples/get-started/hello_world/main/hello_world_main.c
+xtensa-esp-elf-gcc (crosstool-NG esp-14.2.0_20241119) 14.2.0
+total 0
+lrwxrwxrwx 1 root root 13 Nov 20 19:43 usb-Espressif_USB_JTAG_serial_debug_unit_A0:85:E3:F5:48:4C-if00 -> ../../ttyACM0
