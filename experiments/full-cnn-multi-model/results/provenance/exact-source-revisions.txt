@@ -1,0 +1,18 @@
+stock
+ace42ac7721119cd543fc40ffe719e601fa8f20f
+df8722334a80ceabc609c1e72968f417cd9437f1
+b65b30a09254e22465fef1441bcdaa721a3fd7c236d11d233f3186383eeec5e5  full-cnn-run/stock/esp-nn/src/common/esp_nn_mean_s8_esp32s3.c
+opt2
+edb003c6770491abb74766835f4c803b9d4f5a20
+df8722334a80ceabc609c1e72968f417cd9437f1
+b65b30a09254e22465fef1441bcdaa721a3fd7c236d11d233f3186383eeec5e5  full-cnn-run/opt2/esp-nn/src/common/esp_nn_mean_s8_esp32s3.c
+mean
+4bfa49c64a932f700688c2007a01d8ea1fa102ac
+df8722334a80ceabc609c1e72968f417cd9437f1
+735eae98b85e1597c02c45a145a519461f4e17a623d08e5c3f08ad7f193fa554  full-cnn-run/mean/esp-nn/src/common/esp_nn_mean_s8_esp32s3.c
+combined
+4bfa49c64a932f700688c2007a01d8ea1fa102ac
+df8722334a80ceabc609c1e72968f417cd9437f1
+ M src/pooling/esp_nn_max_pool_s8_esp32s3.S
+ M src/pooling/esp_nn_max_pool_s8_esp32s3.c
+735eae98b85e1597c02c45a145a519461f4e17a623d08e5c3f08ad7f193fa554  full-cnn-run/combined/esp-nn/src/common/esp_nn_mean_s8_esp32s3.c

@@ -1,0 +1,14 @@
+mlperf_cifar10_resnet8 COMPLETE
+mlperf_vww_mobilenet COMPLETE
+tflm_person_detection COMPLETE
+mlperf_kws_dscnn COMPLETE
+mnist_fixed COMPLETE
+max3 COMPLETE
+max5 FAILED
+max5 COMPLETE
+mean_only COMPLETE
+both COMPLETE
+depthwise_both COMPLETE
+mlperf_vww_14block COMPLETE
+mlperf_vww_20block COMPLETE
+mlperf_cifar10_resnet6 COMPLETE

@@ -1,0 +1,9 @@
+INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+READY mlperf_cifar10_resnet6 bytes 796880 max 0 eligible 0 MEAN 0 desktop=PASS
+READY mlperf_cifar10_resnet8 bytes 512024 max 0 eligible 0 MEAN 0 desktop=PASS
+READY mlperf_kws_dscnn bytes 53936 max 0 eligible 0 MEAN 0 desktop=PASS
+READY mlperf_vww_14block bytes 988568 max 0 eligible 0 MEAN 0 desktop=PASS
+READY mlperf_vww_20block bytes 965720 max 0 eligible 0 MEAN 0 desktop=PASS
+READY mlperf_vww_mobilenet bytes 333288 max 0 eligible 0 MEAN 0 desktop=PASS
+READY mnist_fixed bytes 25000 max 2 eligible 2 MEAN 0 desktop=PASS
+READY tflm_person_detection bytes 300568 max 0 eligible 0 MEAN 0 desktop=ERROR

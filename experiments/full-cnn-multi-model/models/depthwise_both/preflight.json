@@ -1,0 +1,68 @@
+{
+  "name": "depthwise_both",
+  "model_bytes": 7000,
+  "input_shape": [
+    1,
+    32,
+    32,
+    3
+  ],
+  "output_shape": [
+    1,
+    1,
+    1,
+    10
+  ],
+  "input_dtype": "int8",
+  "output_dtype": "int8",
+  "ops": [
+    "CONV_2D",
+    "MAX_POOL_2D",
+    "DEPTHWISE_CONV_2D",
+    "CONV_2D",
+    "MEAN",
+    "FULLY_CONNECTED"
+  ],
+  "pools": [
+    {
+      "input_shape": [
+        1,
+        16,
+        16,
+        16
+      ],
+      "filter": [
+        3,
+        3
+      ],
+      "stride": [
+        1,
+        1
+      ],
+      "same": true,
+      "shape_eligible": true
+    }
+  ],
+  "means": [
+    {
+      "input_shape": [
+        1,
+        16,
+        16,
+        32
+      ],
+      "axes": [
+        1,
+        2
+      ],
+      "keep_dims": true,
+      "note": "Builtin TFLM MEAN does NOT dispatch to ESP-NN."
+    }
+  ],
+  "model_sha256": "c2b43e3633fb33a1b505cb2f579d4cad238f33284fbc82958edf6d1a8381ef45",
+  "input_sha256": "9f2b799d8a7d23ea057764d98841e08038753212d8fcb06b4b8f28a859926511",
+  "host_output_sha256": "41a3b500c24f29ce62b809a9720dd3128153947ce5dd0689218c6082c4388497",
+  "host_output_hex": "10241f190f1d08180823",
+  "host_error": null,
+  "caveat": "Eligible by shape is NOT runtime dispatch proof; validate alignment, tensor placement and call path on board."
+}

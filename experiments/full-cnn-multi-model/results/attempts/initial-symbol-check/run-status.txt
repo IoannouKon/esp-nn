@@ -1,0 +1,4 @@
+mlperf_cifar10_resnet8 FAILED
+mlperf_vww_mobilenet FAILED
+tflm_person_detection FAILED
+mlperf_kws_dscnn FAILED

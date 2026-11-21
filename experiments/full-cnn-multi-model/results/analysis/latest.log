@@ -1,0 +1,29 @@
+max3                           stock       3468.0 us     832500.0 cyc   1.000x BASELINE
+max3                           opt2        3242.0 us     778335.0 cyc   1.070x WIN
+max3                           mean        3378.0 us     811051.0 cyc   1.027x CONTROL ONLY
+max3                           combined    3141.0 us     754216.0 cyc   1.104x WIN
+max5                           stock       3615.0 us     867864.0 cyc   1.000x BASELINE
+max5                           opt2        3249.0 us     779982.0 cyc   1.113x WIN
+max5                           mean        3525.0 us     846442.0 cyc   1.026x CONTROL ONLY
+max5                           combined    3148.0 us     755863.0 cyc   1.148x WIN
+mlperf_cifar10_resnet8         stock     347672.8 us   83441767.0 cyc   1.000x BASELINE
+mlperf_cifar10_resnet8         opt2      347385.0 us   83372695.0 cyc   1.001x CONTROL ONLY
+mlperf_cifar10_resnet8         mean      347369.0 us   83368910.5 cyc   1.001x CONTROL ONLY
+mlperf_cifar10_resnet8         combined  347968.0 us   83512669.0 cyc   0.999x CONTROL ONLY
+mlperf_kws_dscnn               stock      17476.8 us    4194923.5 cyc   1.000x BASELINE
+mlperf_kws_dscnn               opt2       17434.0 us    4184545.0 cyc   1.002x CONTROL ONLY
+mlperf_kws_dscnn               mean       17469.5 us    4193137.0 cyc   1.000x CONTROL ONLY
+mlperf_kws_dscnn               combined   17425.0 us    4182335.5 cyc   1.003x CONTROL ONLY
+mlperf_vww_mobilenet           stock      66842.2 us   16042550.5 cyc   1.000x BASELINE
+mlperf_vww_mobilenet           opt2       67029.8 us   16087553.5 cyc   0.997x CONTROL ONLY
+mlperf_vww_mobilenet           mean       67073.2 us   16098080.5 cyc   0.997x CONTROL ONLY
+mlperf_vww_mobilenet           combined   66759.5 us   16022714.5 cyc   1.001x CONTROL ONLY
+mnist_fixed                    stock       3005.8 us     721569.5 cyc   1.000x BASELINE
+mnist_fixed                    opt2        2740.0 us     657698.0 cyc   1.097x WIN
+mnist_fixed                    mean        3006.0 us     721569.5 cyc   1.000x CONTROL ONLY
+mnist_fixed                    combined    2743.5 us     658673.0 cyc   1.096x WIN
+tflm_person_detection          stock      59054.8 us   14173555.0 cyc   1.000x BASELINE
+tflm_person_detection          opt2       59227.8 us   14215098.5 cyc   0.997x CONTROL ONLY
+tflm_person_detection          mean       59399.2 us   14256380.5 cyc   0.994x CONTROL ONLY
+tflm_person_detection          combined   58897.0 us   14135781.5 cyc   1.003x CONTROL ONLY
+OUTPUT results/analysis/compare.csv results/analysis/compare.json

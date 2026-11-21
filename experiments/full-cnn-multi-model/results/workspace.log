@@ -1,0 +1,87 @@
+Preparing worktree (detached HEAD ace42ac)
+HEAD is now at ace42ac Merge branch 'release/v1.5.0' into 'master'
+Note: switching to 'df8722334a80ceabc609c1e72968f417cd9437f1'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by switching back to a branch.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -c with the switch command. Example:
+
+  git switch -c <new-branch-name>
+
+Or undo this operation with:
+
+  git switch -
+
+Turn off this advice by setting config variable advice.detachedHead to false
+
+stock source ace42ac7721119cd543fc40ffe719e601fa8f20f TFLM df8722334a80ceabc609c1e72968f417cd9437f1
+Preparing worktree (detached HEAD edb003c)
+HEAD is now at edb003c Record full-CNN ESP32-S3 Opt2 benchmark
+Note: switching to 'df8722334a80ceabc609c1e72968f417cd9437f1'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by switching back to a branch.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -c with the switch command. Example:
+
+  git switch -c <new-branch-name>
+
+Or undo this operation with:
+
+  git switch -
+
+Turn off this advice by setting config variable advice.detachedHead to false
+
+opt2 source edb003c6770491abb74766835f4c803b9d4f5a20 TFLM df8722334a80ceabc609c1e72968f417cd9437f1
+Preparing worktree (detached HEAD 4bfa49c)
+HEAD is now at 4bfa49c Record EXP-MEAN ESP32-S3 hardware results
+Note: switching to 'df8722334a80ceabc609c1e72968f417cd9437f1'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by switching back to a branch.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -c with the switch command. Example:
+
+  git switch -c <new-branch-name>
+
+Or undo this operation with:
+
+  git switch -
+
+Turn off this advice by setting config variable advice.detachedHead to false
+
+mean source 4bfa49c64a932f700688c2007a01d8ea1fa102ac TFLM df8722334a80ceabc609c1e72968f417cd9437f1
+Preparing worktree (detached HEAD 4bfa49c)
+HEAD is now at 4bfa49c Record EXP-MEAN ESP32-S3 hardware results
+Note: switching to 'df8722334a80ceabc609c1e72968f417cd9437f1'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by switching back to a branch.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -c with the switch command. Example:
+
+  git switch -c <new-branch-name>
+
+Or undo this operation with:
+
+  git switch -
+
+Turn off this advice by setting config variable advice.detachedHead to false
+
+combined source 4bfa49c64a932f700688c2007a01d8ea1fa102ac TFLM df8722334a80ceabc609c1e72968f417cd9437f1
+
+COMBINED DIFF (review):
+ src/pooling/esp_nn_max_pool_s8_esp32s3.S | 117 +++++++++++++++++++++++++++++++
+ src/pooling/esp_nn_max_pool_s8_esp32s3.c |  35 +++++++++
+ 2 files changed, 152 insertions(+)
+
+READY: /home/kostis/Desktop/ESP-NN/full-cnn-run

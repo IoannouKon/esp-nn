@@ -1,0 +1,12 @@
+{
+  "shape": [
+    1,
+    32,
+    32,
+    3
+  ],
+  "dtype": "int8",
+  "sha256": "8e8c834bd5b38b8e63cbf6f03936a29c02d8b98510a419160940021e79618b91",
+  "kind": "deterministic raw INT8 benchmark image/features; no accuracy claim",
+  "seed": 20261121
+}

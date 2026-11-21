@@ -1,0 +1,14 @@
+both: eight physical captures in order, 240 timed inferences, exact across four variants, board output=05021e1306120118e6fa
+depthwise_both: eight physical captures in order, 240 timed inferences, exact across four variants, board output=10241f190f1d08180823
+max3: eight physical captures in order, 240 timed inferences, exact across four variants, board output=edf61d3dee1f2dbee9dd
+max5: eight physical captures in order, 240 timed inferences, exact across four variants, board output=ebf02637042a29dcf5da
+mean_only: eight physical captures in order, 240 timed inferences, exact across four variants, board output=ff0c12090707fd08f808
+mlperf_cifar10_resnet6: eight physical captures in order, 240 timed inferences, exact across four variants, board output=8080cc0ba98080808080
+mlperf_cifar10_resnet8: eight physical captures in order, 240 timed inferences, exact across four variants, board output=807f8080808080808080
+mlperf_kws_dscnn: eight physical captures in order, 240 timed inferences, exact across four variants, board output=80808081808080808080807f
+mlperf_vww_14block: eight physical captures in order, 240 timed inferences, exact across four variants, board output=7f81
+mlperf_vww_20block: eight physical captures in order, 240 timed inferences, exact across four variants, board output=7c84
+mlperf_vww_mobilenet: eight physical captures in order, 240 timed inferences, exact across four variants, board output=7a86
+mnist_fixed: eight physical captures in order, 240 timed inferences, exact across four variants, board output=e0fc2c0ee8e79962e81e
+tflm_person_detection: eight physical captures in order, 240 timed inferences, exact across four variants, board output=6e92
+PASS: 13 models, 52 variant rows, 3120 timings and cycle samples, SDK configuration 4387f0cdcc6e7ce108caae0e6f1b39a73025a398e86d2a2d7c54612229262ff3

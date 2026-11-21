@@ -1,0 +1,66 @@
+{
+  "both": {
+    "model_sha256": "2a1d57d833b9a43ba281e53a09b8b5bdec7aab5139d3aaf97e57ba93e0b3153d",
+    "output_hex": "05021e1306120118e6fa",
+    "input_sha256": "9f2b799d8a7d23ea057764d98841e08038753212d8fcb06b4b8f28a859926511"
+  },
+  "depthwise_both": {
+    "model_sha256": "c2b43e3633fb33a1b505cb2f579d4cad238f33284fbc82958edf6d1a8381ef45",
+    "output_hex": "10241f190f1d08180823",
+    "input_sha256": "9f2b799d8a7d23ea057764d98841e08038753212d8fcb06b4b8f28a859926511"
+  },
+  "max3": {
+    "model_sha256": "6a457b7fb409fc0668379fbae4b6614223287ca7a8273ffe9f9770685824a04b",
+    "output_hex": "edf61d3dee1f2dbee9dd",
+    "input_sha256": "9f2b799d8a7d23ea057764d98841e08038753212d8fcb06b4b8f28a859926511"
+  },
+  "max5": {
+    "model_sha256": "719758439a3fc697f2f2533219dd64198656ef81794e5fc860dc013e023e37e9",
+    "output_hex": "ebf02637042a29dcf5da",
+    "input_sha256": "9f2b799d8a7d23ea057764d98841e08038753212d8fcb06b4b8f28a859926511"
+  },
+  "mean_only": {
+    "model_sha256": "f24283500ae7f9a377f8aa5bda5086ca81294d6e8bbfbbdca24be86010ffeecc",
+    "output_hex": "ff0c12090707fd08f808",
+    "input_sha256": "9f2b799d8a7d23ea057764d98841e08038753212d8fcb06b4b8f28a859926511"
+  },
+  "mlperf_cifar10_resnet6": {
+    "model_sha256": "5c7e4053e5a941212ae4f00f82f1a790905cfb70489283af3d8f02ea8b917453",
+    "output_hex": "8080cc0ba98080808080",
+    "input_sha256": "8e8c834bd5b38b8e63cbf6f03936a29c02d8b98510a419160940021e79618b91"
+  },
+  "mlperf_cifar10_resnet8": {
+    "model_sha256": "dc27dcd823f5665533352f7da516b0c9bc6f089914b8283782e55961b3423fcf",
+    "output_hex": "807f8080808080808080",
+    "input_sha256": "8e8c834bd5b38b8e63cbf6f03936a29c02d8b98510a419160940021e79618b91"
+  },
+  "mlperf_kws_dscnn": {
+    "model_sha256": "aeea436800704fce17b17292e4412630ad856e9d777c044c64ef748a880bd0ae",
+    "output_hex": "80808081808080808080807f",
+    "input_sha256": "dae3e297eabf2d8cdf8918b5d9a38083142d0b7a5f38185a4f55f9c76f4f3cfc"
+  },
+  "mlperf_vww_14block": {
+    "model_sha256": "418957d510379f55f4798c606372a3e8828de596100407ecac693125c9d77d6f",
+    "output_hex": "7f81",
+    "input_sha256": "3c1bccd285611fec044b6f051a6316be1cdb3c9d827b119d9e049c189f63a2e1"
+  },
+  "mlperf_vww_20block": {
+    "model_sha256": "73d3b8aa59c92badca8011e2c49277b28c4ce41456b213f47c42d3051ec7c0a5",
+    "output_hex": "7c84",
+    "input_sha256": "3c1bccd285611fec044b6f051a6316be1cdb3c9d827b119d9e049c189f63a2e1"
+  },
+  "mlperf_vww_mobilenet": {
+    "model_sha256": "597a384c8c2c8a1276f04702f25013b7838f2f814f1ca7c174d295b73e3d6b7b",
+    "output_hex": "7a86",
+    "input_sha256": "3c1bccd285611fec044b6f051a6316be1cdb3c9d827b119d9e049c189f63a2e1"
+  },
+  "mnist_fixed": {
+    "model_sha256": "163d2e5014411841e814e927967887ae4d42ae283b12116b55514a3f0daaef47",
+    "output_hex": "e0fc2c0ee8e79962e81e",
+    "input_sha256": "1f84c643695b1a774441f8f8b6a29ba99024fd234c0cfe98ba6095dc270077f8"
+  },
+  "tflm_person_detection": {
+    "model_sha256": "808cfdfc0cf3a6fa6f6fa26bfa379ea97c16d5db7334637766e39c3408502e9d",
+    "error": "quantized_dimension must be in range [0, 1). Was 3.Tensor 33 has invalid quantization parameters.quantized_dimension must be in range [0, 1). Was 3.Tensor 36 has invalid quantization parameters.quantized_dimension must be in range [0, 1). Was 3.Tensor 40 has invalid quantization parameters.quantized_dimension must be in range [0, 1). Was 3.Tensor 44 has invalid quantization parameters.quantized_dimension must be in range [0, 1). Was 3.Tensor 48 has invalid quantization parameters.quantized_dimension must be in range [0, 1). Was 3.Tensor 52 has invalid quantization parameters.quantized_dimension must be in range [0, 1). Was 3.Tensor 56 has invalid quantization parameters.quantized_dimension must be in range [0, 1). Was 3.Tensor 60 has invalid quantization parameters.quantized_dimension must be in range [0, 1). Was 3.Tensor 64 has invalid quantization parameters.quantized_dimension must be in range [0, 1). Was 3.Tensor 68 has invalid quantization parameters.quantized_dimension must be in range [0, 1). Was 3.Tensor 72 has invalid quantization parameters.quantized_dimension must be in range [0, 1). Was 3.Tensor 76 has invalid quantization parameters.quantized_dimension must be in range [0, 1). Was 3.Tensor 80 has invalid quantization parameters.quantized_dimension must be in range [0, 1). Was 3.Tensor 84 has invalid quantization parameters."
+  }
+}

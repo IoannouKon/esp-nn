@@ -1,0 +1,5 @@
+420423e0 00000009 T __wrap__Unwind_DeleteException
+420423d4 00000009 T __wrap__Unwind_Resume
+420423f8 00000009 T __wrap___cxa_allocate_exception
+42042404 00000009 T __wrap___cxa_throw
+420423ec 00000009 T __wrap___gxx_personality_v0

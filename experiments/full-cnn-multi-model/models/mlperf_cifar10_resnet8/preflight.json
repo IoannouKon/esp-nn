@@ -1,0 +1,42 @@
+{
+  "name": "mlperf_cifar10_resnet8",
+  "model_bytes": 512024,
+  "input_shape": [
+    1,
+    32,
+    32,
+    3
+  ],
+  "output_shape": [
+    1,
+    10
+  ],
+  "input_dtype": "int8",
+  "output_dtype": "int8",
+  "ops": [
+    "CONV_2D",
+    "CONV_2D",
+    "CONV_2D",
+    "ADD",
+    "CONV_2D",
+    "CONV_2D",
+    "CONV_2D",
+    "ADD",
+    "CONV_2D",
+    "CONV_2D",
+    "CONV_2D",
+    "ADD",
+    "AVERAGE_POOL_2D",
+    "RESHAPE",
+    "FULLY_CONNECTED",
+    "SOFTMAX"
+  ],
+  "pools": [],
+  "means": [],
+  "model_sha256": "dc27dcd823f5665533352f7da516b0c9bc6f089914b8283782e55961b3423fcf",
+  "input_sha256": "8e8c834bd5b38b8e63cbf6f03936a29c02d8b98510a419160940021e79618b91",
+  "host_output_sha256": "5d6898ba233af2b0da48683b6fe8ca417f143df28d75b8857cfa7c309f66a65c",
+  "host_output_hex": "807f8080808080808080",
+  "host_error": null,
+  "caveat": "Eligible by shape is NOT runtime dispatch proof; validate alignment, tensor placement and call path on board."
+}

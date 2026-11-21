@@ -1,0 +1,2 @@
+total 0
+lrwxrwxrwx 1 root root 13 Nov 21 11:38 usb-Espressif_USB_JTAG_serial_debug_unit_A0:85:E3:F5:48:4C-if00 -> ../../ttyACM0

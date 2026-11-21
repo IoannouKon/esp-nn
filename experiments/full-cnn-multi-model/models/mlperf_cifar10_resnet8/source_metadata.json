@@ -1,0 +1,16 @@
+{
+  "name": "mlperf_cifar10_resnet8",
+  "title": "MLPerf Tiny image classification \u2014 trained ResNet 3-block, CIFAR-10",
+  "source_repo": "mlcommons/tiny",
+  "source_ref": "e59b2f227eb56265dfe4c290e1aa32095075ec96",
+  "source_path": "benchmark/training/image_classification/trained_models/trainedResnet_3blk_480k_int8.tflite",
+  "url": "https://raw.githubusercontent.com/mlcommons/tiny/e59b2f227eb56265dfe4c290e1aa32095075ec96/benchmark/training/image_classification/trained_models/trainedResnet_3blk_480k_int8.tflite",
+  "github_url": "https://github.com/mlcommons/tiny/blob/e59b2f227eb56265dfe4c290e1aa32095075ec96/benchmark/training/image_classification/trained_models/trainedResnet_3blk_480k_int8.tflite",
+  "expected_size": 512024,
+  "sha256": "dc27dcd823f5665533352f7da516b0c9bc6f089914b8283782e55961b3423fcf",
+  "tier": "core",
+  "license_note": "Respect upstream LICENSE; external model weights are downloaded on agent host",
+  "input_policy": "deterministic INT8 random raw input; latency/correctness benchmark only; no accuracy measured",
+  "actual_sha256": "dc27dcd823f5665533352f7da516b0c9bc6f089914b8283782e55961b3423fcf",
+  "checked_published_sha256": true
+}
