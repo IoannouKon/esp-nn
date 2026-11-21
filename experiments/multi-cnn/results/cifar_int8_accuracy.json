@@ -1,0 +1,37 @@
+{
+  "max3": {
+    "int8_correct": 385,
+    "examples": 1000,
+    "top1": 0.385
+  },
+  "max5": {
+    "int8_correct": 398,
+    "examples": 1000,
+    "top1": 0.398
+  },
+  "mean_only": {
+    "int8_correct": 206,
+    "examples": 1000,
+    "top1": 0.206
+  },
+  "both": {
+    "int8_correct": 243,
+    "examples": 1000,
+    "top1": 0.243
+  },
+  "depthwise_both": {
+    "int8_correct": 192,
+    "examples": 1000,
+    "top1": 0.192
+  },
+  "avg_control": {
+    "int8_correct": 332,
+    "examples": 1000,
+    "top1": 0.332
+  },
+  "neutral_control": {
+    "int8_correct": 388,
+    "examples": 1000,
+    "top1": 0.388
+  }
+}

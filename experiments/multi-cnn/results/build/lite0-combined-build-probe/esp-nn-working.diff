@@ -1,0 +1,206 @@
+diff --git a/src/pooling/esp_nn_max_pool_s8_esp32s3.S b/src/pooling/esp_nn_max_pool_s8_esp32s3.S
+index 3d7820a..ecda855 100644
+--- a/src/pooling/esp_nn_max_pool_s8_esp32s3.S
++++ b/src/pooling/esp_nn_max_pool_s8_esp32s3.S
+@@ -24,6 +24,7 @@
+ // Called only from esp_nn_max_pool_s8_esp32s3() in esp_nn_max_pool_s8_esp32s3.c:
+ // channels % 4 == 0, buffers 8-byte aligned when channels % 8 == 0
+ // (ee.vld.l.64 / ee.vst.l.64) and 4-byte aligned otherwise (ee.vldbc.32 / s32i)
++// The 8-byte branch also checks whether it can use 16-byte loads and stores.
+ 
+ esp_nn_max_pool_s8_esp32s3_asm: # 0x4
+     # int8_min = 0
+@@ -114,6 +115,13 @@ esp_nn_max_pool_s8_esp32s3_asm: # 0x4
+     sub     a15,a11,a15                 # [24]
+     s32i.n  a15,a1,40               # [25]  gra_spill_temp_9
+ 
++    // The low four bits must be zero in both buffer addresses and channels.
++    // Every pixel and every 16-channel group then stays 16-byte aligned.
++    l32i    a4,a1,96
++    or      a4,a4,a12
++    or      a4,a4,a5
++    extui   a4,a4,0,4
++
+ .Lt_0_21506:    # 0x229
+     l32i    a8,a1,4                 # [0]  gra_spill_temp_0
+     beqz.n  a8,.Lt_0_21762          # [2]
+@@ -164,6 +172,8 @@ esp_nn_max_pool_s8_esp32s3_asm: # 0x4
+     add.n   a10,a10,a7                  # [16]
+     s32i    a10,a1,72                   # [21]  gra_spill_temp_17
+ 
++    beqz    a4,.Lpool128_pixel
++
+ .Lt_0_23042:    # 0x29a
+     l32i    a8,a1,8                 # [0]  gra_spill_temp_1
+     mv.qr   q1,q3                       # [1]
+@@ -262,6 +272,47 @@ esp_nn_max_pool_s8_esp32s3_asm: # 0x4
+ 
+     retw.n                          # [0] // exit
+ 
++.Lpool128_pixel:
++    // The shared pixel loop supplies clipped bounds. Set up the starting
++    // address and byte row stride once for all 16-channel groups.
++    l32i    a13,a1,8                  // first filter row
++    l32i    a10,a1,92                 // input y origin
++    sub     a14,a15,a13               // rows in the clipped window
++    l32i    a3,a1,28                  // columns in the clipped window
++    add.n   a10,a10,a13
++    mull    a10,a10,a11
++    l32i    a13,a1,24                 // first valid input x
++    add.n   a10,a10,a13
++    mull    a10,a10,a5
++    add.n   a10,a10,a12
++    mull    a6,a11,a5                 // input row stride in bytes
++    l32i    a8,a1,16                  // output cursor
++    l32i    a9,a1,12                  // end of output pixel
++
++.Lpool128_channels:
++    mv.qr   q1,q3                     // INT8_MIN, also the empty-window max
++    blti    a14,1,.Lpool128_store
++    blti    a3,1,.Lpool128_store
++    mov.n   a13,a14
++    mov.n   a7,a10
++.Lpool128_row:
++    mov.n   a2,a7
++    loopgtz a3,.Lpool128_row_end
++    ee.vld.128.xp q0,a2,a5
++    ee.vmax.s8 q1,q1,q0
++.Lpool128_row_end:
++    add.n   a7,a7,a6
++    addi.n  a13,a13,-1
++    bnez    a13,.Lpool128_row
++
++.Lpool128_store:
++    ee.vmin.s8 q2,q1,q4
++    ee.vmax.s8 q2,q2,q5
++    ee.vst.128.ip q2,a8,16
++    addi.n  a10,a10,16
++    blt     a8,a9,.Lpool128_channels
++    j       .Lt_0_22530
++
+ .LBB25_esp_nn_max_pool_s8_esp32s3:  # 0x36d // if (channels % 4 == 0)
+ 
+     l16ui   a10,a1,136                  # [1]  id:475 pad_wd+0x0
+@@ -438,3 +489,69 @@ esp_nn_max_pool_s8_esp32s3_asm: # 0x4
+     retw.n                          # [0] // exit
+ 
+     .size   esp_nn_max_pool_s8_esp32s3_asm, . - esp_nn_max_pool_s8_esp32s3_asm
++
++    .macro pool_sliding_store value
++    ee.vmin.s8    q0,\value,q7
++    ee.vmax.s8    q0,q0,q6
++    ee.vst.128.xp q0,a3,a5
++    .endm
++
++    // q2..q5 hold maxima of the last 1..4 columns, initially left padding.
++    // q1 holds the new column's vertical maximum. q6/q7 are activation bounds.
++    .macro pool_sliding_row pad, history
++    movi.n  a8,-\pad
++1:
++    mov.n   a9,a2
++    ee.vld.128.xp q1,a9,a6
++    loopgtz a7,2f
++    ee.vld.128.xp q0,a9,a6
++    ee.vmax.s8 q1,q1,q0
++2:
++    add.n   a2,a2,a5
++    bltz    a8,3f
++    ee.vmax.s8 q0,\history,q1
++    pool_sliding_store q0
++3:
++    .if \pad == 2
++    ee.vmax.s8 q5,q4,q1
++    ee.vmax.s8 q4,q3,q1
++    .endif
++    ee.vmax.s8 q3,q2,q1
++    mv.qr   q2,q1
++    addi.n  a8,a8,1
++    addi.n  a4,a4,-1
++    bnez    a4,1b
++
++    // The last \pad windows have no new input columns on the right.
++    pool_sliding_store \history
++    .if \pad == 2
++    pool_sliding_store q4
++    .endif
++    retw.n
++    .endm
++
++    .align 4
++    .global esp_nn_max_pool_s8_esp32s3_sliding_row_asm
++    .hidden esp_nn_max_pool_s8_esp32s3_sliding_row_asm
++    .type   esp_nn_max_pool_s8_esp32s3_sliding_row_asm, @function
++esp_nn_max_pool_s8_esp32s3_sliding_row_asm:
++    // One aligned 16-channel group across a row. The caller clips vertical
++    // bounds, so a7 is the positive count of input rows in every column.
++    entry   a1,32
++    addi.n  a7,a7,-1
++    movi    a8,-128
++    s32i.n  a8,a1,0
++    ee.vldbc.8 q2,a1
++    mv.qr   q3,q2
++    addi    a9,a1,36
++    addi    a10,a1,40
++    ee.vldbc.8 q6,a9
++    ee.vldbc.8 q7,a10
++    l32i.n  a8,a1,32
++    beqi    a8,1,.Lpool_sliding_3x3
++    mv.qr   q4,q2
++    mv.qr   q5,q2
++    pool_sliding_row 2,q5
++.Lpool_sliding_3x3:
++    pool_sliding_row 1,q3
++    .size   esp_nn_max_pool_s8_esp32s3_sliding_row_asm, . - esp_nn_max_pool_s8_esp32s3_sliding_row_asm
+diff --git a/src/pooling/esp_nn_max_pool_s8_esp32s3.c b/src/pooling/esp_nn_max_pool_s8_esp32s3.c
+index cb370d2..a3ceb43 100644
+--- a/src/pooling/esp_nn_max_pool_s8_esp32s3.c
++++ b/src/pooling/esp_nn_max_pool_s8_esp32s3.c
+@@ -21,6 +21,11 @@
+ #include <stdint.h>
+ #include <esp_nn_ansi_headers.h>
+ 
++extern void esp_nn_max_pool_s8_esp32s3_sliding_row_asm(
++    const int8_t *input, int8_t *output, uint32_t width, uint32_t channels,
++    uint32_t row_bytes, uint32_t rows, uint32_t pad,
++    int32_t activation_min, int32_t activation_max);
++
+ extern void esp_nn_max_pool_s8_esp32s3_asm(const int8_t *input,
+                                            const uint16_t input_wd,
+                                            const uint16_t input_ht,
+@@ -59,6 +64,36 @@ void esp_nn_max_pool_s8_esp32s3(const int8_t *input,
+      * for channels % 4 != 0, so the reference handles that as well as any
+      * buffer below the alignment its path needs. */
+     const uintptr_t bufs = (uintptr_t) input | (uintptr_t) output;
++    /* For stride-1 SAME pooling, advance by one column per output and reuse
++     * the vertical maxima of the overlapping columns. */
++    if (channels != 0 && ((bufs | channels) & 15u) == 0 &&
++            (filter_wd == 3 || filter_wd == 5) && filter_ht == filter_wd &&
++            stride_wd == 1 && stride_ht == 1 &&
++            pad_wd == filter_wd / 2 && pad_ht == pad_wd &&
++            output_wd == input_wd && output_ht == input_ht &&
++            input_wd >= filter_wd && input_ht >= filter_ht) {
++        const uint32_t row_bytes = (uint32_t) input_wd * channels;
++        const uintptr_t in_addr = (uintptr_t) input;
++        const uintptr_t out_addr = (uintptr_t) output;
++        const uintptr_t distance = in_addr < out_addr ? out_addr - in_addr : in_addr - out_addr;
++        /* A cached window requires that writes cannot change later reads. */
++        if (distance >= (uint64_t) row_bytes * input_ht) {
++            for (int y = 0; y < output_ht; y++) {
++                const int top = y < pad_ht ? 0 : y - pad_ht;
++                const int end = y + pad_ht + 1;
++                const int bottom = end < input_ht ? end : input_ht;
++                const int8_t *in_row = input + top * row_bytes;
++                int8_t *out_row = output + y * row_bytes;
++                for (int ch = 0; ch < channels; ch += 16) {
++                    esp_nn_max_pool_s8_esp32s3_sliding_row_asm(
++                        in_row + ch, out_row + ch, input_wd, channels, row_bytes,
++                        bottom - top, pad_wd, activation_min, activation_max);
++                }
++            }
++            return;
++        }
++    }
++
+     const uintptr_t need = (channels % 8 == 0) ? 7u : 3u;
+     if (channels % 4 == 0 && (bufs & need) == 0) {
+         esp_nn_max_pool_s8_esp32s3_asm(input, input_wd, input_ht, output,

@@ -1,0 +1,93 @@
+Executing action: flash
+Running ninja in directory /home/kostis/Desktop/ESP-NN/multi-cnn-run/mean/app/build
+Executing "ninja flash"...
+[1/5] cd /home/kostis/Desktop/ESP-NN/multi-cnn-run/mean/app/build/esp-idf/esptool_py && /home/kostis/.espressif/python_env/idf5.5_py3.10_env/bin/python /home/kostis/esp_s3/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 partition --type app /home/kostis/Desktop/ESP-NN/multi-cnn-run/mean/app/build/partition_table/partition-table.bin /home/kostis/Desktop/ESP-NN/multi-cnn-run/mean/app/build/espnn_multi_cnn.bin
+espnn_multi_cnn.bin binary size 0x110d50 bytes. Smallest app partition is 0x7f0000 bytes. 0x6df2b0 bytes (87%) free.
+[2/5] Performing build step for 'bootloader'
+[1/1] cd /home/kostis/Desktop/ESP-NN/multi-cnn-run/mean/app/build/bootloader/esp-idf/esptool_py && /home/kostis/.espressif/python_env/idf5.5_py3.10_env/bin/python /home/kostis/esp_s3/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 bootloader 0x0 /home/kostis/Desktop/ESP-NN/multi-cnn-run/mean/app/build/bootloader/bootloader.bin
+Bootloader binary size 0x50f0 bytes. 0x2f10 bytes (37%) free.
+[2/3] cd /home/kostis/esp_s3/esp-idf/components/esptool_py && /usr/bin/cmake -D IDF_PATH=/home/kostis/esp_s3/esp-idf -D "SERIAL_TOOL=/home/kostis/.espressif/python_env/idf5.5_py3.10_env/bin/python;;/home/kostis/esp_s3/esp-idf/components/esptool_py/esptool/esptool.py;--chip;esp32s3" -D "SERIAL_TOOL_ARGS=--before=default_reset;--after=hard_reset;write_flash;@flash_args" -D WORKING_DIRECTORY=/home/kostis/Desktop/ESP-NN/multi-cnn-run/mean/app/build -P /home/kostis/esp_s3/esp-idf/components/esptool_py/run_serial_tool.cmake
+esptool.py --chip esp32s3 -p /dev/ttyACM0 -b 460800 --before=default_reset --after=hard_reset write_flash --flash_mode dio --flash_freq 80m --flash_size 8MB 0x0 bootloader/bootloader.bin 0x10000 espnn_multi_cnn.bin 0x8000 partition_table/partition-table.bin
+esptool.py v4.10.0
+Serial port /dev/ttyACM0
+Connecting...
+Chip is ESP32-S3 (QFN56) (revision v0.2)
+Features: WiFi, BLE, Embedded PSRAM 8MB (AP_3v3)
+Crystal is 40MHz
+USB mode: USB-Serial/JTAG
+MAC: a0:85:e3:f5:48:4c
+Uploading stub...
+Running stub...
+Stub running...
+Changing baud rate to 460800
+Changed.
+Configuring flash size...
+Flash will be erased from 0x00000000 to 0x00005fff...
+Flash will be erased from 0x00010000 to 0x00120fff...
+Flash will be erased from 0x00008000 to 0x00008fff...
+SHA digest in image updated
+Compressed 20720 bytes to 13187...
+Writing at 0x00000000... (100 %)
+Wrote 20720 bytes (13187 compressed) at 0x00000000 in 0.4 seconds (effective 470.2 kbit/s)...
+Hash of data verified.
+Compressed 1117520 bytes to 806403...
+Writing at 0x00010000... (2 %)
+Writing at 0x0001c3ed... (4 %)
+Writing at 0x00020c2c... (6 %)
+Writing at 0x00026a5a... (8 %)
+Writing at 0x0002b64a... (10 %)
+Writing at 0x0002f8cb... (12 %)
+Writing at 0x00033c7c... (14 %)
+Writing at 0x000388f8... (16 %)
+Writing at 0x0003cb25... (18 %)
+Writing at 0x00041ba5... (20 %)
+Writing at 0x00045d81... (22 %)
+Writing at 0x0004aec1... (24 %)
+Writing at 0x00055979... (26 %)
+Writing at 0x00059e04... (28 %)
+Writing at 0x0005e9e6... (30 %)
+Writing at 0x00062b4e... (32 %)
+Writing at 0x00066f5b... (34 %)
+Writing at 0x0006ba50... (36 %)
+Writing at 0x0006fdc0... (38 %)
+Writing at 0x00074172... (40 %)
+Writing at 0x00078659... (42 %)
+Writing at 0x0007cabc... (44 %)
+Writing at 0x00080eb8... (46 %)
+Writing at 0x0008533c... (48 %)
+Writing at 0x0008975d... (50 %)
+Writing at 0x0008dae0... (52 %)
+Writing at 0x00091f4b... (54 %)
+Writing at 0x0009639d... (56 %)
+Writing at 0x0009a7a3... (58 %)
+Writing at 0x0009ebab... (60 %)
+Writing at 0x000a2fe4... (62 %)
+Writing at 0x000b03f5... (64 %)
+Writing at 0x000b9d34... (66 %)
+Writing at 0x000c1cb2... (68 %)
+Writing at 0x000c7c2c... (70 %)
+Writing at 0x000ce602... (72 %)
+Writing at 0x000d5a0d... (74 %)
+Writing at 0x000daf3f... (76 %)
+Writing at 0x000e0471... (78 %)
+Writing at 0x000e5f92... (80 %)
+Writing at 0x000eb381... (82 %)
+Writing at 0x000f0890... (84 %)
+Writing at 0x000f5a85... (86 %)
+Writing at 0x000fb493... (88 %)
+Writing at 0x0010043d... (90 %)
+Writing at 0x00105623... (92 %)
+Writing at 0x0010ba79... (94 %)
+Writing at 0x00113aba... (96 %)
+Writing at 0x00119729... (98 %)
+Writing at 0x0011f2b0... (100 %)
+Wrote 1117520 bytes (806403 compressed) at 0x00010000 in 8.2 seconds (effective 1096.1 kbit/s)...
+Hash of data verified.
+Compressed 3072 bytes to 105...
+Writing at 0x00008000... (100 %)
+Wrote 3072 bytes (105 compressed) at 0x00008000 in 0.0 seconds (effective 528.2 kbit/s)...
+Hash of data verified.
+
+Leaving...
+Hard resetting via RTS pin...
+Done

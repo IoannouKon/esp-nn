@@ -1,0 +1,4 @@
+Static INT8 weights and activations, NCHW 1x3x224x224.
+https://huggingface.co/litert-community/MobileNet-v2/resolve/48e55de4765732640b9702c520999e4bf1a1f50f/mobilenet_v2_int8_channelwise.tflite
+Model SHA256 8ec776c5b4cd99a024f7dd3f2c9eced750d80f5ebeca6de7bc8021ecf922c9c3.
+The model card says the underlying weights license information was missing.

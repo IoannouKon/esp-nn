@@ -1,0 +1,80 @@
+CNN_MODEL_BEGIN name=neutral_control
+
+CNN_START cpu_mhz=240 model_bytes=29688 input_bytes=3072 output_bytes=10 arena=psram arena_cap=2097152 arena_used=29612 in_type=9 out_type=9
+
+CNN_RUN index=0 us=3081
+
+CNN_RUN index=1 us=3078
+
+CNN_RUN index=2 us=3077
+
+CNN_RUN index=3 us=3082
+
+CNN_RUN index=4 us=3077
+
+CNN_RUN index=5 us=3076
+
+CNN_RUN index=6 us=3081
+
+CNN_RUN index=7 us=3077
+
+CNN_RUN index=8 us=3077
+
+CNN_RUN index=9 us=3082
+
+CNN_RUN index=10 us=3077
+
+CNN_RUN index=11 us=3076
+
+CNN_RUN index=12 us=3076
+
+CNN_RUN index=13 us=3082
+
+CNN_RUN index=14 us=3077
+
+CNN_RUN index=15 us=3076
+
+CNN_RUN index=16 us=3081
+
+CNN_RUN index=17 us=3077
+
+CNN_RUN index=18 us=3077
+
+CNN_RUN index=19 us=3082
+
+CNN_RUN index=20 us=3076
+
+CNN_RUN index=21 us=3076
+
+CNN_RUN index=22 us=3082
+
+CNN_RUN index=23 us=3077
+
+CNN_RUN index=24 us=3077
+
+CNN_RUN index=25 us=3082
+
+CNN_RUN index=26 us=3076
+
+CNN_RUN index=27 us=3076
+
+CNN_RUN index=28 us=3077
+
+CNN_RUN index=29 us=3082
+
+CNN_OUTPUT bytes=10 hash_fnv1a=f0c6a398 stable=1 hex=fc0f1b31f31f0eea01dd
+
+CNN_VALIDATION index=1 hex=2b39ffe4b7d5c0e44c46
+
+CNN_VALIDATION index=2 hex=3d1d03fbc2f4beea5a25
+
+CNN_VALIDATION index=3 hex=350d15facfe5c7fa4703
+
+CNN_VALIDATION index=4 hex=e5e23128292b221edfd6
+
+CNN_VALIDATION index=5 hex=b02408340724351bb808
+
+CNN_VALIDATION index=6 hex=cc3af237e737160ed2f6
+
+CNN_MODEL_DONE name=neutral_control ok=1
+

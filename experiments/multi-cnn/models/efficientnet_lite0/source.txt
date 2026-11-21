@@ -1,0 +1,4 @@
+Google MediaPipe's ImageNet EfficientNet-Lite0 integer model.
+https://storage.googleapis.com/mediapipe-models/image_classifier/efficientnet_lite0/int8/latest/efficientnet_lite0.tflite?generation=1682480009628520
+Model SHA256 bc2ffe19c1118de0c0c2a9088992da5589722656e0fba81421385300a4a34b16.
+The external tensors are UINT8 and the main CNN uses INT8 arithmetic.

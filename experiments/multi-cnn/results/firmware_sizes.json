@@ -1,0 +1,188 @@
+{
+  "core": {
+    "stock": {
+      "flash_image": 1117040,
+      "sdkconfig_sha256": "4387f0cdcc6e7ce108caae0e6f1b39a73025a398e86d2a2d7c54612229262ff3",
+      "section_bytes": {
+        ".flash.text": 352994,
+        ".flash.rodata": 701828,
+        ".iram0.text": 51839,
+        ".dram0.data": 8948,
+        ".dram0.bss": 2200
+      },
+      "boot_elf_sha256_prefixes": {
+        "1": "6180ea6ff",
+        "2": "6180ea6ff"
+      }
+    },
+    "opt2": {
+      "flash_image": 1117632,
+      "sdkconfig_sha256": "4387f0cdcc6e7ce108caae0e6f1b39a73025a398e86d2a2d7c54612229262ff3",
+      "section_bytes": {
+        ".flash.text": 353646,
+        ".flash.rodata": 701764,
+        ".iram0.text": 51839,
+        ".dram0.data": 8948,
+        ".dram0.bss": 2200
+      },
+      "boot_elf_sha256_prefixes": {
+        "1": "2e12c806c",
+        "2": "2e12c806c"
+      }
+    },
+    "mean": {
+      "flash_image": 1117520,
+      "sdkconfig_sha256": "4387f0cdcc6e7ce108caae0e6f1b39a73025a398e86d2a2d7c54612229262ff3",
+      "section_bytes": {
+        ".flash.text": 353530,
+        ".flash.rodata": 701764,
+        ".iram0.text": 51839,
+        ".dram0.data": 8948,
+        ".dram0.bss": 2200
+      },
+      "boot_elf_sha256_prefixes": {
+        "1": "12d698102",
+        "2": "12d698102"
+      }
+    },
+    "combined": {
+      "flash_image": 1118352,
+      "sdkconfig_sha256": "4387f0cdcc6e7ce108caae0e6f1b39a73025a398e86d2a2d7c54612229262ff3",
+      "section_bytes": {
+        ".flash.text": 354182,
+        ".flash.rodata": 701956,
+        ".iram0.text": 51839,
+        ".dram0.data": 8948,
+        ".dram0.bss": 2200
+      },
+      "boot_elf_sha256_prefixes": {
+        "1": "be6b67edd",
+        "2": "be6b67edd"
+      }
+    }
+  },
+  "mobiles": {
+    "stock": {
+      "flash_image": 7656784,
+      "sdkconfig_sha256": "4387f0cdcc6e7ce108caae0e6f1b39a73025a398e86d2a2d7c54612229262ff3",
+      "section_bytes": {
+        ".flash.text": 352986,
+        ".flash.rodata": 7241572,
+        ".iram0.text": 51839,
+        ".dram0.data": 8948,
+        ".dram0.bss": 2200
+      },
+      "boot_elf_sha256_prefixes": {
+        "1": "d9bf27bf2",
+        "2": "d9bf27bf2"
+      }
+    },
+    "opt2": {
+      "flash_image": 7657360,
+      "sdkconfig_sha256": "4387f0cdcc6e7ce108caae0e6f1b39a73025a398e86d2a2d7c54612229262ff3",
+      "section_bytes": {
+        ".flash.text": 353638,
+        ".flash.rodata": 7241508,
+        ".iram0.text": 51839,
+        ".dram0.data": 8948,
+        ".dram0.bss": 2200
+      },
+      "boot_elf_sha256_prefixes": {
+        "1": "8715d7901",
+        "2": "8715d7901"
+      }
+    },
+    "mean": {
+      "flash_image": 7657248,
+      "sdkconfig_sha256": "4387f0cdcc6e7ce108caae0e6f1b39a73025a398e86d2a2d7c54612229262ff3",
+      "section_bytes": {
+        ".flash.text": 353522,
+        ".flash.rodata": 7241508,
+        ".iram0.text": 51839,
+        ".dram0.data": 8948,
+        ".dram0.bss": 2200
+      },
+      "boot_elf_sha256_prefixes": {
+        "1": "791a15fe9",
+        "2": "791a15fe9"
+      }
+    },
+    "combined": {
+      "flash_image": 7658096,
+      "sdkconfig_sha256": "4387f0cdcc6e7ce108caae0e6f1b39a73025a398e86d2a2d7c54612229262ff3",
+      "section_bytes": {
+        ".flash.text": 354174,
+        ".flash.rodata": 7241700,
+        ".iram0.text": 51839,
+        ".dram0.data": 8948,
+        ".dram0.bss": 2200
+      },
+      "boot_elf_sha256_prefixes": {
+        "1": "15f7a8458",
+        "2": "15f7a8458"
+      }
+    }
+  },
+  "lite0": {
+    "stock": {
+      "flash_image": 6057920,
+      "sdkconfig_sha256": "4387f0cdcc6e7ce108caae0e6f1b39a73025a398e86d2a2d7c54612229262ff3",
+      "section_bytes": {
+        ".flash.text": 352422,
+        ".flash.rodata": 5643284,
+        ".iram0.text": 51839,
+        ".dram0.data": 8948,
+        ".dram0.bss": 2200
+      },
+      "boot_elf_sha256_prefixes": {
+        "1": "5291b104d",
+        "2": "5291b104d"
+      }
+    },
+    "opt2": {
+      "flash_image": 6058512,
+      "sdkconfig_sha256": "4387f0cdcc6e7ce108caae0e6f1b39a73025a398e86d2a2d7c54612229262ff3",
+      "section_bytes": {
+        ".flash.text": 353074,
+        ".flash.rodata": 5643220,
+        ".iram0.text": 51839,
+        ".dram0.data": 8948,
+        ".dram0.bss": 2200
+      },
+      "boot_elf_sha256_prefixes": {
+        "1": "704b29f3e",
+        "2": "704b29f3e"
+      }
+    },
+    "mean": {
+      "flash_image": 6058400,
+      "sdkconfig_sha256": "4387f0cdcc6e7ce108caae0e6f1b39a73025a398e86d2a2d7c54612229262ff3",
+      "section_bytes": {
+        ".flash.text": 352958,
+        ".flash.rodata": 5643220,
+        ".iram0.text": 51839,
+        ".dram0.data": 8948,
+        ".dram0.bss": 2200
+      },
+      "boot_elf_sha256_prefixes": {
+        "1": "7a96cbffa",
+        "2": "7a96cbffa"
+      }
+    },
+    "combined": {
+      "flash_image": 6059248,
+      "sdkconfig_sha256": "4387f0cdcc6e7ce108caae0e6f1b39a73025a398e86d2a2d7c54612229262ff3",
+      "section_bytes": {
+        ".flash.text": 353610,
+        ".flash.rodata": 5643412,
+        ".iram0.text": 51839,
+        ".dram0.data": 8948,
+        ".dram0.bss": 2200
+      },
+      "boot_elf_sha256_prefixes": {
+        "1": "762a0e5b2",
+        "2": "762a0e5b2"
+      }
+    }
+  }
+}

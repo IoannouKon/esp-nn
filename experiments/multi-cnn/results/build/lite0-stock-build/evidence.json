@@ -1,0 +1,70 @@
+{
+  "firmware_bytes": 6057920,
+  "firmware_sha256": "9d4aa7ffe27e8bed1f70fa8a410c2c849c68acaad1f812c962c4c312ac007e84",
+  "elf_sha256": "5291b104d3576261c97365aad0c6119f5328c940e052f63b96c65a931b40f999",
+  "text_data_bss": [
+    405545,
+    5652264,
+    6526989
+  ],
+  "sdkconfig_sha256": "4387f0cdcc6e7ce108caae0e6f1b39a73025a398e86d2a2d7c54612229262ff3",
+  "firmware_blobs": {
+    "input_0.bin": {
+      "sha256": "43cda968cf3ddc50ecb37615801f7f7e8ba9ffa8f80c01a9b0e3fddcf8626ff6",
+      "embedded": true
+    },
+    "model_0.tflite": {
+      "sha256": "bc2ffe19c1118de0c0c2a9088992da5589722656e0fba81421385300a4a34b16",
+      "embedded": true
+    }
+  },
+  "app_sources": {
+    "CMakeLists.txt": {
+      "bytes": 766,
+      "sha256": "5e4603b44aa374067ebc8bd261938d7e3469e9061409cf41237b91b25d3a9be4"
+    },
+    "idf_component.yml": {
+      "bytes": 109,
+      "sha256": "8dd5e0a58f565381450ece0553e291166d76bde4cdbaac538ca99d96a0e176dd"
+    },
+    "input_0.bin": {
+      "bytes": 150528,
+      "sha256": "43cda968cf3ddc50ecb37615801f7f7e8ba9ffa8f80c01a9b0e3fddcf8626ff6"
+    },
+    "main.cc": {
+      "bytes": 10798,
+      "sha256": "6081976f1e365578b4f4e5c84abd8171b25a49438d3bcab34ef121a88642fc5f"
+    },
+    "mean_bridge.cc": {
+      "bytes": 7814,
+      "sha256": "e427c3da80edc42ba47f2181857c6d7ada411dc9692e0fae522097526f2faba9"
+    },
+    "mean_bridge.h": {
+      "bytes": 107,
+      "sha256": "707bb934aa60ea7cacdc307f2d16b61658b8c8d2185bdfc7c5bcbffc6edc9391"
+    },
+    "model_0.tflite": {
+      "bytes": 5434517,
+      "sha256": "bc2ffe19c1118de0c0c2a9088992da5589722656e0fba81421385300a4a34b16"
+    },
+    "probe.cc": {
+      "bytes": 2410,
+      "sha256": "3f422b8e926708995b6fa2406f2501396a5c6a0eef2d97059592558e9f95ad1c"
+    },
+    "suite_models.cmake": {
+      "bytes": 44,
+      "sha256": "d4372c3acdaa573bcadc97f8f1500c3ea014e74d02b876a12bde4174f688c076"
+    },
+    "suite_models.h": {
+      "bytes": 422,
+      "sha256": "2a4bee717d404055c83c3db7f12d765621f7600fc53f3b5cdf77189fd6a8186e"
+    }
+  },
+  "kernel_sources": {
+    "src/common/esp_nn_mean_ansi.c": "028c529dde3ecd0c6c6e8c3b2966df2f8647aad23c60b69cca94707b824c03bf",
+    "src/common/esp_nn_mean_s8_esp32s3.c": "b65b30a09254e22465fef1441bcdaa721a3fd7c236d11d233f3186383eeec5e5",
+    "src/common/esp_nn_mean_s8_riscv_pie.c": "5bac756393afa99796e161b88af87e15363658ce1b91b92c1aac225144b273ee",
+    "src/pooling/esp_nn_max_pool_s8_esp32s3.S": "ead67748134fb46207c207410746d6d82dd426d98aaffe56acff115136fefd1c",
+    "src/pooling/esp_nn_max_pool_s8_esp32s3.c": "7a2d38a6d88595e2aa375e3338a6d433cfcfce5a4f806223a7a4a65754c582a6"
+  }
+}

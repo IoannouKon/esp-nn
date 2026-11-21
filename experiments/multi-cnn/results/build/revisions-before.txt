@@ -1,0 +1,6 @@
+ace42ac7721119cd543fc40ffe719e601fa8f20f
+edb003c6770491abb74766835f4c803b9d4f5a20
+4bfa49c64a932f700688c2007a01d8ea1fa102ac
+4bfa49c64a932f700688c2007a01d8ea1fa102ac
+ M src/pooling/esp_nn_max_pool_s8_esp32s3.S
+ M src/pooling/esp_nn_max_pool_s8_esp32s3.c

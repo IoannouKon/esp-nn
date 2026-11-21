@@ -1,0 +1,223 @@
+2026-11-20 23:38:18.437004: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2026-11-20 23:38:20.993118: W external/local_tsl/tsl/framework/cpu_allocator_impl.cc:83] Allocation of 147456000 exceeds 10% of free system memory.
+2026-11-20 23:38:21.137845: W external/local_tsl/tsl/framework/cpu_allocator_impl.cc:83] Allocation of 147456000 exceeds 10% of free system memory.
+94/94 - 2s - loss: 1.9843 - accuracy: 0.2858 - 2s/epoch - 23ms/step
+/tmp/espnn-cnn-train/lib/python3.10/site-packages/tensorflow/lite/python/convert.py:953: UserWarning: Statistics for quantized inputs were expected, but not specified; continuing anyway.
+  warnings.warn(
+2026-11-20 23:38:24.260653: W tensorflow/compiler/mlir/lite/python/tf_tfl_flatbuffer_helpers.cc:378] Ignored output_format.
+2026-11-20 23:38:24.260681: W tensorflow/compiler/mlir/lite/python/tf_tfl_flatbuffer_helpers.cc:381] Ignored drop_control_dependency.
+2026-11-20 23:38:24.261213: I tensorflow/cc/saved_model/reader.cc:83] Reading SavedModel from: /tmp/tmpv894jnna
+2026-11-20 23:38:24.261941: I tensorflow/cc/saved_model/reader.cc:51] Reading meta graph with tags { serve }
+2026-11-20 23:38:24.261957: I tensorflow/cc/saved_model/reader.cc:146] Reading SavedModel debug info (if present) from: /tmp/tmpv894jnna
+2026-11-20 23:38:24.263294: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:388] MLIR V1 optimization pass is not enabled
+2026-11-20 23:38:24.264019: I tensorflow/cc/saved_model/loader.cc:233] Restoring SavedModel bundle.
+2026-11-20 23:38:24.295321: I tensorflow/cc/saved_model/loader.cc:217] Running initialization op on SavedModel bundle at path: /tmp/tmpv894jnna
+2026-11-20 23:38:24.305940: I tensorflow/cc/saved_model/loader.cc:316] SavedModel load for tags { serve }; Status: success: OK. Took 44728 microseconds.
+2026-11-20 23:38:24.324365: I tensorflow/compiler/mlir/tensorflow/utils/dump_mlir_util.cc:269] disabling MLIR crash reproducer, set env var `MLIR_CRASH_REPRODUCER_DIRECTORY` to enable.
+Summary on the non-converted ops:
+---------------------------------
+ * Accepted dialects: tfl, builtin, func
+ * Non-Converted Ops: 7, Total Ops 15, % non-converted = 46.67 %
+ * 7 ARITH ops
+
+- arith.constant:    7 occurrences  (f32: 6, i32: 1)
+
+
+
+  (f32: 2)
+  (f32: 1)
+  (f32: 1)
+  (f32: 1)
+fully_quantize: 0, inference_type: 6, input_inference_type: INT8, output_inference_type: INT8
+INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+GENERATED max3 model_size 29776 ops ['CONV_2D', 'MAX_POOL_2D', 'CONV_2D', 'RESHAPE', 'FULLY_CONNECTED']
+2026-11-20 23:38:24.689407: W external/local_tsl/tsl/framework/cpu_allocator_impl.cc:83] Allocation of 147456000 exceeds 10% of free system memory.
+2026-11-20 23:38:24.794928: W external/local_tsl/tsl/framework/cpu_allocator_impl.cc:83] Allocation of 147456000 exceeds 10% of free system memory.
+94/94 - 3s - loss: 1.9639 - accuracy: 0.2887 - 3s/epoch - 30ms/step
+/tmp/espnn-cnn-train/lib/python3.10/site-packages/tensorflow/lite/python/convert.py:953: UserWarning: Statistics for quantized inputs were expected, but not specified; continuing anyway.
+  warnings.warn(
+2026-11-20 23:38:28.518295: W tensorflow/compiler/mlir/lite/python/tf_tfl_flatbuffer_helpers.cc:378] Ignored output_format.
+2026-11-20 23:38:28.518317: W tensorflow/compiler/mlir/lite/python/tf_tfl_flatbuffer_helpers.cc:381] Ignored drop_control_dependency.
+2026-11-20 23:38:28.518476: I tensorflow/cc/saved_model/reader.cc:83] Reading SavedModel from: /tmp/tmp5n8d1vck
+2026-11-20 23:38:28.519750: I tensorflow/cc/saved_model/reader.cc:51] Reading meta graph with tags { serve }
+2026-11-20 23:38:28.519782: I tensorflow/cc/saved_model/reader.cc:146] Reading SavedModel debug info (if present) from: /tmp/tmp5n8d1vck
+2026-11-20 23:38:28.522417: I tensorflow/cc/saved_model/loader.cc:233] Restoring SavedModel bundle.
+2026-11-20 23:38:28.553914: I tensorflow/cc/saved_model/loader.cc:217] Running initialization op on SavedModel bundle at path: /tmp/tmp5n8d1vck
+2026-11-20 23:38:28.564707: I tensorflow/cc/saved_model/loader.cc:316] SavedModel load for tags { serve }; Status: success: OK. Took 46231 microseconds.
+Summary on the non-converted ops:
+---------------------------------
+ * Accepted dialects: tfl, builtin, func
+ * Non-Converted Ops: 7, Total Ops 15, % non-converted = 46.67 %
+ * 7 ARITH ops
+
+- arith.constant:    7 occurrences  (f32: 6, i32: 1)
+
+
+
+  (f32: 2)
+  (f32: 1)
+  (f32: 1)
+  (f32: 1)
+fully_quantize: 0, inference_type: 6, input_inference_type: INT8, output_inference_type: INT8
+GENERATED max5 model_size 29776 ops ['CONV_2D', 'MAX_POOL_2D', 'CONV_2D', 'RESHAPE', 'FULLY_CONNECTED']
+2026-11-20 23:38:28.815109: W external/local_tsl/tsl/framework/cpu_allocator_impl.cc:83] Allocation of 147456000 exceeds 10% of free system memory.
+94/94 - 1s - loss: 2.2553 - accuracy: 0.1003 - 1s/epoch - 16ms/step
+/tmp/espnn-cnn-train/lib/python3.10/site-packages/tensorflow/lite/python/convert.py:953: UserWarning: Statistics for quantized inputs were expected, but not specified; continuing anyway.
+  warnings.warn(
+2026-11-20 23:38:31.539319: W tensorflow/compiler/mlir/lite/python/tf_tfl_flatbuffer_helpers.cc:378] Ignored output_format.
+2026-11-20 23:38:31.539350: W tensorflow/compiler/mlir/lite/python/tf_tfl_flatbuffer_helpers.cc:381] Ignored drop_control_dependency.
+2026-11-20 23:38:31.539511: I tensorflow/cc/saved_model/reader.cc:83] Reading SavedModel from: /tmp/tmp15bohutg
+2026-11-20 23:38:31.540483: I tensorflow/cc/saved_model/reader.cc:51] Reading meta graph with tags { serve }
+2026-11-20 23:38:31.540515: I tensorflow/cc/saved_model/reader.cc:146] Reading SavedModel debug info (if present) from: /tmp/tmp15bohutg
+2026-11-20 23:38:31.542776: I tensorflow/cc/saved_model/loader.cc:233] Restoring SavedModel bundle.
+2026-11-20 23:38:31.583961: I tensorflow/cc/saved_model/loader.cc:217] Running initialization op on SavedModel bundle at path: /tmp/tmp15bohutg
+2026-11-20 23:38:31.597498: I tensorflow/cc/saved_model/loader.cc:316] SavedModel load for tags { serve }; Status: success: OK. Took 57987 microseconds.
+Summary on the non-converted ops:
+---------------------------------
+ * Accepted dialects: tfl, builtin, func
+ * Non-Converted Ops: 11, Total Ops 29, % non-converted = 37.93 %
+ * 11 ARITH ops
+
+- arith.constant:   11 occurrences  (f32: 6, i32: 5)
+
+
+
+  (f32: 1)
+  (i32: 1)
+  (f32: 2)
+  (f32: 1)
+  (i32: 2)
+  (f32: 1)
+
+  (i32: 1)
+  (i32: 2)
+  (f32: 2)
+  (i32: 1)
+fully_quantize: 0, inference_type: 6, input_inference_type: INT8, output_inference_type: INT8
+WARNING: Attempting to use a delegate that only supports static-sized tensors with a graph that has dynamic-sized tensors (tensor#22 is a dynamic-sized tensor).
+GENERATED mean_only model_size 11704 ops ['CONV_2D', 'CONV_2D', 'MEAN', 'SHAPE', 'GATHER', 'REDUCE_PROD', 'CONCATENATION', 'GATHER', 'REDUCE_PROD', 'PACK', 'RESHAPE', 'FULLY_CONNECTED', 'RESHAPE', 'ADD']
+94/94 - 3s - loss: 2.2336 - accuracy: 0.0982 - 3s/epoch - 36ms/step
+/tmp/espnn-cnn-train/lib/python3.10/site-packages/tensorflow/lite/python/convert.py:953: UserWarning: Statistics for quantized inputs were expected, but not specified; continuing anyway.
+  warnings.warn(
+2026-11-20 23:38:36.254188: W tensorflow/compiler/mlir/lite/python/tf_tfl_flatbuffer_helpers.cc:378] Ignored output_format.
+2026-11-20 23:38:36.254213: W tensorflow/compiler/mlir/lite/python/tf_tfl_flatbuffer_helpers.cc:381] Ignored drop_control_dependency.
+2026-11-20 23:38:36.254370: I tensorflow/cc/saved_model/reader.cc:83] Reading SavedModel from: /tmp/tmpeb_gv6ym
+2026-11-20 23:38:36.255482: I tensorflow/cc/saved_model/reader.cc:51] Reading meta graph with tags { serve }
+2026-11-20 23:38:36.255500: I tensorflow/cc/saved_model/reader.cc:146] Reading SavedModel debug info (if present) from: /tmp/tmpeb_gv6ym
+2026-11-20 23:38:36.258407: I tensorflow/cc/saved_model/loader.cc:233] Restoring SavedModel bundle.
+2026-11-20 23:38:36.289404: I tensorflow/cc/saved_model/loader.cc:217] Running initialization op on SavedModel bundle at path: /tmp/tmpeb_gv6ym
+2026-11-20 23:38:36.300037: I tensorflow/cc/saved_model/loader.cc:316] SavedModel load for tags { serve }; Status: success: OK. Took 45668 microseconds.
+Summary on the non-converted ops:
+---------------------------------
+ * Accepted dialects: tfl, builtin, func
+ * Non-Converted Ops: 11, Total Ops 31, % non-converted = 35.48 %
+ * 11 ARITH ops
+
+- arith.constant:   11 occurrences  (f32: 6, i32: 5)
+
+
+
+  (f32: 1)
+  (i32: 1)
+  (f32: 2)
+  (f32: 1)
+  (i32: 2)
+  (f32: 2)
+  (f32: 1)
+
+  (i32: 1)
+  (i32: 2)
+  (f32: 2)
+  (i32: 1)
+fully_quantize: 0, inference_type: 6, input_inference_type: INT8, output_inference_type: INT8
+GENERATED both model_size 12024 ops ['CONV_2D', 'MAX_POOL_2D', 'CONV_2D', 'MAX_POOL_2D', 'MEAN', 'SHAPE', 'GATHER', 'REDUCE_PROD', 'CONCATENATION', 'GATHER', 'REDUCE_PROD', 'PACK', 'RESHAPE', 'FULLY_CONNECTED', 'RESHAPE', 'ADD']
+94/94 - 2s - loss: 2.2914 - accuracy: 0.0979 - 2s/epoch - 26ms/step
+/tmp/espnn-cnn-train/lib/python3.10/site-packages/tensorflow/lite/python/convert.py:953: UserWarning: Statistics for quantized inputs were expected, but not specified; continuing anyway.
+  warnings.warn(
+2026-11-20 23:38:40.271096: W tensorflow/compiler/mlir/lite/python/tf_tfl_flatbuffer_helpers.cc:378] Ignored output_format.
+2026-11-20 23:38:40.271131: W tensorflow/compiler/mlir/lite/python/tf_tfl_flatbuffer_helpers.cc:381] Ignored drop_control_dependency.
+2026-11-20 23:38:40.271383: I tensorflow/cc/saved_model/reader.cc:83] Reading SavedModel from: /tmp/tmps3_wk3tw
+2026-11-20 23:38:40.273356: I tensorflow/cc/saved_model/reader.cc:51] Reading meta graph with tags { serve }
+2026-11-20 23:38:40.273395: I tensorflow/cc/saved_model/reader.cc:146] Reading SavedModel debug info (if present) from: /tmp/tmps3_wk3tw
+2026-11-20 23:38:40.276745: I tensorflow/cc/saved_model/loader.cc:233] Restoring SavedModel bundle.
+2026-11-20 23:38:40.313771: I tensorflow/cc/saved_model/loader.cc:217] Running initialization op on SavedModel bundle at path: /tmp/tmps3_wk3tw
+2026-11-20 23:38:40.325924: I tensorflow/cc/saved_model/loader.cc:316] SavedModel load for tags { serve }; Status: success: OK. Took 54542 microseconds.
+Summary on the non-converted ops:
+---------------------------------
+ * Accepted dialects: tfl, builtin, func
+ * Non-Converted Ops: 13, Total Ops 33, % non-converted = 39.39 %
+ * 13 ARITH ops
+
+- arith.constant:   13 occurrences  (f32: 8, i32: 5)
+
+
+
+  (f32: 1)
+  (i32: 1)
+  (f32: 2)
+  (f32: 1)
+  (f32: 1)
+  (i32: 2)
+  (f32: 1)
+  (f32: 1)
+
+  (i32: 1)
+  (i32: 2)
+  (f32: 2)
+  (i32: 1)
+fully_quantize: 0, inference_type: 6, input_inference_type: INT8, output_inference_type: INT8
+GENERATED depthwise_both model_size 9432 ops ['CONV_2D', 'MAX_POOL_2D', 'DEPTHWISE_CONV_2D', 'CONV_2D', 'MEAN', 'SHAPE', 'GATHER', 'REDUCE_PROD', 'CONCATENATION', 'GATHER', 'REDUCE_PROD', 'PACK', 'RESHAPE', 'FULLY_CONNECTED', 'RESHAPE', 'ADD']
+94/94 - 1s - loss: 2.0514 - accuracy: 0.2517 - 1s/epoch - 15ms/step
+/tmp/espnn-cnn-train/lib/python3.10/site-packages/tensorflow/lite/python/convert.py:953: UserWarning: Statistics for quantized inputs were expected, but not specified; continuing anyway.
+  warnings.warn(
+2026-11-20 23:38:42.868150: W tensorflow/compiler/mlir/lite/python/tf_tfl_flatbuffer_helpers.cc:378] Ignored output_format.
+2026-11-20 23:38:42.868174: W tensorflow/compiler/mlir/lite/python/tf_tfl_flatbuffer_helpers.cc:381] Ignored drop_control_dependency.
+2026-11-20 23:38:42.868337: I tensorflow/cc/saved_model/reader.cc:83] Reading SavedModel from: /tmp/tmpzyjz17wp
+2026-11-20 23:38:42.869248: I tensorflow/cc/saved_model/reader.cc:51] Reading meta graph with tags { serve }
+2026-11-20 23:38:42.869265: I tensorflow/cc/saved_model/reader.cc:146] Reading SavedModel debug info (if present) from: /tmp/tmpzyjz17wp
+2026-11-20 23:38:42.871728: I tensorflow/cc/saved_model/loader.cc:233] Restoring SavedModel bundle.
+2026-11-20 23:38:42.902408: I tensorflow/cc/saved_model/loader.cc:217] Running initialization op on SavedModel bundle at path: /tmp/tmpzyjz17wp
+2026-11-20 23:38:42.912341: I tensorflow/cc/saved_model/loader.cc:316] SavedModel load for tags { serve }; Status: success: OK. Took 44004 microseconds.
+Summary on the non-converted ops:
+---------------------------------
+ * Accepted dialects: tfl, builtin, func
+ * Non-Converted Ops: 7, Total Ops 15, % non-converted = 46.67 %
+ * 7 ARITH ops
+
+- arith.constant:    7 occurrences  (f32: 6, i32: 1)
+
+
+
+  (f32: 1)
+  (f32: 2)
+  (f32: 1)
+  (f32: 1)
+fully_quantize: 0, inference_type: 6, input_inference_type: INT8, output_inference_type: INT8
+GENERATED avg_control model_size 29904 ops ['CONV_2D', 'CONV_2D', 'AVERAGE_POOL_2D', 'RESHAPE', 'FULLY_CONNECTED']
+94/94 - 1s - loss: 2.0261 - accuracy: 0.2637 - 1s/epoch - 16ms/step
+/tmp/espnn-cnn-train/lib/python3.10/site-packages/tensorflow/lite/python/convert.py:953: UserWarning: Statistics for quantized inputs were expected, but not specified; continuing anyway.
+  warnings.warn(
+2026-11-20 23:38:45.883604: W tensorflow/compiler/mlir/lite/python/tf_tfl_flatbuffer_helpers.cc:378] Ignored output_format.
+2026-11-20 23:38:45.883626: W tensorflow/compiler/mlir/lite/python/tf_tfl_flatbuffer_helpers.cc:381] Ignored drop_control_dependency.
+2026-11-20 23:38:45.883786: I tensorflow/cc/saved_model/reader.cc:83] Reading SavedModel from: /tmp/tmpw2n6_g0q
+2026-11-20 23:38:45.884587: I tensorflow/cc/saved_model/reader.cc:51] Reading meta graph with tags { serve }
+2026-11-20 23:38:45.884612: I tensorflow/cc/saved_model/reader.cc:146] Reading SavedModel debug info (if present) from: /tmp/tmpw2n6_g0q
+2026-11-20 23:38:45.886741: I tensorflow/cc/saved_model/loader.cc:233] Restoring SavedModel bundle.
+2026-11-20 23:38:45.921406: I tensorflow/cc/saved_model/loader.cc:217] Running initialization op on SavedModel bundle at path: /tmp/tmpw2n6_g0q
+2026-11-20 23:38:45.932626: I tensorflow/cc/saved_model/loader.cc:316] SavedModel load for tags { serve }; Status: success: OK. Took 48841 microseconds.
+Summary on the non-converted ops:
+---------------------------------
+ * Accepted dialects: tfl, builtin, func
+ * Non-Converted Ops: 7, Total Ops 14, % non-converted = 50.00 %
+ * 7 ARITH ops
+
+- arith.constant:    7 occurrences  (f32: 6, i32: 1)
+
+
+
+  (f32: 2)
+  (f32: 1)
+  (f32: 1)
+fully_quantize: 0, inference_type: 6, input_inference_type: INT8, output_inference_type: INT8
+GENERATED neutral_control model_size 29688 ops ['CONV_2D', 'CONV_2D', 'RESHAPE', 'FULLY_CONNECTED']

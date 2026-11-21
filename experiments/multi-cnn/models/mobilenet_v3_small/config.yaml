@@ -1,0 +1,23 @@
+input:
+  shape: [1, 3, 224, 224]
+  dtype: float32
+  range: [0.0, 1.0]
+  color_space: RGB
+  layout: NCHW
+  preprocessing:
+    - resize: 232
+    - center_crop: [224, 224]
+    - to_tensor
+    - normalize: { mean: [0.485, 0.456, 0.406], std: [0.229, 0.224, 0.225] }
+
+output:
+  shape: [1, 1000]
+  dtype: int8
+  quantization:
+    scale: 0.16559289395809174
+    zero_point: -14
+  format: "Per-class logits over 1000 ImageNet-1k classes (int8; dequantize before softmax)"
+  postprocessing:
+    - dequantize: "(int8_value - zero_point) * scale"
+    - softmax: true
+    - top_k: 5

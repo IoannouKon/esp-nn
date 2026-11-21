@@ -1,0 +1,5 @@
+Historical static INT8 release, NCHW 1x3x224x224.
+https://huggingface.co/litert-community/MobileNet-v3-small/resolve/77f13855abb1d843015ff3605e5748b960ffe7dd/mobilenet_v3_small_int8_channelwise.tflite
+Model SHA256 b07b0db7ecce321db4c6b729f035c76d3ea5df9ccb1e5f0535af5a4ad2325efd.
+The provider withdrew this export after observing degraded classification accuracy.
+The Arm mixed-precision alternative used float activations and was not selected.
