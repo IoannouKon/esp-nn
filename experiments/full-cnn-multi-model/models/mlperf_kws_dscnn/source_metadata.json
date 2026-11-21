@@ -1,0 +1,16 @@
+{
+  "name": "mlperf_kws_dscnn",
+  "title": "MLPerf Tiny Keyword Spotting \u2014 DS-CNN (CNN over audio features)",
+  "source_repo": "mlcommons/tiny",
+  "source_ref": "e59b2f227eb56265dfe4c290e1aa32095075ec96",
+  "source_path": "benchmark/training/keyword_spotting/trained_models/kws_ref_model.tflite",
+  "url": "https://raw.githubusercontent.com/mlcommons/tiny/e59b2f227eb56265dfe4c290e1aa32095075ec96/benchmark/training/keyword_spotting/trained_models/kws_ref_model.tflite",
+  "github_url": "https://github.com/mlcommons/tiny/blob/e59b2f227eb56265dfe4c290e1aa32095075ec96/benchmark/training/keyword_spotting/trained_models/kws_ref_model.tflite",
+  "expected_size": 53936,
+  "sha256": "aeea436800704fce17b17292e4412630ad856e9d777c044c64ef748a880bd0ae",
+  "tier": "core",
+  "license_note": "Respect upstream LICENSE; external model weights are downloaded on agent host",
+  "input_policy": "deterministic INT8 random raw input; latency/correctness benchmark only; no accuracy measured",
+  "actual_sha256": "aeea436800704fce17b17292e4412630ad856e9d777c044c64ef748a880bd0ae",
+  "checked_published_sha256": true
+}

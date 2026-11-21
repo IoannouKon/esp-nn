@@ -1,0 +1,2 @@
+   text	   data	    bss	    dec	    hex	filename
+ 407057	 711080	1546261	2664398	 28a7ce	/home/kostis/Desktop/ESP-NN/multi-cnn-run/combined/app/build-probe/espnn_multi_cnn.elf

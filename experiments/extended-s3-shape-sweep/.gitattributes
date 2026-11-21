@@ -1,0 +1,6 @@
+# Keep verbatim serial records, including carriage returns and terminal escapes.
+results/**/*.log -text -diff
+results/*.log -text -diff
+results/*.patch -text -whitespace
+results/*.diff -text -whitespace
+results/analysis/comparison.csv -text whitespace=cr-at-eol

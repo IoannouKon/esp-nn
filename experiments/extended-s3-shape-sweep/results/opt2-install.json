@@ -1,0 +1,12 @@
+{
+  "repo": "/home/kostis/Desktop/ESP-NN/extended-shape-run-1/opt2/esp-nn",
+  "git_sha": "edb003c6770491abb74766835f4c803b9d4f5a20",
+  "benchmark_files": {
+    "bench_app/main/bench_main.c": "40dd02a09b6bc82e121d232bdc7cb30cf3a3fdc38249b4e2f0f02d69311a09d6",
+    "bench_app/main/CMakeLists.txt": "a3c6cca29b24f5f8895b25297fc42734fc72c38766cdd55d5600adbad599e229",
+    "bench_app/main/bench_extended_mean.c": "de2006fa9f845cc3445c0e1ddc02584e206e9ea6cd5e3588392be30fb4e92e6e",
+    "bench_app/main/bench_extended_pool.c": "459905af2c49638369d8c50dbf2c91865da5963e0ea2344615443995ba3798db"
+  },
+  "untouched_harness_sha256": "7810ac79d45b140708f7c7867d7c6e0d6d5618206b43c185ea3e8b9c95987f44",
+  "manifest_sha256": "a8840f3893a4239445db50f8e4745614eaca71a5cd6e3d3105a08d8541deb9f4"
+}

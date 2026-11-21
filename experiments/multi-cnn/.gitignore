@@ -1,0 +1,4 @@
+/results/build/**/*.elf
+/results/build/**/espnn_multi_cnn.bin
+/results/diagnostics/*.elf
+/results/diagnostics/espnn_multi_cnn.bin

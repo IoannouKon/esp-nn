@@ -1,0 +1,16 @@
+4200819c 0000001a T RegisterEspNnGlobalMean()
+42048574 00000009 T __wrap__Unwind_DeleteException
+42048568 00000009 T __wrap__Unwind_Resume
+4204858c 00000009 T __wrap___cxa_allocate_exception
+42048598 00000009 T __wrap___cxa_throw
+42048580 00000009 T __wrap___gxx_personality_v0
+3c5bf7d1 D _binary_input_0_bin_end
+3c59abd1 D _binary_input_0_bin_start
+3c59abcd D _binary_model_0_tflite_end
+3c06bf38 D _binary_model_0_tflite_start
+42053c28 0000015a T esp_nn_max_pool_s8_ansi
+42041c64 0000020c T esp_nn_max_pool_s8_esp32s3
+42053dd4 0000034b T esp_nn_max_pool_s8_esp32s3_asm
+42054120 000000ac T esp_nn_max_pool_s8_esp32s3_sliding_row_asm
+42039e6c 0000059e T esp_nn_mean_nhwc_s8_esp32s3
+42053dac 00000028 T esp_nn_mean_s8_16ch_qacc

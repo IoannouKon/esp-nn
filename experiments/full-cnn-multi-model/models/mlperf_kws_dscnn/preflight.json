@@ -1,0 +1,39 @@
+{
+  "name": "mlperf_kws_dscnn",
+  "model_bytes": 53936,
+  "input_shape": [
+    1,
+    49,
+    10,
+    1
+  ],
+  "output_shape": [
+    1,
+    12
+  ],
+  "input_dtype": "int8",
+  "output_dtype": "int8",
+  "ops": [
+    "CONV_2D",
+    "DEPTHWISE_CONV_2D",
+    "CONV_2D",
+    "DEPTHWISE_CONV_2D",
+    "CONV_2D",
+    "DEPTHWISE_CONV_2D",
+    "CONV_2D",
+    "DEPTHWISE_CONV_2D",
+    "CONV_2D",
+    "AVERAGE_POOL_2D",
+    "RESHAPE",
+    "FULLY_CONNECTED",
+    "SOFTMAX"
+  ],
+  "pools": [],
+  "means": [],
+  "model_sha256": "aeea436800704fce17b17292e4412630ad856e9d777c044c64ef748a880bd0ae",
+  "input_sha256": "dae3e297eabf2d8cdf8918b5d9a38083142d0b7a5f38185a4f55f9c76f4f3cfc",
+  "host_output_sha256": "048f67162d8b80be39f64b2e1d58d8eb775c7c17499acb993ae2c0e46eb4fb7e",
+  "host_output_hex": "80808080808080808080807f",
+  "host_error": null,
+  "caveat": "Eligible by shape is NOT runtime dispatch proof; validate alignment, tensor placement and call path on board."
+}

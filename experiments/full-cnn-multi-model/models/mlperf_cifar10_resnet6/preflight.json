@@ -1,0 +1,51 @@
+{
+  "name": "mlperf_cifar10_resnet6",
+  "model_bytes": 796880,
+  "input_shape": [
+    1,
+    32,
+    32,
+    3
+  ],
+  "output_shape": [
+    1,
+    10
+  ],
+  "input_dtype": "int8",
+  "output_dtype": "int8",
+  "ops": [
+    "CONV_2D",
+    "CONV_2D",
+    "CONV_2D",
+    "ADD",
+    "CONV_2D",
+    "CONV_2D",
+    "CONV_2D",
+    "ADD",
+    "CONV_2D",
+    "CONV_2D",
+    "ADD",
+    "CONV_2D",
+    "CONV_2D",
+    "ADD",
+    "CONV_2D",
+    "CONV_2D",
+    "CONV_2D",
+    "ADD",
+    "CONV_2D",
+    "CONV_2D",
+    "ADD",
+    "AVERAGE_POOL_2D",
+    "RESHAPE",
+    "FULLY_CONNECTED",
+    "SOFTMAX"
+  ],
+  "pools": [],
+  "means": [],
+  "model_sha256": "5c7e4053e5a941212ae4f00f82f1a790905cfb70489283af3d8f02ea8b917453",
+  "input_sha256": "8e8c834bd5b38b8e63cbf6f03936a29c02d8b98510a419160940021e79618b91",
+  "host_output_sha256": "73e88ba1ab000ad20c2271720665ba76226e4e63b2ecbc34b00df9a16bb9bf75",
+  "host_output_hex": "8080e1039d8080808080",
+  "host_error": null,
+  "caveat": "Eligible by shape is NOT runtime dispatch proof; validate alignment, tensor placement and call path on board."
+}

@@ -1,0 +1,1 @@
+42034c60 000003b6 T esp_nn_mean_nhwc_s8_esp32s3

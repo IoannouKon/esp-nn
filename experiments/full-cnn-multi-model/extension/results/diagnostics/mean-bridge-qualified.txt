@@ -1,0 +1,2 @@
+MEAN_STRESS_DONE tested=7704 guard_rejected=936 compared=177048 mismatches=0
+MEAN_STRESS_DONE tested=7704 guard_rejected=936 compared=177048 mismatches=0

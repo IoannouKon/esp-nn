@@ -1,0 +1,3 @@
+42041cac <esp_nn_max_pool_s8_esp32s3>:
+42041cac:	00c136        	entry	a1, 96
+4203a0a0 <esp_nn_mean_nhwc_s8_esp32s3>:

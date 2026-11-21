@@ -1,0 +1,65 @@
+stock opt2 {'WIN': 5, 'NEUTRAL': 7}
+mnist_fixed 2923.5 2672.0 WIN 
+max3 3378.0 3140.0 WIN 
+max5 3527.0 3148.5 WIN 
+mean_only 3277.75 3285.75 NEUTRAL 
+both 3779.25 3500.75 WIN 
+depthwise_both 5291.25 5155.5 WIN 
+avg_control 3476.0 3448.5 NEUTRAL 
+neutral_control 3091.0 3086.25 NEUTRAL 
+person_detection 59468.0 59347.5 NEUTRAL 
+mobilenet_v2 2117536.0 2116720.5 NEUTRAL 
+mobilenet_v3_small 616681.5 616694.0 NEUTRAL 
+efficientnet_lite0 3001627.0 3001699.0 NEUTRAL 
+stock mean {'NEUTRAL': 6, 'INCONCLUSIVE': 3, 'LOSS': 2, 'WIN': 1}
+mnist_fixed 2923.5 2948.0 NEUTRAL 
+max3 3378.0 3420.0 INCONCLUSIVE threshold crossed without a targeted path
+max5 3527.0 3569.0 INCONCLUSIVE threshold crossed without a targeted path
+mean_only 3277.75 3353.0 LOSS 
+both 3779.25 3882.0 LOSS 
+depthwise_both 5291.25 5228.0 WIN 
+avg_control 3476.0 3400.0 INCONCLUSIVE threshold crossed without a targeted path
+neutral_control 3091.0 3077.0 NEUTRAL 
+person_detection 59468.0 59282.5 NEUTRAL 
+mobilenet_v2 2117536.0 2116565.0 NEUTRAL 
+mobilenet_v3_small 616681.5 617015.0 NEUTRAL 
+efficientnet_lite0 3001627.0 3001465.5 NEUTRAL 
+stock combined {'WIN': 5, 'NEUTRAL': 5, 'INCONCLUSIVE': 2}
+mnist_fixed 2923.5 2616.0 WIN 
+max3 3378.0 3125.0 WIN 
+max5 3527.0 3133.0 WIN 
+mean_only 3277.75 3281.0 NEUTRAL 
+both 3779.25 3530.75 WIN 
+depthwise_both 5291.25 5031.25 WIN 
+avg_control 3476.0 3381.0 INCONCLUSIVE threshold crossed without a targeted path
+neutral_control 3091.0 3058.0 INCONCLUSIVE threshold crossed without a targeted path
+person_detection 59468.0 59126.25 NEUTRAL 
+mobilenet_v2 2117536.0 2117107.0 NEUTRAL 
+mobilenet_v3_small 616681.5 617103.75 NEUTRAL 
+efficientnet_lite0 3001627.0 3001806.5 NEUTRAL 
+opt2 combined {'INCONCLUSIVE': 2, 'NEUTRAL': 9, 'WIN': 1}
+mnist_fixed 2672.0 2616.0 INCONCLUSIVE threshold crossed without a targeted path
+max3 3140.0 3125.0 NEUTRAL 
+max5 3148.5 3133.0 NEUTRAL 
+mean_only 3285.75 3281.0 NEUTRAL 
+both 3500.75 3530.75 NEUTRAL 
+depthwise_both 5155.5 5031.25 WIN 
+avg_control 3448.5 3381.0 INCONCLUSIVE threshold crossed without a targeted path
+neutral_control 3086.25 3058.0 NEUTRAL 
+person_detection 59347.5 59126.25 NEUTRAL 
+mobilenet_v2 2116720.5 2117107.0 NEUTRAL 
+mobilenet_v3_small 616694.0 617103.75 NEUTRAL 
+efficientnet_lite0 3001699.0 3001806.5 NEUTRAL 
+mean combined {'WIN': 5, 'INCONCLUSIVE': 1, 'NEUTRAL': 6}
+mnist_fixed 2948.0 2616.0 WIN 
+max3 3420.0 3125.0 WIN 
+max5 3569.0 3133.0 WIN 
+mean_only 3353.0 3281.0 INCONCLUSIVE threshold crossed without a targeted path
+both 3882.0 3530.75 WIN 
+depthwise_both 5228.0 5031.25 WIN 
+avg_control 3400.0 3381.0 NEUTRAL 
+neutral_control 3077.0 3058.0 NEUTRAL 
+person_detection 59282.5 59126.25 NEUTRAL 
+mobilenet_v2 2116565.0 2117107.0 NEUTRAL 
+mobilenet_v3_small 617015.0 617103.75 NEUTRAL 
+efficientnet_lite0 3001465.5 3001806.5 NEUTRAL 

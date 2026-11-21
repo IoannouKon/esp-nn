@@ -1,0 +1,19 @@
+DOWNLOADING mlperf_cifar10_resnet8 https://raw.githubusercontent.com/mlcommons/tiny/e59b2f227eb56265dfe4c290e1aa32095075ec96/benchmark/training/image_classification/trained_models/trainedResnet_3blk_480k_int8.tflite
+VERIFIED_DOWNLOAD mlperf_cifar10_resnet8 512024 dc27dcd823f5665533352f7da516b0c9bc6f089914b8283782e55961b3423fcf
+FROZEN_INPUT mlperf_cifar10_resnet8 (1, 32, 32, 3) 8e8c834bd5b38b8e63cbf6f03936a29c02d8b98510a419160940021e79618b91
+DOWNLOADING mlperf_vww_mobilenet https://raw.githubusercontent.com/mlcommons/tiny/e59b2f227eb56265dfe4c290e1aa32095075ec96/benchmark/training/visual_wake_words/trained_models/vww_96_int8.tflite
+VERIFIED_DOWNLOAD mlperf_vww_mobilenet 333288 597a384c8c2c8a1276f04702f25013b7838f2f814f1ca7c174d295b73e3d6b7b
+FROZEN_INPUT mlperf_vww_mobilenet (1, 96, 96, 3) 3c1bccd285611fec044b6f051a6316be1cdb3c9d827b119d9e049c189f63a2e1
+DOWNLOADING mlperf_kws_dscnn https://raw.githubusercontent.com/mlcommons/tiny/e59b2f227eb56265dfe4c290e1aa32095075ec96/benchmark/training/keyword_spotting/trained_models/kws_ref_model.tflite
+VERIFIED_DOWNLOAD mlperf_kws_dscnn 53936 aeea436800704fce17b17292e4412630ad856e9d777c044c64ef748a880bd0ae
+FROZEN_INPUT mlperf_kws_dscnn (1, 49, 10, 1) dae3e297eabf2d8cdf8918b5d9a38083142d0b7a5f38185a4f55f9c76f4f3cfc
+DOWNLOADING tflm_person_detection https://raw.githubusercontent.com/tensorflow/tflite-micro/38a8f0f87302817ddfa99e6a995c7b71ef7118fe/tensorflow/lite/micro/models/person_detect.tflite
+VERIFIED_DOWNLOAD tflm_person_detection 300568 808cfdfc0cf3a6fa6f6fa26bfa379ea97c16d5db7334637766e39c3408502e9d
+Traceback (most recent call last):
+  File "/home/kostis/Desktop/ESP-NN/ESP_NN_FULL_CNN_BENCHMARKS/scripts/download_pretrained.py", line 69, in <module>
+    if args.prepare_input:fixed_input(ROOT/'models'/name)
+  File "/home/kostis/Desktop/ESP-NN/ESP_NN_FULL_CNN_BENCHMARKS/scripts/download_pretrained.py", line 38, in fixed_input
+    it=tf.lite.Interpreter(model_content=raw,num_threads=1)
+  File "/tmp/espnn-cnn-train/lib/python3.10/site-packages/tensorflow/lite/python/interpreter.py", line 485, in __init__
+    self._interpreter = _interpreter_wrapper.CreateWrapperFromBuffer(
+ValueError: quantized_dimension must be in range [0, 1). Was 3.Tensor 33 has invalid quantization parameters.quantized_dimension must be in range [0, 1). Was 3.Tensor 36 has invalid quantization parameters.quantized_dimension must be in range [0, 1). Was 3.Tensor 40 has invalid quantization parameters.quantized_dimension must be in range [0, 1). Was 3.Tensor 44 has invalid quantization parameters.quantized_dimension must be in range [0, 1). Was 3.Tensor 48 has invalid quantization parameters.quantized_dimension must be in range [0, 1). Was 3.Tensor 52 has invalid quantization parameters.quantized_dimension must be in range [0, 1). Was 3.Tensor 56 has invalid quantization parameters.quantized_dimension must be in range [0, 1). Was 3.Tensor 60 has invalid quantization parameters.quantized_dimension must be in range [0, 1). Was 3.Tensor 64 has invalid quantization parameters.quantized_dimension must be in range [0, 1). Was 3.Tensor 68 has invalid quantization parameters.quantized_dimension must be in range [0, 1). Was 3.Tensor 72 has invalid quantization parameters.quantized_dimension must be in range [0, 1). Was 3.Tensor 76 has invalid quantization parameters.quantized_dimension must be in range [0, 1). Was 3.Tensor 80 has invalid quantization parameters.quantized_dimension must be in range [0, 1). Was 3.Tensor 84 has invalid quantization parameters.

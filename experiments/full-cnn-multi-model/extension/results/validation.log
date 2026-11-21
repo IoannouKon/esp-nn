@@ -1,0 +1,5 @@
+PASS 15 full CNNs, 5 MEAN profiles, 60 extra inputs across four builds
+METRICS_HOST_SMOKE_PASS
+PASS unchanged original 13-model data, 15 models, 3600 primary timings, 2400 profiling timings, 240 extra correctness invokes
+PASS all seven timed stage groups used the requested boot order
+PASS 147456 exact on-board MEAN reference byte comparisons and 240 complete output parity checks

@@ -1,0 +1,9 @@
+4bfa49c64a932f700688c2007a01d8ea1fa102ac
+ CMakeLists.txt                           |  1 +
+ src/common/esp_nn_mean_qacc_s8_esp32s3.S | 35 +++++++++++++++++++
+ src/common/esp_nn_mean_s8_esp32s3.c      | 58 ++++++++++++++++++++++++++++++--
+ 3 files changed, 92 insertions(+), 2 deletions(-)
+edb003c6770491abb74766835f4c803b9d4f5a20
+ src/pooling/esp_nn_max_pool_s8_esp32s3.S | 117 +++++++++++++++++++++++++++++++
+ src/pooling/esp_nn_max_pool_s8_esp32s3.c |  35 +++++++++
+ 2 files changed, 152 insertions(+)

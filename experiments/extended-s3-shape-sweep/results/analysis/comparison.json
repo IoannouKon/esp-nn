@@ -1,0 +1,5331 @@
+{
+  "metadata": {
+    "target": "esp32s3",
+    "esp_nn_stock": "ace42ac7721119cd543fc40ffe719e601fa8f20f",
+    "runs_per_build": {
+      "stock": 2,
+      "exp_mean": 2,
+      "opt2": 2
+    },
+    "configs": [
+      "esp32s3",
+      "v5.5.1-dirty",
+      "240",
+      "1",
+      "9",
+      "0xc0ffee42"
+    ],
+    "model_level": "NOT MEASURED",
+    "classification": "WIN <99% of stock cycles; LOSS >101%; NEUTRAL otherwise",
+    "shape_manifest_sha256": "a8840f3893a4239445db50f8e4745614eaca71a5cd6e3d3105a08d8541deb9f4",
+    "commits": {
+      "stock": "ace42ac7721119cd543fc40ffe719e601fa8f20f",
+      "exp_mean": "4bfa49c64a932f700688c2007a01d8ea1fa102ac",
+      "opt2": "edb003c6770491abb74766835f4c803b9d4f5a20"
+    }
+  },
+  "groups": {
+    "exp_mean|eligible=True|mem=int": {
+      "count": 22,
+      "geomean_speedup": 4.2084922408240875,
+      "wins": 19,
+      "losses": 3,
+      "neutral": 0,
+      "worst_speedup": 0.7252673796791443,
+      "best_speedup": 15.529211118368531
+    },
+    "exp_mean|eligible=True|mem=ext": {
+      "count": 9,
+      "geomean_speedup": 3.6581137188648847,
+      "wins": 9,
+      "losses": 0,
+      "neutral": 0,
+      "worst_speedup": 1.8757649802854446,
+      "best_speedup": 11.888961892247043
+    },
+    "exp_mean|eligible=False|mem=int": {
+      "count": 9,
+      "geomean_speedup": 0.9959216889748101,
+      "wins": 0,
+      "losses": 1,
+      "neutral": 8,
+      "worst_speedup": 0.988,
+      "best_speedup": 1.0006695761343936
+    },
+    "exp_mean|eligible=False|mem=ext": {
+      "count": 2,
+      "geomean_speedup": 1.0002891254976505,
+      "wins": 0,
+      "losses": 0,
+      "neutral": 2,
+      "worst_speedup": 0.9999088195067429,
+      "best_speedup": 1.0006695761343936
+    },
+    "opt2|eligible=True|mem=int": {
+      "count": 20,
+      "geomean_speedup": 8.14060910157319,
+      "wins": 20,
+      "losses": 0,
+      "neutral": 0,
+      "worst_speedup": 4.538172715894868,
+      "best_speedup": 10.716057660073751
+    },
+    "opt2|eligible=True|mem=ext": {
+      "count": 12,
+      "geomean_speedup": 4.420472217067926,
+      "wins": 12,
+      "losses": 0,
+      "neutral": 0,
+      "worst_speedup": 1.5659815570601165,
+      "best_speedup": 11.882815057283143
+    },
+    "opt2|eligible=False|mem=int": {
+      "count": 14,
+      "geomean_speedup": 1.4497146832220613,
+      "wins": 8,
+      "losses": 0,
+      "neutral": 6,
+      "worst_speedup": 0.9926407761638323,
+      "best_speedup": 2.5999900234449043
+    },
+    "opt2|eligible=False|mem=ext": {
+      "count": 2,
+      "geomean_speedup": 1.3039330006633203,
+      "wins": 2,
+      "losses": 0,
+      "neutral": 0,
+      "worst_speedup": 1.287056276877445,
+      "best_speedup": 1.321031023090803
+    }
+  },
+  "rows": [
+    {
+      "op": "max_pool",
+      "shape": "input 12x12x128, filter 5x5, pad 2, stride 1",
+      "mem": "ext",
+      "eligible": true,
+      "stock_cycles": [
+        373662,
+        373662
+      ],
+      "stock_median": 373662.0,
+      "stock_range": [
+        373662,
+        373662
+      ],
+      "exp_mean_cycles": [
+        373662,
+        373662
+      ],
+      "exp_mean_median": 373662.0,
+      "exp_mean_range": [
+        373662,
+        373662
+      ],
+      "opt2_cycles": [
+        38276,
+        38276
+      ],
+      "opt2_median": 38276.0,
+      "opt2_range": [
+        38276,
+        38276
+      ],
+      "mean_speedup": 1.0,
+      "opt2_speedup": 9.762305361061761,
+      "mean_reduction_pct": 0.0,
+      "opt2_reduction_pct": 89.75651792261455,
+      "mean_verdict": "NEUTRAL",
+      "opt2_verdict": "WIN",
+      "height": 12,
+      "width": 12,
+      "channels": 128,
+      "correctness": "PASS",
+      "stock_correctness": "PASS",
+      "exp_mean_correctness": "PASS",
+      "opt2_correctness": "PASS",
+      "stock_path": "64-bit SIMD",
+      "exp_mean_path": "64-bit SIMD",
+      "opt2_path": "Opt2 sliding SIMD",
+      "target_build": "opt2",
+      "filter": 5,
+      "stride": 1,
+      "padding": 2,
+      "target_verdict": "WIN"
+    },
+    {
+      "op": "max_pool",
+      "shape": "input 12x12x128, filter 5x5, pad 2, stride 1",
+      "mem": "int",
+      "eligible": true,
+      "stock_cycles": [
+        373570,
+        373570
+      ],
+      "stock_median": 373570.0,
+      "stock_range": [
+        373570,
+        373570
+      ],
+      "exp_mean_cycles": [
+        373570,
+        373570
+      ],
+      "exp_mean_median": 373570.0,
+      "exp_mean_range": [
+        373570,
+        373570
+      ],
+      "opt2_cycles": [
+        38109,
+        38109
+      ],
+      "opt2_median": 38109.0,
+      "opt2_range": [
+        38109,
+        38109
+      ],
+      "mean_speedup": 1.0,
+      "opt2_speedup": 9.802671284998294,
+      "mean_reduction_pct": 0.0,
+      "opt2_reduction_pct": 89.79869903900206,
+      "mean_verdict": "NEUTRAL",
+      "opt2_verdict": "WIN",
+      "height": 12,
+      "width": 12,
+      "channels": 128,
+      "correctness": "PASS",
+      "stock_correctness": "PASS",
+      "exp_mean_correctness": "PASS",
+      "opt2_correctness": "PASS",
+      "stock_path": "64-bit SIMD",
+      "exp_mean_path": "64-bit SIMD",
+      "opt2_path": "Opt2 sliding SIMD",
+      "target_build": "opt2",
+      "filter": 5,
+      "stride": 1,
+      "padding": 2,
+      "target_verdict": "WIN"
+    },
+    {
+      "op": "max_pool",
+      "shape": "input 12x12x16, filter 5x5, pad 2, stride 1",
+      "mem": "int",
+      "eligible": true,
+      "stock_cycles": [
+        52522,
+        52522
+      ],
+      "stock_median": 52522.0,
+      "stock_range": [
+        52522,
+        52522
+      ],
+      "exp_mean_cycles": [
+        52522,
+        52522
+      ],
+      "exp_mean_median": 52522.0,
+      "exp_mean_range": [
+        52522,
+        52522
+      ],
+      "opt2_cycles": [
+        5265,
+        5265
+      ],
+      "opt2_median": 5265.0,
+      "opt2_range": [
+        5265,
+        5265
+      ],
+      "mean_speedup": 1.0,
+      "opt2_speedup": 9.975688509021843,
+      "mean_reduction_pct": 0.0,
+      "opt2_reduction_pct": 89.97562926011958,
+      "mean_verdict": "NEUTRAL",
+      "opt2_verdict": "WIN",
+      "height": 12,
+      "width": 12,
+      "channels": 16,
+      "correctness": "PASS",
+      "stock_correctness": "PASS",
+      "exp_mean_correctness": "PASS",
+      "opt2_correctness": "PASS",
+      "stock_path": "64-bit SIMD",
+      "exp_mean_path": "64-bit SIMD",
+      "opt2_path": "Opt2 sliding SIMD",
+      "target_build": "opt2",
+      "filter": 5,
+      "stride": 1,
+      "padding": 2,
+      "target_verdict": "WIN"
+    },
+    {
+      "op": "max_pool",
+      "shape": "input 12x12x32, filter 5x5, pad 2, stride 1",
+      "mem": "int",
+      "eligible": true,
+      "stock_cycles": [
+        98386,
+        98386
+      ],
+      "stock_median": 98386.0,
+      "stock_range": [
+        98386,
+        98386
+      ],
+      "exp_mean_cycles": [
+        98386,
+        98386
+      ],
+      "exp_mean_median": 98386.0,
+      "exp_mean_range": [
+        98386,
+        98386
+      ],
+      "opt2_cycles": [
+        9957,
+        9957
+      ],
+      "opt2_median": 9957.0,
+      "opt2_range": [
+        9957,
+        9957
+      ],
+      "mean_speedup": 1.0,
+      "opt2_speedup": 9.881088681329718,
+      "mean_reduction_pct": 0.0,
+      "opt2_reduction_pct": 89.87965767487243,
+      "mean_verdict": "NEUTRAL",
+      "opt2_verdict": "WIN",
+      "height": 12,
+      "width": 12,
+      "channels": 32,
+      "correctness": "PASS",
+      "stock_correctness": "PASS",
+      "exp_mean_correctness": "PASS",
+      "opt2_correctness": "PASS",
+      "stock_path": "64-bit SIMD",
+      "exp_mean_path": "64-bit SIMD",
+      "opt2_path": "Opt2 sliding SIMD",
+      "target_build": "opt2",
+      "filter": 5,
+      "stride": 1,
+      "padding": 2,
+      "target_verdict": "WIN"
+    },
+    {
+      "op": "max_pool",
+      "shape": "input 12x12x64, filter 5x5, pad 2, stride 1",
+      "mem": "int",
+      "eligible": true,
+      "stock_cycles": [
+        190114,
+        190114
+      ],
+      "stock_median": 190114.0,
+      "stock_range": [
+        190114,
+        190114
+      ],
+      "exp_mean_cycles": [
+        190114,
+        190114
+      ],
+      "exp_mean_median": 190114.0,
+      "exp_mean_range": [
+        190114,
+        190114
+      ],
+      "opt2_cycles": [
+        19342,
+        19342
+      ],
+      "opt2_median": 19342.0,
+      "opt2_range": [
+        19342,
+        19342
+      ],
+      "mean_speedup": 1.0,
+      "opt2_speedup": 9.829076620825147,
+      "mean_reduction_pct": 0.0,
+      "opt2_reduction_pct": 89.82610433739757,
+      "mean_verdict": "NEUTRAL",
+      "opt2_verdict": "WIN",
+      "height": 12,
+      "width": 12,
+      "channels": 64,
+      "correctness": "PASS",
+      "stock_correctness": "PASS",
+      "exp_mean_correctness": "PASS",
+      "opt2_correctness": "PASS",
+      "stock_path": "64-bit SIMD",
+      "exp_mean_path": "64-bit SIMD",
+      "opt2_path": "Opt2 sliding SIMD",
+      "target_build": "opt2",
+      "filter": 5,
+      "stride": 1,
+      "padding": 2,
+      "target_verdict": "WIN"
+    },
+    {
+      "op": "max_pool",
+      "shape": "input 16x16x12, filter 3x3, pad 1, stride 1",
+      "mem": "int",
+      "eligible": false,
+      "stock_cycles": [
+        82794,
+        82794
+      ],
+      "stock_median": 82794.0,
+      "stock_range": [
+        82794,
+        82794
+      ],
+      "exp_mean_cycles": [
+        82794,
+        82794
+      ],
+      "exp_mean_median": 82794.0,
+      "exp_mean_range": [
+        82794,
+        82794
+      ],
+      "opt2_cycles": [
+        82801,
+        82801
+      ],
+      "opt2_median": 82801.0,
+      "opt2_range": [
+        82801,
+        82801
+      ],
+      "mean_speedup": 1.0,
+      "opt2_speedup": 0.9999154599582131,
+      "mean_reduction_pct": 0.0,
+      "opt2_reduction_pct": -0.008454718940975603,
+      "mean_verdict": "NEUTRAL",
+      "opt2_verdict": "NEUTRAL",
+      "height": 16,
+      "width": 16,
+      "channels": 12,
+      "correctness": "PASS",
+      "stock_correctness": "PASS",
+      "exp_mean_correctness": "PASS",
+      "opt2_correctness": "PASS",
+      "stock_path": "32-bit SIMD",
+      "exp_mean_path": "32-bit SIMD",
+      "opt2_path": "32-bit SIMD",
+      "target_build": "opt2",
+      "filter": 3,
+      "stride": 1,
+      "padding": 1,
+      "target_verdict": "NEUTRAL"
+    },
+    {
+      "op": "max_pool",
+      "shape": "input 16x16x120, filter 5x5, pad 2, stride 1",
+      "mem": "int",
+      "eligible": false,
+      "stock_cycles": [
+        644342,
+        644342
+      ],
+      "stock_median": 644342.0,
+      "stock_range": [
+        644342,
+        644342
+      ],
+      "exp_mean_cycles": [
+        644342,
+        644342
+      ],
+      "exp_mean_median": 644342.0,
+      "exp_mean_range": [
+        644342,
+        644342
+      ],
+      "opt2_cycles": [
+        644609,
+        644609
+      ],
+      "opt2_median": 644609.0,
+      "opt2_range": [
+        644609,
+        644609
+      ],
+      "mean_speedup": 1.0,
+      "opt2_speedup": 0.9995857954201695,
+      "mean_reduction_pct": 0.0,
+      "opt2_reduction_pct": -0.0414376216357093,
+      "mean_verdict": "NEUTRAL",
+      "opt2_verdict": "NEUTRAL",
+      "height": 16,
+      "width": 16,
+      "channels": 120,
+      "correctness": "PASS",
+      "stock_correctness": "PASS",
+      "exp_mean_correctness": "PASS",
+      "opt2_correctness": "PASS",
+      "stock_path": "64-bit SIMD",
+      "exp_mean_path": "64-bit SIMD",
+      "opt2_path": "64-bit SIMD",
+      "target_build": "opt2",
+      "filter": 5,
+      "stride": 1,
+      "padding": 2,
+      "target_verdict": "NEUTRAL"
+    },
+    {
+      "op": "max_pool",
+      "shape": "input 16x16x128, filter 3x3, pad 1, stride 1",
+      "mem": "int",
+      "eligible": true,
+      "stock_cycles": [
+        403394,
+        403394
+      ],
+      "stock_median": 403394.0,
+      "stock_range": [
+        403394,
+        403394
+      ],
+      "exp_mean_cycles": [
+        403394,
+        403394
+      ],
+      "exp_mean_median": 403394.0,
+      "exp_mean_range": [
+        403394,
+        403394
+      ],
+      "opt2_cycles": [
+        53447,
+        53447
+      ],
+      "opt2_median": 53447.0,
+      "opt2_range": [
+        53447,
+        53447
+      ],
+      "mean_speedup": 1.0,
+      "opt2_speedup": 7.547551780268303,
+      "mean_reduction_pct": 0.0,
+      "opt2_reduction_pct": 86.75067056029589,
+      "mean_verdict": "NEUTRAL",
+      "opt2_verdict": "WIN",
+      "height": 16,
+      "width": 16,
+      "channels": 128,
+      "correctness": "PASS",
+      "stock_correctness": "PASS",
+      "exp_mean_correctness": "PASS",
+      "opt2_correctness": "PASS",
+      "stock_path": "64-bit SIMD",
+      "exp_mean_path": "64-bit SIMD",
+      "opt2_path": "Opt2 sliding SIMD",
+      "target_build": "opt2",
+      "filter": 3,
+      "stride": 1,
+      "padding": 1,
+      "target_verdict": "WIN"
+    },
+    {
+      "op": "max_pool",
+      "shape": "input 16x16x15, filter 3x3, pad 1, stride 1",
+      "mem": "int",
+      "eligible": false,
+      "stock_cycles": [
+        438801,
+        438801
+      ],
+      "stock_median": 438801.0,
+      "stock_range": [
+        438801,
+        438801
+      ],
+      "exp_mean_cycles": [
+        438801,
+        438801
+      ],
+      "exp_mean_median": 438801.0,
+      "exp_mean_range": [
+        438801,
+        438801
+      ],
+      "opt2_cycles": [
+        438808,
+        438808
+      ],
+      "opt2_median": 438808.0,
+      "opt2_range": [
+        438808,
+        438808
+      ],
+      "mean_speedup": 1.0,
+      "opt2_speedup": 0.9999840476928405,
+      "mean_reduction_pct": 0.0,
+      "opt2_reduction_pct": -0.0015952561639664964,
+      "mean_verdict": "NEUTRAL",
+      "opt2_verdict": "NEUTRAL",
+      "height": 16,
+      "width": 16,
+      "channels": 15,
+      "correctness": "PASS",
+      "stock_correctness": "PASS",
+      "exp_mean_correctness": "PASS",
+      "opt2_correctness": "PASS",
+      "stock_path": "ANSI fallback",
+      "exp_mean_path": "ANSI fallback",
+      "opt2_path": "ANSI fallback",
+      "target_build": "opt2",
+      "filter": 3,
+      "stride": 1,
+      "padding": 1,
+      "target_verdict": "NEUTRAL"
+    },
+    {
+      "op": "max_pool",
+      "shape": "input 16x16x16, filter 2x2, pad 0, stride 2",
+      "mem": "int",
+      "eligible": false,
+      "stock_cycles": [
+        11842,
+        11842
+      ],
+      "stock_median": 11842.0,
+      "stock_range": [
+        11842,
+        11842
+      ],
+      "exp_mean_cycles": [
+        11842,
+        11842
+      ],
+      "exp_mean_median": 11842.0,
+      "exp_mean_range": [
+        11842,
+        11842
+      ],
+      "opt2_cycles": [
+        7060,
+        7060
+      ],
+      "opt2_median": 7060.0,
+      "opt2_range": [
+        7060,
+        7060
+      ],
+      "mean_speedup": 1.0,
+      "opt2_speedup": 1.6773371104815864,
+      "mean_reduction_pct": 0.0,
+      "opt2_reduction_pct": 40.38169228170917,
+      "mean_verdict": "NEUTRAL",
+      "opt2_verdict": "WIN",
+      "height": 16,
+      "width": 16,
+      "channels": 16,
+      "correctness": "PASS",
+      "stock_correctness": "PASS",
+      "exp_mean_correctness": "PASS",
+      "opt2_correctness": "PASS",
+      "stock_path": "64-bit SIMD",
+      "exp_mean_path": "64-bit SIMD",
+      "opt2_path": "Opt1 128-bit SIMD fallback",
+      "target_build": "opt2",
+      "filter": 2,
+      "stride": 2,
+      "padding": 0,
+      "target_verdict": "WIN"
+    },
+    {
+      "op": "max_pool",
+      "shape": "input 16x16x16, filter 3x3, pad 0, stride 1",
+      "mem": "int",
+      "eligible": false,
+      "stock_cycles": [
+        48122,
+        48122
+      ],
+      "stock_median": 48122.0,
+      "stock_range": [
+        48122,
+        48122
+      ],
+      "exp_mean_cycles": [
+        48122,
+        48122
+      ],
+      "exp_mean_median": 48122.0,
+      "exp_mean_range": [
+        48122,
+        48122
+      ],
+      "opt2_cycles": [
+        25626,
+        25626
+      ],
+      "opt2_median": 25626.0,
+      "opt2_range": [
+        25626,
+        25626
+      ],
+      "mean_speedup": 1.0,
+      "opt2_speedup": 1.8778584250370718,
+      "mean_reduction_pct": 0.0,
+      "opt2_reduction_pct": 46.747849216574544,
+      "mean_verdict": "NEUTRAL",
+      "opt2_verdict": "WIN",
+      "height": 16,
+      "width": 16,
+      "channels": 16,
+      "correctness": "PASS",
+      "stock_correctness": "PASS",
+      "exp_mean_correctness": "PASS",
+      "opt2_correctness": "PASS",
+      "stock_path": "64-bit SIMD",
+      "exp_mean_path": "64-bit SIMD",
+      "opt2_path": "Opt1 128-bit SIMD fallback",
+      "target_build": "opt2",
+      "filter": 3,
+      "stride": 1,
+      "padding": 0,
+      "target_verdict": "WIN"
+    },
+    {
+      "op": "max_pool",
+      "shape": "input 16x16x16, filter 3x3, pad 1, stride 1",
+      "mem": "ext",
+      "eligible": true,
+      "stock_cycles": [
+        60506,
+        60506
+      ],
+      "stock_median": 60506.0,
+      "stock_range": [
+        60506,
+        60506
+      ],
+      "exp_mean_cycles": [
+        60506,
+        60506
+      ],
+      "exp_mean_median": 60506.0,
+      "exp_mean_range": [
+        60506,
+        60506
+      ],
+      "opt2_cycles": [
+        7303,
+        7303
+      ],
+      "opt2_median": 7303.0,
+      "opt2_range": [
+        7303,
+        7303
+      ],
+      "mean_speedup": 1.0,
+      "opt2_speedup": 8.285088319868548,
+      "mean_reduction_pct": 0.0,
+      "opt2_reduction_pct": 87.93012263246621,
+      "mean_verdict": "NEUTRAL",
+      "opt2_verdict": "WIN",
+      "height": 16,
+      "width": 16,
+      "channels": 16,
+      "correctness": "PASS",
+      "stock_correctness": "PASS",
+      "exp_mean_correctness": "PASS",
+      "opt2_correctness": "PASS",
+      "stock_path": "64-bit SIMD",
+      "exp_mean_path": "64-bit SIMD",
+      "opt2_path": "Opt2 sliding SIMD",
+      "target_build": "opt2",
+      "filter": 3,
+      "stride": 1,
+      "padding": 1,
+      "target_verdict": "WIN"
+    },
+    {
+      "op": "max_pool",
+      "shape": "input 16x16x16, filter 3x3, pad 1, stride 1",
+      "mem": "int",
+      "eligible": true,
+      "stock_cycles": [
+        60506,
+        60506
+      ],
+      "stock_median": 60506.0,
+      "stock_range": [
+        60506,
+        60506
+      ],
+      "exp_mean_cycles": [
+        60506,
+        60506
+      ],
+      "exp_mean_median": 60506.0,
+      "exp_mean_range": [
+        60506,
+        60506
+      ],
+      "opt2_cycles": [
+        7303,
+        7303
+      ],
+      "opt2_median": 7303.0,
+      "opt2_range": [
+        7303,
+        7303
+      ],
+      "mean_speedup": 1.0,
+      "opt2_speedup": 8.285088319868548,
+      "mean_reduction_pct": 0.0,
+      "opt2_reduction_pct": 87.93012263246621,
+      "mean_verdict": "NEUTRAL",
+      "opt2_verdict": "WIN",
+      "height": 16,
+      "width": 16,
+      "channels": 16,
+      "correctness": "PASS",
+      "stock_correctness": "PASS",
+      "exp_mean_correctness": "PASS",
+      "opt2_correctness": "PASS",
+      "stock_path": "64-bit SIMD",
+      "exp_mean_path": "64-bit SIMD",
+      "opt2_path": "Opt2 sliding SIMD",
+      "target_build": "opt2",
+      "filter": 3,
+      "stride": 1,
+      "padding": 1,
+      "target_verdict": "WIN"
+    },
+    {
+      "op": "max_pool",
+      "shape": "input 16x16x16, filter 3x3, pad 1, stride 2",
+      "mem": "int",
+      "eligible": false,
+      "stock_cycles": [
+        15384,
+        15384
+      ],
+      "stock_median": 15384.0,
+      "stock_range": [
+        15384,
+        15384
+      ],
+      "exp_mean_cycles": [
+        15384,
+        15384
+      ],
+      "exp_mean_median": 15384.0,
+      "exp_mean_range": [
+        15384,
+        15384
+      ],
+      "opt2_cycles": [
+        8398,
+        8398
+      ],
+      "opt2_median": 8398.0,
+      "opt2_range": [
+        8398,
+        8398
+      ],
+      "mean_speedup": 1.0,
+      "opt2_speedup": 1.831864729697547,
+      "mean_reduction_pct": 0.0,
+      "opt2_reduction_pct": 45.410816432657306,
+      "mean_verdict": "NEUTRAL",
+      "opt2_verdict": "WIN",
+      "height": 16,
+      "width": 16,
+      "channels": 16,
+      "correctness": "PASS",
+      "stock_correctness": "PASS",
+      "exp_mean_correctness": "PASS",
+      "opt2_correctness": "PASS",
+      "stock_path": "64-bit SIMD",
+      "exp_mean_path": "64-bit SIMD",
+      "opt2_path": "Opt1 128-bit SIMD fallback",
+      "target_build": "opt2",
+      "filter": 3,
+      "stride": 2,
+      "padding": 1,
+      "target_verdict": "WIN"
+    },
+    {
+      "op": "max_pool",
+      "shape": "input 16x16x16, filter 5x5, pad 2, stride 1",
+      "mem": "int",
+      "eligible": true,
+      "stock_cycles": [
+        95898,
+        95898
+      ],
+      "stock_median": 95898.0,
+      "stock_range": [
+        95898,
+        95898
+      ],
+      "exp_mean_cycles": [
+        95898,
+        95898
+      ],
+      "exp_mean_median": 95898.0,
+      "exp_mean_range": [
+        95898,
+        95898
+      ],
+      "opt2_cycles": [
+        8949,
+        8949
+      ],
+      "opt2_median": 8949.0,
+      "opt2_range": [
+        8949,
+        8949
+      ],
+      "mean_speedup": 1.0,
+      "opt2_speedup": 10.716057660073751,
+      "mean_reduction_pct": 0.0,
+      "opt2_reduction_pct": 90.66820997309641,
+      "mean_verdict": "NEUTRAL",
+      "opt2_verdict": "WIN",
+      "height": 16,
+      "width": 16,
+      "channels": 16,
+      "correctness": "PASS",
+      "stock_correctness": "PASS",
+      "exp_mean_correctness": "PASS",
+      "opt2_correctness": "PASS",
+      "stock_path": "64-bit SIMD",
+      "exp_mean_path": "64-bit SIMD",
+      "opt2_path": "Opt2 sliding SIMD",
+      "target_build": "opt2",
+      "filter": 5,
+      "stride": 1,
+      "padding": 2,
+      "target_verdict": "WIN"
+    },
+    {
+      "op": "max_pool",
+      "shape": "input 16x16x24, filter 3x3, pad 1, stride 1",
+      "mem": "int",
+      "eligible": false,
+      "stock_cycles": [
+        84998,
+        84998
+      ],
+      "stock_median": 84998.0,
+      "stock_range": [
+        84998,
+        84998
+      ],
+      "exp_mean_cycles": [
+        84998,
+        84998
+      ],
+      "exp_mean_median": 84998.0,
+      "exp_mean_range": [
+        84998,
+        84998
+      ],
+      "opt2_cycles": [
+        85265,
+        85265
+      ],
+      "opt2_median": 85265.0,
+      "opt2_range": [
+        85265,
+        85265
+      ],
+      "mean_speedup": 1.0,
+      "opt2_speedup": 0.9968685861725209,
+      "mean_reduction_pct": 0.0,
+      "opt2_reduction_pct": -0.3141250382362015,
+      "mean_verdict": "NEUTRAL",
+      "opt2_verdict": "NEUTRAL",
+      "height": 16,
+      "width": 16,
+      "channels": 24,
+      "correctness": "PASS",
+      "stock_correctness": "PASS",
+      "exp_mean_correctness": "PASS",
+      "opt2_correctness": "PASS",
+      "stock_path": "64-bit SIMD",
+      "exp_mean_path": "64-bit SIMD",
+      "opt2_path": "64-bit SIMD",
+      "target_build": "opt2",
+      "filter": 3,
+      "stride": 1,
+      "padding": 1,
+      "target_verdict": "NEUTRAL"
+    },
+    {
+      "op": "max_pool",
+      "shape": "input 16x16x31, filter 3x3, pad 1, stride 1",
+      "mem": "int",
+      "eligible": false,
+      "stock_cycles": [
+        893841,
+        893841
+      ],
+      "stock_median": 893841.0,
+      "stock_range": [
+        893841,
+        893841
+      ],
+      "exp_mean_cycles": [
+        893841,
+        893841
+      ],
+      "exp_mean_median": 893841.0,
+      "exp_mean_range": [
+        893841,
+        893841
+      ],
+      "opt2_cycles": [
+        893848,
+        893848
+      ],
+      "opt2_median": 893848.0,
+      "opt2_range": [
+        893848,
+        893848
+      ],
+      "mean_speedup": 1.0,
+      "opt2_speedup": 0.9999921686908736,
+      "mean_reduction_pct": 0.0,
+      "opt2_reduction_pct": -0.0007831370456345965,
+      "mean_verdict": "NEUTRAL",
+      "opt2_verdict": "NEUTRAL",
+      "height": 16,
+      "width": 16,
+      "channels": 31,
+      "correctness": "PASS",
+      "stock_correctness": "PASS",
+      "exp_mean_correctness": "PASS",
+      "opt2_correctness": "PASS",
+      "stock_path": "ANSI fallback",
+      "exp_mean_path": "ANSI fallback",
+      "opt2_path": "ANSI fallback",
+      "target_build": "opt2",
+      "filter": 3,
+      "stride": 1,
+      "padding": 1,
+      "target_verdict": "NEUTRAL"
+    },
+    {
+      "op": "max_pool",
+      "shape": "input 16x16x32, filter 2x2, pad 0, stride 2",
+      "mem": "int",
+      "eligible": false,
+      "stock_cycles": [
+        20546,
+        20546
+      ],
+      "stock_median": 20546.0,
+      "stock_range": [
+        20546,
+        20546
+      ],
+      "exp_mean_cycles": [
+        20546,
+        20546
+      ],
+      "exp_mean_median": 20546.0,
+      "exp_mean_range": [
+        20546,
+        20546
+      ],
+      "opt2_cycles": [
+        9620,
+        9620
+      ],
+      "opt2_median": 9620.0,
+      "opt2_range": [
+        9620,
+        9620
+      ],
+      "mean_speedup": 1.0,
+      "opt2_speedup": 2.135758835758836,
+      "mean_reduction_pct": 0.0,
+      "opt2_reduction_pct": 53.17823420617152,
+      "mean_verdict": "NEUTRAL",
+      "opt2_verdict": "WIN",
+      "height": 16,
+      "width": 16,
+      "channels": 32,
+      "correctness": "PASS",
+      "stock_correctness": "PASS",
+      "exp_mean_correctness": "PASS",
+      "opt2_correctness": "PASS",
+      "stock_path": "64-bit SIMD",
+      "exp_mean_path": "64-bit SIMD",
+      "opt2_path": "Opt1 128-bit SIMD fallback",
+      "target_build": "opt2",
+      "filter": 2,
+      "stride": 2,
+      "padding": 0,
+      "target_verdict": "WIN"
+    },
+    {
+      "op": "max_pool",
+      "shape": "input 16x16x32, filter 3x3, pad 1, stride 1",
+      "mem": "ext",
+      "eligible": true,
+      "stock_cycles": [
+        109490,
+        109490
+      ],
+      "stock_median": 109490.0,
+      "stock_range": [
+        109490,
+        109490
+      ],
+      "exp_mean_cycles": [
+        109490,
+        109490
+      ],
+      "exp_mean_median": 109490.0,
+      "exp_mean_range": [
+        109490,
+        109490
+      ],
+      "opt2_cycles": [
+        13895,
+        13895
+      ],
+      "opt2_median": 13895.0,
+      "opt2_range": [
+        13895,
+        13895
+      ],
+      "mean_speedup": 1.0,
+      "opt2_speedup": 7.879812882331774,
+      "mean_reduction_pct": 0.0,
+      "opt2_reduction_pct": 87.30934331902456,
+      "mean_verdict": "NEUTRAL",
+      "opt2_verdict": "WIN",
+      "height": 16,
+      "width": 16,
+      "channels": 32,
+      "correctness": "PASS",
+      "stock_correctness": "PASS",
+      "exp_mean_correctness": "PASS",
+      "opt2_correctness": "PASS",
+      "stock_path": "64-bit SIMD",
+      "exp_mean_path": "64-bit SIMD",
+      "opt2_path": "Opt2 sliding SIMD",
+      "target_build": "opt2",
+      "filter": 3,
+      "stride": 1,
+      "padding": 1,
+      "target_verdict": "WIN"
+    },
+    {
+      "op": "max_pool",
+      "shape": "input 16x16x32, filter 3x3, pad 1, stride 1",
+      "mem": "int",
+      "eligible": true,
+      "stock_cycles": [
+        109490,
+        109490
+      ],
+      "stock_median": 109490.0,
+      "stock_range": [
+        109490,
+        109490
+      ],
+      "exp_mean_cycles": [
+        109490,
+        109490
+      ],
+      "exp_mean_median": 109490.0,
+      "exp_mean_range": [
+        109490,
+        109490
+      ],
+      "opt2_cycles": [
+        13896,
+        13896
+      ],
+      "opt2_median": 13896.0,
+      "opt2_range": [
+        13896,
+        13896
+      ],
+      "mean_speedup": 1.0,
+      "opt2_speedup": 7.8792458261370175,
+      "mean_reduction_pct": 0.0,
+      "opt2_reduction_pct": 87.30842999360672,
+      "mean_verdict": "NEUTRAL",
+      "opt2_verdict": "WIN",
+      "height": 16,
+      "width": 16,
+      "channels": 32,
+      "correctness": "PASS",
+      "stock_correctness": "PASS",
+      "exp_mean_correctness": "PASS",
+      "opt2_correctness": "PASS",
+      "stock_path": "64-bit SIMD",
+      "exp_mean_path": "64-bit SIMD",
+      "opt2_path": "Opt2 sliding SIMD",
+      "target_build": "opt2",
+      "filter": 3,
+      "stride": 1,
+      "padding": 1,
+      "target_verdict": "WIN"
+    },
+    {
+      "op": "max_pool",
+      "shape": "input 16x16x32, filter 5x5, pad 0, stride 1",
+      "mem": "int",
+      "eligible": false,
+      "stock_cycles": [
+        111490,
+        111490
+      ],
+      "stock_median": 111490.0,
+      "stock_range": [
+        111490,
+        111490
+      ],
+      "exp_mean_cycles": [
+        111490,
+        111490
+      ],
+      "exp_mean_median": 111490.0,
+      "exp_mean_range": [
+        111490,
+        111490
+      ],
+      "opt2_cycles": [
+        47166,
+        47166
+      ],
+      "opt2_median": 47166.0,
+      "opt2_range": [
+        47166,
+        47166
+      ],
+      "mean_speedup": 1.0,
+      "opt2_speedup": 2.3637789933426623,
+      "mean_reduction_pct": 0.0,
+      "opt2_reduction_pct": 57.69486052560768,
+      "mean_verdict": "NEUTRAL",
+      "opt2_verdict": "WIN",
+      "height": 16,
+      "width": 16,
+      "channels": 32,
+      "correctness": "PASS",
+      "stock_correctness": "PASS",
+      "exp_mean_correctness": "PASS",
+      "opt2_correctness": "PASS",
+      "stock_path": "64-bit SIMD",
+      "exp_mean_path": "64-bit SIMD",
+      "opt2_path": "Opt1 128-bit SIMD fallback",
+      "target_build": "opt2",
+      "filter": 5,
+      "stride": 1,
+      "padding": 0,
+      "target_verdict": "WIN"
+    },
+    {
+      "op": "max_pool",
+      "shape": "input 16x16x48, filter 5x5, pad 2, stride 1",
+      "mem": "int",
+      "eligible": true,
+      "stock_cycles": [
+        264650,
+        264650
+      ],
+      "stock_median": 264650.0,
+      "stock_range": [
+        264650,
+        264650
+      ],
+      "exp_mean_cycles": [
+        264650,
+        264650
+      ],
+      "exp_mean_median": 264650.0,
+      "exp_mean_range": [
+        264650,
+        264650
+      ],
+      "opt2_cycles": [
+        25429,
+        25429
+      ],
+      "opt2_median": 25429.0,
+      "opt2_range": [
+        25429,
+        25429
+      ],
+      "mean_speedup": 1.0,
+      "opt2_speedup": 10.407408863895553,
+      "mean_reduction_pct": 0.0,
+      "opt2_reduction_pct": 90.39146041942188,
+      "mean_verdict": "NEUTRAL",
+      "opt2_verdict": "WIN",
+      "height": 16,
+      "width": 16,
+      "channels": 48,
+      "correctness": "PASS",
+      "stock_correctness": "PASS",
+      "exp_mean_correctness": "PASS",
+      "opt2_correctness": "PASS",
+      "stock_path": "64-bit SIMD",
+      "exp_mean_path": "64-bit SIMD",
+      "opt2_path": "Opt2 sliding SIMD",
+      "target_build": "opt2",
+      "filter": 5,
+      "stride": 1,
+      "padding": 2,
+      "target_verdict": "WIN"
+    },
+    {
+      "op": "max_pool",
+      "shape": "input 16x16x64, filter 3x3, pad 1, stride 1",
+      "mem": "int",
+      "eligible": true,
+      "stock_cycles": [
+        207458,
+        207458
+      ],
+      "stock_median": 207458.0,
+      "stock_range": [
+        207458,
+        207458
+      ],
+      "exp_mean_cycles": [
+        207458,
+        207458
+      ],
+      "exp_mean_median": 207458.0,
+      "exp_mean_range": [
+        207458,
+        207458
+      ],
+      "opt2_cycles": [
+        27079,
+        27079
+      ],
+      "opt2_median": 27079.0,
+      "opt2_range": [
+        27079,
+        27079
+      ],
+      "mean_speedup": 1.0,
+      "opt2_speedup": 7.661213486465527,
+      "mean_reduction_pct": 0.0,
+      "opt2_reduction_pct": 86.94723751313519,
+      "mean_verdict": "NEUTRAL",
+      "opt2_verdict": "WIN",
+      "height": 16,
+      "width": 16,
+      "channels": 64,
+      "correctness": "PASS",
+      "stock_correctness": "PASS",
+      "exp_mean_correctness": "PASS",
+      "opt2_correctness": "PASS",
+      "stock_path": "64-bit SIMD",
+      "exp_mean_path": "64-bit SIMD",
+      "opt2_path": "Opt2 sliding SIMD",
+      "target_build": "opt2",
+      "filter": 3,
+      "stride": 1,
+      "padding": 1,
+      "target_verdict": "WIN"
+    },
+    {
+      "op": "max_pool",
+      "shape": "input 16x16x64, filter 3x3, pad 1, stride 2",
+      "mem": "int",
+      "eligible": false,
+      "stock_cycles": [
+        52122,
+        52122
+      ],
+      "stock_median": 52122.0,
+      "stock_range": [
+        52122,
+        52122
+      ],
+      "exp_mean_cycles": [
+        52122,
+        52122
+      ],
+      "exp_mean_median": 52122.0,
+      "exp_mean_range": [
+        52122,
+        52122
+      ],
+      "opt2_cycles": [
+        20047,
+        20047
+      ],
+      "opt2_median": 20047.0,
+      "opt2_range": [
+        20047,
+        20047
+      ],
+      "mean_speedup": 1.0,
+      "opt2_speedup": 2.5999900234449043,
+      "mean_reduction_pct": 0.0,
+      "opt2_reduction_pct": 61.53831395571927,
+      "mean_verdict": "NEUTRAL",
+      "opt2_verdict": "WIN",
+      "height": 16,
+      "width": 16,
+      "channels": 64,
+      "correctness": "PASS",
+      "stock_correctness": "PASS",
+      "exp_mean_correctness": "PASS",
+      "opt2_correctness": "PASS",
+      "stock_path": "64-bit SIMD",
+      "exp_mean_path": "64-bit SIMD",
+      "opt2_path": "Opt1 128-bit SIMD fallback",
+      "target_build": "opt2",
+      "filter": 3,
+      "stride": 2,
+      "padding": 1,
+      "target_verdict": "WIN"
+    },
+    {
+      "op": "max_pool",
+      "shape": "input 16x16x64, filter 5x5, pad 2, stride 1",
+      "mem": "ext",
+      "eligible": true,
+      "stock_cycles": [
+        349026,
+        349026
+      ],
+      "stock_median": 349026.0,
+      "stock_range": [
+        349026,
+        349026
+      ],
+      "exp_mean_cycles": [
+        349026,
+        349026
+      ],
+      "exp_mean_median": 349026.0,
+      "exp_mean_range": [
+        349026,
+        349026
+      ],
+      "opt2_cycles": [
+        33669,
+        33669
+      ],
+      "opt2_median": 33669.0,
+      "opt2_range": [
+        33669,
+        33669
+      ],
+      "mean_speedup": 1.0,
+      "opt2_speedup": 10.36639044818676,
+      "mean_reduction_pct": 0.0,
+      "opt2_reduction_pct": 90.35344071788349,
+      "mean_verdict": "NEUTRAL",
+      "opt2_verdict": "WIN",
+      "height": 16,
+      "width": 16,
+      "channels": 64,
+      "correctness": "PASS",
+      "stock_correctness": "PASS",
+      "exp_mean_correctness": "PASS",
+      "opt2_correctness": "PASS",
+      "stock_path": "64-bit SIMD",
+      "exp_mean_path": "64-bit SIMD",
+      "opt2_path": "Opt2 sliding SIMD",
+      "target_build": "opt2",
+      "filter": 5,
+      "stride": 1,
+      "padding": 2,
+      "target_verdict": "WIN"
+    },
+    {
+      "op": "max_pool",
+      "shape": "input 16x16x64, filter 5x5, pad 2, stride 1",
+      "mem": "int",
+      "eligible": true,
+      "stock_cycles": [
+        349026,
+        349026
+      ],
+      "stock_median": 349026.0,
+      "stock_range": [
+        349026,
+        349026
+      ],
+      "exp_mean_cycles": [
+        349026,
+        349026
+      ],
+      "exp_mean_median": 349026.0,
+      "exp_mean_range": [
+        349026,
+        349026
+      ],
+      "opt2_cycles": [
+        33669,
+        33669
+      ],
+      "opt2_median": 33669.0,
+      "opt2_range": [
+        33669,
+        33669
+      ],
+      "mean_speedup": 1.0,
+      "opt2_speedup": 10.36639044818676,
+      "mean_reduction_pct": 0.0,
+      "opt2_reduction_pct": 90.35344071788349,
+      "mean_verdict": "NEUTRAL",
+      "opt2_verdict": "WIN",
+      "height": 16,
+      "width": 16,
+      "channels": 64,
+      "correctness": "PASS",
+      "stock_correctness": "PASS",
+      "exp_mean_correctness": "PASS",
+      "opt2_correctness": "PASS",
+      "stock_path": "64-bit SIMD",
+      "exp_mean_path": "64-bit SIMD",
+      "opt2_path": "Opt2 sliding SIMD",
+      "target_build": "opt2",
+      "filter": 5,
+      "stride": 1,
+      "padding": 2,
+      "target_verdict": "WIN"
+    },
+    {
+      "op": "max_pool",
+      "shape": "input 16x16x8, filter 3x3, pad 1, stride 1",
+      "mem": "int",
+      "eligible": false,
+      "stock_cycles": [
+        36014,
+        36014
+      ],
+      "stock_median": 36014.0,
+      "stock_range": [
+        36014,
+        36014
+      ],
+      "exp_mean_cycles": [
+        36014,
+        36014
+      ],
+      "exp_mean_median": 36014.0,
+      "exp_mean_range": [
+        36014,
+        36014
+      ],
+      "opt2_cycles": [
+        36281,
+        36281
+      ],
+      "opt2_median": 36281.0,
+      "opt2_range": [
+        36281,
+        36281
+      ],
+      "mean_speedup": 1.0,
+      "opt2_speedup": 0.9926407761638323,
+      "mean_reduction_pct": 0.0,
+      "opt2_reduction_pct": -0.7413783528627649,
+      "mean_verdict": "NEUTRAL",
+      "opt2_verdict": "NEUTRAL",
+      "height": 16,
+      "width": 16,
+      "channels": 8,
+      "correctness": "PASS",
+      "stock_correctness": "PASS",
+      "exp_mean_correctness": "PASS",
+      "opt2_correctness": "PASS",
+      "stock_path": "64-bit SIMD",
+      "exp_mean_path": "64-bit SIMD",
+      "opt2_path": "64-bit SIMD",
+      "target_build": "opt2",
+      "filter": 3,
+      "stride": 1,
+      "padding": 1,
+      "target_verdict": "NEUTRAL"
+    },
+    {
+      "op": "max_pool",
+      "shape": "input 24x24x128, filter 3x3, pad 1, stride 1",
+      "mem": "ext",
+      "eligible": true,
+      "stock_cycles": [
+        1044216,
+        1044216
+      ],
+      "stock_median": 1044216.0,
+      "stock_range": [
+        1044216,
+        1044216
+      ],
+      "exp_mean_cycles": [
+        1044216,
+        1044216
+      ],
+      "exp_mean_median": 1044216.0,
+      "exp_mean_range": [
+        1044216,
+        1044216
+      ],
+      "opt2_cycles": [
+        602781,
+        602781
+      ],
+      "opt2_median": 602781.0,
+      "opt2_range": [
+        602781,
+        602781
+      ],
+      "mean_speedup": 1.0,
+      "opt2_speedup": 1.7323306474490736,
+      "mean_reduction_pct": 0.0,
+      "opt2_reduction_pct": 42.274299570203866,
+      "mean_verdict": "NEUTRAL",
+      "opt2_verdict": "WIN",
+      "height": 24,
+      "width": 24,
+      "channels": 128,
+      "correctness": "PASS",
+      "stock_correctness": "PASS",
+      "exp_mean_correctness": "PASS",
+      "opt2_correctness": "PASS",
+      "stock_path": "64-bit SIMD",
+      "exp_mean_path": "64-bit SIMD",
+      "opt2_path": "Opt2 sliding SIMD",
+      "target_build": "opt2",
+      "filter": 3,
+      "stride": 1,
+      "padding": 1,
+      "target_verdict": "WIN"
+    },
+    {
+      "op": "max_pool",
+      "shape": "input 24x24x64, filter 5x5, pad 2, stride 1",
+      "mem": "ext",
+      "eligible": true,
+      "stock_cycles": [
+        870397,
+        870397
+      ],
+      "stock_median": 870397.0,
+      "stock_range": [
+        870397,
+        870397
+      ],
+      "exp_mean_cycles": [
+        870397,
+        870397
+      ],
+      "exp_mean_median": 870397.0,
+      "exp_mean_range": [
+        870397,
+        870397
+      ],
+      "opt2_cycles": [
+        194692,
+        194692
+      ],
+      "opt2_median": 194692.0,
+      "opt2_range": [
+        194692,
+        194692
+      ],
+      "mean_speedup": 1.0,
+      "opt2_speedup": 4.470635670700388,
+      "mean_reduction_pct": 0.0,
+      "opt2_reduction_pct": 77.6318162861315,
+      "mean_verdict": "NEUTRAL",
+      "opt2_verdict": "WIN",
+      "height": 24,
+      "width": 24,
+      "channels": 64,
+      "correctness": "PASS",
+      "stock_correctness": "PASS",
+      "exp_mean_correctness": "PASS",
+      "opt2_correctness": "PASS",
+      "stock_path": "64-bit SIMD",
+      "exp_mean_path": "64-bit SIMD",
+      "opt2_path": "Opt2 sliding SIMD",
+      "target_build": "opt2",
+      "filter": 5,
+      "stride": 1,
+      "padding": 2,
+      "target_verdict": "WIN"
+    },
+    {
+      "op": "max_pool",
+      "shape": "input 2x2x16, filter 3x3, pad 1, stride 1",
+      "mem": "int",
+      "eligible": false,
+      "stock_cycles": [
+        922,
+        922
+      ],
+      "stock_median": 922.0,
+      "stock_range": [
+        922,
+        922
+      ],
+      "exp_mean_cycles": [
+        922,
+        922
+      ],
+      "exp_mean_median": 922.0,
+      "exp_mean_range": [
+        922,
+        922
+      ],
+      "opt2_cycles": [
+        691,
+        691
+      ],
+      "opt2_median": 691.0,
+      "opt2_range": [
+        691,
+        691
+      ],
+      "mean_speedup": 1.0,
+      "opt2_speedup": 1.3342981186685963,
+      "mean_reduction_pct": 0.0,
+      "opt2_reduction_pct": 25.054229934924077,
+      "mean_verdict": "NEUTRAL",
+      "opt2_verdict": "WIN",
+      "height": 2,
+      "width": 2,
+      "channels": 16,
+      "correctness": "PASS",
+      "stock_correctness": "PASS",
+      "exp_mean_correctness": "PASS",
+      "opt2_correctness": "PASS",
+      "stock_path": "64-bit SIMD",
+      "exp_mean_path": "64-bit SIMD",
+      "opt2_path": "Opt1 128-bit SIMD fallback",
+      "target_build": "opt2",
+      "filter": 3,
+      "stride": 1,
+      "padding": 1,
+      "target_verdict": "WIN"
+    },
+    {
+      "op": "max_pool",
+      "shape": "input 32x32x128, filter 2x2, pad 0, stride 2",
+      "mem": "ext",
+      "eligible": false,
+      "stock_cycles": [
+        623118,
+        623118
+      ],
+      "stock_median": 623118.0,
+      "stock_range": [
+        623118,
+        623118
+      ],
+      "exp_mean_cycles": [
+        623118,
+        623118
+      ],
+      "exp_mean_median": 623118.0,
+      "exp_mean_range": [
+        623118,
+        623118
+      ],
+      "opt2_cycles": [
+        484142,
+        484142
+      ],
+      "opt2_median": 484142.0,
+      "opt2_range": [
+        484142,
+        484142
+      ],
+      "mean_speedup": 1.0,
+      "opt2_speedup": 1.287056276877445,
+      "mean_reduction_pct": 0.0,
+      "opt2_reduction_pct": 22.303319756450623,
+      "mean_verdict": "NEUTRAL",
+      "opt2_verdict": "WIN",
+      "height": 32,
+      "width": 32,
+      "channels": 128,
+      "correctness": "PASS",
+      "stock_correctness": "PASS",
+      "exp_mean_correctness": "PASS",
+      "opt2_correctness": "PASS",
+      "stock_path": "64-bit SIMD",
+      "exp_mean_path": "64-bit SIMD",
+      "opt2_path": "Opt1 128-bit SIMD fallback",
+      "target_build": "opt2",
+      "filter": 2,
+      "stride": 2,
+      "padding": 0,
+      "target_verdict": "WIN"
+    },
+    {
+      "op": "max_pool",
+      "shape": "input 32x32x128, filter 3x3, pad 1, stride 1",
+      "mem": "ext",
+      "eligible": true,
+      "stock_cycles": [
+        1852899,
+        1852893
+      ],
+      "stock_median": 1852896.0,
+      "stock_range": [
+        1852893,
+        1852899
+      ],
+      "exp_mean_cycles": [
+        1852893,
+        1852899
+      ],
+      "exp_mean_median": 1852896.0,
+      "exp_mean_range": [
+        1852893,
+        1852899
+      ],
+      "opt2_cycles": [
+        1183217,
+        1183217
+      ],
+      "opt2_median": 1183217.0,
+      "opt2_range": [
+        1183217,
+        1183217
+      ],
+      "mean_speedup": 1.0,
+      "opt2_speedup": 1.5659815570601165,
+      "mean_reduction_pct": 0.0,
+      "opt2_reduction_pct": 36.142287532597614,
+      "mean_verdict": "NEUTRAL",
+      "opt2_verdict": "WIN",
+      "height": 32,
+      "width": 32,
+      "channels": 128,
+      "correctness": "PASS",
+      "stock_correctness": "PASS",
+      "exp_mean_correctness": "PASS",
+      "opt2_correctness": "PASS",
+      "stock_path": "64-bit SIMD",
+      "exp_mean_path": "64-bit SIMD",
+      "opt2_path": "Opt2 sliding SIMD",
+      "target_build": "opt2",
+      "filter": 3,
+      "stride": 1,
+      "padding": 1,
+      "target_verdict": "WIN"
+    },
+    {
+      "op": "max_pool",
+      "shape": "input 32x32x128, filter 5x5, pad 2, stride 1",
+      "mem": "ext",
+      "eligible": true,
+      "stock_cycles": [
+        3104443,
+        3104452
+      ],
+      "stock_median": 3104447.5,
+      "stock_range": [
+        3104443,
+        3104452
+      ],
+      "exp_mean_cycles": [
+        3104452,
+        3104452
+      ],
+      "exp_mean_median": 3104452.0,
+      "exp_mean_range": [
+        3104452,
+        3104452
+      ],
+      "opt2_cycles": [
+        1219549,
+        1219548
+      ],
+      "opt2_median": 1219548.5,
+      "opt2_range": [
+        1219548,
+        1219549
+      ],
+      "mean_speedup": 0.9999985504688106,
+      "opt2_speedup": 2.5455711683463185,
+      "mean_reduction_pct": -0.00014495332905095637,
+      "opt2_reduction_pct": 60.7160855514548,
+      "mean_verdict": "NEUTRAL",
+      "opt2_verdict": "WIN",
+      "height": 32,
+      "width": 32,
+      "channels": 128,
+      "correctness": "PASS",
+      "stock_correctness": "PASS",
+      "exp_mean_correctness": "PASS",
+      "opt2_correctness": "PASS",
+      "stock_path": "64-bit SIMD",
+      "exp_mean_path": "64-bit SIMD",
+      "opt2_path": "Opt2 sliding SIMD",
+      "target_build": "opt2",
+      "filter": 5,
+      "stride": 1,
+      "padding": 2,
+      "target_verdict": "WIN"
+    },
+    {
+      "op": "max_pool",
+      "shape": "input 32x32x16, filter 3x3, pad 1, stride 1",
+      "mem": "int",
+      "eligible": true,
+      "stock_cycles": [
+        244762,
+        244762
+      ],
+      "stock_median": 244762.0,
+      "stock_range": [
+        244762,
+        244762
+      ],
+      "exp_mean_cycles": [
+        244762,
+        244762
+      ],
+      "exp_mean_median": 244762.0,
+      "exp_mean_range": [
+        244762,
+        244762
+      ],
+      "opt2_cycles": [
+        26727,
+        26727
+      ],
+      "opt2_median": 26727.0,
+      "opt2_range": [
+        26727,
+        26727
+      ],
+      "mean_speedup": 1.0,
+      "opt2_speedup": 9.1578553522655,
+      "mean_reduction_pct": 0.0,
+      "opt2_reduction_pct": 89.08041280917789,
+      "mean_verdict": "NEUTRAL",
+      "opt2_verdict": "WIN",
+      "height": 32,
+      "width": 32,
+      "channels": 16,
+      "correctness": "PASS",
+      "stock_correctness": "PASS",
+      "exp_mean_correctness": "PASS",
+      "opt2_correctness": "PASS",
+      "stock_path": "64-bit SIMD",
+      "exp_mean_path": "64-bit SIMD",
+      "opt2_path": "Opt2 sliding SIMD",
+      "target_build": "opt2",
+      "filter": 3,
+      "stride": 1,
+      "padding": 1,
+      "target_verdict": "WIN"
+    },
+    {
+      "op": "max_pool",
+      "shape": "input 32x32x16, filter 5x5, pad 2, stride 1",
+      "mem": "ext",
+      "eligible": true,
+      "stock_cycles": [
+        399322,
+        399322
+      ],
+      "stock_median": 399322.0,
+      "stock_range": [
+        399322,
+        399322
+      ],
+      "exp_mean_cycles": [
+        399322,
+        399322
+      ],
+      "exp_mean_median": 399322.0,
+      "exp_mean_range": [
+        399322,
+        399322
+      ],
+      "opt2_cycles": [
+        33605,
+        33605
+      ],
+      "opt2_median": 33605.0,
+      "opt2_range": [
+        33605,
+        33605
+      ],
+      "mean_speedup": 1.0,
+      "opt2_speedup": 11.882815057283143,
+      "mean_reduction_pct": 0.0,
+      "opt2_reduction_pct": 91.58448570326703,
+      "mean_verdict": "NEUTRAL",
+      "opt2_verdict": "WIN",
+      "height": 32,
+      "width": 32,
+      "channels": 16,
+      "correctness": "PASS",
+      "stock_correctness": "PASS",
+      "exp_mean_correctness": "PASS",
+      "opt2_correctness": "PASS",
+      "stock_path": "64-bit SIMD",
+      "exp_mean_path": "64-bit SIMD",
+      "opt2_path": "Opt2 sliding SIMD",
+      "target_build": "opt2",
+      "filter": 5,
+      "stride": 1,
+      "padding": 2,
+      "target_verdict": "WIN"
+    },
+    {
+      "op": "max_pool",
+      "shape": "input 32x32x32, filter 3x3, pad 1, stride 1",
+      "mem": "int",
+      "eligible": true,
+      "stock_cycles": [
+        445106,
+        445106
+      ],
+      "stock_median": 445106.0,
+      "stock_range": [
+        445106,
+        445106
+      ],
+      "exp_mean_cycles": [
+        445106,
+        445106
+      ],
+      "exp_mean_median": 445106.0,
+      "exp_mean_range": [
+        445106,
+        445106
+      ],
+      "opt2_cycles": [
+        52199,
+        52199
+      ],
+      "opt2_median": 52199.0,
+      "opt2_range": [
+        52199,
+        52199
+      ],
+      "mean_speedup": 1.0,
+      "opt2_speedup": 8.52709822027242,
+      "mean_reduction_pct": 0.0,
+      "opt2_reduction_pct": 88.27268111416157,
+      "mean_verdict": "NEUTRAL",
+      "opt2_verdict": "WIN",
+      "height": 32,
+      "width": 32,
+      "channels": 32,
+      "correctness": "PASS",
+      "stock_correctness": "PASS",
+      "exp_mean_correctness": "PASS",
+      "opt2_correctness": "PASS",
+      "stock_path": "64-bit SIMD",
+      "exp_mean_path": "64-bit SIMD",
+      "opt2_path": "Opt2 sliding SIMD",
+      "target_build": "opt2",
+      "filter": 3,
+      "stride": 1,
+      "padding": 1,
+      "target_verdict": "WIN"
+    },
+    {
+      "op": "max_pool",
+      "shape": "input 32x32x64, filter 2x2, pad 0, stride 2",
+      "mem": "ext",
+      "eligible": false,
+      "stock_cycles": [
+        303100,
+        303100
+      ],
+      "stock_median": 303100.0,
+      "stock_range": [
+        303100,
+        303100
+      ],
+      "exp_mean_cycles": [
+        303100,
+        303100
+      ],
+      "exp_mean_median": 303100.0,
+      "exp_mean_range": [
+        303100,
+        303100
+      ],
+      "opt2_cycles": [
+        229442,
+        229442
+      ],
+      "opt2_median": 229442.0,
+      "opt2_range": [
+        229442,
+        229442
+      ],
+      "mean_speedup": 1.0,
+      "opt2_speedup": 1.321031023090803,
+      "mean_reduction_pct": 0.0,
+      "opt2_reduction_pct": 24.301550643352034,
+      "mean_verdict": "NEUTRAL",
+      "opt2_verdict": "WIN",
+      "height": 32,
+      "width": 32,
+      "channels": 64,
+      "correctness": "PASS",
+      "stock_correctness": "PASS",
+      "exp_mean_correctness": "PASS",
+      "opt2_correctness": "PASS",
+      "stock_path": "64-bit SIMD",
+      "exp_mean_path": "64-bit SIMD",
+      "opt2_path": "Opt1 128-bit SIMD fallback",
+      "target_build": "opt2",
+      "filter": 2,
+      "stride": 2,
+      "padding": 0,
+      "target_verdict": "WIN"
+    },
+    {
+      "op": "max_pool",
+      "shape": "input 32x32x64, filter 3x3, pad 1, stride 1",
+      "mem": "int",
+      "eligible": true,
+      "stock_cycles": [
+        845794,
+        845794
+      ],
+      "stock_median": 845794.0,
+      "stock_range": [
+        845794,
+        845794
+      ],
+      "exp_mean_cycles": [
+        845794,
+        845794
+      ],
+      "exp_mean_median": 845794.0,
+      "exp_mean_range": [
+        845794,
+        845794
+      ],
+      "opt2_cycles": [
+        103143,
+        103143
+      ],
+      "opt2_median": 103143.0,
+      "opt2_range": [
+        103143,
+        103143
+      ],
+      "mean_speedup": 1.0,
+      "opt2_speedup": 8.20020747893701,
+      "mean_reduction_pct": 0.0,
+      "opt2_reduction_pct": 87.80518660572196,
+      "mean_verdict": "NEUTRAL",
+      "opt2_verdict": "WIN",
+      "height": 32,
+      "width": 32,
+      "channels": 64,
+      "correctness": "PASS",
+      "stock_correctness": "PASS",
+      "exp_mean_correctness": "PASS",
+      "opt2_correctness": "PASS",
+      "stock_path": "64-bit SIMD",
+      "exp_mean_path": "64-bit SIMD",
+      "opt2_path": "Opt2 sliding SIMD",
+      "target_build": "opt2",
+      "filter": 3,
+      "stride": 1,
+      "padding": 1,
+      "target_verdict": "WIN"
+    },
+    {
+      "op": "max_pool",
+      "shape": "input 4x4x16, filter 3x3, pad 1, stride 1",
+      "mem": "int",
+      "eligible": true,
+      "stock_cycles": [
+        3626,
+        3626
+      ],
+      "stock_median": 3626.0,
+      "stock_range": [
+        3626,
+        3626
+      ],
+      "exp_mean_cycles": [
+        3626,
+        3626
+      ],
+      "exp_mean_median": 3626.0,
+      "exp_mean_range": [
+        3626,
+        3626
+      ],
+      "opt2_cycles": [
+        799,
+        799
+      ],
+      "opt2_median": 799.0,
+      "opt2_range": [
+        799,
+        799
+      ],
+      "mean_speedup": 1.0,
+      "opt2_speedup": 4.538172715894868,
+      "mean_reduction_pct": 0.0,
+      "opt2_reduction_pct": 77.96469939327082,
+      "mean_verdict": "NEUTRAL",
+      "opt2_verdict": "WIN",
+      "height": 4,
+      "width": 4,
+      "channels": 16,
+      "correctness": "PASS",
+      "stock_correctness": "PASS",
+      "exp_mean_correctness": "PASS",
+      "opt2_correctness": "PASS",
+      "stock_path": "64-bit SIMD",
+      "exp_mean_path": "64-bit SIMD",
+      "opt2_path": "Opt2 sliding SIMD",
+      "target_build": "opt2",
+      "filter": 3,
+      "stride": 1,
+      "padding": 1,
+      "target_verdict": "WIN"
+    },
+    {
+      "op": "max_pool",
+      "shape": "input 4x4x16, filter 5x5, pad 2, stride 1",
+      "mem": "int",
+      "eligible": false,
+      "stock_cycles": [
+        4746,
+        4746
+      ],
+      "stock_median": 4746.0,
+      "stock_range": [
+        4746,
+        4746
+      ],
+      "exp_mean_cycles": [
+        4746,
+        4746
+      ],
+      "exp_mean_median": 4746.0,
+      "exp_mean_range": [
+        4746,
+        4746
+      ],
+      "opt2_cycles": [
+        2619,
+        2619
+      ],
+      "opt2_median": 2619.0,
+      "opt2_range": [
+        2619,
+        2619
+      ],
+      "mean_speedup": 1.0,
+      "opt2_speedup": 1.8121420389461627,
+      "mean_reduction_pct": 0.0,
+      "opt2_reduction_pct": 44.81668773704172,
+      "mean_verdict": "NEUTRAL",
+      "opt2_verdict": "WIN",
+      "height": 4,
+      "width": 4,
+      "channels": 16,
+      "correctness": "PASS",
+      "stock_correctness": "PASS",
+      "exp_mean_correctness": "PASS",
+      "opt2_correctness": "PASS",
+      "stock_path": "64-bit SIMD",
+      "exp_mean_path": "64-bit SIMD",
+      "opt2_path": "Opt1 128-bit SIMD fallback",
+      "target_build": "opt2",
+      "filter": 5,
+      "stride": 1,
+      "padding": 2,
+      "target_verdict": "WIN"
+    },
+    {
+      "op": "max_pool",
+      "shape": "input 5x5x16, filter 3x3, pad 1, stride 1",
+      "mem": "int",
+      "eligible": true,
+      "stock_cycles": [
+        5704,
+        5704
+      ],
+      "stock_median": 5704.0,
+      "stock_range": [
+        5704,
+        5704
+      ],
+      "exp_mean_cycles": [
+        5704,
+        5704
+      ],
+      "exp_mean_median": 5704.0,
+      "exp_mean_range": [
+        5704,
+        5704
+      ],
+      "opt2_cycles": [
+        1077,
+        1077
+      ],
+      "opt2_median": 1077.0,
+      "opt2_range": [
+        1077,
+        1077
+      ],
+      "mean_speedup": 1.0,
+      "opt2_speedup": 5.2961931290622095,
+      "mean_reduction_pct": 0.0,
+      "opt2_reduction_pct": 81.11851332398317,
+      "mean_verdict": "NEUTRAL",
+      "opt2_verdict": "WIN",
+      "height": 5,
+      "width": 5,
+      "channels": 16,
+      "correctness": "PASS",
+      "stock_correctness": "PASS",
+      "exp_mean_correctness": "PASS",
+      "opt2_correctness": "PASS",
+      "stock_path": "64-bit SIMD",
+      "exp_mean_path": "64-bit SIMD",
+      "opt2_path": "Opt2 sliding SIMD",
+      "target_build": "opt2",
+      "filter": 3,
+      "stride": 1,
+      "padding": 1,
+      "target_verdict": "WIN"
+    },
+    {
+      "op": "max_pool",
+      "shape": "input 64x64x16, filter 3x3, pad 1, stride 1",
+      "mem": "ext",
+      "eligible": true,
+      "stock_cycles": [
+        1081070,
+        1081076
+      ],
+      "stock_median": 1081073.0,
+      "stock_range": [
+        1081070,
+        1081076
+      ],
+      "exp_mean_cycles": [
+        1081028,
+        1081067
+      ],
+      "exp_mean_median": 1081047.5,
+      "exp_mean_range": [
+        1081028,
+        1081067
+      ],
+      "opt2_cycles": [
+        372947,
+        372947
+      ],
+      "opt2_median": 372947.0,
+      "opt2_range": [
+        372947,
+        372947
+      ],
+      "mean_speedup": 1.0000235882327095,
+      "opt2_speedup": 2.89873091887051,
+      "mean_reduction_pct": 0.0023587676317826656,
+      "opt2_reduction_pct": 65.5021446285311,
+      "mean_verdict": "NEUTRAL",
+      "opt2_verdict": "WIN",
+      "height": 64,
+      "width": 64,
+      "channels": 16,
+      "correctness": "PASS",
+      "stock_correctness": "PASS",
+      "exp_mean_correctness": "PASS",
+      "opt2_correctness": "PASS",
+      "stock_path": "64-bit SIMD",
+      "exp_mean_path": "64-bit SIMD",
+      "opt2_path": "Opt2 sliding SIMD",
+      "target_build": "opt2",
+      "filter": 3,
+      "stride": 1,
+      "padding": 1,
+      "target_verdict": "WIN"
+    },
+    {
+      "op": "max_pool",
+      "shape": "input 64x64x16, filter 5x5, pad 2, stride 1",
+      "mem": "ext",
+      "eligible": true,
+      "stock_cycles": [
+        1731498,
+        1731498
+      ],
+      "stock_median": 1731498.0,
+      "stock_range": [
+        1731498,
+        1731498
+      ],
+      "exp_mean_cycles": [
+        1731498,
+        1731498
+      ],
+      "exp_mean_median": 1731498.0,
+      "exp_mean_range": [
+        1731498,
+        1731498
+      ],
+      "opt2_cycles": [
+        374534,
+        374534
+      ],
+      "opt2_median": 374534.0,
+      "opt2_range": [
+        374534,
+        374534
+      ],
+      "mean_speedup": 1.0,
+      "opt2_speedup": 4.623072938638415,
+      "mean_reduction_pct": 0.0,
+      "opt2_reduction_pct": 78.36936571685327,
+      "mean_verdict": "NEUTRAL",
+      "opt2_verdict": "WIN",
+      "height": 64,
+      "width": 64,
+      "channels": 16,
+      "correctness": "PASS",
+      "stock_correctness": "PASS",
+      "exp_mean_correctness": "PASS",
+      "opt2_correctness": "PASS",
+      "stock_path": "64-bit SIMD",
+      "exp_mean_path": "64-bit SIMD",
+      "opt2_path": "Opt2 sliding SIMD",
+      "target_build": "opt2",
+      "filter": 5,
+      "stride": 1,
+      "padding": 2,
+      "target_verdict": "WIN"
+    },
+    {
+      "op": "max_pool",
+      "shape": "input 64x64x32, filter 3x3, pad 1, stride 1",
+      "mem": "ext",
+      "eligible": true,
+      "stock_cycles": [
+        1987340,
+        1987340
+      ],
+      "stock_median": 1987340.0,
+      "stock_range": [
+        1987340,
+        1987340
+      ],
+      "exp_mean_cycles": [
+        1987388,
+        1987340
+      ],
+      "exp_mean_median": 1987364.0,
+      "exp_mean_range": [
+        1987340,
+        1987388
+      ],
+      "opt2_cycles": [
+        1159501,
+        1159501
+      ],
+      "opt2_median": 1159501.0,
+      "opt2_range": [
+        1159501,
+        1159501
+      ],
+      "mean_speedup": 0.9999879237019489,
+      "opt2_speedup": 1.7139614368594767,
+      "mean_reduction_pct": -0.0012076443889785793,
+      "opt2_reduction_pct": 41.65563013877846,
+      "mean_verdict": "NEUTRAL",
+      "opt2_verdict": "WIN",
+      "height": 64,
+      "width": 64,
+      "channels": 32,
+      "correctness": "PASS",
+      "stock_correctness": "PASS",
+      "exp_mean_correctness": "PASS",
+      "opt2_correctness": "PASS",
+      "stock_path": "64-bit SIMD",
+      "exp_mean_path": "64-bit SIMD",
+      "opt2_path": "Opt2 sliding SIMD",
+      "target_build": "opt2",
+      "filter": 3,
+      "stride": 1,
+      "padding": 1,
+      "target_verdict": "WIN"
+    },
+    {
+      "op": "max_pool",
+      "shape": "input 6x6x16, filter 5x5, pad 2, stride 1",
+      "mem": "int",
+      "eligible": true,
+      "stock_cycles": [
+        11818,
+        11818
+      ],
+      "stock_median": 11818.0,
+      "stock_range": [
+        11818,
+        11818
+      ],
+      "exp_mean_cycles": [
+        11818,
+        11818
+      ],
+      "exp_mean_median": 11818.0,
+      "exp_mean_range": [
+        11818,
+        11818
+      ],
+      "opt2_cycles": [
+        1599,
+        1599
+      ],
+      "opt2_median": 1599.0,
+      "opt2_range": [
+        1599,
+        1599
+      ],
+      "mean_speedup": 1.0,
+      "opt2_speedup": 7.3908692933083175,
+      "mean_reduction_pct": 0.0,
+      "opt2_reduction_pct": 86.46979184295142,
+      "mean_verdict": "NEUTRAL",
+      "opt2_verdict": "WIN",
+      "height": 6,
+      "width": 6,
+      "channels": 16,
+      "correctness": "PASS",
+      "stock_correctness": "PASS",
+      "exp_mean_correctness": "PASS",
+      "opt2_correctness": "PASS",
+      "stock_path": "64-bit SIMD",
+      "exp_mean_path": "64-bit SIMD",
+      "opt2_path": "Opt2 sliding SIMD",
+      "target_build": "opt2",
+      "filter": 5,
+      "stride": 1,
+      "padding": 2,
+      "target_verdict": "WIN"
+    },
+    {
+      "op": "max_pool",
+      "shape": "input 7x7x16, filter 3x3, pad 1, stride 1",
+      "mem": "int",
+      "eligible": true,
+      "stock_cycles": [
+        11312,
+        11312
+      ],
+      "stock_median": 11312.0,
+      "stock_range": [
+        11312,
+        11312
+      ],
+      "exp_mean_cycles": [
+        11312,
+        11312
+      ],
+      "exp_mean_median": 11312.0,
+      "exp_mean_range": [
+        11312,
+        11312
+      ],
+      "opt2_cycles": [
+        1777,
+        1777
+      ],
+      "opt2_median": 1777.0,
+      "opt2_range": [
+        1777,
+        1777
+      ],
+      "mean_speedup": 1.0,
+      "opt2_speedup": 6.365785030951041,
+      "mean_reduction_pct": 0.0,
+      "opt2_reduction_pct": 84.29101838755304,
+      "mean_verdict": "NEUTRAL",
+      "opt2_verdict": "WIN",
+      "height": 7,
+      "width": 7,
+      "channels": 16,
+      "correctness": "PASS",
+      "stock_correctness": "PASS",
+      "exp_mean_correctness": "PASS",
+      "opt2_correctness": "PASS",
+      "stock_path": "64-bit SIMD",
+      "exp_mean_path": "64-bit SIMD",
+      "opt2_path": "Opt2 sliding SIMD",
+      "target_build": "opt2",
+      "filter": 3,
+      "stride": 1,
+      "padding": 1,
+      "target_verdict": "WIN"
+    },
+    {
+      "op": "max_pool",
+      "shape": "input 7x7x16, filter 5x5, pad 2, stride 1",
+      "mem": "int",
+      "eligible": true,
+      "stock_cycles": [
+        16572,
+        16572
+      ],
+      "stock_median": 16572.0,
+      "stock_range": [
+        16572,
+        16572
+      ],
+      "exp_mean_cycles": [
+        16572,
+        16572
+      ],
+      "exp_mean_median": 16572.0,
+      "exp_mean_range": [
+        16572,
+        16572
+      ],
+      "opt2_cycles": [
+        2055,
+        2055
+      ],
+      "opt2_median": 2055.0,
+      "opt2_range": [
+        2055,
+        2055
+      ],
+      "mean_speedup": 1.0,
+      "opt2_speedup": 8.064233576642335,
+      "mean_reduction_pct": 0.0,
+      "opt2_reduction_pct": 87.59956553222302,
+      "mean_verdict": "NEUTRAL",
+      "opt2_verdict": "WIN",
+      "height": 7,
+      "width": 7,
+      "channels": 16,
+      "correctness": "PASS",
+      "stock_correctness": "PASS",
+      "exp_mean_correctness": "PASS",
+      "opt2_correctness": "PASS",
+      "stock_path": "64-bit SIMD",
+      "exp_mean_path": "64-bit SIMD",
+      "opt2_path": "Opt2 sliding SIMD",
+      "target_build": "opt2",
+      "filter": 5,
+      "stride": 1,
+      "padding": 2,
+      "target_verdict": "WIN"
+    },
+    {
+      "op": "max_pool",
+      "shape": "input 8x8x16, filter 3x3, pad 1, stride 1",
+      "mem": "int",
+      "eligible": true,
+      "stock_cycles": [
+        14842,
+        14842
+      ],
+      "stock_median": 14842.0,
+      "stock_range": [
+        14842,
+        14842
+      ],
+      "exp_mean_cycles": [
+        14842,
+        14842
+      ],
+      "exp_mean_median": 14842.0,
+      "exp_mean_range": [
+        14842,
+        14842
+      ],
+      "opt2_cycles": [
+        2199,
+        2199
+      ],
+      "opt2_median": 2199.0,
+      "opt2_range": [
+        2199,
+        2199
+      ],
+      "mean_speedup": 1.0,
+      "opt2_speedup": 6.749431559799909,
+      "mean_reduction_pct": 0.0,
+      "opt2_reduction_pct": 85.18393747473387,
+      "mean_verdict": "NEUTRAL",
+      "opt2_verdict": "WIN",
+      "height": 8,
+      "width": 8,
+      "channels": 16,
+      "correctness": "PASS",
+      "stock_correctness": "PASS",
+      "exp_mean_correctness": "PASS",
+      "opt2_correctness": "PASS",
+      "stock_path": "64-bit SIMD",
+      "exp_mean_path": "64-bit SIMD",
+      "opt2_path": "Opt2 sliding SIMD",
+      "target_build": "opt2",
+      "filter": 3,
+      "stride": 1,
+      "padding": 1,
+      "target_verdict": "WIN"
+    },
+    {
+      "op": "mean",
+      "shape": "input 14x14x120",
+      "mem": "ext",
+      "eligible": false,
+      "stock_cycles": [
+        83691,
+        83691
+      ],
+      "stock_median": 83691.0,
+      "stock_range": [
+        83691,
+        83691
+      ],
+      "exp_mean_cycles": [
+        83635,
+        83635
+      ],
+      "exp_mean_median": 83635.0,
+      "exp_mean_range": [
+        83635,
+        83635
+      ],
+      "opt2_cycles": [
+        83691,
+        83691
+      ],
+      "opt2_median": 83691.0,
+      "opt2_range": [
+        83691,
+        83691
+      ],
+      "mean_speedup": 1.0006695761343936,
+      "opt2_speedup": 1.0,
+      "mean_reduction_pct": 0.06691281021854456,
+      "opt2_reduction_pct": 0.0,
+      "mean_verdict": "NEUTRAL",
+      "opt2_verdict": "NEUTRAL",
+      "height": 14,
+      "width": 14,
+      "channels": 120,
+      "correctness": "PASS",
+      "stock_correctness": "PASS",
+      "exp_mean_correctness": "PASS",
+      "opt2_correctness": "PASS",
+      "stock_path": "scalar",
+      "exp_mean_path": "scalar fallback",
+      "opt2_path": "scalar",
+      "target_build": "exp_mean",
+      "target_verdict": "NEUTRAL"
+    },
+    {
+      "op": "mean",
+      "shape": "input 14x14x120",
+      "mem": "int",
+      "eligible": false,
+      "stock_cycles": [
+        83691,
+        83691
+      ],
+      "stock_median": 83691.0,
+      "stock_range": [
+        83691,
+        83691
+      ],
+      "exp_mean_cycles": [
+        83635,
+        83635
+      ],
+      "exp_mean_median": 83635.0,
+      "exp_mean_range": [
+        83635,
+        83635
+      ],
+      "opt2_cycles": [
+        83691,
+        83691
+      ],
+      "opt2_median": 83691.0,
+      "opt2_range": [
+        83691,
+        83691
+      ],
+      "mean_speedup": 1.0006695761343936,
+      "opt2_speedup": 1.0,
+      "mean_reduction_pct": 0.06691281021854456,
+      "opt2_reduction_pct": 0.0,
+      "mean_verdict": "NEUTRAL",
+      "opt2_verdict": "NEUTRAL",
+      "height": 14,
+      "width": 14,
+      "channels": 120,
+      "correctness": "PASS",
+      "stock_correctness": "PASS",
+      "exp_mean_correctness": "PASS",
+      "opt2_correctness": "PASS",
+      "stock_path": "scalar",
+      "exp_mean_path": "scalar fallback",
+      "opt2_path": "scalar",
+      "target_build": "exp_mean",
+      "target_verdict": "NEUTRAL"
+    },
+    {
+      "op": "mean",
+      "shape": "input 14x14x128",
+      "mem": "ext",
+      "eligible": true,
+      "stock_cycles": [
+        89265,
+        89265
+      ],
+      "stock_median": 89265.0,
+      "stock_range": [
+        89265,
+        89265
+      ],
+      "exp_mean_cycles": [
+        15991,
+        15991
+      ],
+      "exp_mean_median": 15991.0,
+      "exp_mean_range": [
+        15991,
+        15991
+      ],
+      "opt2_cycles": [
+        89265,
+        89265
+      ],
+      "opt2_median": 89265.0,
+      "opt2_range": [
+        89265,
+        89265
+      ],
+      "mean_speedup": 5.582202488900006,
+      "opt2_speedup": 1.0,
+      "mean_reduction_pct": 82.08592393435276,
+      "opt2_reduction_pct": 0.0,
+      "mean_verdict": "WIN",
+      "opt2_verdict": "NEUTRAL",
+      "height": 14,
+      "width": 14,
+      "channels": 128,
+      "correctness": "PASS",
+      "stock_correctness": "PASS",
+      "exp_mean_correctness": "PASS",
+      "opt2_correctness": "PASS",
+      "stock_path": "scalar",
+      "exp_mean_path": "QACC SIMD",
+      "opt2_path": "scalar",
+      "target_build": "exp_mean",
+      "target_verdict": "WIN"
+    },
+    {
+      "op": "mean",
+      "shape": "input 14x14x128",
+      "mem": "int",
+      "eligible": true,
+      "stock_cycles": [
+        89265,
+        89265
+      ],
+      "stock_median": 89265.0,
+      "stock_range": [
+        89265,
+        89265
+      ],
+      "exp_mean_cycles": [
+        15991,
+        15991
+      ],
+      "exp_mean_median": 15991.0,
+      "exp_mean_range": [
+        15991,
+        15991
+      ],
+      "opt2_cycles": [
+        89265,
+        89265
+      ],
+      "opt2_median": 89265.0,
+      "opt2_range": [
+        89265,
+        89265
+      ],
+      "mean_speedup": 5.582202488900006,
+      "opt2_speedup": 1.0,
+      "mean_reduction_pct": 82.08592393435276,
+      "opt2_reduction_pct": 0.0,
+      "mean_verdict": "WIN",
+      "opt2_verdict": "NEUTRAL",
+      "height": 14,
+      "width": 14,
+      "channels": 128,
+      "correctness": "PASS",
+      "stock_correctness": "PASS",
+      "exp_mean_correctness": "PASS",
+      "opt2_correctness": "PASS",
+      "stock_path": "scalar",
+      "exp_mean_path": "QACC SIMD",
+      "opt2_path": "scalar",
+      "target_build": "exp_mean",
+      "target_verdict": "WIN"
+    },
+    {
+      "op": "mean",
+      "shape": "input 14x14x16",
+      "mem": "int",
+      "eligible": true,
+      "stock_cycles": [
+        11229,
+        11229
+      ],
+      "stock_median": 11229.0,
+      "stock_range": [
+        11229,
+        11229
+      ],
+      "exp_mean_cycles": [
+        2082,
+        2082
+      ],
+      "exp_mean_median": 2082.0,
+      "exp_mean_range": [
+        2082,
+        2082
+      ],
+      "opt2_cycles": [
+        11229,
+        11229
+      ],
+      "opt2_median": 11229.0,
+      "opt2_range": [
+        11229,
+        11229
+      ],
+      "mean_speedup": 5.393371757925072,
+      "opt2_speedup": 1.0,
+      "mean_reduction_pct": 81.45872294950574,
+      "opt2_reduction_pct": 0.0,
+      "mean_verdict": "WIN",
+      "opt2_verdict": "NEUTRAL",
+      "height": 14,
+      "width": 14,
+      "channels": 16,
+      "correctness": "PASS",
+      "stock_correctness": "PASS",
+      "exp_mean_correctness": "PASS",
+      "opt2_correctness": "PASS",
+      "stock_path": "scalar",
+      "exp_mean_path": "QACC SIMD",
+      "opt2_path": "scalar",
+      "target_build": "exp_mean",
+      "target_verdict": "WIN"
+    },
+    {
+      "op": "mean",
+      "shape": "input 14x14x32",
+      "mem": "int",
+      "eligible": true,
+      "stock_cycles": [
+        22377,
+        22377
+      ],
+      "stock_median": 22377.0,
+      "stock_range": [
+        22377,
+        22377
+      ],
+      "exp_mean_cycles": [
+        4069,
+        4069
+      ],
+      "exp_mean_median": 4069.0,
+      "exp_mean_range": [
+        4069,
+        4069
+      ],
+      "opt2_cycles": [
+        22377,
+        22377
+      ],
+      "opt2_median": 22377.0,
+      "opt2_range": [
+        22377,
+        22377
+      ],
+      "mean_speedup": 5.499385598427132,
+      "opt2_speedup": 1.0,
+      "mean_reduction_pct": 81.8161505116861,
+      "opt2_reduction_pct": 0.0,
+      "mean_verdict": "WIN",
+      "opt2_verdict": "NEUTRAL",
+      "height": 14,
+      "width": 14,
+      "channels": 32,
+      "correctness": "PASS",
+      "stock_correctness": "PASS",
+      "exp_mean_correctness": "PASS",
+      "opt2_correctness": "PASS",
+      "stock_path": "scalar",
+      "exp_mean_path": "QACC SIMD",
+      "opt2_path": "scalar",
+      "target_build": "exp_mean",
+      "target_verdict": "WIN"
+    },
+    {
+      "op": "mean",
+      "shape": "input 14x14x64",
+      "mem": "int",
+      "eligible": true,
+      "stock_cycles": [
+        44673,
+        44673
+      ],
+      "stock_median": 44673.0,
+      "stock_range": [
+        44673,
+        44673
+      ],
+      "exp_mean_cycles": [
+        8043,
+        8043
+      ],
+      "exp_mean_median": 8043.0,
+      "exp_mean_range": [
+        8043,
+        8043
+      ],
+      "opt2_cycles": [
+        44673,
+        44673
+      ],
+      "opt2_median": 44673.0,
+      "opt2_range": [
+        44673,
+        44673
+      ],
+      "mean_speedup": 5.554270794479672,
+      "opt2_speedup": 1.0,
+      "mean_reduction_pct": 81.99583641125511,
+      "opt2_reduction_pct": 0.0,
+      "mean_verdict": "WIN",
+      "opt2_verdict": "NEUTRAL",
+      "height": 14,
+      "width": 14,
+      "channels": 64,
+      "correctness": "PASS",
+      "stock_correctness": "PASS",
+      "exp_mean_correctness": "PASS",
+      "opt2_correctness": "PASS",
+      "stock_path": "scalar",
+      "exp_mean_path": "QACC SIMD",
+      "opt2_path": "scalar",
+      "target_build": "exp_mean",
+      "target_verdict": "WIN"
+    },
+    {
+      "op": "mean",
+      "shape": "input 1x1024x16",
+      "mem": "ext",
+      "eligible": true,
+      "stock_cycles": [
+        54285,
+        54285
+      ],
+      "stock_median": 54285.0,
+      "stock_range": [
+        54285,
+        54285
+      ],
+      "exp_mean_cycles": [
+        4566,
+        4566
+      ],
+      "exp_mean_median": 4566.0,
+      "exp_mean_range": [
+        4566,
+        4566
+      ],
+      "opt2_cycles": [
+        54285,
+        54285
+      ],
+      "opt2_median": 54285.0,
+      "opt2_range": [
+        54285,
+        54285
+      ],
+      "mean_speedup": 11.888961892247043,
+      "opt2_speedup": 1.0,
+      "mean_reduction_pct": 91.58883669521968,
+      "opt2_reduction_pct": 0.0,
+      "mean_verdict": "WIN",
+      "opt2_verdict": "NEUTRAL",
+      "height": 1,
+      "width": 1024,
+      "channels": 16,
+      "correctness": "PASS",
+      "stock_correctness": "PASS",
+      "exp_mean_correctness": "PASS",
+      "opt2_correctness": "PASS",
+      "stock_path": "scalar",
+      "exp_mean_path": "QACC SIMD",
+      "opt2_path": "scalar",
+      "target_build": "exp_mean",
+      "target_verdict": "WIN"
+    },
+    {
+      "op": "mean",
+      "shape": "input 1x1x16",
+      "mem": "int",
+      "eligible": true,
+      "stock_cycles": [
+        1085,
+        1085
+      ],
+      "stock_median": 1085.0,
+      "stock_range": [
+        1085,
+        1085
+      ],
+      "exp_mean_cycles": [
+        1496,
+        1496
+      ],
+      "exp_mean_median": 1496.0,
+      "exp_mean_range": [
+        1496,
+        1496
+      ],
+      "opt2_cycles": [
+        1085,
+        1085
+      ],
+      "opt2_median": 1085.0,
+      "opt2_range": [
+        1085,
+        1085
+      ],
+      "mean_speedup": 0.7252673796791443,
+      "opt2_speedup": 1.0,
+      "mean_reduction_pct": -37.88018433179723,
+      "opt2_reduction_pct": 0.0,
+      "mean_verdict": "LOSS",
+      "opt2_verdict": "NEUTRAL",
+      "height": 1,
+      "width": 1,
+      "channels": 16,
+      "correctness": "PASS",
+      "stock_correctness": "PASS",
+      "exp_mean_correctness": "PASS",
+      "opt2_correctness": "PASS",
+      "stock_path": "scalar",
+      "exp_mean_path": "QACC SIMD",
+      "opt2_path": "scalar",
+      "target_build": "exp_mean",
+      "target_verdict": "LOSS"
+    },
+    {
+      "op": "mean",
+      "shape": "input 1x256x16",
+      "mem": "int",
+      "eligible": true,
+      "stock_cycles": [
+        14349,
+        14349
+      ],
+      "stock_median": 14349.0,
+      "stock_range": [
+        14349,
+        14349
+      ],
+      "exp_mean_cycles": [
+        2262,
+        2262
+      ],
+      "exp_mean_median": 2262.0,
+      "exp_mean_range": [
+        2262,
+        2262
+      ],
+      "opt2_cycles": [
+        14349,
+        14349
+      ],
+      "opt2_median": 14349.0,
+      "opt2_range": [
+        14349,
+        14349
+      ],
+      "mean_speedup": 6.343501326259947,
+      "opt2_speedup": 1.0,
+      "mean_reduction_pct": 84.23583524984319,
+      "opt2_reduction_pct": 0.0,
+      "mean_verdict": "WIN",
+      "opt2_verdict": "NEUTRAL",
+      "height": 1,
+      "width": 256,
+      "channels": 16,
+      "correctness": "PASS",
+      "stock_correctness": "PASS",
+      "exp_mean_correctness": "PASS",
+      "opt2_correctness": "PASS",
+      "stock_path": "scalar",
+      "exp_mean_path": "QACC SIMD",
+      "opt2_path": "scalar",
+      "target_build": "exp_mean",
+      "target_verdict": "WIN"
+    },
+    {
+      "op": "mean",
+      "shape": "input 1x256x64",
+      "mem": "int",
+      "eligible": true,
+      "stock_cycles": [
+        57153,
+        57153
+      ],
+      "stock_median": 57153.0,
+      "stock_range": [
+        57153,
+        57153
+      ],
+      "exp_mean_cycles": [
+        8763,
+        8763
+      ],
+      "exp_mean_median": 8763.0,
+      "exp_mean_range": [
+        8763,
+        8763
+      ],
+      "opt2_cycles": [
+        57153,
+        57153
+      ],
+      "opt2_median": 57153.0,
+      "opt2_range": [
+        57153,
+        57153
+      ],
+      "mean_speedup": 6.522081478945567,
+      "opt2_speedup": 1.0,
+      "mean_reduction_pct": 84.66747152380452,
+      "opt2_reduction_pct": 0.0,
+      "mean_verdict": "WIN",
+      "opt2_verdict": "NEUTRAL",
+      "height": 1,
+      "width": 256,
+      "channels": 64,
+      "correctness": "PASS",
+      "stock_correctness": "PASS",
+      "exp_mean_correctness": "PASS",
+      "opt2_correctness": "PASS",
+      "stock_path": "scalar",
+      "exp_mean_path": "QACC SIMD",
+      "opt2_path": "scalar",
+      "target_build": "exp_mean",
+      "target_verdict": "WIN"
+    },
+    {
+      "op": "mean",
+      "shape": "input 28x28x16",
+      "mem": "int",
+      "eligible": true,
+      "stock_cycles": [
+        41805,
+        41805
+      ],
+      "stock_median": 41805.0,
+      "stock_range": [
+        41805,
+        41805
+      ],
+      "exp_mean_cycles": [
+        3846,
+        3846
+      ],
+      "exp_mean_median": 3846.0,
+      "exp_mean_range": [
+        3846,
+        3846
+      ],
+      "opt2_cycles": [
+        41805,
+        41805
+      ],
+      "opt2_median": 41805.0,
+      "opt2_range": [
+        41805,
+        41805
+      ],
+      "mean_speedup": 10.869734789391575,
+      "opt2_speedup": 1.0,
+      "mean_reduction_pct": 90.80014352350197,
+      "opt2_reduction_pct": 0.0,
+      "mean_verdict": "WIN",
+      "opt2_verdict": "NEUTRAL",
+      "height": 28,
+      "width": 28,
+      "channels": 16,
+      "correctness": "PASS",
+      "stock_correctness": "PASS",
+      "exp_mean_correctness": "PASS",
+      "opt2_correctness": "PASS",
+      "stock_path": "scalar",
+      "exp_mean_path": "QACC SIMD",
+      "opt2_path": "scalar",
+      "target_build": "exp_mean",
+      "target_verdict": "WIN"
+    },
+    {
+      "op": "mean",
+      "shape": "input 28x28x32",
+      "mem": "ext",
+      "eligible": true,
+      "stock_cycles": [
+        83529,
+        83529
+      ],
+      "stock_median": 83529.0,
+      "stock_range": [
+        83529,
+        83529
+      ],
+      "exp_mean_cycles": [
+        7597,
+        7597
+      ],
+      "exp_mean_median": 7597.0,
+      "exp_mean_range": [
+        7597,
+        7597
+      ],
+      "opt2_cycles": [
+        83529,
+        83529
+      ],
+      "opt2_median": 83529.0,
+      "opt2_range": [
+        83529,
+        83529
+      ],
+      "mean_speedup": 10.994998025536397,
+      "opt2_speedup": 1.0,
+      "mean_reduction_pct": 90.90495516527194,
+      "opt2_reduction_pct": 0.0,
+      "mean_verdict": "WIN",
+      "opt2_verdict": "NEUTRAL",
+      "height": 28,
+      "width": 28,
+      "channels": 32,
+      "correctness": "PASS",
+      "stock_correctness": "PASS",
+      "exp_mean_correctness": "PASS",
+      "opt2_correctness": "PASS",
+      "stock_path": "scalar",
+      "exp_mean_path": "QACC SIMD",
+      "opt2_path": "scalar",
+      "target_build": "exp_mean",
+      "target_verdict": "WIN"
+    },
+    {
+      "op": "mean",
+      "shape": "input 28x28x32",
+      "mem": "int",
+      "eligible": true,
+      "stock_cycles": [
+        83529,
+        83529
+      ],
+      "stock_median": 83529.0,
+      "stock_range": [
+        83529,
+        83529
+      ],
+      "exp_mean_cycles": [
+        7597,
+        7597
+      ],
+      "exp_mean_median": 7597.0,
+      "exp_mean_range": [
+        7597,
+        7597
+      ],
+      "opt2_cycles": [
+        83529,
+        83529
+      ],
+      "opt2_median": 83529.0,
+      "opt2_range": [
+        83529,
+        83529
+      ],
+      "mean_speedup": 10.994998025536397,
+      "opt2_speedup": 1.0,
+      "mean_reduction_pct": 90.90495516527194,
+      "opt2_reduction_pct": 0.0,
+      "mean_verdict": "WIN",
+      "opt2_verdict": "NEUTRAL",
+      "height": 28,
+      "width": 28,
+      "channels": 32,
+      "correctness": "PASS",
+      "stock_correctness": "PASS",
+      "exp_mean_correctness": "PASS",
+      "opt2_correctness": "PASS",
+      "stock_path": "scalar",
+      "exp_mean_path": "QACC SIMD",
+      "opt2_path": "scalar",
+      "target_build": "exp_mean",
+      "target_verdict": "WIN"
+    },
+    {
+      "op": "mean",
+      "shape": "input 28x28x64",
+      "mem": "ext",
+      "eligible": true,
+      "stock_cycles": [
+        290925,
+        290925
+      ],
+      "stock_median": 290925.0,
+      "stock_range": [
+        290925,
+        290925
+      ],
+      "exp_mean_cycles": [
+        147440,
+        147440
+      ],
+      "exp_mean_median": 147440.0,
+      "exp_mean_range": [
+        147440,
+        147440
+      ],
+      "opt2_cycles": [
+        290925,
+        290925
+      ],
+      "opt2_median": 290925.0,
+      "opt2_range": [
+        290925,
+        290925
+      ],
+      "mean_speedup": 1.9731755290287574,
+      "opt2_speedup": 1.0,
+      "mean_reduction_pct": 49.32027154764974,
+      "opt2_reduction_pct": 0.0,
+      "mean_verdict": "WIN",
+      "opt2_verdict": "NEUTRAL",
+      "height": 28,
+      "width": 28,
+      "channels": 64,
+      "correctness": "PASS",
+      "stock_correctness": "PASS",
+      "exp_mean_correctness": "PASS",
+      "opt2_correctness": "PASS",
+      "stock_path": "scalar",
+      "exp_mean_path": "QACC SIMD",
+      "opt2_path": "scalar",
+      "target_build": "exp_mean",
+      "target_verdict": "WIN"
+    },
+    {
+      "op": "mean",
+      "shape": "input 28x28x64",
+      "mem": "int",
+      "eligible": true,
+      "stock_cycles": [
+        166977,
+        166977
+      ],
+      "stock_median": 166977.0,
+      "stock_range": [
+        166977,
+        166977
+      ],
+      "exp_mean_cycles": [
+        15099,
+        15099
+      ],
+      "exp_mean_median": 15099.0,
+      "exp_mean_range": [
+        15099,
+        15099
+      ],
+      "opt2_cycles": [
+        166977,
+        166977
+      ],
+      "opt2_median": 166977.0,
+      "opt2_range": [
+        166977,
+        166977
+      ],
+      "mean_speedup": 11.05881184184383,
+      "opt2_speedup": 1.0,
+      "mean_reduction_pct": 90.95743725183708,
+      "opt2_reduction_pct": 0.0,
+      "mean_verdict": "WIN",
+      "opt2_verdict": "NEUTRAL",
+      "height": 28,
+      "width": 28,
+      "channels": 64,
+      "correctness": "PASS",
+      "stock_correctness": "PASS",
+      "exp_mean_correctness": "PASS",
+      "opt2_correctness": "PASS",
+      "stock_path": "scalar",
+      "exp_mean_path": "QACC SIMD",
+      "opt2_path": "scalar",
+      "target_build": "exp_mean",
+      "target_verdict": "WIN"
+    },
+    {
+      "op": "mean",
+      "shape": "input 2x2x16",
+      "mem": "int",
+      "eligible": true,
+      "stock_cycles": [
+        1245,
+        1245
+      ],
+      "stock_median": 1245.0,
+      "stock_range": [
+        1245,
+        1245
+      ],
+      "exp_mean_cycles": [
+        1506,
+        1506
+      ],
+      "exp_mean_median": 1506.0,
+      "exp_mean_range": [
+        1506,
+        1506
+      ],
+      "opt2_cycles": [
+        1245,
+        1245
+      ],
+      "opt2_median": 1245.0,
+      "opt2_range": [
+        1245,
+        1245
+      ],
+      "mean_speedup": 0.8266932270916335,
+      "opt2_speedup": 1.0,
+      "mean_reduction_pct": -20.963855421686752,
+      "opt2_reduction_pct": 0.0,
+      "mean_verdict": "LOSS",
+      "opt2_verdict": "NEUTRAL",
+      "height": 2,
+      "width": 2,
+      "channels": 16,
+      "correctness": "PASS",
+      "stock_correctness": "PASS",
+      "exp_mean_correctness": "PASS",
+      "opt2_correctness": "PASS",
+      "stock_path": "scalar",
+      "exp_mean_path": "QACC SIMD",
+      "opt2_path": "scalar",
+      "target_build": "exp_mean",
+      "target_verdict": "LOSS"
+    },
+    {
+      "op": "mean",
+      "shape": "input 32x32x128",
+      "mem": "ext",
+      "eligible": true,
+      "stock_cycles": [
+        5649764,
+        5649764
+      ],
+      "stock_median": 5649764.0,
+      "stock_range": [
+        5649764,
+        5649764
+      ],
+      "exp_mean_cycles": [
+        1419136,
+        1419136
+      ],
+      "exp_mean_median": 1419136.0,
+      "exp_mean_range": [
+        1419136,
+        1419136
+      ],
+      "opt2_cycles": [
+        5649764,
+        5649764
+      ],
+      "opt2_median": 5649764.0,
+      "opt2_range": [
+        5649764,
+        5649764
+      ],
+      "mean_speedup": 3.9811293632181837,
+      "opt2_speedup": 1.0,
+      "mean_reduction_pct": 74.88149947502232,
+      "opt2_reduction_pct": 0.0,
+      "mean_verdict": "WIN",
+      "opt2_verdict": "NEUTRAL",
+      "height": 32,
+      "width": 32,
+      "channels": 128,
+      "correctness": "PASS",
+      "stock_correctness": "PASS",
+      "exp_mean_correctness": "PASS",
+      "opt2_correctness": "PASS",
+      "stock_path": "scalar",
+      "exp_mean_path": "QACC SIMD",
+      "opt2_path": "scalar",
+      "target_build": "exp_mean",
+      "target_verdict": "WIN"
+    },
+    {
+      "op": "mean",
+      "shape": "input 32x32x16",
+      "mem": "int",
+      "eligible": true,
+      "stock_cycles": [
+        54285,
+        54285
+      ],
+      "stock_median": 54285.0,
+      "stock_range": [
+        54285,
+        54285
+      ],
+      "exp_mean_cycles": [
+        4566,
+        4566
+      ],
+      "exp_mean_median": 4566.0,
+      "exp_mean_range": [
+        4566,
+        4566
+      ],
+      "opt2_cycles": [
+        54285,
+        54285
+      ],
+      "opt2_median": 54285.0,
+      "opt2_range": [
+        54285,
+        54285
+      ],
+      "mean_speedup": 11.888961892247043,
+      "opt2_speedup": 1.0,
+      "mean_reduction_pct": 91.58883669521968,
+      "opt2_reduction_pct": 0.0,
+      "mean_verdict": "WIN",
+      "opt2_verdict": "NEUTRAL",
+      "height": 32,
+      "width": 32,
+      "channels": 16,
+      "correctness": "PASS",
+      "stock_correctness": "PASS",
+      "exp_mean_correctness": "PASS",
+      "opt2_correctness": "PASS",
+      "stock_path": "scalar",
+      "exp_mean_path": "QACC SIMD",
+      "opt2_path": "scalar",
+      "target_build": "exp_mean",
+      "target_verdict": "WIN"
+    },
+    {
+      "op": "mean",
+      "shape": "input 32x32x32",
+      "mem": "int",
+      "eligible": true,
+      "stock_cycles": [
+        108489,
+        108489
+      ],
+      "stock_median": 108489.0,
+      "stock_range": [
+        108489,
+        108489
+      ],
+      "exp_mean_cycles": [
+        9037,
+        9037
+      ],
+      "exp_mean_median": 9037.0,
+      "exp_mean_range": [
+        9037,
+        9037
+      ],
+      "opt2_cycles": [
+        108489,
+        108489
+      ],
+      "opt2_median": 108489.0,
+      "opt2_range": [
+        108489,
+        108489
+      ],
+      "mean_speedup": 12.004979528604625,
+      "opt2_speedup": 1.0,
+      "mean_reduction_pct": 91.67012323830066,
+      "opt2_reduction_pct": 0.0,
+      "mean_verdict": "WIN",
+      "opt2_verdict": "NEUTRAL",
+      "height": 32,
+      "width": 32,
+      "channels": 32,
+      "correctness": "PASS",
+      "stock_correctness": "PASS",
+      "exp_mean_correctness": "PASS",
+      "opt2_correctness": "PASS",
+      "stock_path": "scalar",
+      "exp_mean_path": "QACC SIMD",
+      "opt2_path": "scalar",
+      "target_build": "exp_mean",
+      "target_verdict": "WIN"
+    },
+    {
+      "op": "mean",
+      "shape": "input 32x32x64",
+      "mem": "int",
+      "eligible": true,
+      "stock_cycles": [
+        216897,
+        216897
+      ],
+      "stock_median": 216897.0,
+      "stock_range": [
+        216897,
+        216897
+      ],
+      "exp_mean_cycles": [
+        17979,
+        17979
+      ],
+      "exp_mean_median": 17979.0,
+      "exp_mean_range": [
+        17979,
+        17979
+      ],
+      "opt2_cycles": [
+        216897,
+        216897
+      ],
+      "opt2_median": 216897.0,
+      "opt2_range": [
+        216897,
+        216897
+      ],
+      "mean_speedup": 12.063907892541298,
+      "opt2_speedup": 1.0,
+      "mean_reduction_pct": 91.71081204442662,
+      "opt2_reduction_pct": 0.0,
+      "mean_verdict": "WIN",
+      "opt2_verdict": "NEUTRAL",
+      "height": 32,
+      "width": 32,
+      "channels": 64,
+      "correctness": "PASS",
+      "stock_correctness": "PASS",
+      "exp_mean_correctness": "PASS",
+      "opt2_correctness": "PASS",
+      "stock_path": "scalar",
+      "exp_mean_path": "QACC SIMD",
+      "opt2_path": "scalar",
+      "target_build": "exp_mean",
+      "target_verdict": "WIN"
+    },
+    {
+      "op": "mean",
+      "shape": "input 3x3x16",
+      "mem": "int",
+      "eligible": true,
+      "stock_cycles": [
+        1505,
+        1505
+      ],
+      "stock_median": 1505.0,
+      "stock_range": [
+        1505,
+        1505
+      ],
+      "exp_mean_cycles": [
+        1521,
+        1521
+      ],
+      "exp_mean_median": 1521.0,
+      "exp_mean_range": [
+        1521,
+        1521
+      ],
+      "opt2_cycles": [
+        1505,
+        1505
+      ],
+      "opt2_median": 1505.0,
+      "opt2_range": [
+        1505,
+        1505
+      ],
+      "mean_speedup": 0.9894806048652203,
+      "opt2_speedup": 1.0,
+      "mean_reduction_pct": -1.0631229235880335,
+      "opt2_reduction_pct": 0.0,
+      "mean_verdict": "LOSS",
+      "opt2_verdict": "NEUTRAL",
+      "height": 3,
+      "width": 3,
+      "channels": 16,
+      "correctness": "PASS",
+      "stock_correctness": "PASS",
+      "exp_mean_correctness": "PASS",
+      "opt2_correctness": "PASS",
+      "stock_path": "scalar",
+      "exp_mean_path": "QACC SIMD",
+      "opt2_path": "scalar",
+      "target_build": "exp_mean",
+      "target_verdict": "LOSS"
+    },
+    {
+      "op": "mean",
+      "shape": "input 4x4x16",
+      "mem": "int",
+      "eligible": true,
+      "stock_cycles": [
+        1869,
+        1869
+      ],
+      "stock_median": 1869.0,
+      "stock_range": [
+        1869,
+        1869
+      ],
+      "exp_mean_cycles": [
+        1542,
+        1542
+      ],
+      "exp_mean_median": 1542.0,
+      "exp_mean_range": [
+        1542,
+        1542
+      ],
+      "opt2_cycles": [
+        1869,
+        1869
+      ],
+      "opt2_median": 1869.0,
+      "opt2_range": [
+        1869,
+        1869
+      ],
+      "mean_speedup": 1.2120622568093384,
+      "opt2_speedup": 1.0,
+      "mean_reduction_pct": 17.49598715890851,
+      "opt2_reduction_pct": 0.0,
+      "mean_verdict": "WIN",
+      "opt2_verdict": "NEUTRAL",
+      "height": 4,
+      "width": 4,
+      "channels": 16,
+      "correctness": "PASS",
+      "stock_correctness": "PASS",
+      "exp_mean_correctness": "PASS",
+      "opt2_correctness": "PASS",
+      "stock_path": "scalar",
+      "exp_mean_path": "QACC SIMD",
+      "opt2_path": "scalar",
+      "target_build": "exp_mean",
+      "target_verdict": "WIN"
+    },
+    {
+      "op": "mean",
+      "shape": "input 63x65x16",
+      "mem": "ext",
+      "eligible": true,
+      "stock_cycles": [
+        337769,
+        337769
+      ],
+      "stock_median": 337769.0,
+      "stock_range": [
+        337769,
+        337769
+      ],
+      "exp_mean_cycles": [
+        180070,
+        180070
+      ],
+      "exp_mean_median": 180070.0,
+      "exp_mean_range": [
+        180070,
+        180070
+      ],
+      "opt2_cycles": [
+        337769,
+        337769
+      ],
+      "opt2_median": 337769.0,
+      "opt2_range": [
+        337769,
+        337769
+      ],
+      "mean_speedup": 1.8757649802854446,
+      "opt2_speedup": 1.0,
+      "mean_reduction_pct": 46.68841723189517,
+      "opt2_reduction_pct": 0.0,
+      "mean_verdict": "WIN",
+      "opt2_verdict": "NEUTRAL",
+      "height": 63,
+      "width": 65,
+      "channels": 16,
+      "correctness": "PASS",
+      "stock_correctness": "PASS",
+      "exp_mean_correctness": "PASS",
+      "opt2_correctness": "PASS",
+      "stock_path": "scalar",
+      "exp_mean_path": "QACC SIMD",
+      "opt2_path": "scalar",
+      "target_build": "exp_mean",
+      "target_verdict": "WIN"
+    },
+    {
+      "op": "mean",
+      "shape": "input 63x65x16",
+      "mem": "int",
+      "eligible": true,
+      "stock_cycles": [
+        213977,
+        213977
+      ],
+      "stock_median": 213977.0,
+      "stock_range": [
+        213977,
+        213977
+      ],
+      "exp_mean_cycles": [
+        13779,
+        13779
+      ],
+      "exp_mean_median": 13779.0,
+      "exp_mean_range": [
+        13779,
+        13779
+      ],
+      "opt2_cycles": [
+        213977,
+        213977
+      ],
+      "opt2_median": 213977.0,
+      "opt2_range": [
+        213977,
+        213977
+      ],
+      "mean_speedup": 15.529211118368531,
+      "opt2_speedup": 1.0,
+      "mean_reduction_pct": 93.56052285993354,
+      "opt2_reduction_pct": 0.0,
+      "mean_verdict": "WIN",
+      "opt2_verdict": "NEUTRAL",
+      "height": 63,
+      "width": 65,
+      "channels": 16,
+      "correctness": "PASS",
+      "stock_correctness": "PASS",
+      "exp_mean_correctness": "PASS",
+      "opt2_correctness": "PASS",
+      "stock_path": "scalar",
+      "exp_mean_path": "QACC SIMD",
+      "opt2_path": "scalar",
+      "target_build": "exp_mean",
+      "target_verdict": "WIN"
+    },
+    {
+      "op": "mean",
+      "shape": "input 64x64x16",
+      "mem": "ext",
+      "eligible": false,
+      "stock_cycles": [
+        339954,
+        339954
+      ],
+      "stock_median": 339954.0,
+      "stock_range": [
+        339954,
+        339954
+      ],
+      "exp_mean_cycles": [
+        339985,
+        339985
+      ],
+      "exp_mean_median": 339985.0,
+      "exp_mean_range": [
+        339985,
+        339985
+      ],
+      "opt2_cycles": [
+        339954,
+        339954
+      ],
+      "opt2_median": 339954.0,
+      "opt2_range": [
+        339954,
+        339954
+      ],
+      "mean_speedup": 0.9999088195067429,
+      "opt2_speedup": 1.0,
+      "mean_reduction_pct": -0.009118880789760198,
+      "opt2_reduction_pct": 0.0,
+      "mean_verdict": "NEUTRAL",
+      "opt2_verdict": "NEUTRAL",
+      "height": 64,
+      "width": 64,
+      "channels": 16,
+      "correctness": "PASS",
+      "stock_correctness": "PASS",
+      "exp_mean_correctness": "PASS",
+      "opt2_correctness": "PASS",
+      "stock_path": "scalar",
+      "exp_mean_path": "scalar fallback",
+      "opt2_path": "scalar",
+      "target_build": "exp_mean",
+      "target_verdict": "NEUTRAL"
+    },
+    {
+      "op": "mean",
+      "shape": "input 64x64x16",
+      "mem": "int",
+      "eligible": false,
+      "stock_cycles": [
+        214029,
+        214029
+      ],
+      "stock_median": 214029.0,
+      "stock_range": [
+        214029,
+        214029
+      ],
+      "exp_mean_cycles": [
+        214047,
+        214047
+      ],
+      "exp_mean_median": 214047.0,
+      "exp_mean_range": [
+        214047,
+        214047
+      ],
+      "opt2_cycles": [
+        214029,
+        214029
+      ],
+      "opt2_median": 214029.0,
+      "opt2_range": [
+        214029,
+        214029
+      ],
+      "mean_speedup": 0.9999159063196401,
+      "opt2_speedup": 1.0,
+      "mean_reduction_pct": -0.008410075270171014,
+      "opt2_reduction_pct": 0.0,
+      "mean_verdict": "NEUTRAL",
+      "opt2_verdict": "NEUTRAL",
+      "height": 64,
+      "width": 64,
+      "channels": 16,
+      "correctness": "PASS",
+      "stock_correctness": "PASS",
+      "exp_mean_correctness": "PASS",
+      "opt2_correctness": "PASS",
+      "stock_path": "scalar",
+      "exp_mean_path": "scalar fallback",
+      "opt2_path": "scalar",
+      "target_build": "exp_mean",
+      "target_verdict": "NEUTRAL"
+    },
+    {
+      "op": "mean",
+      "shape": "input 7x7x128",
+      "mem": "int",
+      "eligible": true,
+      "stock_cycles": [
+        28113,
+        28113
+      ],
+      "stock_median": 28113.0,
+      "stock_range": [
+        28113,
+        28113
+      ],
+      "exp_mean_cycles": [
+        12463,
+        12463
+      ],
+      "exp_mean_median": 12463.0,
+      "exp_mean_range": [
+        12463,
+        12463
+      ],
+      "opt2_cycles": [
+        28113,
+        28113
+      ],
+      "opt2_median": 28113.0,
+      "opt2_range": [
+        28113,
+        28113
+      ],
+      "mean_speedup": 2.2557169220893845,
+      "opt2_speedup": 1.0,
+      "mean_reduction_pct": 55.66819620815993,
+      "opt2_reduction_pct": 0.0,
+      "mean_verdict": "WIN",
+      "opt2_verdict": "NEUTRAL",
+      "height": 7,
+      "width": 7,
+      "channels": 128,
+      "correctness": "PASS",
+      "stock_correctness": "PASS",
+      "exp_mean_correctness": "PASS",
+      "opt2_correctness": "PASS",
+      "stock_path": "scalar",
+      "exp_mean_path": "QACC SIMD",
+      "opt2_path": "scalar",
+      "target_build": "exp_mean",
+      "target_verdict": "WIN"
+    },
+    {
+      "op": "mean",
+      "shape": "input 7x7x16",
+      "mem": "ext",
+      "eligible": true,
+      "stock_cycles": [
+        3585,
+        3585
+      ],
+      "stock_median": 3585.0,
+      "stock_range": [
+        3585,
+        3585
+      ],
+      "exp_mean_cycles": [
+        1641,
+        1641
+      ],
+      "exp_mean_median": 1641.0,
+      "exp_mean_range": [
+        1641,
+        1641
+      ],
+      "opt2_cycles": [
+        3585,
+        3585
+      ],
+      "opt2_median": 3585.0,
+      "opt2_range": [
+        3585,
+        3585
+      ],
+      "mean_speedup": 2.1846435100548445,
+      "opt2_speedup": 1.0,
+      "mean_reduction_pct": 54.22594142259414,
+      "opt2_reduction_pct": 0.0,
+      "mean_verdict": "WIN",
+      "opt2_verdict": "NEUTRAL",
+      "height": 7,
+      "width": 7,
+      "channels": 16,
+      "correctness": "PASS",
+      "stock_correctness": "PASS",
+      "exp_mean_correctness": "PASS",
+      "opt2_correctness": "PASS",
+      "stock_path": "scalar",
+      "exp_mean_path": "QACC SIMD",
+      "opt2_path": "scalar",
+      "target_build": "exp_mean",
+      "target_verdict": "WIN"
+    },
+    {
+      "op": "mean",
+      "shape": "input 7x7x16",
+      "mem": "int",
+      "eligible": true,
+      "stock_cycles": [
+        3585,
+        3585
+      ],
+      "stock_median": 3585.0,
+      "stock_range": [
+        3585,
+        3585
+      ],
+      "exp_mean_cycles": [
+        1641,
+        1641
+      ],
+      "exp_mean_median": 1641.0,
+      "exp_mean_range": [
+        1641,
+        1641
+      ],
+      "opt2_cycles": [
+        3585,
+        3585
+      ],
+      "opt2_median": 3585.0,
+      "opt2_range": [
+        3585,
+        3585
+      ],
+      "mean_speedup": 2.1846435100548445,
+      "opt2_speedup": 1.0,
+      "mean_reduction_pct": 54.22594142259414,
+      "opt2_reduction_pct": 0.0,
+      "mean_verdict": "WIN",
+      "opt2_verdict": "NEUTRAL",
+      "height": 7,
+      "width": 7,
+      "channels": 16,
+      "correctness": "PASS",
+      "stock_correctness": "PASS",
+      "exp_mean_correctness": "PASS",
+      "opt2_correctness": "PASS",
+      "stock_path": "scalar",
+      "exp_mean_path": "QACC SIMD",
+      "opt2_path": "scalar",
+      "target_build": "exp_mean",
+      "target_verdict": "WIN"
+    },
+    {
+      "op": "mean",
+      "shape": "input 7x7x256",
+      "mem": "int",
+      "eligible": true,
+      "stock_cycles": [
+        56145,
+        56145
+      ],
+      "stock_median": 56145.0,
+      "stock_range": [
+        56145,
+        56145
+      ],
+      "exp_mean_cycles": [
+        24831,
+        24831
+      ],
+      "exp_mean_median": 24831.0,
+      "exp_mean_range": [
+        24831,
+        24831
+      ],
+      "opt2_cycles": [
+        56145,
+        56145
+      ],
+      "opt2_median": 56145.0,
+      "opt2_range": [
+        56145,
+        56145
+      ],
+      "mean_speedup": 2.261084934154887,
+      "opt2_speedup": 1.0,
+      "mean_reduction_pct": 55.77344376168849,
+      "opt2_reduction_pct": 0.0,
+      "mean_verdict": "WIN",
+      "opt2_verdict": "NEUTRAL",
+      "height": 7,
+      "width": 7,
+      "channels": 256,
+      "correctness": "PASS",
+      "stock_correctness": "PASS",
+      "exp_mean_correctness": "PASS",
+      "opt2_correctness": "PASS",
+      "stock_path": "scalar",
+      "exp_mean_path": "QACC SIMD",
+      "opt2_path": "scalar",
+      "target_build": "exp_mean",
+      "target_verdict": "WIN"
+    },
+    {
+      "op": "mean",
+      "shape": "input 7x7x32",
+      "mem": "ext",
+      "eligible": true,
+      "stock_cycles": [
+        7089,
+        7089
+      ],
+      "stock_median": 7089.0,
+      "stock_range": [
+        7089,
+        7089
+      ],
+      "exp_mean_cycles": [
+        3187,
+        3187
+      ],
+      "exp_mean_median": 3187.0,
+      "exp_mean_range": [
+        3187,
+        3187
+      ],
+      "opt2_cycles": [
+        7089,
+        7089
+      ],
+      "opt2_median": 7089.0,
+      "opt2_range": [
+        7089,
+        7089
+      ],
+      "mean_speedup": 2.2243489174772515,
+      "opt2_speedup": 1.0,
+      "mean_reduction_pct": 55.04302440400621,
+      "opt2_reduction_pct": 0.0,
+      "mean_verdict": "WIN",
+      "opt2_verdict": "NEUTRAL",
+      "height": 7,
+      "width": 7,
+      "channels": 32,
+      "correctness": "PASS",
+      "stock_correctness": "PASS",
+      "exp_mean_correctness": "PASS",
+      "opt2_correctness": "PASS",
+      "stock_path": "scalar",
+      "exp_mean_path": "QACC SIMD",
+      "opt2_path": "scalar",
+      "target_build": "exp_mean",
+      "target_verdict": "WIN"
+    },
+    {
+      "op": "mean",
+      "shape": "input 7x7x32",
+      "mem": "int",
+      "eligible": true,
+      "stock_cycles": [
+        7089,
+        7089
+      ],
+      "stock_median": 7089.0,
+      "stock_range": [
+        7089,
+        7089
+      ],
+      "exp_mean_cycles": [
+        3187,
+        3187
+      ],
+      "exp_mean_median": 3187.0,
+      "exp_mean_range": [
+        3187,
+        3187
+      ],
+      "opt2_cycles": [
+        7089,
+        7089
+      ],
+      "opt2_median": 7089.0,
+      "opt2_range": [
+        7089,
+        7089
+      ],
+      "mean_speedup": 2.2243489174772515,
+      "opt2_speedup": 1.0,
+      "mean_reduction_pct": 55.04302440400621,
+      "opt2_reduction_pct": 0.0,
+      "mean_verdict": "WIN",
+      "opt2_verdict": "NEUTRAL",
+      "height": 7,
+      "width": 7,
+      "channels": 32,
+      "correctness": "PASS",
+      "stock_correctness": "PASS",
+      "exp_mean_correctness": "PASS",
+      "opt2_correctness": "PASS",
+      "stock_path": "scalar",
+      "exp_mean_path": "QACC SIMD",
+      "opt2_path": "scalar",
+      "target_build": "exp_mean",
+      "target_verdict": "WIN"
+    },
+    {
+      "op": "mean",
+      "shape": "input 7x7x64",
+      "mem": "ext",
+      "eligible": true,
+      "stock_cycles": [
+        14097,
+        14097
+      ],
+      "stock_median": 14097.0,
+      "stock_range": [
+        14097,
+        14097
+      ],
+      "exp_mean_cycles": [
+        6279,
+        6279
+      ],
+      "exp_mean_median": 6279.0,
+      "exp_mean_range": [
+        6279,
+        6279
+      ],
+      "opt2_cycles": [
+        14097,
+        14097
+      ],
+      "opt2_median": 14097.0,
+      "opt2_range": [
+        14097,
+        14097
+      ],
+      "mean_speedup": 2.2451027233635927,
+      "opt2_speedup": 1.0,
+      "mean_reduction_pct": 55.458608214513724,
+      "opt2_reduction_pct": 0.0,
+      "mean_verdict": "WIN",
+      "opt2_verdict": "NEUTRAL",
+      "height": 7,
+      "width": 7,
+      "channels": 64,
+      "correctness": "PASS",
+      "stock_correctness": "PASS",
+      "exp_mean_correctness": "PASS",
+      "opt2_correctness": "PASS",
+      "stock_path": "scalar",
+      "exp_mean_path": "QACC SIMD",
+      "opt2_path": "scalar",
+      "target_build": "exp_mean",
+      "target_verdict": "WIN"
+    },
+    {
+      "op": "mean",
+      "shape": "input 7x7x64",
+      "mem": "int",
+      "eligible": true,
+      "stock_cycles": [
+        14097,
+        14097
+      ],
+      "stock_median": 14097.0,
+      "stock_range": [
+        14097,
+        14097
+      ],
+      "exp_mean_cycles": [
+        6279,
+        6279
+      ],
+      "exp_mean_median": 6279.0,
+      "exp_mean_range": [
+        6279,
+        6279
+      ],
+      "opt2_cycles": [
+        14097,
+        14097
+      ],
+      "opt2_median": 14097.0,
+      "opt2_range": [
+        14097,
+        14097
+      ],
+      "mean_speedup": 2.2451027233635927,
+      "opt2_speedup": 1.0,
+      "mean_reduction_pct": 55.458608214513724,
+      "opt2_reduction_pct": 0.0,
+      "mean_verdict": "WIN",
+      "opt2_verdict": "NEUTRAL",
+      "height": 7,
+      "width": 7,
+      "channels": 64,
+      "correctness": "PASS",
+      "stock_correctness": "PASS",
+      "exp_mean_correctness": "PASS",
+      "opt2_correctness": "PASS",
+      "stock_path": "scalar",
+      "exp_mean_path": "QACC SIMD",
+      "opt2_path": "scalar",
+      "target_build": "exp_mean",
+      "target_verdict": "WIN"
+    },
+    {
+      "op": "mean",
+      "shape": "input 8x8x12",
+      "mem": "int",
+      "eligible": false,
+      "stock_cycles": [
+        3294,
+        3294
+      ],
+      "stock_median": 3294.0,
+      "stock_range": [
+        3294,
+        3294
+      ],
+      "exp_mean_cycles": [
+        3318,
+        3318
+      ],
+      "exp_mean_median": 3318.0,
+      "exp_mean_range": [
+        3318,
+        3318
+      ],
+      "opt2_cycles": [
+        3294,
+        3294
+      ],
+      "opt2_median": 3294.0,
+      "opt2_range": [
+        3294,
+        3294
+      ],
+      "mean_speedup": 0.9927667269439421,
+      "opt2_speedup": 1.0,
+      "mean_reduction_pct": -0.7285974499089187,
+      "opt2_reduction_pct": 0.0,
+      "mean_verdict": "NEUTRAL",
+      "opt2_verdict": "NEUTRAL",
+      "height": 8,
+      "width": 8,
+      "channels": 12,
+      "correctness": "PASS",
+      "stock_correctness": "PASS",
+      "exp_mean_correctness": "PASS",
+      "opt2_correctness": "PASS",
+      "stock_path": "scalar",
+      "exp_mean_path": "scalar fallback",
+      "opt2_path": "scalar",
+      "target_build": "exp_mean",
+      "target_verdict": "NEUTRAL"
+    },
+    {
+      "op": "mean",
+      "shape": "input 8x8x15",
+      "mem": "int",
+      "eligible": false,
+      "stock_cycles": [
+        4278,
+        4278
+      ],
+      "stock_median": 4278.0,
+      "stock_range": [
+        4278,
+        4278
+      ],
+      "exp_mean_cycles": [
+        4306,
+        4306
+      ],
+      "exp_mean_median": 4306.0,
+      "exp_mean_range": [
+        4306,
+        4306
+      ],
+      "opt2_cycles": [
+        4278,
+        4278
+      ],
+      "opt2_median": 4278.0,
+      "opt2_range": [
+        4278,
+        4278
+      ],
+      "mean_speedup": 0.9934974454249884,
+      "opt2_speedup": 1.0,
+      "mean_reduction_pct": -0.6545114539504349,
+      "opt2_reduction_pct": 0.0,
+      "mean_verdict": "NEUTRAL",
+      "opt2_verdict": "NEUTRAL",
+      "height": 8,
+      "width": 8,
+      "channels": 15,
+      "correctness": "PASS",
+      "stock_correctness": "PASS",
+      "exp_mean_correctness": "PASS",
+      "opt2_correctness": "PASS",
+      "stock_path": "scalar",
+      "exp_mean_path": "scalar fallback",
+      "opt2_path": "scalar",
+      "target_build": "exp_mean",
+      "target_verdict": "NEUTRAL"
+    },
+    {
+      "op": "mean",
+      "shape": "input 8x8x17",
+      "mem": "int",
+      "eligible": false,
+      "stock_cycles": [
+        4703,
+        4703
+      ],
+      "stock_median": 4703.0,
+      "stock_range": [
+        4703,
+        4703
+      ],
+      "exp_mean_cycles": [
+        4729,
+        4729
+      ],
+      "exp_mean_median": 4729.0,
+      "exp_mean_range": [
+        4729,
+        4729
+      ],
+      "opt2_cycles": [
+        4703,
+        4703
+      ],
+      "opt2_median": 4703.0,
+      "opt2_range": [
+        4703,
+        4703
+      ],
+      "mean_speedup": 0.9945020088813703,
+      "opt2_speedup": 1.0,
+      "mean_reduction_pct": -0.5528386136508523,
+      "opt2_reduction_pct": 0.0,
+      "mean_verdict": "NEUTRAL",
+      "opt2_verdict": "NEUTRAL",
+      "height": 8,
+      "width": 8,
+      "channels": 17,
+      "correctness": "PASS",
+      "stock_correctness": "PASS",
+      "exp_mean_correctness": "PASS",
+      "opt2_correctness": "PASS",
+      "stock_path": "scalar",
+      "exp_mean_path": "scalar fallback",
+      "opt2_path": "scalar",
+      "target_build": "exp_mean",
+      "target_verdict": "NEUTRAL"
+    },
+    {
+      "op": "mean",
+      "shape": "input 8x8x24",
+      "mem": "int",
+      "eligible": false,
+      "stock_cycles": [
+        6507,
+        6507
+      ],
+      "stock_median": 6507.0,
+      "stock_range": [
+        6507,
+        6507
+      ],
+      "exp_mean_cycles": [
+        6523,
+        6523
+      ],
+      "exp_mean_median": 6523.0,
+      "exp_mean_range": [
+        6523,
+        6523
+      ],
+      "opt2_cycles": [
+        6507,
+        6507
+      ],
+      "opt2_median": 6507.0,
+      "opt2_range": [
+        6507,
+        6507
+      ],
+      "mean_speedup": 0.9975471408860953,
+      "opt2_speedup": 1.0,
+      "mean_reduction_pct": -0.24588904256954702,
+      "opt2_reduction_pct": 0.0,
+      "mean_verdict": "NEUTRAL",
+      "opt2_verdict": "NEUTRAL",
+      "height": 8,
+      "width": 8,
+      "channels": 24,
+      "correctness": "PASS",
+      "stock_correctness": "PASS",
+      "exp_mean_correctness": "PASS",
+      "opt2_correctness": "PASS",
+      "stock_path": "scalar",
+      "exp_mean_path": "scalar fallback",
+      "opt2_path": "scalar",
+      "target_build": "exp_mean",
+      "target_verdict": "NEUTRAL"
+    },
+    {
+      "op": "mean",
+      "shape": "input 8x8x31",
+      "mem": "int",
+      "eligible": false,
+      "stock_cycles": [
+        8562,
+        8562
+      ],
+      "stock_median": 8562.0,
+      "stock_range": [
+        8562,
+        8562
+      ],
+      "exp_mean_cycles": [
+        8579,
+        8579
+      ],
+      "exp_mean_median": 8579.0,
+      "exp_mean_range": [
+        8579,
+        8579
+      ],
+      "opt2_cycles": [
+        8562,
+        8562
+      ],
+      "opt2_median": 8562.0,
+      "opt2_range": [
+        8562,
+        8562
+      ],
+      "mean_speedup": 0.998018417064926,
+      "opt2_speedup": 1.0,
+      "mean_reduction_pct": -0.19855174024761002,
+      "opt2_reduction_pct": 0.0,
+      "mean_verdict": "NEUTRAL",
+      "opt2_verdict": "NEUTRAL",
+      "height": 8,
+      "width": 8,
+      "channels": 31,
+      "correctness": "PASS",
+      "stock_correctness": "PASS",
+      "exp_mean_correctness": "PASS",
+      "opt2_correctness": "PASS",
+      "stock_path": "scalar",
+      "exp_mean_path": "scalar fallback",
+      "opt2_path": "scalar",
+      "target_build": "exp_mean",
+      "target_verdict": "NEUTRAL"
+    },
+    {
+      "op": "mean",
+      "shape": "input 8x8x33",
+      "mem": "int",
+      "eligible": false,
+      "stock_cycles": [
+        8987,
+        8987
+      ],
+      "stock_median": 8987.0,
+      "stock_range": [
+        8987,
+        8987
+      ],
+      "exp_mean_cycles": [
+        9001,
+        9001
+      ],
+      "exp_mean_median": 9001.0,
+      "exp_mean_range": [
+        9001,
+        9001
+      ],
+      "opt2_cycles": [
+        8987,
+        8987
+      ],
+      "opt2_median": 8987.0,
+      "opt2_range": [
+        8987,
+        8987
+      ],
+      "mean_speedup": 0.9984446172647483,
+      "opt2_speedup": 1.0,
+      "mean_reduction_pct": -0.15578057193723627,
+      "opt2_reduction_pct": 0.0,
+      "mean_verdict": "NEUTRAL",
+      "opt2_verdict": "NEUTRAL",
+      "height": 8,
+      "width": 8,
+      "channels": 33,
+      "correctness": "PASS",
+      "stock_correctness": "PASS",
+      "exp_mean_correctness": "PASS",
+      "opt2_correctness": "PASS",
+      "stock_path": "scalar",
+      "exp_mean_path": "scalar fallback",
+      "opt2_path": "scalar",
+      "target_build": "exp_mean",
+      "target_verdict": "NEUTRAL"
+    },
+    {
+      "op": "mean",
+      "shape": "input 8x8x8",
+      "mem": "int",
+      "eligible": false,
+      "stock_cycles": [
+        2223,
+        2223
+      ],
+      "stock_median": 2223.0,
+      "stock_range": [
+        2223,
+        2223
+      ],
+      "exp_mean_cycles": [
+        2250,
+        2250
+      ],
+      "exp_mean_median": 2250.0,
+      "exp_mean_range": [
+        2250,
+        2250
+      ],
+      "opt2_cycles": [
+        2223,
+        2223
+      ],
+      "opt2_median": 2223.0,
+      "opt2_range": [
+        2223,
+        2223
+      ],
+      "mean_speedup": 0.988,
+      "opt2_speedup": 1.0,
+      "mean_reduction_pct": -1.2145748987854255,
+      "opt2_reduction_pct": 0.0,
+      "mean_verdict": "LOSS",
+      "opt2_verdict": "NEUTRAL",
+      "height": 8,
+      "width": 8,
+      "channels": 8,
+      "correctness": "PASS",
+      "stock_correctness": "PASS",
+      "exp_mean_correctness": "PASS",
+      "opt2_correctness": "PASS",
+      "stock_path": "scalar",
+      "exp_mean_path": "scalar fallback",
+      "opt2_path": "scalar",
+      "target_build": "exp_mean",
+      "target_verdict": "LOSS"
+    }
+  ],
+  "logs": {
+    "stock": [
+      "/home/kostis/Desktop/ESP-NN/extended-shape-run-1/results/stock-1.log",
+      "/home/kostis/Desktop/ESP-NN/extended-shape-run-1/results/stock-2.log"
+    ],
+    "exp_mean": [
+      "/home/kostis/Desktop/ESP-NN/extended-shape-run-1/results/exp_mean-1.log",
+      "/home/kostis/Desktop/ESP-NN/extended-shape-run-1/results/exp_mean-2.log"
+    ],
+    "opt2": [
+      "/home/kostis/Desktop/ESP-NN/extended-shape-run-1/results/opt2-1.log",
+      "/home/kostis/Desktop/ESP-NN/extended-shape-run-1/results/opt2-2.log"
+    ]
+  },
+  "target_summaries": {
+    "exp_mean": {
+      "all": {
+        "count": 42,
+        "wins": 28,
+        "losses": 4,
+        "neutral": 10,
+        "median_speedup": 2.2347258204204223,
+        "geomean_speedup": 2.8005740149603686,
+        "best": {
+          "shape": "input 63x65x16",
+          "mem": "int",
+          "speedup": 15.529211118368531
+        },
+        "worst": {
+          "shape": "input 1x1x16",
+          "mem": "int",
+          "speedup": 0.7252673796791443
+        }
+      },
+      "eligible": {
+        "count": 31,
+        "wins": 28,
+        "losses": 3,
+        "neutral": 0,
+        "median_speedup": 5.393371757925072,
+        "geomean_speedup": 4.040683090784722,
+        "best": {
+          "shape": "input 63x65x16",
+          "mem": "int",
+          "speedup": 15.529211118368531
+        },
+        "worst": {
+          "shape": "input 1x1x16",
+          "mem": "int",
+          "speedup": 0.7252673796791443
+        }
+      },
+      "fallback": {
+        "count": 11,
+        "wins": 0,
+        "losses": 1,
+        "neutral": 10,
+        "median_speedup": 0.998018417064926,
+        "geomean_speedup": 0.9967143475426792,
+        "best": {
+          "shape": "input 14x14x120",
+          "mem": "ext",
+          "speedup": 1.0006695761343936
+        },
+        "worst": {
+          "shape": "input 8x8x8",
+          "mem": "int",
+          "speedup": 0.988
+        }
+      },
+      "memory": {
+        "int": {
+          "count": 31,
+          "wins": 19,
+          "losses": 4,
+          "neutral": 8,
+          "median_speedup": 2.2451027233635927,
+          "geomean_speedup": 2.7695756895137924,
+          "best": {
+            "shape": "input 63x65x16",
+            "mem": "int",
+            "speedup": 15.529211118368531
+          },
+          "worst": {
+            "shape": "input 1x1x16",
+            "mem": "int",
+            "speedup": 0.7252673796791443
+          }
+        },
+        "ext": {
+          "count": 11,
+          "wins": 9,
+          "losses": 0,
+          "neutral": 2,
+          "median_speedup": 2.2243489174772515,
+          "geomean_speedup": 2.8898122556360777,
+          "best": {
+            "shape": "input 1x1024x16",
+            "mem": "ext",
+            "speedup": 11.888961892247043
+          },
+          "worst": {
+            "shape": "input 64x64x16",
+            "mem": "ext",
+            "speedup": 0.9999088195067429
+          }
+        }
+      },
+      "path_by_memory": {
+        "QACC SIMD|ext": {
+          "count": 9,
+          "wins": 9,
+          "losses": 0,
+          "neutral": 0,
+          "median_speedup": 2.2451027233635927,
+          "geomean_speedup": 3.6581137188648847,
+          "best": {
+            "shape": "input 1x1024x16",
+            "mem": "ext",
+            "speedup": 11.888961892247043
+          },
+          "worst": {
+            "shape": "input 63x65x16",
+            "mem": "ext",
+            "speedup": 1.8757649802854446
+          }
+        },
+        "QACC SIMD|int": {
+          "count": 22,
+          "wins": 19,
+          "losses": 3,
+          "neutral": 0,
+          "median_speedup": 5.526828196453402,
+          "geomean_speedup": 4.2084922408240875,
+          "best": {
+            "shape": "input 63x65x16",
+            "mem": "int",
+            "speedup": 15.529211118368531
+          },
+          "worst": {
+            "shape": "input 1x1x16",
+            "mem": "int",
+            "speedup": 0.7252673796791443
+          }
+        },
+        "scalar fallback|ext": {
+          "count": 2,
+          "wins": 0,
+          "losses": 0,
+          "neutral": 2,
+          "median_speedup": 1.0002891978205684,
+          "geomean_speedup": 1.0002891254976505,
+          "best": {
+            "shape": "input 14x14x120",
+            "mem": "ext",
+            "speedup": 1.0006695761343936
+          },
+          "worst": {
+            "shape": "input 64x64x16",
+            "mem": "ext",
+            "speedup": 0.9999088195067429
+          }
+        },
+        "scalar fallback|int": {
+          "count": 9,
+          "wins": 0,
+          "losses": 1,
+          "neutral": 8,
+          "median_speedup": 0.9975471408860953,
+          "geomean_speedup": 0.9959216889748101,
+          "best": {
+            "shape": "input 14x14x120",
+            "mem": "int",
+            "speedup": 1.0006695761343936
+          },
+          "worst": {
+            "shape": "input 8x8x8",
+            "mem": "int",
+            "speedup": 0.988
+          }
+        }
+      }
+    },
+    "opt2": {
+      "all": {
+        "count": 48,
+        "wins": 42,
+        "losses": 0,
+        "neutral": 6,
+        "median_speedup": 4.959633033850312,
+        "geomean_speedup": 3.914268250326623,
+        "best": {
+          "shape": "input 32x32x16, filter 5x5, pad 2, stride 1",
+          "mem": "ext",
+          "speedup": 11.882815057283143
+        },
+        "worst": {
+          "shape": "input 16x16x8, filter 3x3, pad 1, stride 1",
+          "mem": "int",
+          "speedup": 0.9926407761638323
+        }
+      },
+      "eligible": {
+        "count": 32,
+        "wins": 32,
+        "losses": 0,
+        "neutral": 0,
+        "median_speedup": 7.972023229487055,
+        "geomean_speedup": 6.4745756965310335,
+        "best": {
+          "shape": "input 32x32x16, filter 5x5, pad 2, stride 1",
+          "mem": "ext",
+          "speedup": 11.882815057283143
+        },
+        "worst": {
+          "shape": "input 32x32x128, filter 3x3, pad 1, stride 1",
+          "mem": "ext",
+          "speedup": 1.5659815570601165
+        }
+      },
+      "fallback": {
+        "count": 16,
+        "wins": 10,
+        "losses": 0,
+        "neutral": 6,
+        "median_speedup": 1.3276645708796995,
+        "geomean_speedup": 1.430635936576317,
+        "best": {
+          "shape": "input 16x16x64, filter 3x3, pad 1, stride 2",
+          "mem": "int",
+          "speedup": 2.5999900234449043
+        },
+        "worst": {
+          "shape": "input 16x16x8, filter 3x3, pad 1, stride 1",
+          "mem": "int",
+          "speedup": 0.9926407761638323
+        }
+      },
+      "memory": {
+        "int": {
+          "count": 34,
+          "wins": 28,
+          "losses": 0,
+          "neutral": 6,
+          "median_speedup": 6.557608295375475,
+          "geomean_speedup": 4.00028548860994,
+          "best": {
+            "shape": "input 16x16x16, filter 5x5, pad 2, stride 1",
+            "mem": "int",
+            "speedup": 10.716057660073751
+          },
+          "worst": {
+            "shape": "input 16x16x8, filter 3x3, pad 1, stride 1",
+            "mem": "int",
+            "speedup": 0.9926407761638323
+          }
+        },
+        "ext": {
+          "count": 14,
+          "wins": 14,
+          "losses": 0,
+          "neutral": 0,
+          "median_speedup": 3.684683294785449,
+          "geomean_speedup": 3.712990991690889,
+          "best": {
+            "shape": "input 32x32x16, filter 5x5, pad 2, stride 1",
+            "mem": "ext",
+            "speedup": 11.882815057283143
+          },
+          "worst": {
+            "shape": "input 32x32x128, filter 2x2, pad 0, stride 2",
+            "mem": "ext",
+            "speedup": 1.287056276877445
+          }
+        }
+      },
+      "path_by_memory": {
+        "32-bit SIMD|int": {
+          "count": 1,
+          "wins": 0,
+          "losses": 0,
+          "neutral": 1,
+          "median_speedup": 0.9999154599582131,
+          "geomean_speedup": 0.9999154599582131,
+          "best": {
+            "shape": "input 16x16x12, filter 3x3, pad 1, stride 1",
+            "mem": "int",
+            "speedup": 0.9999154599582131
+          },
+          "worst": {
+            "shape": "input 16x16x12, filter 3x3, pad 1, stride 1",
+            "mem": "int",
+            "speedup": 0.9999154599582131
+          }
+        },
+        "64-bit SIMD|int": {
+          "count": 3,
+          "wins": 0,
+          "losses": 0,
+          "neutral": 3,
+          "median_speedup": 0.9968685861725209,
+          "geomean_speedup": 0.9963609528180736,
+          "best": {
+            "shape": "input 16x16x120, filter 5x5, pad 2, stride 1",
+            "mem": "int",
+            "speedup": 0.9995857954201695
+          },
+          "worst": {
+            "shape": "input 16x16x8, filter 3x3, pad 1, stride 1",
+            "mem": "int",
+            "speedup": 0.9926407761638323
+          }
+        },
+        "ANSI fallback|int": {
+          "count": 2,
+          "wins": 0,
+          "losses": 0,
+          "neutral": 2,
+          "median_speedup": 0.9999881081918571,
+          "geomean_speedup": 0.9999881081836132,
+          "best": {
+            "shape": "input 16x16x31, filter 3x3, pad 1, stride 1",
+            "mem": "int",
+            "speedup": 0.9999921686908736
+          },
+          "worst": {
+            "shape": "input 16x16x15, filter 3x3, pad 1, stride 1",
+            "mem": "int",
+            "speedup": 0.9999840476928405
+          }
+        },
+        "Opt1 128-bit SIMD fallback|ext": {
+          "count": 2,
+          "wins": 2,
+          "losses": 0,
+          "neutral": 0,
+          "median_speedup": 1.304043649984124,
+          "geomean_speedup": 1.3039330006633203,
+          "best": {
+            "shape": "input 32x32x64, filter 2x2, pad 0, stride 2",
+            "mem": "ext",
+            "speedup": 1.321031023090803
+          },
+          "worst": {
+            "shape": "input 32x32x128, filter 2x2, pad 0, stride 2",
+            "mem": "ext",
+            "speedup": 1.287056276877445
+          }
+        },
+        "Opt1 128-bit SIMD fallback|int": {
+          "count": 8,
+          "wins": 8,
+          "losses": 0,
+          "neutral": 0,
+          "median_speedup": 1.8548615773673094,
+          "geomean_speedup": 1.9179799344374793,
+          "best": {
+            "shape": "input 16x16x64, filter 3x3, pad 1, stride 2",
+            "mem": "int",
+            "speedup": 2.5999900234449043
+          },
+          "worst": {
+            "shape": "input 2x2x16, filter 3x3, pad 1, stride 1",
+            "mem": "int",
+            "speedup": 1.3342981186685963
+          }
+        },
+        "Opt2 sliding SIMD|ext": {
+          "count": 12,
+          "wins": 12,
+          "losses": 0,
+          "neutral": 0,
+          "median_speedup": 4.546854304669401,
+          "geomean_speedup": 4.420472217067926,
+          "best": {
+            "shape": "input 32x32x16, filter 5x5, pad 2, stride 1",
+            "mem": "ext",
+            "speedup": 11.882815057283143
+          },
+          "worst": {
+            "shape": "input 32x32x128, filter 3x3, pad 1, stride 1",
+            "mem": "ext",
+            "speedup": 1.5659815570601165
+          }
+        },
+        "Opt2 sliding SIMD|int": {
+          "count": 20,
+          "wins": 20,
+          "losses": 0,
+          "neutral": 0,
+          "median_speedup": 8.24264789940278,
+          "geomean_speedup": 8.14060910157319,
+          "best": {
+            "shape": "input 16x16x16, filter 5x5, pad 2, stride 1",
+            "mem": "int",
+            "speedup": 10.716057660073751
+          },
+          "worst": {
+            "shape": "input 4x4x16, filter 3x3, pad 1, stride 1",
+            "mem": "int",
+            "speedup": 4.538172715894868
+          }
+        }
+      }
+    }
+  },
+  "control_summaries": {
+    "exp_mean": {
+      "count": 48,
+      "wins": 0,
+      "losses": 0,
+      "neutral": 48,
+      "median_speedup": 1.0,
+      "geomean_speedup": 1.0000002096260907,
+      "best": {
+        "shape": "input 64x64x16, filter 3x3, pad 1, stride 1",
+        "mem": "ext",
+        "speedup": 1.0000235882327095
+      },
+      "worst": {
+        "shape": "input 64x64x32, filter 3x3, pad 1, stride 1",
+        "mem": "ext",
+        "speedup": 0.9999879237019489
+      }
+    },
+    "opt2": {
+      "count": 42,
+      "wins": 0,
+      "losses": 0,
+      "neutral": 42,
+      "median_speedup": 1.0,
+      "geomean_speedup": 1.0,
+      "best": {
+        "shape": "input 14x14x120",
+        "mem": "ext",
+        "speedup": 1.0
+      },
+      "worst": {
+        "shape": "input 14x14x120",
+        "mem": "ext",
+        "speedup": 1.0
+      }
+    }
+  },
+  "capture_order": [
+    {
+      "build": "stock",
+      "boot": 1,
+      "log": "stock-1.log",
+      "monitor_elapsed_s": 12.76,
+      "timeout_s": 1200,
+      "timeout_hit": false
+    },
+    {
+      "build": "exp_mean",
+      "boot": 1,
+      "log": "exp_mean-1.log",
+      "monitor_elapsed_s": 12.52,
+      "timeout_s": 1200,
+      "timeout_hit": false
+    },
+    {
+      "build": "opt2",
+      "boot": 1,
+      "log": "opt2-1.log",
+      "monitor_elapsed_s": 12.31,
+      "timeout_s": 1200,
+      "timeout_hit": false
+    },
+    {
+      "build": "stock",
+      "boot": 2,
+      "log": "stock-2.log",
+      "monitor_elapsed_s": 12.75,
+      "timeout_s": 1200,
+      "timeout_hit": false
+    },
+    {
+      "build": "opt2",
+      "boot": 2,
+      "log": "opt2-2.log",
+      "monitor_elapsed_s": 12.31,
+      "timeout_s": 1200,
+      "timeout_hit": false
+    },
+    {
+      "build": "exp_mean",
+      "boot": 2,
+      "log": "exp_mean-2.log",
+      "monitor_elapsed_s": 12.78,
+      "timeout_s": 1200,
+      "timeout_hit": false
+    }
+  ]
+}

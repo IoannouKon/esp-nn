@@ -1,0 +1,44 @@
+{
+  "generated_by_this_kit_when_agent_runs_python": [
+    "max3",
+    "max5",
+    "mean_only",
+    "both",
+    "depthwise_both",
+    "avg_control",
+    "neutral_control"
+  ],
+  "frozen_existing_file_fetched_from_user_git": [
+    "mnist_fixed"
+  ],
+  "external_pretrained_optional_not_bundled": [
+    "espressif_person_detection",
+    "mobilenetv2_int8",
+    "mobilenetv3_small_int8",
+    "efficientnet_lite0_int8"
+  ],
+  "preexisting_experiment_mnist_commit": "edb003c6770491abb74766835f4c803b9d4f5a20",
+  "stock_commit": "ace42ac7721119cd543fc40ffe719e601fa8f20f",
+  "mean_commit": "4bfa49c64a932f700688c2007a01d8ea1fa102ac",
+  "opt2_commit": "edb003c6770491abb74766835f4c803b9d4f5a20",
+  "board_execution_done_in_this_kit": true,
+  "tflm_mean_calls_esp_nn_by_default": false,
+  "board_models": [
+    "mnist_fixed",
+    "max3",
+    "max5",
+    "mean_only",
+    "both",
+    "depthwise_both",
+    "avg_control",
+    "neutral_control",
+    "person_detection",
+    "mobilenet_v2",
+    "mobilenet_v3_small",
+    "efficientnet_lite0"
+  ],
+  "qualified_board_timing_captures": 24,
+  "qualified_timed_invokes": 2880,
+  "board_to_board_full_output_equality": true,
+  "results": "results/CNN_RESULTS.md"
+}

@@ -1,0 +1,629 @@
+{
+  "max3": {
+    "name": "max3",
+    "origin": "custom CIFAR-10 CNN; trained from scratch",
+    "training_epochs": 2,
+    "train_samples": 20000,
+    "test_accuracy_1000": 0.4699999988079071,
+    "input_shape": [
+      1,
+      32,
+      32,
+      3
+    ],
+    "output_shape": [
+      1,
+      10
+    ],
+    "input_scale": 0.003921568859368563,
+    "input_zero_point": -128,
+    "host_output": [
+      -19,
+      -10,
+      29,
+      61,
+      -18,
+      31,
+      45,
+      -66,
+      -23,
+      -35
+    ],
+    "ops": [
+      {
+        "name": "CONV_2D",
+        "inputs": [
+          [
+            1,
+            32,
+            32,
+            3
+          ],
+          [
+            16,
+            3,
+            3,
+            3
+          ],
+          [
+            16
+          ]
+        ]
+      },
+      {
+        "name": "MAX_POOL_2D",
+        "inputs": [
+          [
+            1,
+            16,
+            16,
+            16
+          ]
+        ]
+      },
+      {
+        "name": "CONV_2D",
+        "inputs": [
+          [
+            1,
+            16,
+            16,
+            16
+          ],
+          [
+            32,
+            3,
+            3,
+            16
+          ],
+          [
+            32
+          ]
+        ]
+      },
+      {
+        "name": "RESHAPE",
+        "inputs": [
+          [
+            1,
+            8,
+            8,
+            32
+          ],
+          [
+            2
+          ]
+        ]
+      },
+      {
+        "name": "FULLY_CONNECTED",
+        "inputs": [
+          [
+            1,
+            2048
+          ],
+          [
+            10,
+            2048
+          ],
+          [
+            10
+          ]
+        ]
+      }
+    ],
+    "dataset": "CIFAR-10",
+    "fixed_test_index": 0,
+    "model_sha256": "6a457b7fb409fc0668379fbae4b6614223287ca7a8273ffe9f9770685824a04b",
+    "input_sha256": "9f2b799d8a7d23ea057764d98841e08038753212d8fcb06b4b8f28a859926511",
+    "note": "Full-model correctness on the board must be checked across builds. Built-in TFLM MEAN is not ESP-NN MEAN."
+  },
+  "max5": {
+    "name": "max5",
+    "origin": "custom CIFAR-10 CNN; trained from scratch",
+    "training_epochs": 2,
+    "train_samples": 20000,
+    "test_accuracy_1000": 0.4749999940395355,
+    "input_shape": [
+      1,
+      32,
+      32,
+      3
+    ],
+    "output_shape": [
+      1,
+      10
+    ],
+    "input_scale": 0.003921568859368563,
+    "input_zero_point": -128,
+    "host_output": [
+      -21,
+      -16,
+      38,
+      55,
+      4,
+      42,
+      41,
+      -36,
+      -11,
+      -38
+    ],
+    "ops": [
+      {
+        "name": "CONV_2D",
+        "inputs": [
+          [
+            1,
+            32,
+            32,
+            3
+          ],
+          [
+            16,
+            3,
+            3,
+            3
+          ],
+          [
+            16
+          ]
+        ]
+      },
+      {
+        "name": "MAX_POOL_2D",
+        "inputs": [
+          [
+            1,
+            16,
+            16,
+            16
+          ]
+        ]
+      },
+      {
+        "name": "CONV_2D",
+        "inputs": [
+          [
+            1,
+            16,
+            16,
+            16
+          ],
+          [
+            32,
+            3,
+            3,
+            16
+          ],
+          [
+            32
+          ]
+        ]
+      },
+      {
+        "name": "RESHAPE",
+        "inputs": [
+          [
+            1,
+            8,
+            8,
+            32
+          ],
+          [
+            2
+          ]
+        ]
+      },
+      {
+        "name": "FULLY_CONNECTED",
+        "inputs": [
+          [
+            1,
+            2048
+          ],
+          [
+            10,
+            2048
+          ],
+          [
+            10
+          ]
+        ]
+      }
+    ],
+    "dataset": "CIFAR-10",
+    "fixed_test_index": 0,
+    "model_sha256": "719758439a3fc697f2f2533219dd64198656ef81794e5fc860dc013e023e37e9",
+    "input_sha256": "9f2b799d8a7d23ea057764d98841e08038753212d8fcb06b4b8f28a859926511",
+    "note": "Full-model correctness on the board must be checked across builds. Built-in TFLM MEAN is not ESP-NN MEAN."
+  },
+  "mean_only": {
+    "name": "mean_only",
+    "origin": "custom CIFAR-10 CNN; trained from scratch",
+    "training_epochs": 2,
+    "train_samples": 20000,
+    "test_accuracy_1000": 0.10579099506139755,
+    "input_shape": [
+      1,
+      32,
+      32,
+      3
+    ],
+    "output_shape": [
+      1,
+      1,
+      1,
+      10
+    ],
+    "input_scale": 0.003921568859368563,
+    "input_zero_point": -128,
+    "host_output": [
+      -1,
+      12,
+      18,
+      9,
+      7,
+      7,
+      -3,
+      8,
+      -8,
+      8
+    ],
+    "ops": [
+      {
+        "name": "CONV_2D",
+        "inputs": [
+          [
+            1,
+            32,
+            32,
+            3
+          ],
+          [
+            16,
+            3,
+            3,
+            3
+          ],
+          [
+            16
+          ]
+        ]
+      },
+      {
+        "name": "CONV_2D",
+        "inputs": [
+          [
+            1,
+            16,
+            16,
+            16
+          ],
+          [
+            32,
+            3,
+            3,
+            16
+          ],
+          [
+            32
+          ]
+        ]
+      },
+      {
+        "name": "MEAN",
+        "inputs": [
+          [
+            1,
+            8,
+            8,
+            32
+          ],
+          [
+            2
+          ]
+        ]
+      },
+      {
+        "name": "FULLY_CONNECTED",
+        "inputs": [
+          [
+            1,
+            1,
+            1,
+            32
+          ],
+          [
+            10,
+            32
+          ],
+          [
+            10
+          ]
+        ]
+      }
+    ],
+    "dataset": "CIFAR-10",
+    "fixed_test_index": 0,
+    "model_sha256": "f24283500ae7f9a377f8aa5bda5086ca81294d6e8bbfbbdca24be86010ffeecc",
+    "input_sha256": "9f2b799d8a7d23ea057764d98841e08038753212d8fcb06b4b8f28a859926511",
+    "note": "Full-model correctness on the board must be checked across builds. Built-in TFLM MEAN is not ESP-NN MEAN."
+  },
+  "both": {
+    "name": "both",
+    "origin": "custom CIFAR-10 CNN; trained from scratch",
+    "training_epochs": 2,
+    "train_samples": 20000,
+    "test_accuracy_1000": 0.10670271515846252,
+    "input_shape": [
+      1,
+      32,
+      32,
+      3
+    ],
+    "output_shape": [
+      1,
+      1,
+      1,
+      10
+    ],
+    "input_scale": 0.003921568859368563,
+    "input_zero_point": -128,
+    "host_output": [
+      5,
+      2,
+      30,
+      19,
+      6,
+      18,
+      1,
+      24,
+      -26,
+      -6
+    ],
+    "ops": [
+      {
+        "name": "CONV_2D",
+        "inputs": [
+          [
+            1,
+            32,
+            32,
+            3
+          ],
+          [
+            16,
+            3,
+            3,
+            3
+          ],
+          [
+            16
+          ]
+        ]
+      },
+      {
+        "name": "MAX_POOL_2D",
+        "inputs": [
+          [
+            1,
+            16,
+            16,
+            16
+          ]
+        ]
+      },
+      {
+        "name": "CONV_2D",
+        "inputs": [
+          [
+            1,
+            16,
+            16,
+            16
+          ],
+          [
+            32,
+            3,
+            3,
+            16
+          ],
+          [
+            32
+          ]
+        ]
+      },
+      {
+        "name": "MAX_POOL_2D",
+        "inputs": [
+          [
+            1,
+            8,
+            8,
+            32
+          ]
+        ]
+      },
+      {
+        "name": "MEAN",
+        "inputs": [
+          [
+            1,
+            8,
+            8,
+            32
+          ],
+          [
+            2
+          ]
+        ]
+      },
+      {
+        "name": "FULLY_CONNECTED",
+        "inputs": [
+          [
+            1,
+            1,
+            1,
+            32
+          ],
+          [
+            10,
+            32
+          ],
+          [
+            10
+          ]
+        ]
+      }
+    ],
+    "dataset": "CIFAR-10",
+    "fixed_test_index": 0,
+    "model_sha256": "2a1d57d833b9a43ba281e53a09b8b5bdec7aab5139d3aaf97e57ba93e0b3153d",
+    "input_sha256": "9f2b799d8a7d23ea057764d98841e08038753212d8fcb06b4b8f28a859926511",
+    "note": "Full-model correctness on the board must be checked across builds. Built-in TFLM MEAN is not ESP-NN MEAN."
+  },
+  "depthwise_both": {
+    "name": "depthwise_both",
+    "origin": "custom CIFAR-10 CNN; trained from scratch",
+    "training_epochs": 2,
+    "train_samples": 20000,
+    "test_accuracy_1000": 0.10783451050519943,
+    "input_shape": [
+      1,
+      32,
+      32,
+      3
+    ],
+    "output_shape": [
+      1,
+      1,
+      1,
+      10
+    ],
+    "input_scale": 0.003921568859368563,
+    "input_zero_point": -128,
+    "host_output": [
+      16,
+      36,
+      31,
+      25,
+      15,
+      29,
+      8,
+      24,
+      8,
+      35
+    ],
+    "ops": [
+      {
+        "name": "CONV_2D",
+        "inputs": [
+          [
+            1,
+            32,
+            32,
+            3
+          ],
+          [
+            16,
+            3,
+            3,
+            3
+          ],
+          [
+            16
+          ]
+        ]
+      },
+      {
+        "name": "MAX_POOL_2D",
+        "inputs": [
+          [
+            1,
+            16,
+            16,
+            16
+          ]
+        ]
+      },
+      {
+        "name": "DEPTHWISE_CONV_2D",
+        "inputs": [
+          [
+            1,
+            16,
+            16,
+            16
+          ],
+          [
+            1,
+            3,
+            3,
+            16
+          ],
+          [
+            16
+          ]
+        ]
+      },
+      {
+        "name": "CONV_2D",
+        "inputs": [
+          [
+            1,
+            16,
+            16,
+            16
+          ],
+          [
+            32,
+            1,
+            1,
+            16
+          ],
+          [
+            32
+          ]
+        ]
+      },
+      {
+        "name": "MEAN",
+        "inputs": [
+          [
+            1,
+            16,
+            16,
+            32
+          ],
+          [
+            2
+          ]
+        ]
+      },
+      {
+        "name": "FULLY_CONNECTED",
+        "inputs": [
+          [
+            1,
+            1,
+            1,
+            32
+          ],
+          [
+            10,
+            32
+          ],
+          [
+            10
+          ]
+        ]
+      }
+    ],
+    "dataset": "CIFAR-10",
+    "fixed_test_index": 0,
+    "model_sha256": "c2b43e3633fb33a1b505cb2f579d4cad238f33284fbc82958edf6d1a8381ef45",
+    "input_sha256": "9f2b799d8a7d23ea057764d98841e08038753212d8fcb06b4b8f28a859926511",
+    "note": "Full-model correctness on the board must be checked across builds. Built-in TFLM MEAN is not ESP-NN MEAN."
+  }
+}

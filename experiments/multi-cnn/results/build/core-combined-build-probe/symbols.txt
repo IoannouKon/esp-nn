@@ -1,0 +1,67 @@
+42008324 0000001a T RegisterEspNnGlobalMean()
+42048804 00000009 T __wrap__Unwind_DeleteException
+420487f8 00000009 T __wrap__Unwind_Resume
+4204881c 00000009 T __wrap___cxa_allocate_exception
+42048828 00000009 T __wrap___cxa_throw
+42048810 00000009 T __wrap___gxx_personality_v0
+4200836c 000000a2 T __wrap_esp_nn_max_pool_s8_esp32s3
+42008340 0000002c T __wrap_esp_nn_max_pool_s8_esp32s3_sliding_row_asm
+42008410 0000001c T __wrap_esp_nn_mean_s8_16ch_qacc
+3c07260c D _binary_input_0_bin_end
+3c0722fc D _binary_input_0_bin_start
+3c07b8c8 D _binary_input_1_bin_end
+3c07acc8 D _binary_input_1_bin_start
+3c088124 D _binary_input_2_bin_end
+3c087524 D _binary_input_2_bin_start
+3c0902e8 D _binary_input_3_bin_end
+3c08f6e8 D _binary_input_3_bin_start
+3c0985ec D _binary_input_4_bin_end
+3c0979ec D _binary_input_4_bin_start
+3c09fed0 D _binary_input_5_bin_end
+3c09f2d0 D _binary_input_5_bin_start
+3c0ac7ac D _binary_input_6_bin_end
+3c0abbac D _binary_input_6_bin_start
+3c0b8fb0 D _binary_input_7_bin_end
+3c0b83b0 D _binary_input_7_bin_start
+3c1091d4 D _binary_input_8_bin_end
+3c106dd4 D _binary_input_8_bin_start
+3c0722f8 D _binary_model_0_tflite_end
+3c06c150 D _binary_model_0_tflite_start
+3c07acc4 D _binary_model_1_tflite_end
+3c073874 D _binary_model_1_tflite_start
+3c087520 D _binary_model_2_tflite_end
+3c0800d0 D _binary_model_2_tflite_start
+3c08f6e4 D _binary_model_3_tflite_end
+3c08c92c D _binary_model_3_tflite_start
+3c0979e8 D _binary_model_4_tflite_end
+3c094af0 D _binary_model_4_tflite_start
+3c09f2cc D _binary_model_5_tflite_end
+3c09cdf4 D _binary_model_5_tflite_start
+3c0abba8 D _binary_model_6_tflite_end
+3c0a46d8 D _binary_model_6_tflite_start
+3c0b83ac D _binary_model_7_tflite_end
+3c0b0fb4 D _binary_model_7_tflite_start
+3c106dd0 D _binary_model_8_tflite_end
+3c0bd7b8 D _binary_model_8_tflite_start
+3c073870 D _binary_validation_0_bin_end
+3c072610 D _binary_validation_0_bin_start
+3c0800cc D _binary_validation_1_bin_end
+3c07b8cc D _binary_validation_1_bin_start
+3c08c928 D _binary_validation_2_bin_end
+3c088128 D _binary_validation_2_bin_start
+3c094aec D _binary_validation_3_bin_end
+3c0902ec D _binary_validation_3_bin_start
+3c09cdf0 D _binary_validation_4_bin_end
+3c0985f0 D _binary_validation_4_bin_start
+3c0a46d4 D _binary_validation_5_bin_end
+3c09fed4 D _binary_validation_5_bin_start
+3c0b0fb0 D _binary_validation_6_bin_end
+3c0ac7b0 D _binary_validation_6_bin_start
+3c0bd7b4 D _binary_validation_7_bin_end
+3c0b8fb4 D _binary_validation_7_bin_start
+42053d6c 0000015a T esp_nn_max_pool_s8_ansi
+42041ef4 0000020c T esp_nn_max_pool_s8_esp32s3
+42053f18 0000034b T esp_nn_max_pool_s8_esp32s3_asm
+42054264 000000ac T esp_nn_max_pool_s8_esp32s3_sliding_row_asm
+4203a0fc 0000059e T esp_nn_mean_nhwc_s8_esp32s3
+42053ef0 00000028 T esp_nn_mean_s8_16ch_qacc

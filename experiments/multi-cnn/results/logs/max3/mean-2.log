@@ -1,0 +1,80 @@
+CNN_MODEL_BEGIN name=max3
+
+CNN_START cpu_mhz=240 model_bytes=29776 input_bytes=3072 output_bytes=10 arena=psram arena_cap=2097152 arena_used=29724 in_type=9 out_type=9
+
+CNN_RUN index=0 us=3421
+
+CNN_RUN index=1 us=3425
+
+CNN_RUN index=2 us=3420
+
+CNN_RUN index=3 us=3420
+
+CNN_RUN index=4 us=3425
+
+CNN_RUN index=5 us=3420
+
+CNN_RUN index=6 us=3420
+
+CNN_RUN index=7 us=3425
+
+CNN_RUN index=8 us=3420
+
+CNN_RUN index=9 us=3420
+
+CNN_RUN index=10 us=3425
+
+CNN_RUN index=11 us=3420
+
+CNN_RUN index=12 us=3419
+
+CNN_RUN index=13 us=3425
+
+CNN_RUN index=14 us=3420
+
+CNN_RUN index=15 us=3425
+
+CNN_RUN index=16 us=3420
+
+CNN_RUN index=17 us=3420
+
+CNN_RUN index=18 us=3425
+
+CNN_RUN index=19 us=3420
+
+CNN_RUN index=20 us=3420
+
+CNN_RUN index=21 us=3425
+
+CNN_RUN index=22 us=3420
+
+CNN_RUN index=23 us=3420
+
+CNN_RUN index=24 us=3425
+
+CNN_RUN index=25 us=3420
+
+CNN_RUN index=26 us=3420
+
+CNN_RUN index=27 us=3425
+
+CNN_RUN index=28 us=3420
+
+CNN_RUN index=29 us=3420
+
+CNN_OUTPUT bytes=10 hash_fnv1a=ed6b0fdf stable=1 hex=df180333e7201aded3e5
+
+CNN_VALIDATION index=1 hex=2b2ae7d4b3d2aefc3d2f
+
+CNN_VALIDATION index=2 hex=310ffceec6eebafb460f
+
+CNN_VALIDATION index=3 hex=320005eac8e1bbf546ff
+
+CNN_VALIDATION index=4 hex=c0e01d1b2e272723bdd0
+
+CNN_VALIDATION index=5 hex=b902f91cf7161e0fbae8
+
+CNN_VALIDATION index=6 hex=e942d718ba24f5f6c4eb
+
+CNN_MODEL_DONE name=max3 ok=1
+

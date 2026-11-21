@@ -1,0 +1,5 @@
+42041e9c <esp_nn_max_pool_s8_esp32s3>:
+42041e9c:	00c136        	entry	a1, 96
+4203a0a8 <esp_nn_mean_nhwc_s8_esp32s3>:
+42053e6c <esp_nn_mean_s8_16ch_qacc>:
+42053e6c:	004136        	entry	a1, 32

@@ -1,0 +1,4 @@
+# Preserve raw serial control characters and patch context byte for byte.
+results/*.log -text -diff
+results/default-version/*.log -text -diff
+results/applied.patch -text -whitespace

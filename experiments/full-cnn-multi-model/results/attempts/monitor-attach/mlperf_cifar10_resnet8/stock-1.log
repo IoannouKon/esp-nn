@@ -1,0 +1,41 @@
+Executing action: monitor
+Running idf_monitor in directory /home/kostis/Desktop/ESP-NN/full-cnn-run/stock/app
+Executing "/home/kostis/.espressif/python_env/idf5.5_py3.10_env/bin/python /home/kostis/esp_s3/esp-idf/tools/idf_monitor.py -p /dev/ttyACM0 -b 115200 --toolchain-prefix xtensa-esp32s3-elf- --target esp32s3 --revision 0 /home/kostis/Desktop/ESP-NN/full-cnn-run/stock/app/build/espnn_multi_cnn.elf /home/kostis/Desktop/ESP-NN/full-cnn-run/stock/app/build/bootloader/bootloader.elf --no-reset -m '/home/kostis/.espressif/python_env/idf5.5_py3.10_env/bin/python' '/home/kostis/esp_s3/esp-idf/tools/idf.py' '-B'"...
+[0;33m--- esp-idf-monitor 1.8.0 on /dev/ttyACM0 115200[0m
+[0;33m--- Quit: Ctrl+]
+CAPTURE_RESET_SENT
+ | Menu: Ctrl+T | Help: Ctrl+T followed by Ctrl+H[0m
+[0;32mI (129) esp_image: segment 1: paddr=0009b28c vaddr=3fc90f00 sizeCNN_RUN index=0 us=347629 cycles=83431447[0m
+CNN_RUN index=1 us=347671 cycles=83441497
+CNN_RUN index=2 us=347667 cycles=83440630
+CNN_RUN index=3 us=347675 cycles=83442460
+CNN_RUN index=4 us=347672 cycles=83441749
+CNN_RUN index=5 us=347678 cycles=83443321
+CNN_RUN index=6 us=347666 cycles=83440303
+CNN_RUN index=7 us=347686 cycles=83445088
+CNN_RUN index=8 us=347673 cycles=83442151
+CNN_RUN index=9 us=347670 cycles=83441410
+CNN_RUN index=10 us=347672 cycles=83441749
+CNN_RUN index=11 us=347680 cycles=83443768
+CNN_RUN index=12 us=347665 cycles=83440225
+CNN_RUN index=13 us=347688 cycles=83445544
+CNN_RUN index=14 us=347667 cycles=83440633
+CNN_RUN index=15 us=347673 cycles=83441962
+CNN_RUN index=16 us=347672 cycles=83441785
+CNN_RUN index=17 us=347678 cycles=83443306
+CNN_RUN index=18 us=347665 cycles=83440216
+CNN_RUN index=19 us=347684 cycles=83444602
+CNN_RUN index=20 us=347671 cycles=83441653
+CNN_RUN index=21 us=347675 cycles=83442523
+CNN_RUN index=22 us=347672 cycles=83441749
+CNN_RUN index=23 us=347680 cycles=83443795
+CNN_RUN index=24 us=347663 cycles=83439742
+CNN_RUN index=25 us=347685 cycles=83445034
+CNN_RUN index=26 us=347671 cycles=83441608
+CNN_RUN index=27 us=347673 cycles=83441947
+CNN_RUN index=28 us=347672 cycles=83441701
+CNN_RUN index=29 us=347685 cycles=83444962
+CNN_OUTPUT bytes=10 hash_fnv1a=ee89e1a0 stable=1 hex=807f8080808080808080
+CNN_STACK high_water_bytes=4344
+CNN_DONE samples=30 median_us=347672 min_us=347629 max_us=347688 median_cycles=83441785 min_cycles=83431447 max_cycles=83445544
+[0;32mI (12771) main_task: Returned from app_main()[0m

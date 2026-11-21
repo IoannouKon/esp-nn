@@ -1,0 +1,8 @@
+# Optional pretrained architecture sources / integration tasks
+
+- **Person Detection**: `espressif/esp-tflite-micro/examples/person_detection`. Pretrained INT8 model is embedded as a model data array in upstream example. Extract original model bytes and use its original test input and preprocessing (or fixed documented input). Reuse 4-way baseline, but expect no maxpool or ESP-NN mean path.
+- **MobileNetV2**: Find official pretrained fully INT8 TFLite export from a reputable source. Ensure no Flex/custom operators and check arena/flash. The TensorFlow Keras application itself is NOT an INT8 `.tflite` file. Document source and conversion if needed.
+- **MobileNetV3-Small**: Similar; note possible HARD_SWISH/MUL/MEAN ops and 224x224 image causing memory constraints. No guarantee operator resolver support. Document exact architecture variant and input resolution.
+- **EfficientNet-Lite0**: TensorFlow official reference is `https://github.com/tensorflow/tpu/tree/master/models/official/efficientnet/lite`, and its published fully quantized TFLite reference is linked from `https://github.com/tensorflow/examples/blob/master/lite/examples/image_classification/android/README.md`. Verify genuine Lite0, not EfficientNetB0. This architecture may not be viable within ESP32-S3-EYE practical latency and memory budgets. Record a clear skip rather than altering it secretly.
+
+These references are acquisition leads, not proof of compatibility or license for redistribution. Do not redistribute pretrained weights without checking terms. Freeze exact downloaded file by SHA256 before running any version.

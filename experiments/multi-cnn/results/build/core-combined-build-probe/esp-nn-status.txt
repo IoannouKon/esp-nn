@@ -1,0 +1,3 @@
+4bfa49c64a932f700688c2007a01d8ea1fa102ac
+ M src/pooling/esp_nn_max_pool_s8_esp32s3.S
+ M src/pooling/esp_nn_max_pool_s8_esp32s3.c

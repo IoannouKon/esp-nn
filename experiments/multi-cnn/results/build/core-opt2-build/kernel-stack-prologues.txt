@@ -1,0 +1,5 @@
+42041cb0 <esp_nn_max_pool_s8_esp32s3>:
+42041cb0:	012136        	entry	a1, 144
+4203a0a0 <esp_nn_mean_nhwc_s8_esp32s3>:
+42054144 <esp_nn_max_pool_s8_esp32s3_sliding_row_asm>:
+42054144:	004136        	entry	a1, 32

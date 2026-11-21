@@ -1,0 +1,2 @@
+42034c74 0000059e T esp_nn_mean_nhwc_s8_esp32s3
+4204ebc0 00000028 T esp_nn_mean_s8_16ch_qacc

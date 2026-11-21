@@ -1,0 +1,1 @@
+Source: IoannouKon/esp-nn commit edb003c6770491abb74766835f4c803b9d4f5a20; trained MNIST, frozen original model and input

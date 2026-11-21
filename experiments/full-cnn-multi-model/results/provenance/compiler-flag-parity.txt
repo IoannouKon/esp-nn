@@ -1,0 +1,22 @@
+Commands compared after normalizing only the variant checkout path
+initial pretrained phase opt2: 9 common units, all exact, additional units: none
+initial pretrained phase mean: 9 common units, all exact, additional units: esp-nn/src/common/esp_nn_mean_qacc_s8_esp32s3.S
+initial pretrained phase combined: 9 common units, all exact, additional units: esp-nn/src/common/esp_nn_mean_qacc_s8_esp32s3.S
+both opt2: 9 common units, all exact, additional units: none
+both mean: 9 common units, all exact, additional units: esp-nn/src/common/esp_nn_mean_qacc_s8_esp32s3.S
+both combined: 9 common units, all exact, additional units: esp-nn/src/common/esp_nn_mean_qacc_s8_esp32s3.S
+depthwise_both opt2: 9 common units, all exact, additional units: none
+depthwise_both mean: 9 common units, all exact, additional units: esp-nn/src/common/esp_nn_mean_qacc_s8_esp32s3.S
+depthwise_both combined: 9 common units, all exact, additional units: esp-nn/src/common/esp_nn_mean_qacc_s8_esp32s3.S
+mean_only opt2: 9 common units, all exact, additional units: none
+mean_only mean: 9 common units, all exact, additional units: esp-nn/src/common/esp_nn_mean_qacc_s8_esp32s3.S
+mean_only combined: 9 common units, all exact, additional units: esp-nn/src/common/esp_nn_mean_qacc_s8_esp32s3.S
+mlperf_cifar10_resnet6 opt2: 8 common units, all exact, additional units: none
+mlperf_cifar10_resnet6 mean: 8 common units, all exact, additional units: esp-nn/src/common/esp_nn_mean_qacc_s8_esp32s3.S
+mlperf_cifar10_resnet6 combined: 8 common units, all exact, additional units: esp-nn/src/common/esp_nn_mean_qacc_s8_esp32s3.S
+mlperf_vww_14block opt2: 8 common units, all exact, additional units: none
+mlperf_vww_14block mean: 8 common units, all exact, additional units: esp-nn/src/common/esp_nn_mean_qacc_s8_esp32s3.S
+mlperf_vww_14block combined: 8 common units, all exact, additional units: esp-nn/src/common/esp_nn_mean_qacc_s8_esp32s3.S
+mlperf_vww_20block opt2: 8 common units, all exact, additional units: none
+mlperf_vww_20block mean: 8 common units, all exact, additional units: esp-nn/src/common/esp_nn_mean_qacc_s8_esp32s3.S
+mlperf_vww_20block combined: 8 common units, all exact, additional units: esp-nn/src/common/esp_nn_mean_qacc_s8_esp32s3.S

@@ -1,0 +1,68 @@
+--- benchmark-main.cc
++++ reference-main.cc
+@@ -169,51 +169,12 @@
+                 unsigned(in->bytes), unsigned(out->bytes), unsigned(kArenaBytes),
+                 unsigned(interpreter.arena_used_bytes()), in->type, out->type);
+ 
+-#ifndef CNN_DIAGNOSTIC
+-    const bool large = blob.model_end - blob.model > 1024 * 1024;
+-    // The arena planner may reuse the graph input once its final consumer runs.
+-    for (int i = 0; i < kWarmups; ++i) {
+-        std::memcpy(in->data.raw, blob.input, in->bytes);
+-        if (interpreter.Invoke() != kTfLiteOk) return Failure("warmup");
+-        if (large) vTaskDelay(1);
+-    }
+-    std::array<int64_t, kSamples> times{};
+-    std::vector<uint8_t> reference(out->bytes);
+-    bool stable = true;
+-    for (int i = 0; i < kSamples; ++i) {
+-        std::memcpy(in->data.raw, blob.input, in->bytes);
+-        const int64_t start = esp_timer_get_time();
+-        const TfLiteStatus status = interpreter.Invoke();
+-        times[i] = esp_timer_get_time() - start;
+-        if (status != kTfLiteOk) return Failure("timed_invoke");
+-        if (large) vTaskDelay(1);
+-        if (i == 0) std::memcpy(reference.data(), out->data.raw, out->bytes);
+-        else if (std::memcmp(reference.data(), out->data.raw, out->bytes)) stable = false;
+-    }
+-    for (int i = 0; i < kSamples; ++i)
+-        std::printf("CNN_RUN index=%d us=%" PRId64 "\n", i, times[i]);
+-    uint32_t checksum = 2166136261u;
+-    for (auto byte : reference) checksum = (checksum ^ byte) * 16777619u;
+-    std::printf("CNN_OUTPUT bytes=%u hash_fnv1a=%08" PRIx32 " stable=%d hex=",
+-                unsigned(reference.size()), checksum, int(stable));
+-    for (auto byte : reference) std::printf("%02x", byte);
++    if (interpreter.Invoke() != kTfLiteOk) return Failure("reference_invoke");
++    std::printf("CNN_REFERENCE_OUTPUT bytes=%u hex=", unsigned(out->bytes));
++    for (size_t i = 0; i < out->bytes; ++i)
++        std::printf("%02x", static_cast<unsigned char>(out->data.raw[i]));
+     std::putchar('\n');
+-    if (blob.validation) {
+-        const size_t bytes = blob.validation_end - blob.validation;
+-        if (bytes % in->bytes) return Failure("validation_input_size");
+-        for (size_t offset = 0; offset < bytes; offset += in->bytes) {
+-            std::memcpy(in->data.raw, blob.validation + offset, in->bytes);
+-            if (interpreter.Invoke() != kTfLiteOk) return Failure("validation_invoke");
+-            std::printf("CNN_VALIDATION index=%u hex=", unsigned(offset / in->bytes + 1));
+-            for (size_t i = 0; i < out->bytes; ++i)
+-                std::printf("%02x", static_cast<unsigned char>(out->data.raw[i]));
+-            std::putchar('\n');
+-        }
+-    }
+-    return stable;
+-#else
+-    return interpreter.Invoke() == kTfLiteOk || Failure("diagnostic_invoke");
+-#endif
++    return true;
+ }
+ }  // namespace
+ 
+@@ -229,7 +190,7 @@
+ #ifdef CNN_DIAGNOSTIC
+                 "diagnostic"
+ #else
+-                "timed"
++                "stock_tflm_reference"
+ #endif
+     );
+     Resolver resolver;

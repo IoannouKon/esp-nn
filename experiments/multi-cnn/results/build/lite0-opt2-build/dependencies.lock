@@ -1,0 +1,29 @@
+dependencies:
+  espressif/esp-nn:
+    dependencies:
+    - name: idf
+      version: '>=5.1'
+    source:
+      path: /home/kostis/Desktop/ESP-NN/multi-cnn-run/opt2/esp-nn
+      type: local
+    version: 1.5.0
+  espressif/esp-tflite-micro:
+    dependencies:
+    - name: idf
+      version: '>=5.1'
+    - name: espressif/esp-nn
+      override_path: ../espressif__esp-nn
+      version: '>=1.4.2'
+    source:
+      path: /home/kostis/Desktop/ESP-NN/multi-cnn-run/opt2/esp-tflite-micro
+      type: local
+    version: 1.4.3
+  idf:
+    source:
+      type: idf
+    version: 5.5.1
+direct_dependencies:
+- espressif/esp-tflite-micro
+manifest_hash: e542b6f8980fe158c12c1072ef335789b73b271aaccd91da8a6637826595d815
+target: esp32s3
+version: 2.0.0

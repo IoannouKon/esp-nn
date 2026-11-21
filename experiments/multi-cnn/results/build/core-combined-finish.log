@@ -1,0 +1,221 @@
+ninja: Entering directory `build'
+[1/156] Performing build step for 'bootloader'
+[1/1] cd /home/kostis/Desktop/ESP-NN/multi-cnn-run/combined/app/build/bootloader/esp-idf/esptool_py && /home/kostis/.espressif/python_env/idf5.5_py3.10_env/bin/python /home/kostis/esp_s3/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 bootloader 0x0 /home/kostis/Desktop/ESP-NN/multi-cnn-run/combined/app/build/bootloader/bootloader.bin
+Bootloader binary size 0x50f0 bytes. 0x2f10 bytes (37%) free.
+[2/154] Building CXX object esp-idf/esp-tflite-micro/CMakeFiles/__idf_esp-tflite-micro.dir/tensorflow/lite/micro/kernels/kernel_util.cc.obj
+[3/154] Building CXX object esp-idf/esp-tflite-micro/CMakeFiles/__idf_esp-tflite-micro.dir/tensorflow/lite/micro/kernels/mul_common.cc.obj
+[4/154] Building CXX object esp-idf/esp-tflite-micro/CMakeFiles/__idf_esp-tflite-micro.dir/tensorflow/lite/micro/kernels/reshape.cc.obj
+[5/154] Building CXX object esp-idf/esp-tflite-micro/CMakeFiles/__idf_esp-tflite-micro.dir/tensorflow/lite/micro/kernels/select.cc.obj
+[6/154] Building CXX object esp-idf/esp-tflite-micro/CMakeFiles/__idf_esp-tflite-micro.dir/tensorflow/lite/micro/kernels/reshape_common.cc.obj
+[7/154] Building CXX object esp-idf/esp-tflite-micro/CMakeFiles/__idf_esp-tflite-micro.dir/tensorflow/lite/micro/kernels/space_to_batch_nd.cc.obj
+[8/154] Building CXX object esp-idf/esp-tflite-micro/CMakeFiles/__idf_esp-tflite-micro.dir/tensorflow/lite/micro/kernels/slice.cc.obj
+[9/154] Building CXX object esp-idf/esp-tflite-micro/CMakeFiles/__idf_esp-tflite-micro.dir/tensorflow/lite/micro/kernels/softmax_common.cc.obj
+[10/154] Building CXX object esp-idf/esp-tflite-micro/CMakeFiles/__idf_esp-tflite-micro.dir/tensorflow/lite/micro/kernels/shape.cc.obj
+[11/154] Building CXX object esp-idf/esp-tflite-micro/CMakeFiles/__idf_esp-tflite-micro.dir/tensorflow/lite/micro/kernels/space_to_depth.cc.obj
+[12/154] Building CXX object esp-idf/esp-tflite-micro/CMakeFiles/__idf_esp-tflite-micro.dir/tensorflow/lite/micro/kernels/squared_difference.cc.obj
+[13/154] Building CXX object esp-idf/esp-tflite-micro/CMakeFiles/__idf_esp-tflite-micro.dir/tensorflow/lite/micro/kernels/split.cc.obj
+[14/154] Building CXX object esp-idf/esp-tflite-micro/CMakeFiles/__idf_esp-tflite-micro.dir/tensorflow/lite/micro/kernels/split_v.cc.obj
+[15/154] Building CXX object esp-idf/esp-tflite-micro/CMakeFiles/__idf_esp-tflite-micro.dir/tensorflow/lite/micro/kernels/squared_difference_common.cc.obj
+[16/154] Building CXX object esp-idf/esp-tflite-micro/CMakeFiles/__idf_esp-tflite-micro.dir/tensorflow/lite/micro/kernels/strided_slice_common.cc.obj
+[17/154] Building CXX object esp-idf/esp-tflite-micro/CMakeFiles/__idf_esp-tflite-micro.dir/tensorflow/lite/micro/kernels/strided_slice.cc.obj
+[18/154] Building CXX object esp-idf/esp-tflite-micro/CMakeFiles/__idf_esp-tflite-micro.dir/tensorflow/lite/micro/kernels/squeeze.cc.obj
+[19/154] Building CXX object esp-idf/esp-tflite-micro/CMakeFiles/__idf_esp-tflite-micro.dir/tensorflow/lite/micro/kernels/sub.cc.obj
+In file included from /home/kostis/Desktop/ESP-NN/multi-cnn-run/combined/esp-tflite-micro/tensorflow/lite/micro/kernels/sub.cc:24:
+/home/kostis/Desktop/ESP-NN/multi-cnn-run/combined/esp-tflite-micro/tensorflow/lite/micro/kernels/internal/reference/sub.h: In lambda function:
+/home/kostis/Desktop/ESP-NN/multi-cnn-run/combined/esp-tflite-micro/tensorflow/lite/micro/kernels/internal/reference/sub.h:55:62: warning: declaration of 'const tflite::micro::ArithmeticParams& params' shadows a parameter [-Wshadow]
+   55 |       [](T input1_val, T input2_val, const ArithmeticParams& params) {
+      |                                      ~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~
+/home/kostis/Desktop/ESP-NN/multi-cnn-run/combined/esp-tflite-micro/tensorflow/lite/micro/kernels/internal/reference/sub.h:48:47: note: shadowed declaration is here
+   48 | void BroadcastSubSlow(const ArithmeticParams& params,
+      |                       ~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~
+/home/kostis/Desktop/ESP-NN/multi-cnn-run/combined/esp-tflite-micro/tensorflow/lite/micro/kernels/internal/reference/sub.h: In lambda function:
+/home/kostis/Desktop/ESP-NN/multi-cnn-run/combined/esp-tflite-micro/tensorflow/lite/micro/kernels/internal/reference/sub.h:74:34: warning: declaration of 'const tflite::micro::ArithmeticParams& params' shadows a parameter [-Wshadow]
+   74 |          const ArithmeticParams& params) {
+      |          ~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~
+/home/kostis/Desktop/ESP-NN/multi-cnn-run/combined/esp-tflite-micro/tensorflow/lite/micro/kernels/internal/reference/sub.h:63:59: note: shadowed declaration is here
+   63 | inline void BroadcastSub16POTSlow(const ArithmeticParams& params,
+      |                                   ~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~
+/home/kostis/Desktop/ESP-NN/multi-cnn-run/combined/esp-tflite-micro/tensorflow/lite/micro/kernels/internal/reference/sub.h: In lambda function:
+/home/kostis/Desktop/ESP-NN/multi-cnn-run/combined/esp-tflite-micro/tensorflow/lite/micro/kernels/internal/reference/sub.h:97:62: warning: declaration of 'const tflite::micro::ArithmeticParams& params' shadows a parameter [-Wshadow]
+   97 |       [](T input1_val, T input2_val, const ArithmeticParams& params) {
+      |                                      ~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~
+/home/kostis/Desktop/ESP-NN/multi-cnn-run/combined/esp-tflite-micro/tensorflow/lite/micro/kernels/internal/reference/sub.h:88:52: note: shadowed declaration is here
+   88 | void BroadcastQuantSubSlow(const ArithmeticParams& params,
+      |                            ~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~
+/home/kostis/Desktop/ESP-NN/multi-cnn-run/combined/esp-tflite-micro/tensorflow/lite/micro/kernels/internal/reference/sub.h: In lambda function:
+/home/kostis/Desktop/ESP-NN/multi-cnn-run/combined/esp-tflite-micro/tensorflow/lite/micro/kernels/internal/reference/sub.h:209:62: warning: declaration of 'const tflite::micro::ArithmeticParams& params' shadows a parameter [-Wshadow]
+  209 |       [](T input1_val, T input2_val, const ArithmeticParams& params) {
+      |                                      ~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~
+/home/kostis/Desktop/ESP-NN/multi-cnn-run/combined/esp-tflite-micro/tensorflow/lite/micro/kernels/internal/reference/sub.h:202:34: note: shadowed declaration is here
+  202 | void Sub(const ArithmeticParams& params, const RuntimeShape& input1_shape,
+      |          ~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~
+[20/154] Building CXX object esp-idf/esp-tflite-micro/CMakeFiles/__idf_esp-tflite-micro.dir/tensorflow/lite/micro/kernels/sub_common.cc.obj
+In file included from /home/kostis/Desktop/ESP-NN/multi-cnn-run/combined/esp-tflite-micro/tensorflow/lite/micro/kernels/sub_common.cc:22:
+/home/kostis/Desktop/ESP-NN/multi-cnn-run/combined/esp-tflite-micro/tensorflow/lite/micro/kernels/internal/reference/sub.h: In lambda function:
+/home/kostis/Desktop/ESP-NN/multi-cnn-run/combined/esp-tflite-micro/tensorflow/lite/micro/kernels/internal/reference/sub.h:55:62: warning: declaration of 'const tflite::micro::ArithmeticParams& params' shadows a parameter [-Wshadow]
+   55 |       [](T input1_val, T input2_val, const ArithmeticParams& params) {
+      |                                      ~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~
+/home/kostis/Desktop/ESP-NN/multi-cnn-run/combined/esp-tflite-micro/tensorflow/lite/micro/kernels/internal/reference/sub.h:48:47: note: shadowed declaration is here
+   48 | void BroadcastSubSlow(const ArithmeticParams& params,
+      |                       ~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~
+/home/kostis/Desktop/ESP-NN/multi-cnn-run/combined/esp-tflite-micro/tensorflow/lite/micro/kernels/internal/reference/sub.h: In lambda function:
+/home/kostis/Desktop/ESP-NN/multi-cnn-run/combined/esp-tflite-micro/tensorflow/lite/micro/kernels/internal/reference/sub.h:74:34: warning: declaration of 'const tflite::micro::ArithmeticParams& params' shadows a parameter [-Wshadow]
+   74 |          const ArithmeticParams& params) {
+      |          ~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~
+/home/kostis/Desktop/ESP-NN/multi-cnn-run/combined/esp-tflite-micro/tensorflow/lite/micro/kernels/internal/reference/sub.h:63:59: note: shadowed declaration is here
+   63 | inline void BroadcastSub16POTSlow(const ArithmeticParams& params,
+      |                                   ~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~
+/home/kostis/Desktop/ESP-NN/multi-cnn-run/combined/esp-tflite-micro/tensorflow/lite/micro/kernels/internal/reference/sub.h: In lambda function:
+/home/kostis/Desktop/ESP-NN/multi-cnn-run/combined/esp-tflite-micro/tensorflow/lite/micro/kernels/internal/reference/sub.h:97:62: warning: declaration of 'const tflite::micro::ArithmeticParams& params' shadows a parameter [-Wshadow]
+   97 |       [](T input1_val, T input2_val, const ArithmeticParams& params) {
+      |                                      ~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~
+/home/kostis/Desktop/ESP-NN/multi-cnn-run/combined/esp-tflite-micro/tensorflow/lite/micro/kernels/internal/reference/sub.h:88:52: note: shadowed declaration is here
+   88 | void BroadcastQuantSubSlow(const ArithmeticParams& params,
+      |                            ~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~
+/home/kostis/Desktop/ESP-NN/multi-cnn-run/combined/esp-tflite-micro/tensorflow/lite/micro/kernels/internal/reference/sub.h: In lambda function:
+/home/kostis/Desktop/ESP-NN/multi-cnn-run/combined/esp-tflite-micro/tensorflow/lite/micro/kernels/internal/reference/sub.h:209:62: warning: declaration of 'const tflite::micro::ArithmeticParams& params' shadows a parameter [-Wshadow]
+  209 |       [](T input1_val, T input2_val, const ArithmeticParams& params) {
+      |                                      ~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~
+/home/kostis/Desktop/ESP-NN/multi-cnn-run/combined/esp-tflite-micro/tensorflow/lite/micro/kernels/internal/reference/sub.h:202:34: note: shadowed declaration is here
+  202 | void Sub(const ArithmeticParams& params, const RuntimeShape& input1_shape,
+      |          ~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~
+[21/154] Building CXX object esp-idf/esp-tflite-micro/CMakeFiles/__idf_esp-tflite-micro.dir/tensorflow/lite/micro/kernels/svdf.cc.obj
+[22/154] Building CXX object esp-idf/esp-tflite-micro/CMakeFiles/__idf_esp-tflite-micro.dir/tensorflow/lite/micro/kernels/svdf_common.cc.obj
+[23/154] Building CXX object esp-idf/esp-tflite-micro/CMakeFiles/__idf_esp-tflite-micro.dir/tensorflow/lite/micro/kernels/transpose_common.cc.obj
+[24/154] Building CXX object esp-idf/esp-tflite-micro/CMakeFiles/__idf_esp-tflite-micro.dir/tensorflow/lite/micro/kernels/esp_nn/hard_swish.cc.obj
+[25/154] Building CXX object esp-idf/esp-tflite-micro/CMakeFiles/__idf_esp-tflite-micro.dir/tensorflow/lite/micro/kernels/esp_nn/logistic.cc.obj
+[26/154] Building CXX object esp-idf/esp-tflite-micro/CMakeFiles/__idf_esp-tflite-micro.dir/tensorflow/lite/micro/kernels/unidirectional_sequence_lstm.cc.obj
+[27/154] Building CXX object esp-idf/esp-tflite-micro/CMakeFiles/__idf_esp-tflite-micro.dir/tensorflow/lite/micro/kernels/while.cc.obj
+[28/154] Building CXX object esp-idf/esp-tflite-micro/CMakeFiles/__idf_esp-tflite-micro.dir/tensorflow/lite/micro/kernels/esp_nn/mul.cc.obj
+[29/154] Building CXX object esp-idf/esp-tflite-micro/CMakeFiles/__idf_esp-tflite-micro.dir/tensorflow/lite/micro/kernels/unpack.cc.obj
+[30/154] Building CXX object esp-idf/esp-tflite-micro/CMakeFiles/__idf_esp-tflite-micro.dir/tensorflow/lite/micro/kernels/zeros_like.cc.obj
+[31/154] Building CXX object esp-idf/esp-tflite-micro/CMakeFiles/__idf_esp-tflite-micro.dir/tensorflow/lite/micro/kernels/esp_nn/conv.cc.obj
+[32/154] Building CXX object esp-idf/esp-tflite-micro/CMakeFiles/__idf_esp-tflite-micro.dir/tensorflow/lite/micro/kernels/var_handle.cc.obj
+[33/154] Building CXX object esp-idf/esp-tflite-micro/CMakeFiles/__idf_esp-tflite-micro.dir/tensorflow/lite/micro/kernels/esp_nn/batch_matmul.cc.obj
+[34/154] Building CXX object esp-idf/esp-tflite-micro/CMakeFiles/__idf_esp-tflite-micro.dir/tensorflow/lite/micro/kernels/esp_nn/add.cc.obj
+[35/154] Building CXX object esp-idf/esp-tflite-micro/CMakeFiles/__idf_esp-tflite-micro.dir/tensorflow/lite/micro/kernels/esp_nn/fully_connected.cc.obj
+[36/154] Building CXX object esp-idf/esp-tflite-micro/CMakeFiles/__idf_esp-tflite-micro.dir/tensorflow/lite/micro/kernels/esp_nn/depthwise_conv.cc.obj
+[37/154] Building CXX object esp-idf/esp-tflite-micro/CMakeFiles/__idf_esp-tflite-micro.dir/tensorflow/lite/micro/kernels/esp_nn/quantize.cc.obj
+[38/154] Building CXX object esp-idf/esp-tflite-micro/CMakeFiles/__idf_esp-tflite-micro.dir/tensorflow/lite/micro/kernels/esp_nn/reduce.cc.obj
+[39/154] Building CXX object esp-idf/esp-tflite-micro/CMakeFiles/__idf_esp-tflite-micro.dir/tensorflow/lite/micro/kernels/esp_nn/pooling.cc.obj
+[40/154] Building CXX object esp-idf/esp-tflite-micro/CMakeFiles/__idf_esp-tflite-micro.dir/signal/micro/kernels/filter_bank_square_root_common.cc.obj
+[41/154] Building CXX object esp-idf/esp-tflite-micro/CMakeFiles/__idf_esp-tflite-micro.dir/tensorflow/lite/micro/kernels/esp_nn/pad.cc.obj
+[42/154] Building CXX object esp-idf/esp-tflite-micro/CMakeFiles/__idf_esp-tflite-micro.dir/tensorflow/lite/micro/kernels/esp_nn/softmax.cc.obj
+[43/154] Building CXX object esp-idf/esp-tflite-micro/CMakeFiles/__idf_esp-tflite-micro.dir/signal/micro/kernels/energy.cc.obj
+[44/154] Building CXX object esp-idf/esp-tflite-micro/CMakeFiles/__idf_esp-tflite-micro.dir/signal/micro/kernels/filter_bank_spectral_subtraction.cc.obj
+[45/154] Building CXX object esp-idf/esp-tflite-micro/CMakeFiles/__idf_esp-tflite-micro.dir/tensorflow/lite/micro/kernels/esp_nn/transpose.cc.obj
+[46/154] Building CXX object esp-idf/esp-tflite-micro/CMakeFiles/__idf_esp-tflite-micro.dir/signal/micro/kernels/fft_auto_scale_kernel.cc.obj
+[47/154] Building CXX object esp-idf/esp-tflite-micro/CMakeFiles/__idf_esp-tflite-micro.dir/signal/micro/kernels/fft_auto_scale_common.cc.obj
+[48/154] Building CXX object esp-idf/esp-tflite-micro/CMakeFiles/__idf_esp-tflite-micro.dir/signal/micro/kernels/delay.cc.obj
+[49/154] Building CXX object esp-idf/esp-tflite-micro/CMakeFiles/__idf_esp-tflite-micro.dir/signal/micro/kernels/filter_bank_log.cc.obj
+[50/154] Building CXX object esp-idf/esp-tflite-micro/CMakeFiles/__idf_esp-tflite-micro.dir/signal/micro/kernels/filter_bank.cc.obj
+[51/154] Building CXX object esp-idf/esp-tflite-micro/CMakeFiles/__idf_esp-tflite-micro.dir/signal/micro/kernels/filter_bank_square_root.cc.obj
+[52/154] Building CXX object esp-idf/esp-tflite-micro/CMakeFiles/__idf_esp-tflite-micro.dir/signal/src/filter_bank_spectral_subtraction.cc.obj
+[53/154] Building CXX object esp-idf/esp-tflite-micro/CMakeFiles/__idf_esp-tflite-micro.dir/signal/src/filter_bank_log.cc.obj
+[54/154] Building CXX object esp-idf/esp-tflite-micro/CMakeFiles/__idf_esp-tflite-micro.dir/signal/micro/kernels/framer.cc.obj
+[55/154] Building CXX object esp-idf/esp-tflite-micro/CMakeFiles/__idf_esp-tflite-micro.dir/signal/micro/kernels/window.cc.obj
+[56/154] Building CXX object esp-idf/esp-tflite-micro/CMakeFiles/__idf_esp-tflite-micro.dir/signal/micro/kernels/irfft.cc.obj
+[57/154] Building CXX object esp-idf/esp-tflite-micro/CMakeFiles/__idf_esp-tflite-micro.dir/signal/micro/kernels/overlap_add.cc.obj
+[58/154] Building CXX object esp-idf/esp-tflite-micro/CMakeFiles/__idf_esp-tflite-micro.dir/signal/micro/kernels/pcan.cc.obj
+[59/154] Building CXX object esp-idf/esp-tflite-micro/CMakeFiles/__idf_esp-tflite-micro.dir/signal/micro/kernels/rfft.cc.obj
+[60/154] Building CXX object esp-idf/esp-tflite-micro/CMakeFiles/__idf_esp-tflite-micro.dir/signal/src/energy.cc.obj
+[61/154] Building CXX object esp-idf/esp-tflite-micro/CMakeFiles/__idf_esp-tflite-micro.dir/signal/src/circular_buffer.cc.obj
+[62/154] Building CXX object esp-idf/esp-tflite-micro/CMakeFiles/__idf_esp-tflite-micro.dir/signal/src/filter_bank.cc.obj
+[63/154] Building CXX object esp-idf/esp-tflite-micro/CMakeFiles/__idf_esp-tflite-micro.dir/signal/src/fft_auto_scale.cc.obj
+[64/154] Building CXX object esp-idf/esp-tflite-micro/CMakeFiles/__idf_esp-tflite-micro.dir/signal/src/irfft_int16.cc.obj
+[65/154] Building CXX object esp-idf/esp-tflite-micro/CMakeFiles/__idf_esp-tflite-micro.dir/signal/src/filter_bank_square_root.cc.obj
+[66/154] Building CXX object esp-idf/esp-tflite-micro/CMakeFiles/__idf_esp-tflite-micro.dir/signal/src/log.cc.obj
+[67/154] Building CXX object esp-idf/esp-tflite-micro/CMakeFiles/__idf_esp-tflite-micro.dir/signal/src/irfft_float.cc.obj
+[68/154] Building CXX object esp-idf/esp-tflite-micro/CMakeFiles/__idf_esp-tflite-micro.dir/signal/src/irfft_int32.cc.obj
+[69/154] Building CXX object esp-idf/esp-tflite-micro/CMakeFiles/__idf_esp-tflite-micro.dir/signal/src/overlap_add.cc.obj
+[70/154] Building CXX object esp-idf/esp-tflite-micro/CMakeFiles/__idf_esp-tflite-micro.dir/signal/src/rfft_int16.cc.obj
+[71/154] Building CXX object esp-idf/esp-tflite-micro/CMakeFiles/__idf_esp-tflite-micro.dir/signal/src/msb_64.cc.obj
+[72/154] Building CXX object esp-idf/esp-tflite-micro/CMakeFiles/__idf_esp-tflite-micro.dir/signal/src/max_abs.cc.obj
+[73/154] Building CXX object esp-idf/esp-tflite-micro/CMakeFiles/__idf_esp-tflite-micro.dir/signal/src/pcan_argc_fixed.cc.obj
+[74/154] Building CXX object esp-idf/esp-tflite-micro/CMakeFiles/__idf_esp-tflite-micro.dir/signal/src/msb_32.cc.obj
+[75/154] Building CXX object esp-idf/esp-tflite-micro/CMakeFiles/__idf_esp-tflite-micro.dir/tensorflow/lite/micro/memory_planner/linear_memory_planner.cc.obj
+[76/154] Building CXX object esp-idf/esp-tflite-micro/CMakeFiles/__idf_esp-tflite-micro.dir/signal/src/kiss_fft_wrappers/kiss_fft_int32.cc.obj
+[77/154] Building CXX object esp-idf/esp-tflite-micro/CMakeFiles/__idf_esp-tflite-micro.dir/signal/src/rfft_float.cc.obj
+[78/154] Building CXX object esp-idf/esp-tflite-micro/CMakeFiles/__idf_esp-tflite-micro.dir/signal/micro/kernels/stacker.cc.obj
+[79/154] Building CXX object esp-idf/esp-tflite-micro/CMakeFiles/__idf_esp-tflite-micro.dir/signal/src/square_root_64.cc.obj
+[80/154] Building CXX object esp-idf/esp-tflite-micro/CMakeFiles/__idf_esp-tflite-micro.dir/signal/src/square_root_32.cc.obj
+[81/154] Building CXX object esp-idf/esp-tflite-micro/CMakeFiles/__idf_esp-tflite-micro.dir/signal/src/window.cc.obj
+[82/154] Building CXX object esp-idf/esp-tflite-micro/CMakeFiles/__idf_esp-tflite-micro.dir/signal/src/rfft_int32.cc.obj
+[83/154] Building CXX object esp-idf/esp-tflite-micro/CMakeFiles/__idf_esp-tflite-micro.dir/signal/src/kiss_fft_wrappers/kiss_fft_float.cc.obj
+[84/154] Building CXX object esp-idf/esp-tflite-micro/CMakeFiles/__idf_esp-tflite-micro.dir/signal/src/kiss_fft_wrappers/kiss_fft_int16.cc.obj
+[85/154] Building CXX object esp-idf/esp-tflite-micro/CMakeFiles/__idf_esp-tflite-micro.dir/tensorflow/lite/micro/memory_planner/greedy_memory_planner.cc.obj
+[86/154] Building CXX object esp-idf/esp-tflite-micro/CMakeFiles/__idf_esp-tflite-micro.dir/tensorflow/lite/micro/kernels/internal/tensor_ctypes.cc.obj
+[87/154] Building CXX object esp-idf/esp-tflite-micro/CMakeFiles/__idf_esp-tflite-micro.dir/tensorflow/lite/micro/kernels/internal/common.cc.obj
+[88/154] Building CXX object esp-idf/esp-tflite-micro/CMakeFiles/__idf_esp-tflite-micro.dir/tensorflow/lite/micro/arena_allocator/non_persistent_arena_buffer_allocator.cc.obj
+[89/154] Building CXX object esp-idf/esp-tflite-micro/CMakeFiles/__idf_esp-tflite-micro.dir/tensorflow/lite/micro/arena_allocator/recording_single_arena_buffer_allocator.cc.obj
+[90/154] Building CXX object esp-idf/esp-tflite-micro/CMakeFiles/__idf_esp-tflite-micro.dir/tensorflow/lite/micro/arena_allocator/persistent_arena_buffer_allocator.cc.obj
+[91/154] Building CXX object esp-idf/esp-tflite-micro/CMakeFiles/__idf_esp-tflite-micro.dir/tensorflow/lite/micro/kernels/internal/portable_tensor_utils.cc.obj
+[92/154] Building CXX object esp-idf/esp-tflite-micro/CMakeFiles/__idf_esp-tflite-micro.dir/tensorflow/lite/micro/arena_allocator/single_arena_buffer_allocator.cc.obj
+[93/154] Building CXX object esp-idf/esp-tflite-micro/CMakeFiles/__idf_esp-tflite-micro.dir/tensorflow/lite/micro/kernels/internal/quantization_util.cc.obj
+[94/154] Linking C static library esp-idf/esp-tflite-micro/libesp-tflite-micro.a
+[95/154] Generating ../../input_4.bin.S
+[96/154] Generating ../../model_5.tflite.S
+[97/154] Generating ../../model_4.tflite.S
+[98/154] Generating ../../validation_4.bin.S
+[99/154] Generating ../../input_0.bin.S
+[100/154] Generating ../../model_0.tflite.S
+[101/154] Generating ../../validation_0.bin.S
+[102/154] Generating ../../model_1.tflite.S
+[103/154] Generating ../../input_1.bin.S
+[104/154] Generating ../../validation_1.bin.S
+[105/154] Generating ../../model_2.tflite.S
+[106/154] Generating ../../validation_2.bin.S
+[107/154] Generating ../../input_2.bin.S
+[108/154] Generating ../../input_5.bin.S
+[109/154] Generating ../../model_3.tflite.S
+[110/154] Generating ../../input_3.bin.S
+[111/154] Generating ../../validation_3.bin.S
+[112/154] Generating ../../model_6.tflite.S
+[113/154] Generating ../../validation_5.bin.S
+[114/154] Generating ../../input_6.bin.S
+[115/154] Generating ../../validation_6.bin.S
+[116/154] Generating ../../input_7.bin.S
+[117/154] Generating ../../validation_7.bin.S
+[118/154] Generating ../../model_7.tflite.S
+[119/154] Generating ../../input_8.bin.S
+[120/154] Generating ../../model_8.tflite.S
+[121/154] Building ASM object esp-idf/main/CMakeFiles/__idf_main.dir/__/__/model_2.tflite.S.obj
+[122/154] Building ASM object esp-idf/main/CMakeFiles/__idf_main.dir/__/__/validation_1.bin.S.obj
+[123/154] Building ASM object esp-idf/main/CMakeFiles/__idf_main.dir/__/__/model_1.tflite.S.obj
+[124/154] Building ASM object esp-idf/main/CMakeFiles/__idf_main.dir/__/__/input_0.bin.S.obj
+[125/154] Building ASM object esp-idf/main/CMakeFiles/__idf_main.dir/__/__/validation_0.bin.S.obj
+[126/154] Building ASM object esp-idf/main/CMakeFiles/__idf_main.dir/__/__/model_0.tflite.S.obj
+[127/154] Building CXX object esp-idf/main/CMakeFiles/__idf_main.dir/mean_bridge.cc.obj
+[128/154] Building ASM object esp-idf/main/CMakeFiles/__idf_main.dir/__/__/input_1.bin.S.obj
+[129/154] Building ASM object esp-idf/main/CMakeFiles/__idf_main.dir/__/__/input_2.bin.S.obj
+[130/154] Building ASM object esp-idf/main/CMakeFiles/__idf_main.dir/__/__/validation_2.bin.S.obj
+[131/154] Building ASM object esp-idf/main/CMakeFiles/__idf_main.dir/__/__/model_3.tflite.S.obj
+[132/154] Building ASM object esp-idf/main/CMakeFiles/__idf_main.dir/__/__/input_3.bin.S.obj
+[133/154] Building ASM object esp-idf/main/CMakeFiles/__idf_main.dir/__/__/validation_3.bin.S.obj
+[134/154] Building ASM object esp-idf/main/CMakeFiles/__idf_main.dir/__/__/model_4.tflite.S.obj
+[135/154] Building ASM object esp-idf/main/CMakeFiles/__idf_main.dir/__/__/model_5.tflite.S.obj
+[136/154] Building ASM object esp-idf/main/CMakeFiles/__idf_main.dir/__/__/input_4.bin.S.obj
+[137/154] Building ASM object esp-idf/main/CMakeFiles/__idf_main.dir/__/__/validation_4.bin.S.obj
+[138/154] Building ASM object esp-idf/main/CMakeFiles/__idf_main.dir/__/__/input_5.bin.S.obj
+[139/154] Building ASM object esp-idf/main/CMakeFiles/__idf_main.dir/__/__/validation_5.bin.S.obj
+[140/154] Building ASM object esp-idf/main/CMakeFiles/__idf_main.dir/__/__/model_6.tflite.S.obj
+[141/154] Building ASM object esp-idf/main/CMakeFiles/__idf_main.dir/__/__/model_7.tflite.S.obj
+[142/154] Building ASM object esp-idf/main/CMakeFiles/__idf_main.dir/__/__/input_6.bin.S.obj
+[143/154] Building ASM object esp-idf/main/CMakeFiles/__idf_main.dir/__/__/validation_6.bin.S.obj
+[144/154] Building ASM object esp-idf/main/CMakeFiles/__idf_main.dir/__/__/model_8.tflite.S.obj
+[145/154] Building ASM object esp-idf/main/CMakeFiles/__idf_main.dir/__/__/input_8.bin.S.obj
+[146/154] Building ASM object esp-idf/main/CMakeFiles/__idf_main.dir/__/__/input_7.bin.S.obj
+[147/154] Building ASM object esp-idf/main/CMakeFiles/__idf_main.dir/__/__/validation_7.bin.S.obj
+[148/154] Building CXX object esp-idf/main/CMakeFiles/__idf_main.dir/main.cc.obj
+[149/154] Linking C static library esp-idf/main/libmain.a
+[150/154] Generating esp-idf/esp_system/ld/sections.ld
+[151/154] Building C object CMakeFiles/espnn_multi_cnn.elf.dir/project_elf_src_esp32s3.c.obj
+[152/154] Linking CXX executable espnn_multi_cnn.elf
+[153/154] Generating binary image from built executable
+esptool.py v4.10.0
+Creating esp32s3 image...
+Merged 2 ELF sections
+Successfully created esp32s3 image.
+Generated /home/kostis/Desktop/ESP-NN/multi-cnn-run/combined/app/build/espnn_multi_cnn.bin
+[154/154] cd /home/kostis/Desktop/ESP-NN/multi-cnn-run/combined/app/build/esp-idf/esptool_py && /home/kostis/.espressif/python_env/idf5.5_py3.10_env/bin/python /home/kostis/esp_s3/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 partition --type app /home/kostis/Desktop/ESP-NN/multi-cnn-run/combined/app/build/partition_table/partition-table.bin /home/kostis/Desktop/ESP-NN/multi-cnn-run/combined/app/build/espnn_multi_cnn.bin
+espnn_multi_cnn.bin binary size 0x1110b0 bytes. Smallest app partition is 0x7f0000 bytes. 0x6def50 bytes (87%) free.

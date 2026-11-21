@@ -1,0 +1,4 @@
+/edge_check/build*/
+/edge_check/sdkconfig
+/edge_check/sdkconfig.old
+/edge_check/dependencies.lock

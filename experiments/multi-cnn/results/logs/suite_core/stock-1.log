@@ -1,0 +1,438 @@
+Executing action: monitor
+Running idf_monitor in directory /home/kostis/Desktop/ESP-NN/multi-cnn-run/stock/app
+Executing "/home/kostis/.espressif/python_env/idf5.5_py3.10_env/bin/python /home/kostis/esp_s3/esp-idf/tools/idf_monitor.py -p /dev/ttyACM0 -b 115200 --toolchain-prefix xtensa-esp32s3-elf- --target esp32s3 --revision 0 /home/kostis/Desktop/ESP-NN/multi-cnn-run/stock/app/build/espnn_multi_cnn.elf /home/kostis/Desktop/ESP-NN/multi-cnn-run/stock/app/build/bootloader/bootloader.elf -m '/home/kostis/.espressif/python_env/idf5.5_py3.10_env/bin/python' '/home/kostis/esp_s3/esp-idf/tools/idf.py' '--ccache' '-B'"...
+[0;33m--- esp-idf-monitor 1.8.0 on /dev/ttyACM0 115200[0m
+[0;33m--- Quit: Ctrl+] | Menu: Ctrl+T | Help: Ctrl+T followed by Ctrl+H[0m
+[0;32mI (152) esp_image: segment 1: paddr=000bb6ac vaddr=3fc90f00 sizeESP-ROM:esp32s3-20210327[0m
+Build:Mar 27 2021
+rst:0x15 (USB_UART_CHIP_RESET),boot:0x2a (SPI_FAST_FLASH_BOOT)
+Saved PC:0x4203f6a8
+[0m--- 0x4203f6a8: [0;33mesp_nn_depthwise_conv_s8_mult1_3x3_padded_esp32s3[0m[0m at [0;32m/home/kostis/Desktop/ESP-NN/multi-cnn-run/stock/esp-nn/src/convolution/esp_nn_depthwise_conv_s8_mult1_3x3_padded_esp32s3.S[0m[0m:[1;31m317[0m
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fce2820,len:0x1588
+load:0x403c8700,len:0xc24
+[0m--- 0x403c8700: [0;33m_stext[0m[0m at [0;32m??[0m[0m:[1;31m?[0m
+load:0x403cb700,len:0x2ef0
+entry 0x403c88f4
+[0m--- 0x403c88f4: [0;33mcall_start_cpu0[0m[0m at [0;32m/home/kostis/esp_s3/esp-idf/components/bootloader/subproject/main/bootloader_start.c[0m[0m:[1;31m25[0m
+[0;32mI (24) boot: ESP-IDF v5.5.1-dirty 2nd stage bootloader[0m
+[0;32mI (24) boot: compile time Nov 21 2026 00:48:58[0m
+[0;33mW (25) boot: Unicore bootloader[0m
+[0;32mI (25) boot: chip revision: v0.2[0m
+[0;32mI (25) boot: efuse block revision: v1.3[0m
+[0;32mI (25) boot.esp32s3: Boot SPI Speed : 80MHz[0m
+[0;32mI (25) boot.esp32s3: SPI Mode       : DIO[0m
+[0;32mI (26) boot.esp32s3: SPI Flash Size : 8MB[0m
+[0;32mI (26) boot: Enabling RNG early entropy source...[0m
+[0;32mI (26) boot: Partition Table:[0m
+[0;32mI (26) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (27) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (27) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (27) boot:  2 factory          factory app      00 00 00010000 007f0000[0m
+[0;32mI (28) boot: End of partition table[0m
+[0;32mI (28) esp_image: segment 0: paddr=00010020 vaddr=3c060020 size=ab684h (702084) map[0m
+[0;32mI (152) esp_image: segment 1: paddr=000bb6ac vaddr=3fc90f00 size=022f4h (  8948) load[0m
+[0;32mI (154) esp_image: segment 2: paddr=000bd9a8 vaddr=40374000 size=02670h (  9840) load[0m
+[0;32mI (157) esp_image: segment 3: paddr=000c0020 vaddr=42000020 size=562e4h (352996) map[0m
+[0;32mI (220) esp_image: segment 4: paddr=0011630c vaddr=40376670 size=0a814h ( 43028) load[0m
+[0;32mI (229) esp_image: segment 5: paddr=00120b28 vaddr=50000000 size=00020h (    32) load[0m
+[0;32mI (235) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (235) boot: Disabling RNG early entropy source...[0m
+[0;32mI (236) octal_psram: vendor id    : 0x0d (AP)[0m
+[0;32mI (236) octal_psram: dev id       : 0x02 (generation 3)[0m
+[0;32mI (236) octal_psram: density      : 0x03 (64 Mbit)[0m
+[0;32mI (236) octal_psram: good-die     : 0x01 (Pass)[0m
+[0;32mI (236) octal_psram: Latency      : 0x01 (Fixed)[0m
+[0;32mI (237) octal_psram: VCC          : 0x01 (3V)[0m
+[0;32mI (237) octal_psram: SRF          : 0x01 (Fast Refresh)[0m
+[0;32mI (237) octal_psram: BurstType    : 0x01 (Hybrid Wrap)[0m
+[0;32mI (237) octal_psram: BurstLen     : 0x01 (32 Byte)[0m
+[0;32mI (237) octal_psram: Readlatency  : 0x02 (10 cycles@Fixed)[0m
+[0;32mI (238) octal_psram: DriveStrength: 0x00 (1/1)[0m
+[0;32mI (239) MSPI Timing: PSRAM timing tuning index: 5[0m
+[0;32mI (239) esp_psram: Found 8MB PSRAM device[0m
+[0;32mI (239) esp_psram: Speed: 80MHz[0m
+[0;32mI (239) cpu_start: Unicore app[0m
+[0;32mI (239) cpu_start: Single core mode[0m
+[0;32mI (525) esp_psram: SPI SRAM memory test OK[0m
+[0;32mI (533) cpu_start: Pro cpu start user code[0m
+[0;32mI (533) cpu_start: cpu freq: 240000000 Hz[0m
+[0;32mI (533) app_init: Application information:[0m
+[0;32mI (534) app_init: Project name:     espnn_multi_cnn[0m
+[0;32mI (534) app_init: App version:      1[0m
+[0;32mI (534) app_init: Compile time:     Nov 21 2026 00:48:34[0m
+[0;32mI (534) app_init: ELF file SHA256:  6180ea6ff...[0m
+[0;32mI (534) app_init: ESP-IDF:          v5.5.1-dirty[0m
+[0;32mI (534) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (534) efuse_init: Max chip rev:     v0.99 [0m
+[0;32mI (535) efuse_init: Chip rev:         v0.2[0m
+[0;32mI (535) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (535) heap_init: At 3FC93A90 len 00055C80 (343 KiB): RAM[0m
+[0;32mI (535) heap_init: At 3FCE9710 len 00005724 (21 KiB): RAM[0m
+[0;32mI (535) heap_init: At 600FE000 len 00001FE8 (7 KiB): RTCRAM[0m
+[0;32mI (536) esp_psram: Adding pool of 8192K of PSRAM memory to heap allocator[0m
+[0;32mI (536) spi_flash: detected chip: gd[0m
+[0;32mI (536) spi_flash: flash io: dio[0m
+[0;32mI (536) sleep_gpio: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (537) sleep_gpio: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (537) main_task: Started on CPU0[0m
+[0;32mI (537) main_task: Calling app_main()[0m
+CNN_SUITE_BEGIN cpu_mhz=240 cores=1 psram_bytes=8388608 mode=timed
+CNN_MODEL_BEGIN name=mnist_fixed
+CNN_START cpu_mhz=240 model_bytes=25000 input_bytes=784 output_bytes=10 arena=psram arena_cap=2097152 arena_used=28396 in_type=9 out_type=9
+CNN_RUN index=0 us=2925
+CNN_RUN index=1 us=2924
+CNN_RUN index=2 us=2923
+CNN_RUN index=3 us=2929
+CNN_RUN index=4 us=2923
+CNN_RUN index=5 us=2924
+CNN_RUN index=6 us=2928
+CNN_RUN index=7 us=2923
+CNN_RUN index=8 us=2924
+CNN_RUN index=9 us=2923
+CNN_RUN index=10 us=2929
+CNN_RUN index=11 us=2923
+CNN_RUN index=12 us=2923
+CNN_RUN index=13 us=2929
+CNN_RUN index=14 us=2923
+CNN_RUN index=15 us=2924
+CNN_RUN index=16 us=2928
+CNN_RUN index=17 us=2923
+CNN_RUN index=18 us=2923
+CNN_RUN index=19 us=2923
+CNN_RUN index=20 us=2929
+CNN_RUN index=21 us=2923
+CNN_RUN index=22 us=2923
+CNN_RUN index=23 us=2929
+CNN_RUN index=24 us=2924
+CNN_RUN index=25 us=2923
+CNN_RUN index=26 us=2924
+CNN_RUN index=27 us=2928
+CNN_RUN index=28 us=2923
+CNN_RUN index=29 us=2923
+CNN_OUTPUT bytes=10 hash_fnv1a=f76ba1f7 stable=1 hex=e0fc2c0ee8e79962e81e
+CNN_VALIDATION index=1 hex=f5185bfbd8d8f3e7ffe8
+CNN_VALIDATION index=2 hex=055011f2240403050b05
+CNN_VALIDATION index=3 hex=54ee1ae7f1fd1ddd0d04
+CNN_VALIDATION index=4 hex=0017f8d361f4f20bfd1f
+CNN_VALIDATION index=5 hex=015309ec1cf2f7150b12
+CNN_VALIDATION index=6 hex=db16f6d060f6cf131b15
+CNN_MODEL_DONE name=mnist_fixed ok=1
+CNN_MODEL_BEGIN name=max3
+CNN_START cpu_mhz=240 model_bytes=29776 input_bytes=3072 output_bytes=10 arena=psram arena_cap=2097152 arena_used=29724 in_type=9 out_type=9
+CNN_RUN index=0 us=3366
+CNN_RUN index=1 us=3369
+CNN_RUN index=2 us=3378
+CNN_RUN index=3 us=3377
+CNN_RUN index=4 us=3383
+CNN_RUN index=5 us=3378
+CNN_RUN index=6 us=3378
+CNN_RUN index=7 us=3383
+CNN_RUN index=8 us=3378
+CNN_RUN index=9 us=3378
+CNN_RUN index=10 us=3382
+CNN_RUN index=11 us=3378
+CNN_RUN index=12 us=3378
+CNN_RUN index=13 us=3383
+CNN_RUN index=14 us=3377
+CNN_RUN index=15 us=3378
+CNN_RUN index=16 us=3383
+CNN_RUN index=17 us=3378
+CNN_RUN index=18 us=3378
+CNN_RUN index=19 us=3383
+CNN_RUN index=20 us=3378
+CNN_RUN index=21 us=3377
+CNN_RUN index=22 us=3383
+CNN_RUN index=23 us=3377
+CNN_RUN index=24 us=3378
+CNN_RUN index=25 us=3383
+CNN_RUN index=26 us=3378
+CNN_RUN index=27 us=3378
+CNN_RUN index=28 us=3383
+CNN_RUN index=29 us=3378
+CNN_OUTPUT bytes=10 hash_fnv1a=ed6b0fdf stable=1 hex=df180333e7201aded3e5
+CNN_VALIDATION index=1 hex=2b2ae7d4b3d2aefc3d2f
+CNN_VALIDATION index=2 hex=310ffceec6eebafb460f
+CNN_VALIDATION index=3 hex=320005eac8e1bbf546ff
+CNN_VALIDATION index=4 hex=c0e01d1b2e272723bdd0
+CNN_VALIDATION index=5 hex=b902f91cf7161e0fbae8
+CNN_VALIDATION index=6 hex=e942d718ba24f5f6c4eb
+CNN_MODEL_DONE name=max3 ok=1
+CNN_MODEL_BEGIN name=max5
+CNN_START cpu_mhz=240 model_bytes=29776 input_bytes=3072 output_bytes=10 arena=psram arena_cap=2097152 arena_used=29724 in_type=9 out_type=9
+CNN_RUN index=0 us=3515
+CNN_RUN index=1 us=3518
+CNN_RUN index=2 us=3527
+CNN_RUN index=3 us=3533
+CNN_RUN index=4 us=3527
+CNN_RUN index=5 us=3526
+CNN_RUN index=6 us=3532
+CNN_RUN index=7 us=3527
+CNN_RUN index=8 us=3527
+CNN_RUN index=9 us=3532
+CNN_RUN index=10 us=3526
+CNN_RUN index=11 us=3527
+CNN_RUN index=12 us=3532
+CNN_RUN index=13 us=3527
+CNN_RUN index=14 us=3527
+CNN_RUN index=15 us=3532
+CNN_RUN index=16 us=3527
+CNN_RUN index=17 us=3526
+CNN_RUN index=18 us=3532
+CNN_RUN index=19 us=3526
+CNN_RUN index=20 us=3532
+CNN_RUN index=21 us=3526
+CNN_RUN index=22 us=3527
+CNN_RUN index=23 us=3532
+CNN_RUN index=24 us=3527
+CNN_RUN index=25 us=3527
+CNN_RUN index=26 us=3532
+CNN_RUN index=27 us=3527
+CNN_RUN index=28 us=3527
+CNN_RUN index=29 us=3532
+CNN_OUTPUT bytes=10 hash_fnv1a=cf38a407 stable=1 hex=e5080b2df13a16ece9e1
+CNN_VALIDATION index=1 hex=3f39cfceb4caade8584a
+CNN_VALIDATION index=2 hex=4804fcefc8eda5fd591b
+CNN_VALIDATION index=3 hex=3919f2f1c7e4b8ed4a26
+CNN_VALIDATION index=4 hex=bde9202e27313c29b9e8
+CNN_VALIDATION index=5 hex=d30f001b091d3327d4fe
+CNN_VALIDATION index=6 hex=e74bd10fbc2401fbe311
+CNN_MODEL_DONE name=max5 ok=1
+CNN_MODEL_BEGIN name=mean_only
+CNN_START cpu_mhz=240 model_bytes=11704 input_bytes=3072 output_bytes=10 arena=psram arena_cap=2097152 arena_used=30364 in_type=9 out_type=9
+CNN_RUN index=0 us=3292
+CNN_RUN index=1 us=3276
+CNN_RUN index=2 us=3284
+CNN_RUN index=3 us=3277
+CNN_RUN index=4 us=3277
+CNN_RUN index=5 us=3281
+CNN_RUN index=6 us=3276
+CNN_RUN index=7 us=3279
+CNN_RUN index=8 us=3281
+CNN_RUN index=9 us=3278
+CNN_RUN index=10 us=3276
+CNN_RUN index=11 us=3281
+CNN_RUN index=12 us=3278
+CNN_RUN index=13 us=3277
+CNN_RUN index=14 us=3282
+CNN_RUN index=15 us=3277
+CNN_RUN index=16 us=3276
+CNN_RUN index=17 us=3283
+CNN_RUN index=18 us=3277
+CNN_RUN index=19 us=3277
+CNN_RUN index=20 us=3281
+CNN_RUN index=21 us=3277
+CNN_RUN index=22 us=3278
+CNN_RUN index=23 us=3282
+CNN_RUN index=24 us=3277
+CNN_RUN index=25 us=3276
+CNN_RUN index=26 us=3281
+CNN_RUN index=27 us=3279
+CNN_RUN index=28 us=3277
+CNN_RUN index=29 us=3282
+CNN_OUTPUT bytes=10 hash_fnv1a=72d7fc2d stable=1 hex=f7f103ffefe8ec03f4fc
+CNN_VALIDATION index=1 hex=2bf50affdddcc5011c0d
+CNN_VALIDATION index=2 hex=30f707fcdddcc2fd250d
+CNN_VALIDATION index=3 hex=29f509ffdfdec7001a0c
+CNN_VALIDATION index=4 hex=e2eb06fef8effd05def3
+CNN_VALIDATION index=5 hex=ace3fc0505fa260aacde
+CNN_VALIDATION index=6 hex=d0eefb02f8f10908cfef
+CNN_MODEL_DONE name=mean_only ok=1
+CNN_MODEL_BEGIN name=both
+CNN_START cpu_mhz=240 model_bytes=12024 input_bytes=3072 output_bytes=10 arena=psram arena_cap=2097152 arena_used=30588 in_type=9 out_type=9
+CNN_RUN index=0 us=3790
+CNN_RUN index=1 us=3784
+CNN_RUN index=2 us=3780
+CNN_RUN index=3 us=3778
+CNN_RUN index=4 us=3782
+CNN_RUN index=5 us=3780
+CNN_RUN index=6 us=3778
+CNN_RUN index=7 us=3784
+CNN_RUN index=8 us=3778
+CNN_RUN index=9 us=3783
+CNN_RUN index=10 us=3780
+CNN_RUN index=11 us=3778
+CNN_RUN index=12 us=3783
+CNN_RUN index=13 us=3778
+CNN_RUN index=14 us=3778
+CNN_RUN index=15 us=3785
+CNN_RUN index=16 us=3778
+CNN_RUN index=17 us=3784
+CNN_RUN index=18 us=3778
+CNN_RUN index=19 us=3777
+CNN_RUN index=20 us=3785
+CNN_RUN index=21 us=3778
+CNN_RUN index=22 us=3779
+CNN_RUN index=23 us=3783
+CNN_RUN index=24 us=3778
+CNN_RUN index=25 us=3785
+CNN_RUN index=26 us=3778
+CNN_RUN index=27 us=3778
+CNN_RUN index=28 us=3783
+CNN_RUN index=29 us=3778
+CNN_OUTPUT bytes=10 hash_fnv1a=67c0ea87 stable=1 hex=19102331f90aff30080d
+CNN_VALIDATION index=1 hex=3f111229d7e1c90c461f
+CNN_VALIDATION index=2 hex=4e091226d3dfbd045b18
+CNN_VALIDATION index=3 hex=500a1028d1deb6ff5d1b
+CNN_VALIDATION index=4 hex=f905242417212128eef9
+CNN_VALIDATION index=5 hex=da0724222d30412fc4fa
+CNN_VALIDATION index=6 hex=ff201634fb08ff31f31e
+CNN_MODEL_DONE name=both ok=1
+CNN_MODEL_BEGIN name=depthwise_both
+CNN_START cpu_mhz=240 model_bytes=9432 input_bytes=3072 output_bytes=10 arena=psram arena_cap=2097152 arena_used=18764 in_type=9 out_type=9
+CNN_RUN index=0 us=5338
+CNN_RUN index=1 us=5313
+CNN_RUN index=2 us=5282
+CNN_RUN index=3 us=5306
+CNN_RUN index=4 us=5281
+CNN_RUN index=5 us=5307
+CNN_RUN index=6 us=5278
+CNN_RUN index=7 us=5295
+CNN_RUN index=8 us=5281
+CNN_RUN index=9 us=5304
+CNN_RUN index=10 us=5283
+CNN_RUN index=11 us=5306
+CNN_RUN index=12 us=5282
+CNN_RUN index=13 us=5305
+CNN_RUN index=14 us=5281
+CNN_RUN index=15 us=5308
+CNN_RUN index=16 us=5277
+CNN_RUN index=17 us=5294
+CNN_RUN index=18 us=5285
+CNN_RUN index=19 us=5300
+CNN_RUN index=20 us=5289
+CNN_RUN index=21 us=5300
+CNN_RUN index=22 us=5285
+CNN_RUN index=23 us=5301
+CNN_RUN index=24 us=5287
+CNN_RUN index=25 us=5302
+CNN_RUN index=26 us=5283
+CNN_RUN index=27 us=5290
+CNN_RUN index=28 us=5287
+CNN_RUN index=29 us=5300
+CNN_OUTPUT bytes=10 hash_fnv1a=2cc521e2 stable=1 hex=e644241c1b3618401f2d
+CNN_VALIDATION index=1 hex=004f1b1c0e39f43f3235
+CNN_VALIDATION index=2 hex=1349181e0f35f33a4132
+CNN_VALIDATION index=3 hex=024b1b1d1137fa403234
+CNN_VALIDATION index=4 hex=d7332e212d3135460c24
+CNN_VALIDATION index=5 hex=a8273827302d7141ef1e
+CNN_VALIDATION index=6 hex=d347291f173530410631
+CNN_MODEL_DONE name=depthwise_both ok=1
+CNN_MODEL_BEGIN name=avg_control
+CNN_START cpu_mhz=240 model_bytes=29904 input_bytes=3072 output_bytes=10 arena=psram arena_cap=2097152 arena_used=29724 in_type=9 out_type=9
+CNN_RUN index=0 us=3477
+CNN_RUN index=1 us=3476
+CNN_RUN index=2 us=3481
+CNN_RUN index=3 us=3476
+CNN_RUN index=4 us=3476
+CNN_RUN index=5 us=3481
+CNN_RUN index=6 us=3476
+CNN_RUN index=7 us=3481
+CNN_RUN index=8 us=3475
+CNN_RUN index=9 us=3475
+CNN_RUN index=10 us=3481
+CNN_RUN index=11 us=3475
+CNN_RUN index=12 us=3475
+CNN_RUN index=13 us=3481
+CNN_RUN index=14 us=3476
+CNN_RUN index=15 us=3476
+CNN_RUN index=16 us=3480
+CNN_RUN index=17 us=3475
+CNN_RUN index=18 us=3476
+CNN_RUN index=19 us=3481
+CNN_RUN index=20 us=3475
+CNN_RUN index=21 us=3475
+CNN_RUN index=22 us=3481
+CNN_RUN index=23 us=3476
+CNN_RUN index=24 us=3476
+CNN_RUN index=25 us=3480
+CNN_RUN index=26 us=3475
+CNN_RUN index=27 us=3476
+CNN_RUN index=28 us=3481
+CNN_RUN index=29 us=3475
+CNN_OUTPUT bytes=10 hash_fnv1a=ff04b3ad stable=1 hex=f7120e3cfb300d05ebe3
+CNN_VALIDATION index=1 hex=433cfaf1c6dcb5f66648
+CNN_VALIDATION index=2 hex=4421fe03c9f0bbfd5f2c
+CNN_VALIDATION index=3 hex=3e280605d3f2c3fa5220
+CNN_VALIDATION index=4 hex=edfa1e241b251817eae7
+CNN_VALIDATION index=5 hex=ad250241102f3330b30b
+CNN_VALIDATION index=6 hex=b72df449ee401e1ec4fd
+CNN_MODEL_DONE name=avg_control ok=1
+CNN_MODEL_BEGIN name=neutral_control
+CNN_START cpu_mhz=240 model_bytes=29688 input_bytes=3072 output_bytes=10 arena=psram arena_cap=2097152 arena_used=29612 in_type=9 out_type=9
+CNN_RUN index=0 us=3092
+CNN_RUN index=1 us=3095
+CNN_RUN index=2 us=3091
+CNN_RUN index=3 us=3091
+CNN_RUN index=4 us=3096
+CNN_RUN index=5 us=3091
+CNN_RUN index=6 us=3091
+CNN_RUN index=7 us=3096
+CNN_RUN index=8 us=3090
+CNN_RUN index=9 us=3090
+CNN_RUN index=10 us=3096
+CNN_RUN index=11 us=3091
+CNN_RUN index=12 us=3090
+CNN_RUN index=13 us=3090
+CNN_RUN index=14 us=3095
+CNN_RUN index=15 us=3090
+CNN_RUN index=16 us=3090
+CNN_RUN index=17 us=3095
+CNN_RUN index=18 us=3090
+CNN_RUN index=19 us=3090
+CNN_RUN index=20 us=3095
+CNN_RUN index=21 us=3090
+CNN_RUN index=22 us=3090
+CNN_RUN index=23 us=3095
+CNN_RUN index=24 us=3090
+CNN_RUN index=25 us=3090
+CNN_RUN index=26 us=3095
+CNN_RUN index=27 us=3091
+CNN_RUN index=28 us=3091
+CNN_RUN index=29 us=3091
+CNN_OUTPUT bytes=10 hash_fnv1a=f0c6a398 stable=1 hex=fc0f1b31f31f0eea01dd
+CNN_VALIDATION index=1 hex=2b39ffe4b7d5c0e44c46
+CNN_VALIDATION index=2 hex=3d1d03fbc2f4beea5a25
+CNN_VALIDATION index=3 hex=350d15facfe5c7fa4703
+CNN_VALIDATION index=4 hex=e5e23128292b221edfd6
+CNN_VALIDATION index=5 hex=b02408340724351bb808
+CNN_VALIDATION index=6 hex=cc3af237e737160ed2f6
+CNN_MODEL_DONE name=neutral_control ok=1
+CNN_MODEL_BEGIN name=person_detection
+CNN_START cpu_mhz=240 model_bytes=300568 input_bytes=9216 output_bytes=2 arena=psram arena_cap=2097152 arena_used=120988 in_type=9 out_type=9
+CNN_RUN index=0 us=59449
+CNN_RUN index=1 us=59455
+CNN_RUN index=2 us=59467
+CNN_RUN index=3 us=59470
+CNN_RUN index=4 us=59464
+CNN_RUN index=5 us=59468
+CNN_RUN index=6 us=59463
+CNN_RUN index=7 us=59468
+CNN_RUN index=8 us=59469
+CNN_RUN index=9 us=59468
+CNN_RUN index=10 us=59465
+CNN_RUN index=11 us=59470
+CNN_RUN index=12 us=59466
+CNN_RUN index=13 us=59470
+CNN_RUN index=14 us=59468
+CNN_RUN index=15 us=59472
+CNN_RUN index=16 us=59465
+CNN_RUN index=17 us=59471
+CNN_RUN index=18 us=59467
+CNN_RUN index=19 us=59469
+CNN_RUN index=20 us=59470
+CNN_RUN index=21 us=59470
+CNN_RUN index=22 us=59465
+CNN_RUN index=23 us=59469
+CNN_RUN index=24 us=59466
+CNN_RUN index=25 us=59468
+CNN_RUN index=26 us=59469
+CNN_RUN index=27 us=59470
+CNN_RUN index=28 us=59465
+CNN_RUN index=29 us=59471
+CNN_OUTPUT bytes=2 hash_fnv1a=55408bb1 stable=1 hex=8d73
+CNN_MODEL_DONE name=person_detection ok=1
+CNN_SUITE_DONE
+[0;32mI (3947) main_task: Returned from app_main()[0m
+[0m

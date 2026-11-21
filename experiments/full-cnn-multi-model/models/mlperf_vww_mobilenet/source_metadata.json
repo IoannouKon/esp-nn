@@ -1,0 +1,16 @@
+{
+  "name": "mlperf_vww_mobilenet",
+  "title": "MLPerf Tiny Visual Wake Words \u2014 MobileNetV1 96\u00d796",
+  "source_repo": "mlcommons/tiny",
+  "source_ref": "e59b2f227eb56265dfe4c290e1aa32095075ec96",
+  "source_path": "benchmark/training/visual_wake_words/trained_models/vww_96_int8.tflite",
+  "url": "https://raw.githubusercontent.com/mlcommons/tiny/e59b2f227eb56265dfe4c290e1aa32095075ec96/benchmark/training/visual_wake_words/trained_models/vww_96_int8.tflite",
+  "github_url": "https://github.com/mlcommons/tiny/blob/e59b2f227eb56265dfe4c290e1aa32095075ec96/benchmark/training/visual_wake_words/trained_models/vww_96_int8.tflite",
+  "expected_size": 333288,
+  "sha256": "597a384c8c2c8a1276f04702f25013b7838f2f814f1ca7c174d295b73e3d6b7b",
+  "tier": "core",
+  "license_note": "Respect upstream LICENSE; external model weights are downloaded on agent host",
+  "input_policy": "deterministic INT8 random raw input; latency/correctness benchmark only; no accuracy measured",
+  "actual_sha256": "597a384c8c2c8a1276f04702f25013b7838f2f814f1ca7c174d295b73e3d6b7b",
+  "checked_published_sha256": true
+}

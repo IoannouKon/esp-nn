@@ -1,0 +1,80 @@
+CNN_MODEL_BEGIN name=mnist_fixed
+
+CNN_START cpu_mhz=240 model_bytes=25000 input_bytes=784 output_bytes=10 arena=psram arena_cap=2097152 arena_used=28396 in_type=9 out_type=9
+
+CNN_RUN index=0 us=2925
+
+CNN_RUN index=1 us=2924
+
+CNN_RUN index=2 us=2923
+
+CNN_RUN index=3 us=2929
+
+CNN_RUN index=4 us=2923
+
+CNN_RUN index=5 us=2924
+
+CNN_RUN index=6 us=2928
+
+CNN_RUN index=7 us=2923
+
+CNN_RUN index=8 us=2924
+
+CNN_RUN index=9 us=2923
+
+CNN_RUN index=10 us=2929
+
+CNN_RUN index=11 us=2923
+
+CNN_RUN index=12 us=2923
+
+CNN_RUN index=13 us=2929
+
+CNN_RUN index=14 us=2923
+
+CNN_RUN index=15 us=2924
+
+CNN_RUN index=16 us=2928
+
+CNN_RUN index=17 us=2923
+
+CNN_RUN index=18 us=2923
+
+CNN_RUN index=19 us=2923
+
+CNN_RUN index=20 us=2929
+
+CNN_RUN index=21 us=2923
+
+CNN_RUN index=22 us=2923
+
+CNN_RUN index=23 us=2929
+
+CNN_RUN index=24 us=2924
+
+CNN_RUN index=25 us=2923
+
+CNN_RUN index=26 us=2924
+
+CNN_RUN index=27 us=2928
+
+CNN_RUN index=28 us=2923
+
+CNN_RUN index=29 us=2923
+
+CNN_OUTPUT bytes=10 hash_fnv1a=f76ba1f7 stable=1 hex=e0fc2c0ee8e79962e81e
+
+CNN_VALIDATION index=1 hex=f5185bfbd8d8f3e7ffe8
+
+CNN_VALIDATION index=2 hex=055011f2240403050b05
+
+CNN_VALIDATION index=3 hex=54ee1ae7f1fd1ddd0d04
+
+CNN_VALIDATION index=4 hex=0017f8d361f4f20bfd1f
+
+CNN_VALIDATION index=5 hex=015309ec1cf2f7150b12
+
+CNN_VALIDATION index=6 hex=db16f6d060f6cf131b15
+
+CNN_MODEL_DONE name=mnist_fixed ok=1
+

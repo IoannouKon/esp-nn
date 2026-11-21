@@ -1,0 +1,7 @@
+Python 3.10.13
+Name: tensorflow-cpu
+Version: 2.15.1
+Name: numpy
+Version: 1.26.4
+Linux 6.8.0-149-generic x86_64
+6d958be074577803d12ecdefd02955f39262c83c16fe9348329d7fe0b5c001ce  /tmp/espnn-multicnn-keras/datasets/cifar-10-batches-py.tar.gz

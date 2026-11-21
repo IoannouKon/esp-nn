@@ -1,0 +1,68 @@
+CNN_MODEL_BEGIN name=person_detection
+
+CNN_START cpu_mhz=240 model_bytes=300568 input_bytes=9216 output_bytes=2 arena=psram arena_cap=2097152 arena_used=120988 in_type=9 out_type=9
+
+CNN_RUN index=0 us=59310
+
+CNN_RUN index=1 us=59283
+
+CNN_RUN index=2 us=59281
+
+CNN_RUN index=3 us=59285
+
+CNN_RUN index=4 us=59278
+
+CNN_RUN index=5 us=59284
+
+CNN_RUN index=6 us=59281
+
+CNN_RUN index=7 us=59281
+
+CNN_RUN index=8 us=59279
+
+CNN_RUN index=9 us=59281
+
+CNN_RUN index=10 us=59281
+
+CNN_RUN index=11 us=59288
+
+CNN_RUN index=12 us=59282
+
+CNN_RUN index=13 us=59282
+
+CNN_RUN index=14 us=59279
+
+CNN_RUN index=15 us=59283
+
+CNN_RUN index=16 us=59277
+
+CNN_RUN index=17 us=59285
+
+CNN_RUN index=18 us=59284
+
+CNN_RUN index=19 us=59285
+
+CNN_RUN index=20 us=59283
+
+CNN_RUN index=21 us=59286
+
+CNN_RUN index=22 us=59281
+
+CNN_RUN index=23 us=59287
+
+CNN_RUN index=24 us=59278
+
+CNN_RUN index=25 us=59285
+
+CNN_RUN index=26 us=59284
+
+CNN_RUN index=27 us=59287
+
+CNN_RUN index=28 us=59280
+
+CNN_RUN index=29 us=59285
+
+CNN_OUTPUT bytes=2 hash_fnv1a=55408bb1 stable=1 hex=8d73
+
+CNN_MODEL_DONE name=person_detection ok=1
+

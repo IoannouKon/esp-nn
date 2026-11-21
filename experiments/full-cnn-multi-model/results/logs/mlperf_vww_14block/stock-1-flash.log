@@ -1,0 +1,72 @@
+Executing action: flash
+Running ninja in directory /home/kostis/Desktop/ESP-NN/full-cnn-run/stock/app/build
+Executing "ninja flash"...
+[1/5] cd /home/kostis/Desktop/ESP-NN/full-cnn-run/stock/app/build/esp-idf/esptool_py && /home/kostis/.espressif/python_env/idf5.5_py3.10_env/bin/python /home/kostis/esp_s3/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 partition --type app /home/kostis/Desktop/ESP-NN/full-cnn-run/stock/app/build/partition_table/partition-table.bin /home/kostis/Desktop/ESP-NN/full-cnn-run/stock/app/build/espnn_multi_cnn.bin
+espnn_multi_cnn.bin binary size 0x164e20 bytes. Smallest app partition is 0x400000 bytes. 0x29b1e0 bytes (65%) free.
+[2/5] Performing build step for 'bootloader'
+[1/1] cd /home/kostis/Desktop/ESP-NN/full-cnn-run/stock/app/build/bootloader/esp-idf/esptool_py && /home/kostis/.espressif/python_env/idf5.5_py3.10_env/bin/python /home/kostis/esp_s3/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 bootloader 0x0 /home/kostis/Desktop/ESP-NN/full-cnn-run/stock/app/build/bootloader/bootloader.bin
+Bootloader binary size 0x50f0 bytes. 0x2f10 bytes (37%) free.
+[2/3] cd /home/kostis/esp_s3/esp-idf/components/esptool_py && /usr/bin/cmake -D IDF_PATH=/home/kostis/esp_s3/esp-idf -D "SERIAL_TOOL=/home/kostis/.espressif/python_env/idf5.5_py3.10_env/bin/python;;/home/kostis/esp_s3/esp-idf/components/esptool_py/esptool/esptool.py;--chip;esp32s3" -D "SERIAL_TOOL_ARGS=--before=default_reset;--after=hard_reset;write_flash;@flash_args" -D WORKING_DIRECTORY=/home/kostis/Desktop/ESP-NN/full-cnn-run/stock/app/build -P /home/kostis/esp_s3/esp-idf/components/esptool_py/run_serial_tool.cmake
+esptool.py --chip esp32s3 -p /dev/ttyACM0 -b 460800 --before=default_reset --after=hard_reset write_flash --flash_mode dio --flash_freq 80m --flash_size 8MB 0x0 bootloader/bootloader.bin 0x10000 espnn_multi_cnn.bin 0x8000 partition_table/partition-table.bin
+esptool.py v4.10.0
+Serial port /dev/ttyACM0
+Connecting...
+Chip is ESP32-S3 (QFN56) (revision v0.2)
+Features: WiFi, BLE, Embedded PSRAM 8MB (AP_3v3)
+Crystal is 40MHz
+USB mode: USB-Serial/JTAG
+MAC: a0:85:e3:f5:48:4c
+Uploading stub...
+Running stub...
+Stub running...
+Changing baud rate to 460800
+Changed.
+Configuring flash size...
+Flash will be erased from 0x00000000 to 0x00005fff...
+Flash will be erased from 0x00010000 to 0x00174fff...
+Flash will be erased from 0x00008000 to 0x00008fff...
+SHA digest in image updated
+Compressed 20720 bytes to 13189...
+Writing at 0x00000000... (100 %)
+Wrote 20720 bytes (13189 compressed) at 0x00000000 in 0.4 seconds (effective 466.3 kbit/s)...
+Hash of data verified.
+Compressed 1461792 bytes to 460682...
+Writing at 0x00010000... (3 %)
+Writing at 0x0001b89e... (6 %)
+Writing at 0x0001fbdf... (10 %)
+Writing at 0x00025b6c... (13 %)
+Writing at 0x0002e1cf... (17 %)
+Writing at 0x0003f0f6... (20 %)
+Writing at 0x00070ef5... (24 %)
+Writing at 0x000a4249... (27 %)
+Writing at 0x000edad6... (31 %)
+Writing at 0x000fe953... (34 %)
+Writing at 0x0010cfeb... (37 %)
+Writing at 0x00110f9d... (41 %)
+Writing at 0x00117f58... (44 %)
+Writing at 0x0011daff... (48 %)
+Writing at 0x001236b0... (51 %)
+Writing at 0x001299ec... (55 %)
+Writing at 0x00130403... (58 %)
+Writing at 0x00135a6e... (62 %)
+Writing at 0x0013b35f... (65 %)
+Writing at 0x00140a82... (68 %)
+Writing at 0x0014614c... (72 %)
+Writing at 0x0014b29d... (75 %)
+Writing at 0x00150807... (79 %)
+Writing at 0x00155d52... (82 %)
+Writing at 0x0015ae18... (86 %)
+Writing at 0x001601cc... (89 %)
+Writing at 0x00167268... (93 %)
+Writing at 0x0016e38a... (96 %)
+Writing at 0x00174082... (100 %)
+Wrote 1461792 bytes (460682 compressed) at 0x00010000 in 10.4 seconds (effective 1120.5 kbit/s)...
+Hash of data verified.
+Compressed 3072 bytes to 105...
+Writing at 0x00008000... (100 %)
+Wrote 3072 bytes (105 compressed) at 0x00008000 in 0.0 seconds (effective 530.8 kbit/s)...
+Hash of data verified.
+
+Leaving...
+Hard resetting via RTS pin...
+Done

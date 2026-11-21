@@ -1,0 +1,152 @@
+Executing action: monitor
+Running idf_monitor in directory /home/kostis/Desktop/ESP-NN/multi-cnn-run/opt2/app
+Executing "/home/kostis/.espressif/python_env/idf5.5_py3.10_env/bin/python /home/kostis/esp_s3/esp-idf/tools/idf_monitor.py -p /dev/ttyACM0 -b 115200 --toolchain-prefix xtensa-esp32s3-elf- --target esp32s3 --revision 0 /home/kostis/Desktop/ESP-NN/multi-cnn-run/opt2/app/build/espnn_multi_cnn.elf /home/kostis/Desktop/ESP-NN/multi-cnn-run/opt2/app/build/bootloader/bootloader.elf -m '/home/kostis/.espressif/python_env/idf5.5_py3.10_env/bin/python' '/home/kostis/esp_s3/esp-idf/tools/idf.py' '--ccache' '-B'"...
+[0;33m--- esp-idf-monitor 1.8.0 on /dev/ttyACM0 115200[0m
+[0;33m--- Quit: Ctrl+] | Menu: Ctrl+T | Help: Ctrl+T followed by Ctrl+H[0m
+ESP-ROM:esp32s3-20210327
+Build:Mar 27 2021
+rst:0x15 (USB_UART_CHIP_RESET),boot:0x2a (SPI_FAST_FLASH_BOOT)
+Saved PC:0x40056f62
+[0m--- 0x40056f62: [0;33mmemcpy[0m[0m in [0;32mROM[0m
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fce2820,len:0x1588
+load:0x403c8700,len:0xc24
+[0m--- 0x403c8700: [0;33m_stext[0m[0m at [0;32m??[0m[0m:[1;31m?[0m
+load:0x403cb700,len:0x2ef0
+entry 0x403c88f4
+[0m--- 0x403c88f4: [0;33mcall_start_cpu0[0m[0m at [0;32m/home/kostis/esp_s3/esp-idf/components/bootloader/subproject/main/bootloader_start.c[0m[0m:[1;31m25[0m
+[0;32mI (24) boot: ESP-IDF v5.5.1-dirty 2nd stage bootloader[0m
+[0;32mI (24) boot: compile time Nov 21 2026 00:49:54[0m
+[0;33mW (25) boot: Unicore bootloader[0m
+[0;32mI (25) boot: chip revision: v0.2[0m
+[0;32mI (25) boot: efuse block revision: v1.3[0m
+[0;32mI (25) boot.esp32s3: Boot SPI Speed : 80MHz[0m
+[0;32mI (25) boot.esp32s3: SPI Mode       : DIO[0m
+[0;32mI (26) boot.esp32s3: SPI Flash Size : 8MB[0m
+[0;32mI (26) boot: Enabling RNG early entropy source...[0m
+[0;32mI (26) boot: Partition Table:[0m
+[0;32mI (26) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (27) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (27) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (27) boot:  2 factory          factory app      00 00 00010000 007f0000[0m
+[0;32mI (28) boot: End of partition table[0m
+[0;32mI (28) esp_image: segment 0: paddr=00010020 vaddr=3c060020 size=6e8024h (7241764) map[0m
+[0;32mI (1304) esp_image: segment 1: paddr=006f804c vaddr=3fc90f00 size=022f4h (  8948) load[0m
+[0;32mI (1306) esp_image: segment 2: paddr=006fa348 vaddr=40374000 size=05cd0h ( 23760) load[0m
+[0;32mI (1312) esp_image: segment 3: paddr=00700020 vaddr=42000020 size=56568h (353640) map[0m
+[0;32mI (1374) esp_image: segment 4: paddr=00756590 vaddr=40379cd0 size=071b4h ( 29108) load[0m
+[0;32mI (1381) esp_image: segment 5: paddr=0075d74c vaddr=50000000 size=00020h (    32) load[0m
+[0;32mI (1386) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (1387) boot: Disabling RNG early entropy source...[0m
+[0;32mI (1387) octal_psram: vendor id    : 0x0d (AP)[0m
+[0;32mI (1388) octal_psram: dev id       : 0x02 (generation 3)[0m
+[0;32mI (1388) octal_psram: density      : 0x03 (64 Mbit)[0m
+[0;32mI (1388) octal_psram: good-die     : 0x01 (Pass)[0m
+[0;32mI (1388) octal_psram: Latency      : 0x01 (Fixed)[0m
+[0;32mI (1388) octal_psram: VCC          : 0x01 (3V)[0m
+[0;32mI (1389) octal_psram: SRF          : 0x01 (Fast Refresh)[0m
+[0;32mI (1389) octal_psram: BurstType    : 0x01 (Hybrid Wrap)[0m
+[0;32mI (1389) octal_psram: BurstLen     : 0x01 (32 Byte)[0m
+[0;32mI (1389) octal_psram: Readlatency  : 0x02 (10 cycles@Fixed)[0m
+[0;32mI (1390) octal_psram: DriveStrength: 0x00 (1/1)[0m
+[0;32mI (1390) MSPI Timing: PSRAM timing tuning index: 5[0m
+[0;32mI (1391) esp_psram: Found 8MB PSRAM device[0m
+[0;32mI (1391) esp_psram: Speed: 80MHz[0m
+[0;32mI (1391) cpu_start: Unicore app[0m
+[0;32mI (1391) cpu_start: Single core mode[0m
+[0;32mI (1676) esp_psram: SPI SRAM memory test OK[0m
+[0;32mI (1685) cpu_start: Pro cpu start user code[0m
+[0;32mI (1685) cpu_start: cpu freq: 240000000 Hz[0m
+[0;32mI (1685) app_init: Application information:[0m
+[0;32mI (1685) app_init: Project name:     espnn_multi_cnn[0m
+[0;32mI (1686) app_init: App version:      1[0m
+[0;32mI (1686) app_init: Compile time:     Nov 21 2026 00:49:21[0m
+[0;32mI (1686) app_init: ELF file SHA256:  8715d7901...[0m
+[0;32mI (1686) app_init: ESP-IDF:          v5.5.1-dirty[0m
+[0;32mI (1686) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (1686) efuse_init: Max chip rev:     v0.99 [0m
+[0;32mI (1686) efuse_init: Chip rev:         v0.2[0m
+[0;32mI (1687) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (1687) heap_init: At 3FC93A90 len 00055C80 (343 KiB): RAM[0m
+[0;32mI (1687) heap_init: At 3FCE9710 len 00005724 (21 KiB): RAM[0m
+[0;32mI (1687) heap_init: At 600FE000 len 00001FE8 (7 KiB): RTCRAM[0m
+[0;32mI (1687) esp_psram: Adding pool of 8192K of PSRAM memory to heap allocator[0m
+[0;32mI (1688) spi_flash: detected chip: gd[0m
+[0;32mI (1688) spi_flash: flash io: dio[0m
+[0;32mI (1688) sleep_gpio: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (1689) sleep_gpio: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (1689) main_task: Started on CPU0[0m
+[0;32mI (1689) main_task: Calling app_main()[0m
+CNN_SUITE_BEGIN cpu_mhz=240 cores=1 psram_bytes=8388608 mode=timed
+CNN_MODEL_BEGIN name=mobilenet_v2
+CNN_START cpu_mhz=240 model_bytes=4005520 input_bytes=150528 output_bytes=1000 arena=psram arena_cap=4194304 arena_used=2607164 in_type=9 out_type=9
+CNN_RUN index=0 us=2116742
+CNN_RUN index=1 us=2116730
+CNN_RUN index=2 us=2116717
+CNN_RUN index=3 us=2116721
+CNN_RUN index=4 us=2116724
+CNN_RUN index=5 us=2116719
+CNN_RUN index=6 us=2116720
+CNN_RUN index=7 us=2116721
+CNN_RUN index=8 us=2116720
+CNN_RUN index=9 us=2116719
+CNN_RUN index=10 us=2116710
+CNN_RUN index=11 us=2116721
+CNN_RUN index=12 us=2116710
+CNN_RUN index=13 us=2116719
+CNN_RUN index=14 us=2116717
+CNN_RUN index=15 us=2116721
+CNN_RUN index=16 us=2116724
+CNN_RUN index=17 us=2116719
+CNN_RUN index=18 us=2116720
+CNN_RUN index=19 us=2116721
+CNN_RUN index=20 us=2116720
+CNN_RUN index=21 us=2116719
+CNN_RUN index=22 us=2116710
+CNN_RUN index=23 us=2116721
+CNN_RUN index=24 us=2116710
+CNN_RUN index=25 us=2116719
+CNN_RUN index=26 us=2116717
+CNN_RUN index=27 us=2116721
+CNN_RUN index=28 us=2116724
+CNN_RUN index=29 us=2116719
+CNN_OUTPUT bytes=1000 hash_fnv1a=dd8cc040 stable=1 hex=b7bbb0a5adbaa4a2a094bf979aaca0a69a9893a49e9e9e98aa9faaa5aea5a39da8bbb39da1a9b9bba3a5b3d89e9fa0a1a4a5a3e093a693a79b93a1aa9b9bc1a69da5a694baa2aca99cbaa89c9d9abaa7bea49bad999ca9afa5a29694a197a8af9b9ccaa4a0c19ed8b8aba6b0a49da4b8b1b5a0a1bed4aaa6a69c9c9aa4aacc9cada695a1aea2a1aca4ae999fada4b49ba9bdb0c1afcebeb2dfa1cabfc6bceeb2cbd2cfd2fcf5f1f1dcbac1b1aea1c1f4b9bbb2afb6d7bbd0a4b7b8d8e1bce6b6aecdf2a9c1afce97c9c5bea3b9a5bdbdc0abd49dba95bba1c998a3a2d1b8ab9da1b1bab6cfb7c9bcadadc2c1cabdccaebaf9a6b3cdaebbc4b4b3adb4d0b7afc1acb1a2a59dc4e2acc5a4a3a9c2cdaec5dabdbcb5b8c5dcb9decacdcfafc7b5bac3b3bfdbd5cab0aec2c2b3b89fa7a397ac9e96a3a7aebda8a99b9daa9faba5ac999eacababa2b3aca0a8bfbaa8b797f1b5a3b6b99daba8b0aab2a193a2b2a7c59baab590b2a9d3c1c5a3b7a8bbb1a6acaaabc2dfb2bfc8b9abc0aaacb1bacacab4c7c7b1a0b1aeadc7a1ada4a3aea2c5b6a5a9a0bca3a5a8b0bda6a3a3baa29ea9a4b4bcacaaa39aada6c9dbaba3a8adb1a4aaaaa399a2c9a49e90af99a1c1a0a79eb1e0aa9caca1a1acada49eccb2a9add2a5a7afa3a09da1dbacb4afb4aa9fa4c2cba7a896b69ab6a3ccdbacbdbcada0a49fcdafbaefc2a0a9a6b4a4a0bab0a8b6a9aeca98a7afa7c7b49eb7a199aca0af9fb5b09ec6a3a0b8a7b0acb5a6b09298ada5a9a6c8c3a89a99a5d2a4b0afb69ea7a1a29db5d0a3a7aca49e9ba3a4a9d194a2a7b4a6b8cab7a69ea2acbeb399b2b596d6999896aaadaaa8be98c5a69f9cd2b5a5a099c6a6a8a9b1b29f93dca9b29ea0a297b9c19dd598d4aba999ae9dd4a69fadada3a89dac93ada4d3a59fa89aae9faca3baaf92afa3b09ea0af90b69ed4cbe8b6bdabe399aebfd89bc9ae98c2abb4bcb1ab9fa6a0a0caa7acbaac9bafa7a9c4a89c95b59fcbd2aea9a8a69eabbeacbaaae8b7bae89fbd9b9da79cb39894a8baacaeaba79ea0c499a9a5a29aaa89adad9fca9da7a5a1da8e9ec5a69d9fb1b2d0a2af93a7b69cad9fa2c9bea5a5a0b6b5acb2aaa9a793bca0aab4a1b0a69ea8a9b6a7a59fa6b6bdb5d4aca7ac9ecfa39abab7a6a2a9b895a9a8aacaa299aea8a69cc6a99dd0a4a6baa3c29794ad9aa099a7aaa8c3bc97adc0b4b7a7a3aa98a0a7bd9ca9b6a3b0ae9ea7b1a8a6a9b3a89cc69da5a7a0a3d7bc94abaaa2aa93b09fdacfac9f8ce39aaca3a6a4ada4b6a2a6b6a3a6a1c6a1a9a3b9b69fa0a5a9b4af9da1a996a5a5a6b99ba697a59dbba69da9a4aa9e9ba39fa19ca5a19dada6a2a9a794a09dbda7aa999c9ca4ad9a9ea79da5aba7a0b59ab09c9e9ba6a6a2a0b4b5a7aca9
+CNN_MODEL_DONE name=mobilenet_v2 ok=1
+CNN_MODEL_BEGIN name=mobilenet_v3_small
+CNN_START cpu_mhz=240 model_bytes=2876640 input_bytes=150528 output_bytes=1000 arena=psram arena_cap=4194304 arena_used=3290812 in_type=9 out_type=9
+CNN_RUN index=0 us=616655
+CNN_RUN index=1 us=616736
+CNN_RUN index=2 us=616656
+CNN_RUN index=3 us=616736
+CNN_RUN index=4 us=616655
+CNN_RUN index=5 us=616738
+CNN_RUN index=6 us=616655
+CNN_RUN index=7 us=616737
+CNN_RUN index=8 us=616655
+CNN_RUN index=9 us=616737
+CNN_RUN index=10 us=616655
+CNN_RUN index=11 us=616734
+CNN_RUN index=12 us=616647
+CNN_RUN index=13 us=616737
+CNN_RUN index=14 us=616656
+CNN_RUN index=15 us=616736
+CNN_RUN index=16 us=616655
+CNN_RUN index=17 us=616734
+CNN_RUN index=18 us=616656
+CNN_RUN index=19 us=616737
+CNN_RUN index=20 us=616655
+CNN_RUN index=21 us=616737
+CNN_RUN index=22 us=616655
+CNN_RUN index=23 us=616738
+CNN_RUN index=24 us=616647
+CNN_RUN index=25 us=616732
+CNN_RUN index=26 us=616656
+CNN_RUN index=27 us=616736
+CNN_RUN index=28 us=616655
+CNN_RUN index=29 us=616734
+CNN_OUTPUT bytes=1000 hash_fnv1a=a1c5808b stable=1 hex=80807f7f807f807f7f7f7f80807f80808080807f80807f7f807f7f8080807f7f7f807f7f807f7f80807f807f807f7f808080807f80807f7f807f807f807f7f7f807f7f8080807f7f807f7f7f807f7f8080808080807f7f80807f80808080807f7f7f7f808080807f7f7f807f807f807f7f7f7f80807f807f807f8080808080807f80807f80607f80807f7f80808080807f7f807f807f7f7f807f7f80807f80808080807f8080807f7f807f80807f80807f807f7f807f7f807f808080808080807f807f8080807f7f7f808080807f807f7f7f7f7f80807f7f7f7f808080807f807f807f80807f8080807f807f807f7f7f7f80807f80807f807f808080807f7f7f807f8080807f807f7f7f7f7f808080807f807f808080807f7f7f7f808080807f7f807f8080807f7f7f80807f807f7f80807f807f8080808080807f80807f7f7f807f7f808080807f7f807f7f8080807f7f7f807f80807f7f7f7f7f808080807f7f807f8080807f808080807f807f7f8080807f7f80807f807f807f80808080807f7f7f7f8080808080807f7f807f7f808080807f807f7f80807f7f808080808080807f80807f807f80808080807f808080807f7f807f807f7f7f807f807f7f7f807f807f8080807f7f7f7f80807f80807f80807f807f7f807f80808080807f7f807f808080808080807f80808080807f80807f80807f808080807f80807f80808080807f807f7f80807f807f807f7f80807f8080807f8080808080808080807f807f7f7f808080807f808080807f8080807f8080807f807f7f807f80807f80807f7f807f80807f7f8080807f80807f8080807f7f8080808080808080807f7f807f807f80807f8080807f7f7f80807f7f7f7f807f807f7f7f808080808080808080807f8080807f807f7f7f7f808080807f807f7f8080807f7f807f7f807f807f7f7f7f80807f7f807f807f8080807f8080807f8080807f80807f8080807f7f807f80807f8080807f7f807f80807f7f7f80807f7f807f807f7f7f7f8080808080807f807f807f807f807f7f80807f807f80807f80807f7f7f807f8080807f7f7f807f807f8080807f7f7f7f80807f7f7f7f807f7f807f807f8080808080807f807f807f8080807f7f7f7f7f7f807f7f80807f7f80807f807f80807f80807f7f7f7f7f7f7f80807f807f807f7f80807f80807f807f80807f7f7f807f7f80807f7f80807f8080807f80807f807f8080808080808080808080807f7f807f80807f8080807f7f807f807f80808080807f7f7f8080807f807f7f7f80807f80807f8080807f7f8080807f80807f8080807f8080807f8080808080807f807f80807f808080807f7f807f7f7f7f807f7f808080807f7f8080808080808080808080808080807f807f807f8080
+CNN_MODEL_DONE name=mobilenet_v3_small ok=1
+CNN_SUITE_DONE
+[0;32mI (98529) main_task: Returned from app_main()[0m
+[0m

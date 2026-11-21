@@ -1,0 +1,101 @@
+Epoch 1/2
+157/157 - 4s - loss: 1.8894 - accuracy: 0.3314 - 4s/epoch - 28ms/step
+Epoch 2/2
+157/157 - 4s - loss: 1.5438 - accuracy: 0.4539 - 4s/epoch - 23ms/step
+Summary on the non-converted ops:
+---------------------------------
+ * Accepted dialects: tfl, builtin, func
+ * Non-Converted Ops: 7, Total Ops 15, % non-converted = 46.67 %
+ * 7 ARITH ops
+
+- arith.constant:    7 occurrences  (f32: 6, i32: 1)
+
+
+
+  (f32: 2)
+  (f32: 1)
+  (f32: 1)
+  (f32: 1)
+fully_quantize: 0, inference_type: 6, input_inference_type: INT8, output_inference_type: INT8
+INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+GENERATED max3 model_size 29624 ops ['CONV_2D', 'MAX_POOL_2D', 'CONV_2D', 'RESHAPE', 'FULLY_CONNECTED']
+Epoch 1/2
+157/157 - 6s - loss: 1.8594 - accuracy: 0.3323 - 6s/epoch - 36ms/step
+Epoch 2/2
+157/157 - 5s - loss: 1.5193 - accuracy: 0.4586 - 5s/epoch - 34ms/step
+Summary on the non-converted ops:
+---------------------------------
+ * Accepted dialects: tfl, builtin, func
+ * Non-Converted Ops: 7, Total Ops 15, % non-converted = 46.67 %
+ * 7 ARITH ops
+
+- arith.constant:    7 occurrences  (f32: 6, i32: 1)
+
+
+
+  (f32: 2)
+  (f32: 1)
+  (f32: 1)
+  (f32: 1)
+fully_quantize: 0, inference_type: 6, input_inference_type: INT8, output_inference_type: INT8
+GENERATED max5 model_size 29624 ops ['CONV_2D', 'MAX_POOL_2D', 'CONV_2D', 'RESHAPE', 'FULLY_CONNECTED']
+Epoch 1/2
+157/157 - 2s - loss: 2.2188 - accuracy: 0.0975 - 2s/epoch - 15ms/step
+Epoch 2/2
+157/157 - 2s - loss: 2.0829 - accuracy: 0.1020 - 2s/epoch - 12ms/step
+Summary on the non-converted ops:
+---------------------------------
+ * Accepted dialects: tfl, builtin, func
+ * Non-Converted Ops: 7, Total Ops 14, % non-converted = 50.00 %
+ * 7 ARITH ops
+
+- arith.constant:    7 occurrences  (f32: 6, i32: 1)
+
+
+
+  (f32: 2)
+  (f32: 1)
+  (f32: 1)
+fully_quantize: 0, inference_type: 6, input_inference_type: INT8, output_inference_type: INT8
+GENERATED mean_only model_size 9408 ops ['CONV_2D', 'CONV_2D', 'MEAN', 'FULLY_CONNECTED']
+Epoch 1/2
+157/157 - 7s - loss: 2.1805 - accuracy: 0.1003 - 7s/epoch - 43ms/step
+Epoch 2/2
+157/157 - 6s - loss: 1.9553 - accuracy: 0.1020 - 6s/epoch - 37ms/step
+Summary on the non-converted ops:
+---------------------------------
+ * Accepted dialects: tfl, builtin, func
+ * Non-Converted Ops: 7, Total Ops 16, % non-converted = 43.75 %
+ * 7 ARITH ops
+
+- arith.constant:    7 occurrences  (f32: 6, i32: 1)
+
+
+
+  (f32: 2)
+  (f32: 1)
+  (f32: 2)
+  (f32: 1)
+fully_quantize: 0, inference_type: 6, input_inference_type: INT8, output_inference_type: INT8
+GENERATED both model_size 9760 ops ['CONV_2D', 'MAX_POOL_2D', 'CONV_2D', 'MAX_POOL_2D', 'MEAN', 'FULLY_CONNECTED']
+Epoch 1/2
+157/157 - 5s - loss: 2.2686 - accuracy: 0.0986 - 5s/epoch - 30ms/step
+Epoch 2/2
+157/157 - 5s - loss: 2.0984 - accuracy: 0.1016 - 5s/epoch - 29ms/step
+Summary on the non-converted ops:
+---------------------------------
+ * Accepted dialects: tfl, builtin, func
+ * Non-Converted Ops: 9, Total Ops 18, % non-converted = 50.00 %
+ * 9 ARITH ops
+
+- arith.constant:    9 occurrences  (f32: 8, i32: 1)
+
+
+
+  (f32: 2)
+  (f32: 1)
+  (f32: 1)
+  (f32: 1)
+  (f32: 1)
+fully_quantize: 0, inference_type: 6, input_inference_type: INT8, output_inference_type: INT8
+GENERATED depthwise_both model_size 7000 ops ['CONV_2D', 'MAX_POOL_2D', 'DEPTHWISE_CONV_2D', 'CONV_2D', 'MEAN', 'FULLY_CONNECTED']

@@ -1,0 +1,47 @@
+{
+  "name": "mean_only",
+  "model_bytes": 9408,
+  "input_shape": [
+    1,
+    32,
+    32,
+    3
+  ],
+  "output_shape": [
+    1,
+    1,
+    1,
+    10
+  ],
+  "input_dtype": "int8",
+  "output_dtype": "int8",
+  "ops": [
+    "CONV_2D",
+    "CONV_2D",
+    "MEAN",
+    "FULLY_CONNECTED"
+  ],
+  "pools": [],
+  "means": [
+    {
+      "input_shape": [
+        1,
+        8,
+        8,
+        32
+      ],
+      "axes": [
+        1,
+        2
+      ],
+      "keep_dims": true,
+      "note": "Builtin TFLM MEAN does NOT dispatch to ESP-NN."
+    }
+  ],
+  "model_sha256": "f24283500ae7f9a377f8aa5bda5086ca81294d6e8bbfbbdca24be86010ffeecc",
+  "input_sha256": "9f2b799d8a7d23ea057764d98841e08038753212d8fcb06b4b8f28a859926511",
+  "host_output_sha256": "f7ecc57786e9f352acf4530958270dfc1e9c252140781ef7ec70418fffff010c",
+  "host_output_hex": "ff0c12090707fd08f808",
+  "host_error": null,
+  "caveat": "Eligible by shape is NOT runtime dispatch proof; validate alignment, tensor placement and call path on board."
+}

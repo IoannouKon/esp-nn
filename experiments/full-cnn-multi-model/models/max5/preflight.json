@@ -1,0 +1,50 @@
+{
+  "name": "max5",
+  "model_bytes": 29624,
+  "input_shape": [
+    1,
+    32,
+    32,
+    3
+  ],
+  "output_shape": [
+    1,
+    10
+  ],
+  "input_dtype": "int8",
+  "output_dtype": "int8",
+  "ops": [
+    "CONV_2D",
+    "MAX_POOL_2D",
+    "CONV_2D",
+    "RESHAPE",
+    "FULLY_CONNECTED"
+  ],
+  "pools": [
+    {
+      "input_shape": [
+        1,
+        16,
+        16,
+        16
+      ],
+      "filter": [
+        5,
+        5
+      ],
+      "stride": [
+        1,
+        1
+      ],
+      "same": true,
+      "shape_eligible": true
+    }
+  ],
+  "means": [],
+  "model_sha256": "719758439a3fc697f2f2533219dd64198656ef81794e5fc860dc013e023e37e9",
+  "input_sha256": "9f2b799d8a7d23ea057764d98841e08038753212d8fcb06b4b8f28a859926511",
+  "host_output_sha256": "76f59e528c9712bd846173a5a5b28c822d70b2c5bc41f99eec67ccd639054747",
+  "host_output_hex": "ebf02637042a29dcf5da",
+  "host_error": null,
+  "caveat": "Eligible by shape is NOT runtime dispatch proof; validate alignment, tensor placement and call path on board."
+}

@@ -1,0 +1,5 @@
+*.tflite binary
+*.bin binary
+results/logs/** -text -diff
+results/**/*.log -text -diff
+results/**/*.diff -text -whitespace

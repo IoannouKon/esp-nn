@@ -1,0 +1,7 @@
+42041ea0 <esp_nn_max_pool_s8_esp32s3>:
+42041ea0:	012136        	entry	a1, 144
+4203a0a8 <esp_nn_mean_nhwc_s8_esp32s3>:
+4205435c <esp_nn_max_pool_s8_esp32s3_sliding_row_asm>:
+4205435c:	004136        	entry	a1, 32
+42053fe8 <esp_nn_mean_s8_16ch_qacc>:
+42053fe8:	004136        	entry	a1, 32

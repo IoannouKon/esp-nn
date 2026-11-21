@@ -1,0 +1,120 @@
+Executing action: monitor
+Running idf_monitor in directory /home/kostis/Desktop/ESP-NN/multi-cnn-run/opt2/app
+Executing "/home/kostis/.espressif/python_env/idf5.5_py3.10_env/bin/python /home/kostis/esp_s3/esp-idf/tools/idf_monitor.py -p /dev/ttyACM0 -b 115200 --toolchain-prefix xtensa-esp32s3-elf- --target esp32s3 --revision 0 /home/kostis/Desktop/ESP-NN/multi-cnn-run/opt2/app/build/espnn_multi_cnn.elf /home/kostis/Desktop/ESP-NN/multi-cnn-run/opt2/app/build/bootloader/bootloader.elf -m '/home/kostis/.espressif/python_env/idf5.5_py3.10_env/bin/python' '/home/kostis/esp_s3/esp-idf/tools/idf.py' '--ccache' '-B'"...
+[0;33m--- esp-idf-monitor 1.8.0 on /dev/ttyACM0 115200[0m
+[0;33m--- Quit: Ctrl+] | Menu: Ctrl+T | Help: Ctrl+T followed by Ctrl+H[0m
+[0;32mI (1022) esp_image: segment 1: paddr=00571cfc vaddr=3fc90f00 sizESP-ROM:esp32s3-20210327[0m
+Build:Mar 27 2021
+rst:0x15 (USB_UART_CHIP_RESET),boot:0x2a (SPI_FAST_FLASH_BOOT)
+Saved PC:0x4203b64a
+[0m--- 0x4203b64a: [0;33mesp_nn_sat_round_doubling_high_mul[0m[0m at [0;32m/home/kostis/Desktop/ESP-NN/multi-cnn-run/opt2/esp-nn/src/common/common_functions.h[0m[0m:[1;31m104[0m
+[0m--- (inlined by) [0;33mesp_nn_multiply_by_quantized_mult[0m[0m at [0;32m/home/kostis/Desktop/ESP-NN/multi-cnn-run/opt2/esp-nn/src/common/common_functions.h[0m[0m:[1;31m144[0m
+[0m--- (inlined by) [0;33mesp_nn_conv_s8_im2col_s3[0m[0m at [0;32m/home/kostis/Desktop/ESP-NN/multi-cnn-run/opt2/esp-nn/src/convolution/esp_nn_conv_esp32s3.c[0m[0m:[1;31m514[0m
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fce2820,len:0x1588
+load:0x403c8700,len:0xc24
+[0m--- 0x403c8700: [0;33m_stext[0m[0m at [0;32m??[0m[0m:[1;31m?[0m
+load:0x403cb700,len:0x2ef0
+entry 0x403c88f4
+[0m--- 0x403c88f4: [0;33mcall_start_cpu0[0m[0m at [0;32m/home/kostis/esp_s3/esp-idf/components/bootloader/subproject/main/bootloader_start.c[0m[0m:[1;31m25[0m
+[0;32mI (24) boot: ESP-IDF v5.5.1-dirty 2nd stage bootloader[0m
+[0;32mI (24) boot: compile time Nov 21 2026 00:49:54[0m
+[0;33mW (25) boot: Unicore bootloader[0m
+[0;32mI (25) boot: chip revision: v0.2[0m
+[0;32mI (25) boot: efuse block revision: v1.3[0m
+[0;32mI (25) boot.esp32s3: Boot SPI Speed : 80MHz[0m
+[0;32mI (25) boot.esp32s3: SPI Mode       : DIO[0m
+[0;32mI (26) boot.esp32s3: SPI Flash Size : 8MB[0m
+[0;32mI (26) boot: Enabling RNG early entropy source...[0m
+[0;32mI (26) boot: Partition Table:[0m
+[0;32mI (26) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (27) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (27) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (27) boot:  2 factory          factory app      00 00 00010000 007f0000[0m
+[0;32mI (28) boot: End of partition table[0m
+[0;32mI (28) esp_image: segment 0: paddr=00010020 vaddr=3c060020 size=561cd4h (5643476) map[0m
+[0;32mI (1022) esp_image: segment 1: paddr=00571cfc vaddr=3fc90f00 size=022f4h (  8948) load[0m
+[0;32mI (1025) esp_image: segment 2: paddr=00573ff8 vaddr=40374000 size=0c020h ( 49184) load[0m
+[0;32mI (1036) esp_image: segment 3: paddr=00580020 vaddr=42000020 size=56334h (353076) map[0m
+[0;32mI (1098) esp_image: segment 4: paddr=005d635c vaddr=40380020 size=00e64h (  3684) load[0m
+[0;32mI (1099) esp_image: segment 5: paddr=005d71c8 vaddr=50000000 size=00020h (    32) load[0m
+[0;32mI (1105) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (1105) boot: Disabling RNG early entropy source...[0m
+[0;32mI (1106) octal_psram: vendor id    : 0x0d (AP)[0m
+[0;32mI (1106) octal_psram: dev id       : 0x02 (generation 3)[0m
+[0;32mI (1106) octal_psram: density      : 0x03 (64 Mbit)[0m
+[0;32mI (1107) octal_psram: good-die     : 0x01 (Pass)[0m
+[0;32mI (1107) octal_psram: Latency      : 0x01 (Fixed)[0m
+[0;32mI (1107) octal_psram: VCC          : 0x01 (3V)[0m
+[0;32mI (1107) octal_psram: SRF          : 0x01 (Fast Refresh)[0m
+[0;32mI (1107) octal_psram: BurstType    : 0x01 (Hybrid Wrap)[0m
+[0;32mI (1108) octal_psram: BurstLen     : 0x01 (32 Byte)[0m
+[0;32mI (1108) octal_psram: Readlatency  : 0x02 (10 cycles@Fixed)[0m
+[0;32mI (1108) octal_psram: DriveStrength: 0x00 (1/1)[0m
+[0;32mI (1109) MSPI Timing: PSRAM timing tuning index: 5[0m
+[0;32mI (1109) esp_psram: Found 8MB PSRAM device[0m
+[0;32mI (1109) esp_psram: Speed: 80MHz[0m
+[0;32mI (1110) cpu_start: Unicore app[0m
+[0;32mI (1110) cpu_start: Single core mode[0m
+[0;32mI (1395) esp_psram: SPI SRAM memory test OK[0m
+[0;32mI (1404) cpu_start: Pro cpu start user code[0m
+[0;32mI (1404) cpu_start: cpu freq: 240000000 Hz[0m
+[0;32mI (1404) app_init: Application information:[0m
+[0;32mI (1404) app_init: Project name:     espnn_multi_cnn[0m
+[0;32mI (1404) app_init: App version:      1[0m
+[0;32mI (1404) app_init: Compile time:     Nov 21 2026 00:49:21[0m
+[0;32mI (1405) app_init: ELF file SHA256:  704b29f3e...[0m
+[0;32mI (1405) app_init: ESP-IDF:          v5.5.1-dirty[0m
+[0;32mI (1405) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (1405) efuse_init: Max chip rev:     v0.99 [0m
+[0;32mI (1405) efuse_init: Chip rev:         v0.2[0m
+[0;32mI (1405) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (1406) heap_init: At 3FC93A90 len 00055C80 (343 KiB): RAM[0m
+[0;32mI (1406) heap_init: At 3FCE9710 len 00005724 (21 KiB): RAM[0m
+[0;32mI (1406) heap_init: At 600FE000 len 00001FE8 (7 KiB): RTCRAM[0m
+[0;32mI (1406) esp_psram: Adding pool of 8192K of PSRAM memory to heap allocator[0m
+[0;32mI (1407) spi_flash: detected chip: gd[0m
+[0;32mI (1407) spi_flash: flash io: dio[0m
+[0;32mI (1407) sleep_gpio: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (1407) sleep_gpio: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (1408) main_task: Started on CPU0[0m
+[0;32mI (1408) main_task: Calling app_main()[0m
+CNN_SUITE_BEGIN cpu_mhz=240 cores=1 psram_bytes=8388608 mode=timed
+CNN_MODEL_BEGIN name=efficientnet_lite0
+CNN_START cpu_mhz=240 model_bytes=5434517 input_bytes=150528 output_bytes=1000 arena=psram arena_cap=2097152 arena_used=1717292 in_type=3 out_type=3
+CNN_RUN index=0 us=3001747
+CNN_RUN index=1 us=3001712
+CNN_RUN index=2 us=3001692
+CNN_RUN index=3 us=3001694
+CNN_RUN index=4 us=3001691
+CNN_RUN index=5 us=3001719
+CNN_RUN index=6 us=3001700
+CNN_RUN index=7 us=3001689
+CNN_RUN index=8 us=3001690
+CNN_RUN index=9 us=3001702
+CNN_RUN index=10 us=3001687
+CNN_RUN index=11 us=3001710
+CNN_RUN index=12 us=3001689
+CNN_RUN index=13 us=3001705
+CNN_RUN index=14 us=3001682
+CNN_RUN index=15 us=3001694
+CNN_RUN index=16 us=3001693
+CNN_RUN index=17 us=3001721
+CNN_RUN index=18 us=3001687
+CNN_RUN index=19 us=3001709
+CNN_RUN index=20 us=3001690
+CNN_RUN index=21 us=3001704
+CNN_RUN index=22 us=3001700
+CNN_RUN index=23 us=3001700
+CNN_RUN index=24 us=3001702
+CNN_RUN index=25 us=3001698
+CNN_RUN index=26 us=3001685
+CNN_RUN index=27 us=3001707
+CNN_RUN index=28 us=3001691
+CNN_RUN index=29 us=3001719
+CNN_OUTPUT bytes=1000 hash_fnv1a=4cf8f49f stable=1 hex=00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000000000020001000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000100000000000100000000000b0405010100000000000000000000010006000100000000030002000000010000000000000000000000010000000500000000000000000000000000000000000000000000000000000000000002000000010000000000000100000000000000000002000100000001000000000000000000000000030100000200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000100030000020000000000000000000000000000000000020022020100000000000000000000000000000000020000000001000000000000000000010000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000001000000000000000000000102000000000000000000000000000000000000000000050000000000000000010000000000000000010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000001000000000000000000000000000000000002000000000000000000000000000000000000010000000000000000000100000001000000000000000000000000010000000000000000000100010000000000010000000000000000000000000000000000000000000000000000000000000000010107000100050000000300020000010000000000000000000000000000000000000000000000000002000000000000010000000e000100000000000000000000000000000000000000000000000000000000000100000000030000000000000000000000000000000000000001000000000000010000000000000100000000000000000000000000000000000000000000000001000000000000000001000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000500000003000000000000000000000000000000000000000000000000000000000000000000000000000001000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+CNN_MODEL_DONE name=efficientnet_lite0 ok=1
+CNN_SUITE_DONE
+[0;32mI (107248) main_task: Returned from app_main()[0m
+[0m

@@ -1,0 +1,1 @@
+The max5 driver exited while reading its final host-analysis command because its script was edited during execution. All eight board captures had completed; replaying the analyzer validated all eight, with exact output parity and the original boot order.

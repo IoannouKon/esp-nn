@@ -1,0 +1,5696 @@
+{
+  "avg_control": {
+    "source": "https://www.cs.toronto.edu/~kriz/cifar.html",
+    "source_detail": "Kit custom CNN. TensorFlow 2.15.1, 1 epoch, 12000 samples, seed 1729, Adam, 128 calibration images, full integer TFLite quantization. Fixed test image 0.",
+    "schema_version": 3,
+    "model_bytes": 29904,
+    "model_sha256": "5d5d37c517db220168947ca840d76dfb2153a7e4310bc37e57a29eae0218d999",
+    "input_bytes": 3072,
+    "input_sha256": "9f2b799d8a7d23ea057764d98841e08038753212d8fcb06b4b8f28a859926511",
+    "input": {
+      "shape": [
+        1,
+        32,
+        32,
+        3
+      ],
+      "dtype": "INT8",
+      "scale": [
+        0.003921568859368563
+      ],
+      "zero_point": [
+        -128
+      ]
+    },
+    "output": {
+      "shape": [
+        1,
+        10
+      ],
+      "dtype": "INT8",
+      "scale": [
+        0.03390972688794136
+      ],
+      "zero_point": [
+        17
+      ]
+    },
+    "operators": [
+      {
+        "op": "CONV_2D",
+        "version": 3,
+        "input_shape": [
+          1,
+          32,
+          32,
+          3
+        ]
+      },
+      {
+        "op": "CONV_2D",
+        "version": 3,
+        "input_shape": [
+          1,
+          16,
+          16,
+          16
+        ]
+      },
+      {
+        "op": "AVERAGE_POOL_2D",
+        "version": 2,
+        "input_shape": [
+          1,
+          8,
+          8,
+          32
+        ]
+      },
+      {
+        "op": "RESHAPE",
+        "version": 1,
+        "input_shape": [
+          1,
+          8,
+          8,
+          32
+        ]
+      },
+      {
+        "op": "FULLY_CONNECTED",
+        "version": 4,
+        "input_shape": [
+          1,
+          2048
+        ]
+      }
+    ],
+    "operator_counts": {
+      "CONV_2D": 2,
+      "AVERAGE_POOL_2D": 1,
+      "RESHAPE": 1,
+      "FULLY_CONNECTED": 1
+    },
+    "training_and_architecture": {
+      "name": "avg_control",
+      "origin": "custom CIFAR-10 CNN; trained from scratch",
+      "training_epochs": 1,
+      "train_samples": 12000,
+      "test_accuracy_1000": 0.3319999873638153,
+      "input_shape": [
+        1,
+        32,
+        32,
+        3
+      ],
+      "output_shape": [
+        1,
+        10
+      ],
+      "input_scale": 0.003921568859368563,
+      "input_zero_point": -128,
+      "host_output": [
+        -9,
+        18,
+        14,
+        60,
+        -5,
+        48,
+        13,
+        5,
+        -21,
+        -29
+      ],
+      "ops": [
+        {
+          "name": "CONV_2D",
+          "inputs": [
+            [
+              1,
+              32,
+              32,
+              3
+            ],
+            [
+              16,
+              3,
+              3,
+              3
+            ],
+            [
+              16
+            ]
+          ]
+        },
+        {
+          "name": "CONV_2D",
+          "inputs": [
+            [
+              1,
+              16,
+              16,
+              16
+            ],
+            [
+              32,
+              3,
+              3,
+              16
+            ],
+            [
+              32
+            ]
+          ]
+        },
+        {
+          "name": "AVERAGE_POOL_2D",
+          "inputs": [
+            [
+              1,
+              8,
+              8,
+              32
+            ]
+          ]
+        },
+        {
+          "name": "RESHAPE",
+          "inputs": [
+            [
+              1,
+              8,
+              8,
+              32
+            ],
+            [
+              2
+            ]
+          ]
+        },
+        {
+          "name": "FULLY_CONNECTED",
+          "inputs": [
+            [
+              1,
+              2048
+            ],
+            [
+              10,
+              2048
+            ],
+            [
+              10
+            ]
+          ]
+        }
+      ],
+      "dataset": "CIFAR-10",
+      "fixed_test_index": 0,
+      "model_sha256": "5d5d37c517db220168947ca840d76dfb2153a7e4310bc37e57a29eae0218d999",
+      "input_sha256": "9f2b799d8a7d23ea057764d98841e08038753212d8fcb06b4b8f28a859926511",
+      "note": "Full-model correctness on the board must be checked across builds. Built-in TFLM MEAN is not ESP-NN MEAN."
+    },
+    "validation_input_sha256": [
+      "e68c61fd5a85a20d66067d1958489782815e9252c504bddc2c3bf97f618ac947",
+      "77a418536d99728b84b93dd88981cf7ca3e0a527298c4c78897b3ccc9b1b1584",
+      "1ed76ff104fc947eb6d3e4d4fd13998651c847e2b4231464f757bfd85362dc99",
+      "c21980452db8447c35e1948f47a86f80663b2fd5109fc7fbcc8b6291de835419",
+      "18751af1ce2d0b648efc7d1db94329019791d3fdcb0378e5a334327a3a6822e2",
+      "05f1f9629852a68839ba5aed6894e52da87a2bb1845f005a774fa6f7d017e90c"
+    ],
+    "host_tflite": {
+      "outputs_hex": [
+        "f7120e3cfb300d05ebe3",
+        "433cfaf1c6dcb5f76648",
+        "4421fe03c9f0bbfd5f2c",
+        "3e280605d3f2c3fa5220",
+        "edfa1e241b251817eae7",
+        "ad250241102f3330b30b",
+        "b72df449ee401e1ec4fd"
+      ],
+      "tensorflow_version": "2.15.1"
+    },
+    "host_reference": {
+      "outputs_hex": [
+        "f7120e3cfb300d05ebe3",
+        "433cfaf1c6dcb5f66648",
+        "4421fe03c9f0bbfd5f2c",
+        "3e280605d3f2c3fa5220",
+        "edfa1e241b251817eae7",
+        "ad250241102f3330b30b",
+        "b72df449ee401e1ec4fd"
+      ],
+      "tensorflow_version": "2.15.1"
+    }
+  },
+  "both": {
+    "source": "https://www.cs.toronto.edu/~kriz/cifar.html",
+    "source_detail": "Kit custom CNN. TensorFlow 2.15.1, 1 epoch, 12000 samples, seed 1729, Adam, 128 calibration images, full integer TFLite quantization. Fixed test image 0.",
+    "schema_version": 3,
+    "model_bytes": 12024,
+    "model_sha256": "d72844e57ab3135fdac373c3579fda5e2345e4fab928d197a6b9a2e36d498e05",
+    "input_bytes": 3072,
+    "input_sha256": "9f2b799d8a7d23ea057764d98841e08038753212d8fcb06b4b8f28a859926511",
+    "input": {
+      "shape": [
+        1,
+        32,
+        32,
+        3
+      ],
+      "dtype": "INT8",
+      "scale": [
+        0.003921568859368563
+      ],
+      "zero_point": [
+        -128
+      ]
+    },
+    "output": {
+      "shape": [
+        1,
+        1,
+        1,
+        10
+      ],
+      "dtype": "INT8",
+      "scale": [
+        0.01428070105612278
+      ],
+      "zero_point": [
+        7
+      ]
+    },
+    "operators": [
+      {
+        "op": "CONV_2D",
+        "version": 3,
+        "input_shape": [
+          1,
+          32,
+          32,
+          3
+        ]
+      },
+      {
+        "op": "MAX_POOL_2D",
+        "version": 2,
+        "input_shape": [
+          1,
+          16,
+          16,
+          16
+        ],
+        "filter": [
+          3,
+          3
+        ],
+        "stride": [
+          1,
+          1
+        ],
+        "same": true
+      },
+      {
+        "op": "CONV_2D",
+        "version": 3,
+        "input_shape": [
+          1,
+          16,
+          16,
+          16
+        ]
+      },
+      {
+        "op": "MAX_POOL_2D",
+        "version": 2,
+        "input_shape": [
+          1,
+          8,
+          8,
+          32
+        ],
+        "filter": [
+          5,
+          5
+        ],
+        "stride": [
+          1,
+          1
+        ],
+        "same": true
+      },
+      {
+        "op": "MEAN",
+        "version": 2,
+        "input_shape": [
+          1,
+          8,
+          8,
+          32
+        ],
+        "axes": [
+          1,
+          2
+        ],
+        "keep_dims": true
+      },
+      {
+        "op": "SHAPE",
+        "version": 1,
+        "input_shape": [
+          1,
+          1,
+          1,
+          32
+        ]
+      },
+      {
+        "op": "GATHER",
+        "version": 1,
+        "input_shape": [
+          4
+        ]
+      },
+      {
+        "op": "REDUCE_PROD",
+        "version": 1,
+        "input_shape": [
+          3
+        ]
+      },
+      {
+        "op": "CONCATENATION",
+        "version": 1,
+        "input_shape": [
+          3
+        ]
+      },
+      {
+        "op": "GATHER",
+        "version": 1,
+        "input_shape": [
+          4
+        ]
+      },
+      {
+        "op": "REDUCE_PROD",
+        "version": 1,
+        "input_shape": [
+          1
+        ]
+      },
+      {
+        "op": "PACK",
+        "version": 1,
+        "input_shape": []
+      },
+      {
+        "op": "RESHAPE",
+        "version": 1,
+        "input_shape": [
+          1,
+          1,
+          1,
+          32
+        ]
+      },
+      {
+        "op": "FULLY_CONNECTED",
+        "version": 4,
+        "input_shape": [
+          1,
+          32
+        ]
+      },
+      {
+        "op": "RESHAPE",
+        "version": 1,
+        "input_shape": [
+          1,
+          10
+        ]
+      },
+      {
+        "op": "ADD",
+        "version": 2,
+        "input_shape": [
+          1,
+          1,
+          1,
+          10
+        ]
+      }
+    ],
+    "operator_counts": {
+      "CONV_2D": 2,
+      "MAX_POOL_2D": 2,
+      "MEAN": 1,
+      "SHAPE": 1,
+      "GATHER": 2,
+      "REDUCE_PROD": 2,
+      "CONCATENATION": 1,
+      "PACK": 1,
+      "RESHAPE": 2,
+      "FULLY_CONNECTED": 1,
+      "ADD": 1
+    },
+    "training_and_architecture": {
+      "name": "both",
+      "origin": "custom CIFAR-10 CNN; trained from scratch",
+      "training_epochs": 1,
+      "train_samples": 12000,
+      "test_accuracy_1000": 0.10789738595485687,
+      "input_shape": [
+        1,
+        32,
+        32,
+        3
+      ],
+      "output_shape": [
+        1,
+        1,
+        1,
+        10
+      ],
+      "input_scale": 0.003921568859368563,
+      "input_zero_point": -128,
+      "host_output": [
+        25,
+        15,
+        34,
+        48,
+        -7,
+        10,
+        -1,
+        47,
+        9,
+        13
+      ],
+      "ops": [
+        {
+          "name": "CONV_2D",
+          "inputs": [
+            [
+              1,
+              32,
+              32,
+              3
+            ],
+            [
+              16,
+              3,
+              3,
+              3
+            ],
+            [
+              16
+            ]
+          ]
+        },
+        {
+          "name": "MAX_POOL_2D",
+          "inputs": [
+            [
+              1,
+              16,
+              16,
+              16
+            ]
+          ]
+        },
+        {
+          "name": "CONV_2D",
+          "inputs": [
+            [
+              1,
+              16,
+              16,
+              16
+            ],
+            [
+              32,
+              3,
+              3,
+              16
+            ],
+            [
+              32
+            ]
+          ]
+        },
+        {
+          "name": "MAX_POOL_2D",
+          "inputs": [
+            [
+              1,
+              8,
+              8,
+              32
+            ]
+          ]
+        },
+        {
+          "name": "MEAN",
+          "inputs": [
+            [
+              1,
+              8,
+              8,
+              32
+            ],
+            [
+              2
+            ]
+          ]
+        },
+        {
+          "name": "SHAPE",
+          "inputs": [
+            [
+              1,
+              1,
+              1,
+              32
+            ]
+          ]
+        },
+        {
+          "name": "GATHER",
+          "inputs": [
+            [
+              4
+            ],
+            [
+              3
+            ]
+          ]
+        },
+        {
+          "name": "REDUCE_PROD",
+          "inputs": [
+            [
+              3
+            ],
+            [
+              1
+            ]
+          ]
+        },
+        {
+          "name": "CONCATENATION",
+          "inputs": [
+            [
+              3
+            ],
+            [
+              1
+            ]
+          ]
+        },
+        {
+          "name": "GATHER",
+          "inputs": [
+            [
+              4
+            ],
+            [
+              1
+            ]
+          ]
+        },
+        {
+          "name": "REDUCE_PROD",
+          "inputs": [
+            [
+              1
+            ],
+            [
+              1
+            ]
+          ]
+        },
+        {
+          "name": "PACK",
+          "inputs": [
+            [],
+            []
+          ]
+        },
+        {
+          "name": "RESHAPE",
+          "inputs": [
+            [
+              1,
+              1,
+              1,
+              32
+            ],
+            [
+              2
+            ]
+          ]
+        },
+        {
+          "name": "FULLY_CONNECTED",
+          "inputs": [
+            [
+              1,
+              1
+            ],
+            [
+              10,
+              32
+            ]
+          ]
+        },
+        {
+          "name": "RESHAPE",
+          "inputs": [
+            [
+              1,
+              10
+            ],
+            [
+              4
+            ]
+          ]
+        },
+        {
+          "name": "ADD",
+          "inputs": [
+            [
+              1,
+              1,
+              1,
+              10
+            ],
+            [
+              10
+            ]
+          ]
+        }
+      ],
+      "dataset": "CIFAR-10",
+      "fixed_test_index": 0,
+      "model_sha256": "adbf2a537c253fb65ca74d1f160d8c696927c35c7e5736d6ebf2ca3cd1b54842",
+      "input_sha256": "9f2b799d8a7d23ea057764d98841e08038753212d8fcb06b4b8f28a859926511",
+      "note": "Full-model correctness on the board must be checked across builds. Built-in TFLM MEAN is not ESP-NN MEAN."
+    },
+    "validation_input_sha256": [
+      "e68c61fd5a85a20d66067d1958489782815e9252c504bddc2c3bf97f618ac947",
+      "77a418536d99728b84b93dd88981cf7ca3e0a527298c4c78897b3ccc9b1b1584",
+      "1ed76ff104fc947eb6d3e4d4fd13998651c847e2b4231464f757bfd85362dc99",
+      "c21980452db8447c35e1948f47a86f80663b2fd5109fc7fbcc8b6291de835419",
+      "18751af1ce2d0b648efc7d1db94329019791d3fdcb0378e5a334327a3a6822e2",
+      "05f1f9629852a68839ba5aed6894e52da87a2bb1845f005a774fa6f7d017e90c"
+    ],
+    "host_tflite": {
+      "outputs_hex": [
+        "190f2230f90aff2f090d",
+        "3f111229d7e1c90b471f",
+        "4e091226d3dfbe045c17",
+        "510a1028d1dfb6ff5d1b",
+        "f805242417212028eff9",
+        "da0724222c304130c4fa",
+        "fe201634fb08fe31f31f"
+      ],
+      "tensorflow_version": "2.15.1"
+    },
+    "host_reference": {
+      "outputs_hex": [
+        "19102331f90aff30080d",
+        "3f111229d7e1c90c461f",
+        "4e091226d3dfbd045b18",
+        "500a1028d1deb6ff5d1b",
+        "f905242417212128eef9",
+        "da0724222d30412fc4fa",
+        "ff201634fb08ff31f31e"
+      ],
+      "tensorflow_version": "2.15.1"
+    }
+  },
+  "depthwise_both": {
+    "source": "https://www.cs.toronto.edu/~kriz/cifar.html",
+    "source_detail": "Kit custom CNN. TensorFlow 2.15.1, 1 epoch, 12000 samples, seed 1729, Adam, 128 calibration images, full integer TFLite quantization. Fixed test image 0.",
+    "schema_version": 3,
+    "model_bytes": 9432,
+    "model_sha256": "9488df387a1a4b62d9554af681e883d68ea688773a5642a05d0820db9507445f",
+    "input_bytes": 3072,
+    "input_sha256": "9f2b799d8a7d23ea057764d98841e08038753212d8fcb06b4b8f28a859926511",
+    "input": {
+      "shape": [
+        1,
+        32,
+        32,
+        3
+      ],
+      "dtype": "INT8",
+      "scale": [
+        0.003921568859368563
+      ],
+      "zero_point": [
+        -128
+      ]
+    },
+    "output": {
+      "shape": [
+        1,
+        1,
+        1,
+        10
+      ],
+      "dtype": "INT8",
+      "scale": [
+        0.0035189632326364517
+      ],
+      "zero_point": [
+        46
+      ]
+    },
+    "operators": [
+      {
+        "op": "CONV_2D",
+        "version": 3,
+        "input_shape": [
+          1,
+          32,
+          32,
+          3
+        ]
+      },
+      {
+        "op": "MAX_POOL_2D",
+        "version": 2,
+        "input_shape": [
+          1,
+          16,
+          16,
+          16
+        ],
+        "filter": [
+          3,
+          3
+        ],
+        "stride": [
+          1,
+          1
+        ],
+        "same": true
+      },
+      {
+        "op": "DEPTHWISE_CONV_2D",
+        "version": 3,
+        "input_shape": [
+          1,
+          16,
+          16,
+          16
+        ]
+      },
+      {
+        "op": "CONV_2D",
+        "version": 3,
+        "input_shape": [
+          1,
+          16,
+          16,
+          16
+        ]
+      },
+      {
+        "op": "MEAN",
+        "version": 2,
+        "input_shape": [
+          1,
+          16,
+          16,
+          32
+        ],
+        "axes": [
+          1,
+          2
+        ],
+        "keep_dims": true
+      },
+      {
+        "op": "SHAPE",
+        "version": 1,
+        "input_shape": [
+          1,
+          1,
+          1,
+          32
+        ]
+      },
+      {
+        "op": "GATHER",
+        "version": 1,
+        "input_shape": [
+          4
+        ]
+      },
+      {
+        "op": "REDUCE_PROD",
+        "version": 1,
+        "input_shape": [
+          3
+        ]
+      },
+      {
+        "op": "CONCATENATION",
+        "version": 1,
+        "input_shape": [
+          3
+        ]
+      },
+      {
+        "op": "GATHER",
+        "version": 1,
+        "input_shape": [
+          4
+        ]
+      },
+      {
+        "op": "REDUCE_PROD",
+        "version": 1,
+        "input_shape": [
+          1
+        ]
+      },
+      {
+        "op": "PACK",
+        "version": 1,
+        "input_shape": []
+      },
+      {
+        "op": "RESHAPE",
+        "version": 1,
+        "input_shape": [
+          1,
+          1,
+          1,
+          32
+        ]
+      },
+      {
+        "op": "FULLY_CONNECTED",
+        "version": 4,
+        "input_shape": [
+          1,
+          32
+        ]
+      },
+      {
+        "op": "RESHAPE",
+        "version": 1,
+        "input_shape": [
+          1,
+          10
+        ]
+      },
+      {
+        "op": "ADD",
+        "version": 2,
+        "input_shape": [
+          1,
+          1,
+          1,
+          10
+        ]
+      }
+    ],
+    "operator_counts": {
+      "CONV_2D": 2,
+      "MAX_POOL_2D": 1,
+      "DEPTHWISE_CONV_2D": 1,
+      "MEAN": 1,
+      "SHAPE": 1,
+      "GATHER": 2,
+      "REDUCE_PROD": 2,
+      "CONCATENATION": 1,
+      "PACK": 1,
+      "RESHAPE": 2,
+      "FULLY_CONNECTED": 1,
+      "ADD": 1
+    },
+    "training_and_architecture": {
+      "name": "depthwise_both",
+      "origin": "custom CIFAR-10 CNN; trained from scratch",
+      "training_epochs": 1,
+      "train_samples": 12000,
+      "test_accuracy_1000": 0.10195548087358475,
+      "input_shape": [
+        1,
+        32,
+        32,
+        3
+      ],
+      "output_shape": [
+        1,
+        1,
+        1,
+        10
+      ],
+      "input_scale": 0.003921568859368563,
+      "input_zero_point": -128,
+      "host_output": [
+        -25,
+        68,
+        36,
+        29,
+        27,
+        54,
+        24,
+        64,
+        31,
+        45
+      ],
+      "ops": [
+        {
+          "name": "CONV_2D",
+          "inputs": [
+            [
+              1,
+              32,
+              32,
+              3
+            ],
+            [
+              16,
+              3,
+              3,
+              3
+            ],
+            [
+              16
+            ]
+          ]
+        },
+        {
+          "name": "MAX_POOL_2D",
+          "inputs": [
+            [
+              1,
+              16,
+              16,
+              16
+            ]
+          ]
+        },
+        {
+          "name": "DEPTHWISE_CONV_2D",
+          "inputs": [
+            [
+              1,
+              16,
+              16,
+              16
+            ],
+            [
+              1,
+              3,
+              3,
+              16
+            ],
+            [
+              16
+            ]
+          ]
+        },
+        {
+          "name": "CONV_2D",
+          "inputs": [
+            [
+              1,
+              16,
+              16,
+              16
+            ],
+            [
+              32,
+              1,
+              1,
+              16
+            ],
+            [
+              32
+            ]
+          ]
+        },
+        {
+          "name": "MEAN",
+          "inputs": [
+            [
+              1,
+              16,
+              16,
+              32
+            ],
+            [
+              2
+            ]
+          ]
+        },
+        {
+          "name": "SHAPE",
+          "inputs": [
+            [
+              1,
+              1,
+              1,
+              32
+            ]
+          ]
+        },
+        {
+          "name": "GATHER",
+          "inputs": [
+            [
+              4
+            ],
+            [
+              3
+            ]
+          ]
+        },
+        {
+          "name": "REDUCE_PROD",
+          "inputs": [
+            [
+              3
+            ],
+            [
+              1
+            ]
+          ]
+        },
+        {
+          "name": "CONCATENATION",
+          "inputs": [
+            [
+              3
+            ],
+            [
+              1
+            ]
+          ]
+        },
+        {
+          "name": "GATHER",
+          "inputs": [
+            [
+              4
+            ],
+            [
+              1
+            ]
+          ]
+        },
+        {
+          "name": "REDUCE_PROD",
+          "inputs": [
+            [
+              1
+            ],
+            [
+              1
+            ]
+          ]
+        },
+        {
+          "name": "PACK",
+          "inputs": [
+            [],
+            []
+          ]
+        },
+        {
+          "name": "RESHAPE",
+          "inputs": [
+            [
+              1,
+              1,
+              1,
+              32
+            ],
+            [
+              2
+            ]
+          ]
+        },
+        {
+          "name": "FULLY_CONNECTED",
+          "inputs": [
+            [
+              1,
+              1
+            ],
+            [
+              10,
+              32
+            ]
+          ]
+        },
+        {
+          "name": "RESHAPE",
+          "inputs": [
+            [
+              1,
+              10
+            ],
+            [
+              4
+            ]
+          ]
+        },
+        {
+          "name": "ADD",
+          "inputs": [
+            [
+              1,
+              1,
+              1,
+              10
+            ],
+            [
+              10
+            ]
+          ]
+        }
+      ],
+      "dataset": "CIFAR-10",
+      "fixed_test_index": 0,
+      "model_sha256": "fc4a549bda35be5d5aeba84d2377d188e6b1754a72c41ab11cdeab7833d1ab69",
+      "input_sha256": "9f2b799d8a7d23ea057764d98841e08038753212d8fcb06b4b8f28a859926511",
+      "note": "Full-model correctness on the board must be checked across builds. Built-in TFLM MEAN is not ESP-NN MEAN."
+    },
+    "validation_input_sha256": [
+      "e68c61fd5a85a20d66067d1958489782815e9252c504bddc2c3bf97f618ac947",
+      "77a418536d99728b84b93dd88981cf7ca3e0a527298c4c78897b3ccc9b1b1584",
+      "1ed76ff104fc947eb6d3e4d4fd13998651c847e2b4231464f757bfd85362dc99",
+      "c21980452db8447c35e1948f47a86f80663b2fd5109fc7fbcc8b6291de835419",
+      "18751af1ce2d0b648efc7d1db94329019791d3fdcb0378e5a334327a3a6822e2",
+      "05f1f9629852a68839ba5aed6894e52da87a2bb1845f005a774fa6f7d017e90c"
+    ],
+    "host_tflite": {
+      "outputs_hex": [
+        "e744241d1b3618401f2d",
+        "014e1a1c0e39f53f3235",
+        "1348181e0f35f33a4133",
+        "024b1b1d1137fa403234",
+        "d8332d212d3135460c25",
+        "a8273827302d7141ef1e",
+        "d347291f183530400631"
+      ],
+      "tensorflow_version": "2.15.1"
+    },
+    "host_reference": {
+      "outputs_hex": [
+        "e644241c1b3618401f2d",
+        "004f1b1c0e39f43f3235",
+        "1349181e0f35f33a4132",
+        "024b1b1d1137fa403234",
+        "d7332e212d3135460c24",
+        "a8273827302d7141ef1e",
+        "d347291f173530410631"
+      ],
+      "tensorflow_version": "2.15.1"
+    }
+  },
+  "efficientnet_lite0": {
+    "source": "https://storage.googleapis.com/mediapipe-models/image_classifier/efficientnet_lite0/int8/latest/efficientnet_lite0.tflite",
+    "source_detail": "Google MediaPipe's ImageNet EfficientNet-Lite0, UINT8 interface with INT8 compute, CIFAR-10 image 0 resized to 224x224 RGB UINT8 as used by the ImageClassifier input interface.",
+    "schema_version": 3,
+    "model_bytes": 5434517,
+    "model_sha256": "bc2ffe19c1118de0c0c2a9088992da5589722656e0fba81421385300a4a34b16",
+    "input_bytes": 150528,
+    "input_sha256": "43cda968cf3ddc50ecb37615801f7f7e8ba9ffa8f80c01a9b0e3fddcf8626ff6",
+    "input": {
+      "shape": [
+        1,
+        224,
+        224,
+        3
+      ],
+      "dtype": "UINT8",
+      "scale": [
+        0.012566016986966133
+      ],
+      "zero_point": [
+        131
+      ]
+    },
+    "output": {
+      "shape": [
+        1,
+        1000
+      ],
+      "dtype": "UINT8",
+      "scale": [
+        0.00390625
+      ],
+      "zero_point": [
+        0
+      ]
+    },
+    "operators": [
+      {
+        "op": "QUANTIZE",
+        "version": 1,
+        "input_shape": [
+          1,
+          224,
+          224,
+          3
+        ]
+      },
+      {
+        "op": "CONV_2D",
+        "version": 3,
+        "input_shape": [
+          1,
+          224,
+          224,
+          3
+        ]
+      },
+      {
+        "op": "DEPTHWISE_CONV_2D",
+        "version": 3,
+        "input_shape": [
+          1,
+          112,
+          112,
+          32
+        ]
+      },
+      {
+        "op": "CONV_2D",
+        "version": 3,
+        "input_shape": [
+          1,
+          112,
+          112,
+          32
+        ]
+      },
+      {
+        "op": "CONV_2D",
+        "version": 3,
+        "input_shape": [
+          1,
+          112,
+          112,
+          16
+        ]
+      },
+      {
+        "op": "DEPTHWISE_CONV_2D",
+        "version": 3,
+        "input_shape": [
+          1,
+          112,
+          112,
+          96
+        ]
+      },
+      {
+        "op": "CONV_2D",
+        "version": 3,
+        "input_shape": [
+          1,
+          56,
+          56,
+          96
+        ]
+      },
+      {
+        "op": "CONV_2D",
+        "version": 3,
+        "input_shape": [
+          1,
+          56,
+          56,
+          24
+        ]
+      },
+      {
+        "op": "DEPTHWISE_CONV_2D",
+        "version": 3,
+        "input_shape": [
+          1,
+          56,
+          56,
+          144
+        ]
+      },
+      {
+        "op": "CONV_2D",
+        "version": 3,
+        "input_shape": [
+          1,
+          56,
+          56,
+          144
+        ]
+      },
+      {
+        "op": "ADD",
+        "version": 2,
+        "input_shape": [
+          1,
+          56,
+          56,
+          24
+        ]
+      },
+      {
+        "op": "CONV_2D",
+        "version": 3,
+        "input_shape": [
+          1,
+          56,
+          56,
+          24
+        ]
+      },
+      {
+        "op": "DEPTHWISE_CONV_2D",
+        "version": 3,
+        "input_shape": [
+          1,
+          56,
+          56,
+          144
+        ]
+      },
+      {
+        "op": "CONV_2D",
+        "version": 3,
+        "input_shape": [
+          1,
+          28,
+          28,
+          144
+        ]
+      },
+      {
+        "op": "CONV_2D",
+        "version": 3,
+        "input_shape": [
+          1,
+          28,
+          28,
+          40
+        ]
+      },
+      {
+        "op": "DEPTHWISE_CONV_2D",
+        "version": 3,
+        "input_shape": [
+          1,
+          28,
+          28,
+          240
+        ]
+      },
+      {
+        "op": "CONV_2D",
+        "version": 3,
+        "input_shape": [
+          1,
+          28,
+          28,
+          240
+        ]
+      },
+      {
+        "op": "ADD",
+        "version": 2,
+        "input_shape": [
+          1,
+          28,
+          28,
+          40
+        ]
+      },
+      {
+        "op": "CONV_2D",
+        "version": 3,
+        "input_shape": [
+          1,
+          28,
+          28,
+          40
+        ]
+      },
+      {
+        "op": "DEPTHWISE_CONV_2D",
+        "version": 3,
+        "input_shape": [
+          1,
+          28,
+          28,
+          240
+        ]
+      },
+      {
+        "op": "CONV_2D",
+        "version": 3,
+        "input_shape": [
+          1,
+          14,
+          14,
+          240
+        ]
+      },
+      {
+        "op": "CONV_2D",
+        "version": 3,
+        "input_shape": [
+          1,
+          14,
+          14,
+          80
+        ]
+      },
+      {
+        "op": "DEPTHWISE_CONV_2D",
+        "version": 3,
+        "input_shape": [
+          1,
+          14,
+          14,
+          480
+        ]
+      },
+      {
+        "op": "CONV_2D",
+        "version": 3,
+        "input_shape": [
+          1,
+          14,
+          14,
+          480
+        ]
+      },
+      {
+        "op": "ADD",
+        "version": 2,
+        "input_shape": [
+          1,
+          14,
+          14,
+          80
+        ]
+      },
+      {
+        "op": "CONV_2D",
+        "version": 3,
+        "input_shape": [
+          1,
+          14,
+          14,
+          80
+        ]
+      },
+      {
+        "op": "DEPTHWISE_CONV_2D",
+        "version": 3,
+        "input_shape": [
+          1,
+          14,
+          14,
+          480
+        ]
+      },
+      {
+        "op": "CONV_2D",
+        "version": 3,
+        "input_shape": [
+          1,
+          14,
+          14,
+          480
+        ]
+      },
+      {
+        "op": "ADD",
+        "version": 2,
+        "input_shape": [
+          1,
+          14,
+          14,
+          80
+        ]
+      },
+      {
+        "op": "CONV_2D",
+        "version": 3,
+        "input_shape": [
+          1,
+          14,
+          14,
+          80
+        ]
+      },
+      {
+        "op": "DEPTHWISE_CONV_2D",
+        "version": 3,
+        "input_shape": [
+          1,
+          14,
+          14,
+          480
+        ]
+      },
+      {
+        "op": "CONV_2D",
+        "version": 3,
+        "input_shape": [
+          1,
+          14,
+          14,
+          480
+        ]
+      },
+      {
+        "op": "CONV_2D",
+        "version": 3,
+        "input_shape": [
+          1,
+          14,
+          14,
+          112
+        ]
+      },
+      {
+        "op": "DEPTHWISE_CONV_2D",
+        "version": 3,
+        "input_shape": [
+          1,
+          14,
+          14,
+          672
+        ]
+      },
+      {
+        "op": "CONV_2D",
+        "version": 3,
+        "input_shape": [
+          1,
+          14,
+          14,
+          672
+        ]
+      },
+      {
+        "op": "ADD",
+        "version": 2,
+        "input_shape": [
+          1,
+          14,
+          14,
+          112
+        ]
+      },
+      {
+        "op": "CONV_2D",
+        "version": 3,
+        "input_shape": [
+          1,
+          14,
+          14,
+          112
+        ]
+      },
+      {
+        "op": "DEPTHWISE_CONV_2D",
+        "version": 3,
+        "input_shape": [
+          1,
+          14,
+          14,
+          672
+        ]
+      },
+      {
+        "op": "CONV_2D",
+        "version": 3,
+        "input_shape": [
+          1,
+          14,
+          14,
+          672
+        ]
+      },
+      {
+        "op": "ADD",
+        "version": 2,
+        "input_shape": [
+          1,
+          14,
+          14,
+          112
+        ]
+      },
+      {
+        "op": "CONV_2D",
+        "version": 3,
+        "input_shape": [
+          1,
+          14,
+          14,
+          112
+        ]
+      },
+      {
+        "op": "DEPTHWISE_CONV_2D",
+        "version": 3,
+        "input_shape": [
+          1,
+          14,
+          14,
+          672
+        ]
+      },
+      {
+        "op": "CONV_2D",
+        "version": 3,
+        "input_shape": [
+          1,
+          7,
+          7,
+          672
+        ]
+      },
+      {
+        "op": "CONV_2D",
+        "version": 3,
+        "input_shape": [
+          1,
+          7,
+          7,
+          192
+        ]
+      },
+      {
+        "op": "DEPTHWISE_CONV_2D",
+        "version": 3,
+        "input_shape": [
+          1,
+          7,
+          7,
+          1152
+        ]
+      },
+      {
+        "op": "CONV_2D",
+        "version": 3,
+        "input_shape": [
+          1,
+          7,
+          7,
+          1152
+        ]
+      },
+      {
+        "op": "ADD",
+        "version": 2,
+        "input_shape": [
+          1,
+          7,
+          7,
+          192
+        ]
+      },
+      {
+        "op": "CONV_2D",
+        "version": 3,
+        "input_shape": [
+          1,
+          7,
+          7,
+          192
+        ]
+      },
+      {
+        "op": "DEPTHWISE_CONV_2D",
+        "version": 3,
+        "input_shape": [
+          1,
+          7,
+          7,
+          1152
+        ]
+      },
+      {
+        "op": "CONV_2D",
+        "version": 3,
+        "input_shape": [
+          1,
+          7,
+          7,
+          1152
+        ]
+      },
+      {
+        "op": "ADD",
+        "version": 2,
+        "input_shape": [
+          1,
+          7,
+          7,
+          192
+        ]
+      },
+      {
+        "op": "CONV_2D",
+        "version": 3,
+        "input_shape": [
+          1,
+          7,
+          7,
+          192
+        ]
+      },
+      {
+        "op": "DEPTHWISE_CONV_2D",
+        "version": 3,
+        "input_shape": [
+          1,
+          7,
+          7,
+          1152
+        ]
+      },
+      {
+        "op": "CONV_2D",
+        "version": 3,
+        "input_shape": [
+          1,
+          7,
+          7,
+          1152
+        ]
+      },
+      {
+        "op": "ADD",
+        "version": 2,
+        "input_shape": [
+          1,
+          7,
+          7,
+          192
+        ]
+      },
+      {
+        "op": "CONV_2D",
+        "version": 3,
+        "input_shape": [
+          1,
+          7,
+          7,
+          192
+        ]
+      },
+      {
+        "op": "DEPTHWISE_CONV_2D",
+        "version": 3,
+        "input_shape": [
+          1,
+          7,
+          7,
+          1152
+        ]
+      },
+      {
+        "op": "CONV_2D",
+        "version": 3,
+        "input_shape": [
+          1,
+          7,
+          7,
+          1152
+        ]
+      },
+      {
+        "op": "CONV_2D",
+        "version": 3,
+        "input_shape": [
+          1,
+          7,
+          7,
+          320
+        ]
+      },
+      {
+        "op": "AVERAGE_POOL_2D",
+        "version": 2,
+        "input_shape": [
+          1,
+          7,
+          7,
+          1280
+        ]
+      },
+      {
+        "op": "RESHAPE",
+        "version": 1,
+        "input_shape": [
+          1,
+          1,
+          1,
+          1280
+        ]
+      },
+      {
+        "op": "FULLY_CONNECTED",
+        "version": 4,
+        "input_shape": [
+          1,
+          1280
+        ]
+      },
+      {
+        "op": "SOFTMAX",
+        "version": 2,
+        "input_shape": [
+          1,
+          1000
+        ]
+      },
+      {
+        "op": "QUANTIZE",
+        "version": 1,
+        "input_shape": [
+          1,
+          1000
+        ]
+      }
+    ],
+    "operator_counts": {
+      "QUANTIZE": 2,
+      "CONV_2D": 33,
+      "DEPTHWISE_CONV_2D": 16,
+      "ADD": 9,
+      "AVERAGE_POOL_2D": 1,
+      "RESHAPE": 1,
+      "FULLY_CONNECTED": 1,
+      "SOFTMAX": 1
+    },
+    "training_and_architecture": null,
+    "validation_input_sha256": [
+      "13d67b6e6bb5697690a7ebdd7147ee13627251142c24bd41db22f36b3b9ad4ca",
+      "779c33d338e63bd21a3f0944bd2365e453403bab7450786a9dbd1adb204fedc8",
+      "6230cf6b5a016cbb9e163e69f4f38c4e49643a0ead33790987754161d66c4c4a",
+      "dbb7036d2eb705b3dbe8cc9c503a2f6e0d334c6a0d1a3e46da62ed3d27a445ba",
+      "e46dc7a6f15a4637183d8992d8406d5d1d8e8d1e8c38e692e257a82018ba5d97",
+      "f01fe19d19b0650330e609e2e367455083fa362bdad5369d2e4ed805a346b5a5"
+    ],
+    "host_tflite": {
+      "outputs_hex": [
+        "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000000000020001000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000100000000000100000101000b0405010100000000000000000000010006000100000000020002000000010000000000000000000000010001000600000000000000000000000000000000000000000000000000000000000002000000010000000000000100000000000000000002000100000001000000000000000000000000030100000200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000100030000020000000000000000000000000000000000020023020100000001000000000000000000000000020000000001000000000000000000010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001000000000000000000000102000000000000000000000000000000000000000000050000000000000000010000000000000000010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000001000000000000000000000000000000000003000000000000000000000000000000000000010000000000000000000100000001000000000000000000000000010000000000000000000100010000000000010000000000000000000000000000000000000000000000000000000000000000010108000100050000000300020000010001000000000000000000000000000000000000000000000002000000000000010000000f000100000000000000000000000000000000000000000000000000000000000100000000020000000000000000000000000000000000000001000000000000010000000000000000000000000000000000000000000000000000000000000001000000000000000001000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000000001000000000000000000010500000003000000000000000000000000000000000000000000000000000000000000000000000000000001000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+        "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000100000003000000000000000000010000000000000000000000000000000002000001000000000000000000000000000000000000000000000000000000010000000000000a000000000000000006000000000000000000000000000000000000000107000000000000010100000000000001000002000000000002000000010000010000000000000000000000000000000903000000000000000000000000000000310000000000000000000000000000000000010000000000000000000000000000000000000100010000000000000000000000000001000000000000000000010200000000000000000000000000000000000000000000000001000001000000000000010000000000000000010000010001000000020002000000000000000000000000000000000000000000000000000100030000000000000000000000000000000000000000000000000100000000000000010000000000000000000000000000000000000000000001000000000000000000000002000000000000000000000000000000000000000000010000000001010100020c0000010000000000000000000000000001000000000100060000000000000000000000000000000000000000000001000000000000000000020000000000000100000000000000000000000012000000000400000000010000000002000001000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000103000000000000000000000000000000000000000000000000000000000000",
+        "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001000000000000000000010000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000010200000109000000000200000000000000010000000000000000000000000001010000000000000000000000000300000000000000000000000000000001080000000000000000010000000000010b000200000000000000000000000000000000000000000000000000170300000000000000000000000000000000000000000000030002000000000000000000000100000200000002000100000000000000000000030000000000000000020000000000000100000000000001000000000000000000000000000000010000000000000000000000000001000000000100030100000000000000000000000000000000000000000000000000000002000000030003010000000000000000000000080000000000000000020000000000000000000100000000000000000000040000000000000000000000000000000000000200000100000000000001000100000000000101000000000000000000000000000000000000000100000100000000000000000000000000010004000000000000030000000000000000000000000000000000000000020100010b0000000000000300000000000000000006000200000000000000000000000000000000000000000100010000000100000000000000000000010000010000000000000000000000000000000002000000000000000000000000000001000000000002000200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000",
+        "0000000001000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001000000000000000000000000000000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000080000000000000000000000000000000000000000000000000000070000000000000000000000000000000000000000000000000000010000000001000205000000000000000000000000000000000100000000000000000100000000000000000000000000000000000000050000000000000000000000000000000000000000010000020000000000000000000000000000000000000000000000000000000000000000000100000001070000000000000001000000000000000100000000000000000000000000030000000000000000000004000100000000000000000000000000000000000000000000000000000000010001000000000000000001032d0300000002000001030002000000000003000000000000000000000000000000000000000000000000000000010000000000030000000000000000000000000000000100000000000000000000000000000000000000000100000000000000010000000000000000000018000000000000000000000000000000000000000000000000000000010005000000000000000000000000000000000000000000000000000200000000000000000000000006000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000103000000000000000000000000000f0100000009000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001000000000000000000000000000000000000000000000000000000000000",
+        "00000000000000000000000000000000000000000000000000000301000002016a00000000000000000100040000010100000000010001000002005100000100010001000400000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000010000000000000004010000000800000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000000000000000000000100010001000002000401000000",
+        "000000000000000000000000000000000000000000000000000000000000000000000000000000000000000100000000000000010000000000000000000000000000000001000000000000000000000000000000000000000000000000000000000000000000000200010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000000000000000002000000000000000004000d0804190006080b00010000000000040100000c3f020706010000010000000000000000000000000000000000000000000000000000000000000000000000000800010000000100000000000000000000000000000301020001000000000600000000000100000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+        "000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000101000000000000000000000000000000010000000001000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000010000000000000001000000010100000000000000000000000000000000000002020000000001000000000000000000000000000000000000000000000200000000000000000000000000000100000000000000000000000000010000010000000002000000000007000109000000000000000011000000000000000000000001000000000000000600000000000000000000000000000000000000010000010000000000000000000000000000000400000000000000000001000000000000010000000000000003000000000001000000000000000001000000000000000000000000000000020000010100000000010000000000010000000002030000000000020000000000000000000000000000000000000001000003000000000000000000000000000100000001140100020001000000020001000000000000000000000000000000000000010000000000000000010000010000010000000000050000010000010000000000000004000000000000000000000700000000000000010000000900000000000000000000000000000000000001000000000000000000000000000000000000000001000100000000030000000000000e0000000000000000010000000000000000000000000000000000000000000000000000000200000000000000000001000002000000000000000000000000000001000000000000000001000000000000000000010100000001000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+      ],
+      "tensorflow_version": "2.15.1"
+    },
+    "host_reference": {
+      "outputs_hex": [
+        "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000000000020001000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000100000000000100000000000b0405010100000000000000000000010006000100000000030002000000010000000000000000000000010000000500000000000000000000000000000000000000000000000000000000000002000000010000000000000100000000000000000002000100000001000000000000000000000000030100000200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000100030000020000000000000000000000000000000000020022020100000000000000000000000000000000020000000001000000000000000000010000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000001000000000000000000000102000000000000000000000000000000000000000000050000000000000000010000000000000000010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000001000000000000000000000000000000000002000000000000000000000000000000000000010000000000000000000100000001000000000000000000000000010000000000000000000100010000000000010000000000000000000000000000000000000000000000000000000000000000010107000100050000000300020000010000000000000000000000000000000000000000000000000002000000000000010000000e000100000000000000000000000000000000000000000000000000000000000100000000030000000000000000000000000000000000000001000000000000010000000000000100000000000000000000000000000000000000000000000001000000000000000001000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000500000003000000000000000000000000000000000000000000000000000000000000000000000000000001000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+        "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000100000004000000000000000000010000000000000000000000000000000002000001000000000000000000000000000000000000000000000000000000010000000000000a0000000000000000070000000000000000010000000000000000000001070000000000000101000000000000010000030000000000020000000100000100000000000000000000000000000007030000000000000000000000000000002e0000000000000000000000000000000000010000000001000001000000000000000000000100010000000000000000000000000001000000000000000000020200010000000000000000000000000000000000000000000001000001000000000000010000000000000000010000020001000000020002000000000000000000000000000000000000000000000000000100030000000000000000000000000000000000000000000000000100000000000000010000000100000000000000000000000000000000000001000000000000000000000002000000000000000000000000010000000000000000010000000001010101020f0000020000000000000000000000000001000000000100060000000000000000000000000000000000000000000001000000000000000000030000000000000100000000000000000000000011000000000400000000010000000002000001000000000000010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000103000000000000000000000000000000000000000000000000000000000000",
+        "000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000010000000000000000000100000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000102000001080000000002000000000000000100000000000000000000000000010100000000000000000000000003000000000000000000000000000000010a0000000000000000010000000000020b000200000000000000000000000000000000000000000000000000140200000000000000000000000000000000000000000000030001000000000000000000000100000200000001000200000000000000010000020000000000000000020000000000000100000000000002000000000000000000000000000000010000000000000000000000000002000000000100030100000000000000000000000000000000000000000000000000000002000000030003010000000000000000000000090000000000000000020000000000000000000100000000000000000000040000000000000000000000000000000000000100000200000000000001000100000000000101000000000000000000000000000100000000000100000200000000000000000000000000010005000000000000030000000000000000000000000000000000000000020101010a0000000000000200000000000000000007000200000000010000000000000000000000000000000100010000000100000000000000000000010000010000000000000000000000000000000002000000000000000000000000000001000000000002000100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000002000001000000000000000000000000000000000000000000",
+        "0000000001000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001000000000000000000000000000000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000060000000000000000000000000000000000000000000000000000080000000000000000000000000000000000000000000000000000010000000001000204000000000000000000000000000000000000000000000000000000000000000000000000000100000000000000040000000000000000000000000000000000000000010000020000000000000000000000000000000000000000000000000000000000000000000100000001070000000000000001000000000000000100000000000000000000000000040000000000000000000004000100000000000000000000000000000000000000000000000000000000010001000000000000000001032c030000000200000102000200000000000300000000000000000000000000000000000000000000000000000001000000000003000000000000000000000000000000000000000000000000000000000000000000000000010000000000000001000000000000000000001c000000000000000000000000000000000000000000000000000000010004000000000000000000000000000000000000000000000000000100000000000000000000000006000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000103000000000000000000000000000f010000000a000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001000000000000000000000000000000000000000000000000000000000000",
+        "00000000000000000000000000000000000000000000000000000201000003016c00000000000000000000030000010100000000010000000001005a00000000010001000300000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000010000000000000003010000000700000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000000000000000000000100000000000002000301000000",
+        "000000000000000000000000000000000000000000000000000000000000000000000000000000000000000200000000000000010000000000000000000000000000000001000000000000000000000000000000000000000000000000000000000000000000000200010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000000000000000002000000000000000004000e08041900050b0e00010000000000030100000a2b020507010000010000000000000000000000000000000000000000000000000000000000000000000000000a00010000000100000000000000000000000000000401020002000000000700000000000100000000000000000000000001000017000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+        "000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000101000000000000000000000000000000010000000001000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000010000000000000000000000010100000000000000000000000000000000000002010000000001000000000000000000000000000000000000000000000200000000000000000000000000000100000000000000000000000000010000010000000002000000000006000108000000000000000013000000000000000000000001000000000000000400000000000000000000000000000000000000010000010000000000000000000000000000000400000000000000000001000000000000010000000000000002000000000001000000000000000001000000000000000000000000000000020000010100000000010000000000010000000002030000000000010000000000000000000000000000000000000001000003000000000000000000000000000100000001150100030001000000020001000000000000000000000000000000000000010000000000000000010000010000010000000000050000010000010000000000000005000000000000000000000600000000000000010000000a00000000000000000000000000000000000001000000000000000000000000000000000000000001000100000000030000000000000c0000000000000000010000000000000000000000000000000000000000000000000000000200000000000000000001000002000000000000000000000000000001000000000000000001000000000000000000010100000001000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+      ],
+      "tensorflow_version": "2.15.1"
+    }
+  },
+  "max3": {
+    "source": "https://www.cs.toronto.edu/~kriz/cifar.html",
+    "source_detail": "Kit custom CNN. TensorFlow 2.15.1, 1 epoch, 12000 samples, seed 1729, Adam, 128 calibration images, full integer TFLite quantization. Fixed test image 0.",
+    "schema_version": 3,
+    "model_bytes": 29776,
+    "model_sha256": "39a10bb41a87b6fcde0fe460694edd3a8a8b7e3af6b30ddc758f66f8bd5739ef",
+    "input_bytes": 3072,
+    "input_sha256": "9f2b799d8a7d23ea057764d98841e08038753212d8fcb06b4b8f28a859926511",
+    "input": {
+      "shape": [
+        1,
+        32,
+        32,
+        3
+      ],
+      "dtype": "INT8",
+      "scale": [
+        0.003921568859368563
+      ],
+      "zero_point": [
+        -128
+      ]
+    },
+    "output": {
+      "shape": [
+        1,
+        10
+      ],
+      "dtype": "INT8",
+      "scale": [
+        0.036391790956258774
+      ],
+      "zero_point": [
+        9
+      ]
+    },
+    "operators": [
+      {
+        "op": "CONV_2D",
+        "version": 3,
+        "input_shape": [
+          1,
+          32,
+          32,
+          3
+        ]
+      },
+      {
+        "op": "MAX_POOL_2D",
+        "version": 2,
+        "input_shape": [
+          1,
+          16,
+          16,
+          16
+        ],
+        "filter": [
+          3,
+          3
+        ],
+        "stride": [
+          1,
+          1
+        ],
+        "same": true
+      },
+      {
+        "op": "CONV_2D",
+        "version": 3,
+        "input_shape": [
+          1,
+          16,
+          16,
+          16
+        ]
+      },
+      {
+        "op": "RESHAPE",
+        "version": 1,
+        "input_shape": [
+          1,
+          8,
+          8,
+          32
+        ]
+      },
+      {
+        "op": "FULLY_CONNECTED",
+        "version": 4,
+        "input_shape": [
+          1,
+          2048
+        ]
+      }
+    ],
+    "operator_counts": {
+      "CONV_2D": 2,
+      "MAX_POOL_2D": 1,
+      "RESHAPE": 1,
+      "FULLY_CONNECTED": 1
+    },
+    "training_and_architecture": {
+      "name": "max3",
+      "origin": "custom CIFAR-10 CNN; trained from scratch",
+      "training_epochs": 1,
+      "train_samples": 12000,
+      "test_accuracy_1000": 0.3880000114440918,
+      "input_shape": [
+        1,
+        32,
+        32,
+        3
+      ],
+      "output_shape": [
+        1,
+        10
+      ],
+      "input_scale": 0.003921568859368563,
+      "input_zero_point": -128,
+      "host_output": [
+        -33,
+        24,
+        3,
+        51,
+        -25,
+        32,
+        26,
+        -34,
+        -45,
+        -27
+      ],
+      "ops": [
+        {
+          "name": "CONV_2D",
+          "inputs": [
+            [
+              1,
+              32,
+              32,
+              3
+            ],
+            [
+              16,
+              3,
+              3,
+              3
+            ],
+            [
+              16
+            ]
+          ]
+        },
+        {
+          "name": "MAX_POOL_2D",
+          "inputs": [
+            [
+              1,
+              16,
+              16,
+              16
+            ]
+          ]
+        },
+        {
+          "name": "CONV_2D",
+          "inputs": [
+            [
+              1,
+              16,
+              16,
+              16
+            ],
+            [
+              32,
+              3,
+              3,
+              16
+            ],
+            [
+              32
+            ]
+          ]
+        },
+        {
+          "name": "RESHAPE",
+          "inputs": [
+            [
+              1,
+              8,
+              8,
+              32
+            ],
+            [
+              2
+            ]
+          ]
+        },
+        {
+          "name": "FULLY_CONNECTED",
+          "inputs": [
+            [
+              1,
+              2048
+            ],
+            [
+              10,
+              2048
+            ],
+            [
+              10
+            ]
+          ]
+        }
+      ],
+      "dataset": "CIFAR-10",
+      "fixed_test_index": 0,
+      "model_sha256": "39a10bb41a87b6fcde0fe460694edd3a8a8b7e3af6b30ddc758f66f8bd5739ef",
+      "input_sha256": "9f2b799d8a7d23ea057764d98841e08038753212d8fcb06b4b8f28a859926511",
+      "note": "Full-model correctness on the board must be checked across builds. Built-in TFLM MEAN is not ESP-NN MEAN."
+    },
+    "validation_input_sha256": [
+      "e68c61fd5a85a20d66067d1958489782815e9252c504bddc2c3bf97f618ac947",
+      "77a418536d99728b84b93dd88981cf7ca3e0a527298c4c78897b3ccc9b1b1584",
+      "1ed76ff104fc947eb6d3e4d4fd13998651c847e2b4231464f757bfd85362dc99",
+      "c21980452db8447c35e1948f47a86f80663b2fd5109fc7fbcc8b6291de835419",
+      "18751af1ce2d0b648efc7d1db94329019791d3fdcb0378e5a334327a3a6822e2",
+      "05f1f9629852a68839ba5aed6894e52da87a2bb1845f005a774fa6f7d017e90c"
+    ],
+    "host_tflite": {
+      "outputs_hex": [
+        "df180333e7201aded3e5",
+        "2b2ae7d4b3d2aefc3d2f",
+        "310ffceec6eebafb460f",
+        "320005eac8e1bbf546ff",
+        "c0e01d1b2e272723bdd0",
+        "b902f91cf7161e0fbae8",
+        "e942d718ba24f5f6c4eb"
+      ],
+      "tensorflow_version": "2.15.1"
+    },
+    "host_reference": {
+      "outputs_hex": [
+        "df180333e7201aded3e5",
+        "2b2ae7d4b3d2aefc3d2f",
+        "310ffceec6eebafb460f",
+        "320005eac8e1bbf546ff",
+        "c0e01d1b2e272723bdd0",
+        "b902f91cf7161e0fbae8",
+        "e942d718ba24f5f6c4eb"
+      ],
+      "tensorflow_version": "2.15.1"
+    }
+  },
+  "max5": {
+    "source": "https://www.cs.toronto.edu/~kriz/cifar.html",
+    "source_detail": "Kit custom CNN. TensorFlow 2.15.1, 1 epoch, 12000 samples, seed 1729, Adam, 128 calibration images, full integer TFLite quantization. Fixed test image 0.",
+    "schema_version": 3,
+    "model_bytes": 29776,
+    "model_sha256": "9408ee22c791a7c073bf9acf5bdf5f02202bbaee75f2acfbbba4882a3585b428",
+    "input_bytes": 3072,
+    "input_sha256": "9f2b799d8a7d23ea057764d98841e08038753212d8fcb06b4b8f28a859926511",
+    "input": {
+      "shape": [
+        1,
+        32,
+        32,
+        3
+      ],
+      "dtype": "INT8",
+      "scale": [
+        0.003921568859368563
+      ],
+      "zero_point": [
+        -128
+      ]
+    },
+    "output": {
+      "shape": [
+        1,
+        10
+      ],
+      "dtype": "INT8",
+      "scale": [
+        0.031780906021595
+      ],
+      "zero_point": [
+        21
+      ]
+    },
+    "operators": [
+      {
+        "op": "CONV_2D",
+        "version": 3,
+        "input_shape": [
+          1,
+          32,
+          32,
+          3
+        ]
+      },
+      {
+        "op": "MAX_POOL_2D",
+        "version": 2,
+        "input_shape": [
+          1,
+          16,
+          16,
+          16
+        ],
+        "filter": [
+          5,
+          5
+        ],
+        "stride": [
+          1,
+          1
+        ],
+        "same": true
+      },
+      {
+        "op": "CONV_2D",
+        "version": 3,
+        "input_shape": [
+          1,
+          16,
+          16,
+          16
+        ]
+      },
+      {
+        "op": "RESHAPE",
+        "version": 1,
+        "input_shape": [
+          1,
+          8,
+          8,
+          32
+        ]
+      },
+      {
+        "op": "FULLY_CONNECTED",
+        "version": 4,
+        "input_shape": [
+          1,
+          2048
+        ]
+      }
+    ],
+    "operator_counts": {
+      "CONV_2D": 2,
+      "MAX_POOL_2D": 1,
+      "RESHAPE": 1,
+      "FULLY_CONNECTED": 1
+    },
+    "training_and_architecture": {
+      "name": "max5",
+      "origin": "custom CIFAR-10 CNN; trained from scratch",
+      "training_epochs": 1,
+      "train_samples": 12000,
+      "test_accuracy_1000": 0.39800000190734863,
+      "input_shape": [
+        1,
+        32,
+        32,
+        3
+      ],
+      "output_shape": [
+        1,
+        10
+      ],
+      "input_scale": 0.003921568859368563,
+      "input_zero_point": -128,
+      "host_output": [
+        -27,
+        7,
+        11,
+        45,
+        -14,
+        58,
+        22,
+        -20,
+        -24,
+        -31
+      ],
+      "ops": [
+        {
+          "name": "CONV_2D",
+          "inputs": [
+            [
+              1,
+              32,
+              32,
+              3
+            ],
+            [
+              16,
+              3,
+              3,
+              3
+            ],
+            [
+              16
+            ]
+          ]
+        },
+        {
+          "name": "MAX_POOL_2D",
+          "inputs": [
+            [
+              1,
+              16,
+              16,
+              16
+            ]
+          ]
+        },
+        {
+          "name": "CONV_2D",
+          "inputs": [
+            [
+              1,
+              16,
+              16,
+              16
+            ],
+            [
+              32,
+              3,
+              3,
+              16
+            ],
+            [
+              32
+            ]
+          ]
+        },
+        {
+          "name": "RESHAPE",
+          "inputs": [
+            [
+              1,
+              8,
+              8,
+              32
+            ],
+            [
+              2
+            ]
+          ]
+        },
+        {
+          "name": "FULLY_CONNECTED",
+          "inputs": [
+            [
+              1,
+              2048
+            ],
+            [
+              10,
+              2048
+            ],
+            [
+              10
+            ]
+          ]
+        }
+      ],
+      "dataset": "CIFAR-10",
+      "fixed_test_index": 0,
+      "model_sha256": "9408ee22c791a7c073bf9acf5bdf5f02202bbaee75f2acfbbba4882a3585b428",
+      "input_sha256": "9f2b799d8a7d23ea057764d98841e08038753212d8fcb06b4b8f28a859926511",
+      "note": "Full-model correctness on the board must be checked across builds. Built-in TFLM MEAN is not ESP-NN MEAN."
+    },
+    "validation_input_sha256": [
+      "e68c61fd5a85a20d66067d1958489782815e9252c504bddc2c3bf97f618ac947",
+      "77a418536d99728b84b93dd88981cf7ca3e0a527298c4c78897b3ccc9b1b1584",
+      "1ed76ff104fc947eb6d3e4d4fd13998651c847e2b4231464f757bfd85362dc99",
+      "c21980452db8447c35e1948f47a86f80663b2fd5109fc7fbcc8b6291de835419",
+      "18751af1ce2d0b648efc7d1db94329019791d3fdcb0378e5a334327a3a6822e2",
+      "05f1f9629852a68839ba5aed6894e52da87a2bb1845f005a774fa6f7d017e90c"
+    ],
+    "host_tflite": {
+      "outputs_hex": [
+        "e5070b2df23a16ece8e1",
+        "3f39cfceb4caade8584a",
+        "4804fcefc8eda5fd591b",
+        "3919f2f1c7e4b8ed4a26",
+        "bde9202e27313c29b9e8",
+        "d30f001b091d3327d4fe",
+        "e74bd10fbc2401fbe311"
+      ],
+      "tensorflow_version": "2.15.1"
+    },
+    "host_reference": {
+      "outputs_hex": [
+        "e5080b2df13a16ece9e1",
+        "3f39cfceb4caade8584a",
+        "4804fcefc8eda5fd591b",
+        "3919f2f1c7e4b8ed4a26",
+        "bde9202e27313c29b9e8",
+        "d30f001b091d3327d4fe",
+        "e74bd10fbc2401fbe311"
+      ],
+      "tensorflow_version": "2.15.1"
+    }
+  },
+  "mean_only": {
+    "source": "https://www.cs.toronto.edu/~kriz/cifar.html",
+    "source_detail": "Kit custom CNN. TensorFlow 2.15.1, 1 epoch, 12000 samples, seed 1729, Adam, 128 calibration images, full integer TFLite quantization. Fixed test image 0.",
+    "schema_version": 3,
+    "model_bytes": 11704,
+    "model_sha256": "5a708061ea93ca49ab6af9f5b1f8d3d93f19b76628f9e1d5ba50aa307d2348dc",
+    "input_bytes": 3072,
+    "input_sha256": "9f2b799d8a7d23ea057764d98841e08038753212d8fcb06b4b8f28a859926511",
+    "input": {
+      "shape": [
+        1,
+        32,
+        32,
+        3
+      ],
+      "dtype": "INT8",
+      "scale": [
+        0.003921568859368563
+      ],
+      "zero_point": [
+        -128
+      ]
+    },
+    "output": {
+      "shape": [
+        1,
+        1,
+        1,
+        10
+      ],
+      "dtype": "INT8",
+      "scale": [
+        0.014719488099217415
+      ],
+      "zero_point": [
+        -13
+      ]
+    },
+    "operators": [
+      {
+        "op": "CONV_2D",
+        "version": 3,
+        "input_shape": [
+          1,
+          32,
+          32,
+          3
+        ]
+      },
+      {
+        "op": "CONV_2D",
+        "version": 3,
+        "input_shape": [
+          1,
+          16,
+          16,
+          16
+        ]
+      },
+      {
+        "op": "MEAN",
+        "version": 2,
+        "input_shape": [
+          1,
+          8,
+          8,
+          32
+        ],
+        "axes": [
+          1,
+          2
+        ],
+        "keep_dims": true
+      },
+      {
+        "op": "SHAPE",
+        "version": 1,
+        "input_shape": [
+          1,
+          1,
+          1,
+          32
+        ]
+      },
+      {
+        "op": "GATHER",
+        "version": 1,
+        "input_shape": [
+          4
+        ]
+      },
+      {
+        "op": "REDUCE_PROD",
+        "version": 1,
+        "input_shape": [
+          3
+        ]
+      },
+      {
+        "op": "CONCATENATION",
+        "version": 1,
+        "input_shape": [
+          3
+        ]
+      },
+      {
+        "op": "GATHER",
+        "version": 1,
+        "input_shape": [
+          4
+        ]
+      },
+      {
+        "op": "REDUCE_PROD",
+        "version": 1,
+        "input_shape": [
+          1
+        ]
+      },
+      {
+        "op": "PACK",
+        "version": 1,
+        "input_shape": []
+      },
+      {
+        "op": "RESHAPE",
+        "version": 1,
+        "input_shape": [
+          1,
+          1,
+          1,
+          32
+        ]
+      },
+      {
+        "op": "FULLY_CONNECTED",
+        "version": 4,
+        "input_shape": [
+          1,
+          32
+        ]
+      },
+      {
+        "op": "RESHAPE",
+        "version": 1,
+        "input_shape": [
+          1,
+          10
+        ]
+      },
+      {
+        "op": "ADD",
+        "version": 2,
+        "input_shape": [
+          1,
+          1,
+          1,
+          10
+        ]
+      }
+    ],
+    "operator_counts": {
+      "CONV_2D": 2,
+      "MEAN": 1,
+      "SHAPE": 1,
+      "GATHER": 2,
+      "REDUCE_PROD": 2,
+      "CONCATENATION": 1,
+      "PACK": 1,
+      "RESHAPE": 2,
+      "FULLY_CONNECTED": 1,
+      "ADD": 1
+    },
+    "training_and_architecture": {
+      "name": "mean_only",
+      "origin": "custom CIFAR-10 CNN; trained from scratch",
+      "training_epochs": 1,
+      "train_samples": 12000,
+      "test_accuracy_1000": 0.10862047225236893,
+      "input_shape": [
+        1,
+        32,
+        32,
+        3
+      ],
+      "output_shape": [
+        1,
+        1,
+        1,
+        10
+      ],
+      "input_scale": 0.003921568859368563,
+      "input_zero_point": -128,
+      "host_output": [
+        -8,
+        -16,
+        3,
+        -1,
+        -17,
+        -25,
+        -20,
+        3,
+        -12,
+        -4
+      ],
+      "ops": [
+        {
+          "name": "CONV_2D",
+          "inputs": [
+            [
+              1,
+              32,
+              32,
+              3
+            ],
+            [
+              16,
+              3,
+              3,
+              3
+            ],
+            [
+              16
+            ]
+          ]
+        },
+        {
+          "name": "CONV_2D",
+          "inputs": [
+            [
+              1,
+              16,
+              16,
+              16
+            ],
+            [
+              32,
+              3,
+              3,
+              16
+            ],
+            [
+              32
+            ]
+          ]
+        },
+        {
+          "name": "MEAN",
+          "inputs": [
+            [
+              1,
+              8,
+              8,
+              32
+            ],
+            [
+              2
+            ]
+          ]
+        },
+        {
+          "name": "SHAPE",
+          "inputs": [
+            [
+              1,
+              1,
+              1,
+              32
+            ]
+          ]
+        },
+        {
+          "name": "GATHER",
+          "inputs": [
+            [
+              4
+            ],
+            [
+              3
+            ]
+          ]
+        },
+        {
+          "name": "REDUCE_PROD",
+          "inputs": [
+            [
+              3
+            ],
+            [
+              1
+            ]
+          ]
+        },
+        {
+          "name": "CONCATENATION",
+          "inputs": [
+            [
+              3
+            ],
+            [
+              1
+            ]
+          ]
+        },
+        {
+          "name": "GATHER",
+          "inputs": [
+            [
+              4
+            ],
+            [
+              1
+            ]
+          ]
+        },
+        {
+          "name": "REDUCE_PROD",
+          "inputs": [
+            [
+              1
+            ],
+            [
+              1
+            ]
+          ]
+        },
+        {
+          "name": "PACK",
+          "inputs": [
+            [],
+            []
+          ]
+        },
+        {
+          "name": "RESHAPE",
+          "inputs": [
+            [
+              1,
+              1,
+              1,
+              32
+            ],
+            [
+              2
+            ]
+          ]
+        },
+        {
+          "name": "FULLY_CONNECTED",
+          "inputs": [
+            [
+              1,
+              1
+            ],
+            [
+              10,
+              32
+            ]
+          ]
+        },
+        {
+          "name": "RESHAPE",
+          "inputs": [
+            [
+              1,
+              10
+            ],
+            [
+              4
+            ]
+          ]
+        },
+        {
+          "name": "ADD",
+          "inputs": [
+            [
+              1,
+              1,
+              1,
+              10
+            ],
+            [
+              10
+            ]
+          ]
+        }
+      ],
+      "dataset": "CIFAR-10",
+      "fixed_test_index": 0,
+      "model_sha256": "eaf015d9fdad2c9cf7c6e62d2e8671341061a1e7012903e3a18a585ed477b501",
+      "input_sha256": "9f2b799d8a7d23ea057764d98841e08038753212d8fcb06b4b8f28a859926511",
+      "note": "Full-model correctness on the board must be checked across builds. Built-in TFLM MEAN is not ESP-NN MEAN."
+    },
+    "validation_input_sha256": [
+      "e68c61fd5a85a20d66067d1958489782815e9252c504bddc2c3bf97f618ac947",
+      "77a418536d99728b84b93dd88981cf7ca3e0a527298c4c78897b3ccc9b1b1584",
+      "1ed76ff104fc947eb6d3e4d4fd13998651c847e2b4231464f757bfd85362dc99",
+      "c21980452db8447c35e1948f47a86f80663b2fd5109fc7fbcc8b6291de835419",
+      "18751af1ce2d0b648efc7d1db94329019791d3fdcb0378e5a334327a3a6822e2",
+      "05f1f9629852a68839ba5aed6894e52da87a2bb1845f005a774fa6f7d017e90c"
+    ],
+    "host_tflite": {
+      "outputs_hex": [
+        "f8f003ffefe7ec03f4fc",
+        "2bf40affdddcc5011c0d",
+        "30f707fcdddcc2fd250d",
+        "29f509ffdfddc6001a0c",
+        "e2eb06fef8f0fd05def3",
+        "ace3fc0505fa260aacde",
+        "d0eefc02f8f10907cfef"
+      ],
+      "tensorflow_version": "2.15.1"
+    },
+    "host_reference": {
+      "outputs_hex": [
+        "f7f103ffefe8ec03f4fc",
+        "2bf50affdddcc5011c0d",
+        "30f707fcdddcc2fd250d",
+        "29f509ffdfdec7001a0c",
+        "e2eb06fef8effd05def3",
+        "ace3fc0505fa260aacde",
+        "d0eefb02f8f10908cfef"
+      ],
+      "tensorflow_version": "2.15.1"
+    }
+  },
+  "mnist_fixed": {
+    "source": "https://github.com/IoannouKon/esp-nn/tree/edb003c6770491abb74766835f4c803b9d4f5a20",
+    "source_detail": "User's frozen trained MNIST model, exact model and input from the benchmark commit.",
+    "schema_version": 3,
+    "model_bytes": 25000,
+    "model_sha256": "163d2e5014411841e814e927967887ae4d42ae283b12116b55514a3f0daaef47",
+    "input_bytes": 784,
+    "input_sha256": "1f84c643695b1a774441f8f8b6a29ba99024fd234c0cfe98ba6095dc270077f8",
+    "input": {
+      "shape": [
+        1,
+        28,
+        28,
+        1
+      ],
+      "dtype": "INT8",
+      "scale": [
+        0.003921568859368563
+      ],
+      "zero_point": [
+        -128
+      ]
+    },
+    "output": {
+      "shape": [
+        1,
+        10
+      ],
+      "dtype": "INT8",
+      "scale": [
+        0.1566666066646576
+      ],
+      "zero_point": [
+        26
+      ]
+    },
+    "operators": [
+      {
+        "op": "CONV_2D",
+        "version": 3,
+        "input_shape": [
+          1,
+          28,
+          28,
+          1
+        ]
+      },
+      {
+        "op": "MAX_POOL_2D",
+        "version": 2,
+        "input_shape": [
+          1,
+          14,
+          14,
+          16
+        ],
+        "filter": [
+          3,
+          3
+        ],
+        "stride": [
+          1,
+          1
+        ],
+        "same": true
+      },
+      {
+        "op": "CONV_2D",
+        "version": 3,
+        "input_shape": [
+          1,
+          14,
+          14,
+          16
+        ]
+      },
+      {
+        "op": "MAX_POOL_2D",
+        "version": 2,
+        "input_shape": [
+          1,
+          7,
+          7,
+          32
+        ],
+        "filter": [
+          5,
+          5
+        ],
+        "stride": [
+          1,
+          1
+        ],
+        "same": true
+      },
+      {
+        "op": "RESHAPE",
+        "version": 1,
+        "input_shape": [
+          1,
+          7,
+          7,
+          32
+        ]
+      },
+      {
+        "op": "FULLY_CONNECTED",
+        "version": 4,
+        "input_shape": [
+          1,
+          1568
+        ]
+      }
+    ],
+    "operator_counts": {
+      "CONV_2D": 2,
+      "MAX_POOL_2D": 2,
+      "RESHAPE": 1,
+      "FULLY_CONNECTED": 1
+    },
+    "training_and_architecture": null,
+    "validation_input_sha256": [
+      "8f4ee4b72cdca4a3c527685307e0e069ce52d80e4951fb24f1df4b3464f3c1de",
+      "d42a793bef09123505ae8217b0e5f39879d10c77e1a653acafe7d57a2c87ba81",
+      "cfe0525680b7418d95fa2a354c72196d85e01714e815d3b7b617650e2f34a2b7",
+      "957e661aa7340fffd73bf894449eabc988857a8d0a260b50913fe77184840309",
+      "4e5c8f95fc627ec82f70a9f848c5fbeef959ee8e843316fec426e5fdf91a78f6",
+      "6210379c8e5b63a49be5872dbb1856a5d58eb5594e0dbdb5516e39ecf2819f07"
+    ],
+    "host_tflite": {
+      "outputs_hex": [
+        "e0fc2c0ee8e79962e81e",
+        "f5185bfbd8d8f3e7ffe8",
+        "055011f2240403050b05",
+        "54ee1ae7f1fd1ddd0d04",
+        "0017f8d361f4f20bfd1f",
+        "015309ec1cf2f7150b12",
+        "db16f6d060f6cf131b15"
+      ],
+      "tensorflow_version": "2.15.1"
+    },
+    "host_reference": {
+      "outputs_hex": [
+        "e0fc2c0ee8e79962e81e",
+        "f5185bfbd8d8f3e7ffe8",
+        "055011f2240403050b05",
+        "54ee1ae7f1fd1ddd0d04",
+        "0017f8d361f4f20bfd1f",
+        "015309ec1cf2f7150b12",
+        "db16f6d060f6cf131b15"
+      ],
+      "tensorflow_version": "2.15.1"
+    }
+  },
+  "mobilenet_v2": {
+    "source": "https://huggingface.co/litert-community/MobileNet-v2",
+    "source_detail": "Static channelwise INT8 TorchVision checkpoint. Model card does not give a separate weights license. CIFAR-10 test image 0, RGB bilinear 232 then center crop 224, ImageNet channel normalization, NCHW and model input quantization.",
+    "schema_version": 3,
+    "model_bytes": 4005520,
+    "model_sha256": "8ec776c5b4cd99a024f7dd3f2c9eced750d80f5ebeca6de7bc8021ecf922c9c3",
+    "input_bytes": 150528,
+    "input_sha256": "5a4ba39082492b9021ffef44f5f621fd25d7c3d08e34fc82edd808dd3ad75f54",
+    "input": {
+      "shape": [
+        1,
+        3,
+        224,
+        224
+      ],
+      "dtype": "INT8",
+      "scale": [
+        0.017585843801498413
+      ],
+      "zero_point": [
+        -14
+      ]
+    },
+    "output": {
+      "shape": [
+        1,
+        1000
+      ],
+      "dtype": "INT8",
+      "scale": [
+        0.06594836711883545
+      ],
+      "zero_point": [
+        -82
+      ]
+    },
+    "operators": [
+      {
+        "op": "TRANSPOSE",
+        "version": 1,
+        "input_shape": [
+          1,
+          3,
+          224,
+          224
+        ]
+      },
+      {
+        "op": "PAD",
+        "version": 1,
+        "input_shape": [
+          1,
+          224,
+          224,
+          3
+        ]
+      },
+      {
+        "op": "CONV_2D",
+        "version": 1,
+        "input_shape": [
+          1,
+          226,
+          226,
+          3
+        ]
+      },
+      {
+        "op": "DEPTHWISE_CONV_2D",
+        "version": 1,
+        "input_shape": [
+          1,
+          112,
+          112,
+          32
+        ]
+      },
+      {
+        "op": "CONV_2D",
+        "version": 1,
+        "input_shape": [
+          1,
+          112,
+          112,
+          32
+        ]
+      },
+      {
+        "op": "CONV_2D",
+        "version": 1,
+        "input_shape": [
+          1,
+          112,
+          112,
+          16
+        ]
+      },
+      {
+        "op": "PAD",
+        "version": 1,
+        "input_shape": [
+          1,
+          112,
+          112,
+          96
+        ]
+      },
+      {
+        "op": "DEPTHWISE_CONV_2D",
+        "version": 1,
+        "input_shape": [
+          1,
+          114,
+          114,
+          96
+        ]
+      },
+      {
+        "op": "CONV_2D",
+        "version": 1,
+        "input_shape": [
+          1,
+          56,
+          56,
+          96
+        ]
+      },
+      {
+        "op": "CONV_2D",
+        "version": 1,
+        "input_shape": [
+          1,
+          56,
+          56,
+          24
+        ]
+      },
+      {
+        "op": "DEPTHWISE_CONV_2D",
+        "version": 1,
+        "input_shape": [
+          1,
+          56,
+          56,
+          144
+        ]
+      },
+      {
+        "op": "CONV_2D",
+        "version": 1,
+        "input_shape": [
+          1,
+          56,
+          56,
+          144
+        ]
+      },
+      {
+        "op": "ADD",
+        "version": 1,
+        "input_shape": [
+          1,
+          56,
+          56,
+          24
+        ]
+      },
+      {
+        "op": "CONV_2D",
+        "version": 1,
+        "input_shape": [
+          1,
+          56,
+          56,
+          24
+        ]
+      },
+      {
+        "op": "PAD",
+        "version": 1,
+        "input_shape": [
+          1,
+          56,
+          56,
+          144
+        ]
+      },
+      {
+        "op": "DEPTHWISE_CONV_2D",
+        "version": 1,
+        "input_shape": [
+          1,
+          58,
+          58,
+          144
+        ]
+      },
+      {
+        "op": "CONV_2D",
+        "version": 1,
+        "input_shape": [
+          1,
+          28,
+          28,
+          144
+        ]
+      },
+      {
+        "op": "CONV_2D",
+        "version": 1,
+        "input_shape": [
+          1,
+          28,
+          28,
+          32
+        ]
+      },
+      {
+        "op": "DEPTHWISE_CONV_2D",
+        "version": 1,
+        "input_shape": [
+          1,
+          28,
+          28,
+          192
+        ]
+      },
+      {
+        "op": "CONV_2D",
+        "version": 1,
+        "input_shape": [
+          1,
+          28,
+          28,
+          192
+        ]
+      },
+      {
+        "op": "ADD",
+        "version": 1,
+        "input_shape": [
+          1,
+          28,
+          28,
+          32
+        ]
+      },
+      {
+        "op": "CONV_2D",
+        "version": 1,
+        "input_shape": [
+          1,
+          28,
+          28,
+          32
+        ]
+      },
+      {
+        "op": "DEPTHWISE_CONV_2D",
+        "version": 1,
+        "input_shape": [
+          1,
+          28,
+          28,
+          192
+        ]
+      },
+      {
+        "op": "CONV_2D",
+        "version": 1,
+        "input_shape": [
+          1,
+          28,
+          28,
+          192
+        ]
+      },
+      {
+        "op": "ADD",
+        "version": 1,
+        "input_shape": [
+          1,
+          28,
+          28,
+          32
+        ]
+      },
+      {
+        "op": "CONV_2D",
+        "version": 1,
+        "input_shape": [
+          1,
+          28,
+          28,
+          32
+        ]
+      },
+      {
+        "op": "PAD",
+        "version": 1,
+        "input_shape": [
+          1,
+          28,
+          28,
+          192
+        ]
+      },
+      {
+        "op": "DEPTHWISE_CONV_2D",
+        "version": 1,
+        "input_shape": [
+          1,
+          30,
+          30,
+          192
+        ]
+      },
+      {
+        "op": "CONV_2D",
+        "version": 1,
+        "input_shape": [
+          1,
+          14,
+          14,
+          192
+        ]
+      },
+      {
+        "op": "CONV_2D",
+        "version": 1,
+        "input_shape": [
+          1,
+          14,
+          14,
+          64
+        ]
+      },
+      {
+        "op": "DEPTHWISE_CONV_2D",
+        "version": 1,
+        "input_shape": [
+          1,
+          14,
+          14,
+          384
+        ]
+      },
+      {
+        "op": "CONV_2D",
+        "version": 1,
+        "input_shape": [
+          1,
+          14,
+          14,
+          384
+        ]
+      },
+      {
+        "op": "ADD",
+        "version": 1,
+        "input_shape": [
+          1,
+          14,
+          14,
+          64
+        ]
+      },
+      {
+        "op": "CONV_2D",
+        "version": 1,
+        "input_shape": [
+          1,
+          14,
+          14,
+          64
+        ]
+      },
+      {
+        "op": "DEPTHWISE_CONV_2D",
+        "version": 1,
+        "input_shape": [
+          1,
+          14,
+          14,
+          384
+        ]
+      },
+      {
+        "op": "CONV_2D",
+        "version": 1,
+        "input_shape": [
+          1,
+          14,
+          14,
+          384
+        ]
+      },
+      {
+        "op": "ADD",
+        "version": 1,
+        "input_shape": [
+          1,
+          14,
+          14,
+          64
+        ]
+      },
+      {
+        "op": "CONV_2D",
+        "version": 1,
+        "input_shape": [
+          1,
+          14,
+          14,
+          64
+        ]
+      },
+      {
+        "op": "DEPTHWISE_CONV_2D",
+        "version": 1,
+        "input_shape": [
+          1,
+          14,
+          14,
+          384
+        ]
+      },
+      {
+        "op": "CONV_2D",
+        "version": 1,
+        "input_shape": [
+          1,
+          14,
+          14,
+          384
+        ]
+      },
+      {
+        "op": "ADD",
+        "version": 1,
+        "input_shape": [
+          1,
+          14,
+          14,
+          64
+        ]
+      },
+      {
+        "op": "CONV_2D",
+        "version": 1,
+        "input_shape": [
+          1,
+          14,
+          14,
+          64
+        ]
+      },
+      {
+        "op": "DEPTHWISE_CONV_2D",
+        "version": 1,
+        "input_shape": [
+          1,
+          14,
+          14,
+          384
+        ]
+      },
+      {
+        "op": "CONV_2D",
+        "version": 1,
+        "input_shape": [
+          1,
+          14,
+          14,
+          384
+        ]
+      },
+      {
+        "op": "CONV_2D",
+        "version": 1,
+        "input_shape": [
+          1,
+          14,
+          14,
+          96
+        ]
+      },
+      {
+        "op": "DEPTHWISE_CONV_2D",
+        "version": 1,
+        "input_shape": [
+          1,
+          14,
+          14,
+          576
+        ]
+      },
+      {
+        "op": "CONV_2D",
+        "version": 1,
+        "input_shape": [
+          1,
+          14,
+          14,
+          576
+        ]
+      },
+      {
+        "op": "ADD",
+        "version": 1,
+        "input_shape": [
+          1,
+          14,
+          14,
+          96
+        ]
+      },
+      {
+        "op": "CONV_2D",
+        "version": 1,
+        "input_shape": [
+          1,
+          14,
+          14,
+          96
+        ]
+      },
+      {
+        "op": "DEPTHWISE_CONV_2D",
+        "version": 1,
+        "input_shape": [
+          1,
+          14,
+          14,
+          576
+        ]
+      },
+      {
+        "op": "CONV_2D",
+        "version": 1,
+        "input_shape": [
+          1,
+          14,
+          14,
+          576
+        ]
+      },
+      {
+        "op": "ADD",
+        "version": 1,
+        "input_shape": [
+          1,
+          14,
+          14,
+          96
+        ]
+      },
+      {
+        "op": "CONV_2D",
+        "version": 1,
+        "input_shape": [
+          1,
+          14,
+          14,
+          96
+        ]
+      },
+      {
+        "op": "PAD",
+        "version": 1,
+        "input_shape": [
+          1,
+          14,
+          14,
+          576
+        ]
+      },
+      {
+        "op": "DEPTHWISE_CONV_2D",
+        "version": 1,
+        "input_shape": [
+          1,
+          16,
+          16,
+          576
+        ]
+      },
+      {
+        "op": "CONV_2D",
+        "version": 1,
+        "input_shape": [
+          1,
+          7,
+          7,
+          576
+        ]
+      },
+      {
+        "op": "CONV_2D",
+        "version": 1,
+        "input_shape": [
+          1,
+          7,
+          7,
+          160
+        ]
+      },
+      {
+        "op": "DEPTHWISE_CONV_2D",
+        "version": 1,
+        "input_shape": [
+          1,
+          7,
+          7,
+          960
+        ]
+      },
+      {
+        "op": "CONV_2D",
+        "version": 1,
+        "input_shape": [
+          1,
+          7,
+          7,
+          960
+        ]
+      },
+      {
+        "op": "ADD",
+        "version": 1,
+        "input_shape": [
+          1,
+          7,
+          7,
+          160
+        ]
+      },
+      {
+        "op": "CONV_2D",
+        "version": 1,
+        "input_shape": [
+          1,
+          7,
+          7,
+          160
+        ]
+      },
+      {
+        "op": "DEPTHWISE_CONV_2D",
+        "version": 1,
+        "input_shape": [
+          1,
+          7,
+          7,
+          960
+        ]
+      },
+      {
+        "op": "CONV_2D",
+        "version": 1,
+        "input_shape": [
+          1,
+          7,
+          7,
+          960
+        ]
+      },
+      {
+        "op": "ADD",
+        "version": 1,
+        "input_shape": [
+          1,
+          7,
+          7,
+          160
+        ]
+      },
+      {
+        "op": "CONV_2D",
+        "version": 1,
+        "input_shape": [
+          1,
+          7,
+          7,
+          160
+        ]
+      },
+      {
+        "op": "DEPTHWISE_CONV_2D",
+        "version": 1,
+        "input_shape": [
+          1,
+          7,
+          7,
+          960
+        ]
+      },
+      {
+        "op": "CONV_2D",
+        "version": 1,
+        "input_shape": [
+          1,
+          7,
+          7,
+          960
+        ]
+      },
+      {
+        "op": "CONV_2D",
+        "version": 1,
+        "input_shape": [
+          1,
+          7,
+          7,
+          320
+        ]
+      },
+      {
+        "op": "SUM",
+        "version": 1,
+        "input_shape": [
+          1,
+          7,
+          7,
+          1280
+        ]
+      },
+      {
+        "op": "FULLY_CONNECTED",
+        "version": 1,
+        "input_shape": [
+          1,
+          1,
+          1,
+          1280
+        ]
+      }
+    ],
+    "operator_counts": {
+      "TRANSPOSE": 1,
+      "PAD": 5,
+      "CONV_2D": 35,
+      "DEPTHWISE_CONV_2D": 17,
+      "ADD": 10,
+      "SUM": 1,
+      "FULLY_CONNECTED": 1
+    },
+    "training_and_architecture": null,
+    "validation_input_sha256": [
+      "c0ac91216e39c7cab4fc363ca77b5c8dbc9c2a584d89ddd5925f28ac5951c00f",
+      "e914369dbadf0192cb799513fcbc002c6db3cb709d32e0ef19895f29ac8aa783",
+      "cfd5c04b493866d8aac02f89b8abff71819b81d260f147c162cdce2c1ac1ec63",
+      "7c6549edbf9d9f95e397057253d6311a3fd167a411f0dc478c1b29b12f288fbb",
+      "c79fc08ab03d02e1acd3433748479246a2b854fc6c3fdbcfef1c72cf976fb42a",
+      "61449ee780c13a17c023f9f6ba1e8d2a2907b86b78b124848cf18d7e650e9b43"
+    ],
+    "host_tflite": {
+      "outputs_hex": [
+        "b6bbb1a6adbaa4a2a194be989baca1a69a9993a39e9f9e98a99fa9a5ada4a39ea8bbb29ba0a8b8bba3a4b3d79e9fa0a0a4a6a4df94a793a79c94a2aa9c9bc1a69ea6a694baa2abaa9cbaa89d9e99baa9bda49aac989ca8aea4a39794a197a9af9a9dcaa4a1c19ed8b8aca6b1a49ea4b8b1b5a0a2bed4aaa6a79c9c9aa4abca9dada696a2aea2a1ada5ae999eada6b49ba9bdb0c1afcfbeb0dda0cac0c4baebb1cccfcbd1f9f3eeeddab9c0b0ada1c1f4b9bbb2aeb4d8bacfa4b6b8d7dfbae6b6aeccf1a8c1afce97cac5bea3b8a6bebdc0acd49eb996bba0c899a2a2d0b9ab9da2b2bab6cfb8c8bbadaec1c1c9bbcaacb8f5a5b2cdadbac3b4b4adb3cfb4afc3adb1a3a49dc4e1abc4a4a4abc1cdaec4dbbcbbb5b7c5dbb8ddc8cccfb0c5b4b9c3b2bfdad4cab1aec3c2b4b89fa7a396ad9e95a2a7aebfa8a99b9caaa0aba6ac999eabacaaa2b4ac9fa7bfb9a7b798f0b6a3b6b99eaba8b0aab1a292a1b1a6c59ca9b490b3a9d3c1c6a2b7a8bbb1a6acababc1ddb3c0c7b8acbea9acb1bbcac9b3c6c7afa0b1aeadc7a1ada4a4afa1c5b6a5aaa2bda4a4a8b0bfa7a3a2b9a19da9a6b4bdabaaa39aaea7ccdbaca4a8adb1a4aaa9a399a3c8a59e91ae99a1c2a1a99eb2e0aa9daca2a1acada39dcbb3a8add1a4a5afa19f9da2dbacb4aeb6ab9fa5c4cba8a796b799b6a3cbdbacbdbdad9fa6a0ceb0baefc2a1a8a5b4a59fbaafa7b5a9aecb98a9afa7c5b79fb7a299aca0afa0b6ae9ec5a49fb8a8b0acb5a6b1929aada5a8a5c7c3a89998a5d1a4b0aeb69ea7a1a19eb5d0a4a7aba49e9ba3a4aad195a1a7b4a3b8cab9a59ea2aebeb498b2b697d7989797aaaea9a8c099c4a7a09cd3b5a5a197c6a5a7a9b2b3a094dba9b39fa0a398bac29ed598d6aaaa9aae9fd5a69faeada4a79dac94aca4d3a59fa99aaea0ada4b9b093afa4b09f9fae91b79fd5cce8b7bdabe49aaec0da9ccbad98c2abb5bcb1ac9ea7a0a1c9a7adbaab9bafa6a9c4a89c96b79ecdd2afa8a8a6a0acbfacbbaae8b7bbe8a0be9a9da79cb49894a8bcadadaba79da2c598a8a5a29caa89adada0c99da7a6a0d98e9fc3a59e9eb1b3d1a2af93a7b39caea1a2cac0a7a5a0b7b4acb1aaaaa893bea0aab4a1b0a69fa8a9b7a8a69fa6b6bcb5d4ada8ad9fcfa39abab6a7a3aab994a9a8a9c9a199aea9a69cc7a99dcfa5a5bba3c39694ac9aa099a7aaa8c3ba97acc0b3b7a7a2a9999fa7bd9ca8b6a3afae9da7b1a9a7a9b2aa9cc69ea3a8a0a3d5bf95acaaa1ab93afa0dad0ac9f8ce49aada2a6a4ada5b7a2a6b6a2a5a0c7a0a9a3b8b49fa1a6a8b4af9da1a897a5a5a6b99aa697a59dbaa79ea8a4ab9e9aa49fa19da5a19eada6a2a8a894a09dbca8ab9a9c9ca4ad9a9ea79da4aba8a0b49baf9d9e9ba5a6a2a0b3b4a7aba7",
+        "abad989f9fa6a7a6a4a6b6a4a5a5a7a5a5a7a4af989ea09fa89999aaa799a4a9aba1a69fa3a7a7a9a8acb4b99da3aea4a1a1aeb7a2a599b09fa8a0c0a6a8bea0adabaea7b8a9a39c9ab1a0a5aca5b6a2b49ca19ea1a098a39fa0aea7a4a9b1a8a7acccacb5b7a7bba5ab9c9d9eb1a5b7a8b1a6a1b3bda7a49ca3a9a2a8a3b49eb99fa4a3a2a3a8acb8aa9894a4a6adb2a6a5a1c9c2beaea5bf9daca4b3aab0a7b5a79e9bbdb6bdb4bd9fa6a59995b5b499a3a1a5a4b6a8c6a49b9ba7b1a0b7a1a9a6bc9999a99c9ba4aaac93a1a8b5b5a9a3bba69ea0a9a3a8979da0b3b8adb6b0a9a39abe9ca89ba3aba0b1adaaa29e9aaf8fa2a49fa0a1afa3a7a5b5a2a7acadaab1a9a9bfb0a6aca9a5acaeb2ac9ebaada0a0b0b3b7b2afa6a9b2aca69dacb2a9b0a8b2b5b1acb6a8afb3a8b0afa1a9a5a4a29fa2c2b2b4a8b2ada7b0a9a9a89f9fa3a9a49ba9a4a7afa3a7a5a2baaea1a7bcaca9a5a9aa9fb0a19c9e99b49da4a4a49ea5b6a6aca8a6a3b0a9b1aeacaea3a8b3b0aab4a3b2a9a29badaab9aeb1b7acb0b1b7b5c7a39da9a0a5a3b2af9cb8b4d9c395c7f0cdaf929fbf90aba2b2d1bfb0b2a5a7beaad3caa6a9aaa2c1b8aabec2a8bac2aeb397acaca9c2ae9bd3ccd3a695a4b9a9afb59eb89ea2aca7b4b3a9acaf96a3c5f5a0aaa5b9a7b1b0c8dfadc3b9a9a9ceadb2dba1c59ca7a09aaed2acbacbdda3a2a6cfb1addcd1b8b09facb79fbba491dbcaa39cafa5bc9facb6caada1d29acdb3a3a5bfc4b3adba9aafa6a4a9cde3ada4cab2b8a5b4a8b79aaaada3aeabf6b0aca89daab4bbb0c0c295a1a1c8a1bcd2d9b1a59ab9caabb3cda09cc6919fa2b8aba7a0c89cd1a39daec1aea7b59dbfb1b8a494bdaab4e19ccdb2cec7bdbcdea3f0a9cfa2a49fb9b0da9ca2b6afc7b49aa8a6c0a3d1b89ac89ba8bfd29dc9af8fafb9b39e95b09db0b5b1f5c2b8d5addca79ad0daa6d8a199b49fa8bdc1bca8ada59bb7a5a5c1adadcfa799bfa591a2d2afe7a89bc5abb8c4a9cdb5cba9c1c3a4d99bcba3a1be9dc1a8a3b5c0aebba9afb2cada95a99ac5a9aa96a1a9d4c39da4baa5d39692c9aec5b3b5cbd99eaba5a9a2c3a2b2b3cbc5b7a79ea2a7b0a09f9ab09ed0a5a9ca95a7b5b4b6bfc5a8a0abbbccbfc7db04a0a7c5b7a59cc6aecaa7b0d8a7a89eabc0a2ad9fa6bdacf0a697c9aa9ec9b1aea5a1aaa9a3a8a1b5a0c9aba2a8cabbb0b3baa5a7c7a6b19cdbb39fadacb09ec3a0a8bfa8af8dc396a2aba6a1dbca97a8b7b6b89faea7d9d9a69d8ada9bbab7adafbdbbdfa2bfa9aeac9fc2a1a9acbaafa5a9b0a0b2ad9dadaf9faaa8aeb8ab9c9eacb2b5a0aabda4a8a4a4a6a3aabaa1a2bbaaa8a9a9aab3b0abc9aeaaa2abb1ccb7c6bcada4a9b0a4a9ae9eaeabadaba0a2a99aa5ac9fa4a1",
+        "aca9bbb8bac7b59da09aba98a2a9a4a6a4a7a0adb4a6a89ba3a4aeadbbaba39ca8b9c19da29baeaf9fa3b4c3a1aaa2a3aaa5b0c999a1a0a9a997a2aba5a5c19ba4b5ab9ebf9eada39ab69d9baa9fb9a2cda69eb2aba4a2a89fa7a4a89ead9eb0ada2e8b8accda4d2a5afa8a8a3b0a4a79ba5aaa3b0bc9ba39e9fa19fa2a0b69ebcaba4a5b0a29cb8a5b59fa2ada3c1adb5c0c9fbead9c4aacd9aafaab8afc3ababa8a6a3c9c3c6cac9adadaa9da5bac89eaa9ea5abbfa1c9a5a6acb7c6b1c6a6aaaecaa5a5b1ae9fa6a9b29da5aac4b1aea5c2a0a8a6afa4afa1a39bb8bbafb0a7a8a0abc3a7aaa8aaa8acb8b6b1a99f9bc39aabb2a4b2aabdb0b8a8cca5acacafacaeaaa5bcc6a1a9a0a4afbfc8bfb5c1bdb5b3bbb7c5cbc2b9b3c2b9bab2b8bdbfb3c9b7c1beadd5bdb0aab3a9beb1a8a4a0aea09cc6a3b1a1aba79c9ea1a4a29ca4a0a0a0a4a29fb1bab4a8a3a5dcb3b8a4c6a2afb0acb7b6a9a9a2b3a8be9eb0b3a2b2b7c6b7d7a8aba6b7b6bbb4babbb6c9b3b4c1c0b1b3b5aca7b2aec5b9bcc9bdb2b6bbb2c8a8b2aea0aca4c0a4a5a4c8d2bba3b4e9b8a89ea1cea29da7a69dafabb99b9d96a9bacbb39ea5b3b1b1a6c2bbb8abb7a1a1a0ad9fa8b2b4a5c2b2b99f9a9ea49ca6ab97b9b2afa095cfb5a4a7b6a1b0b6b5b2b2aaae9bb1a1c5dab2d3a2aea4c1a8b8d1acd1a6b09ea6a4c0b5c1c6b79c9da7b1b1a2dac7a2a29fa3d19fa6b0afbab299adaea5b9a4a8aab5b6a7c8a8c3bab8a8d3b0a1aba0a3aebbae9acfb1a69abea0cea8aeb3af9fa793bdb0abcdaab4ab9fa1afa6a9b9bf90aeacb89ac5b0bab39ba5a7cda597b4ab9ec9a5a598a0a9a79fbe93bca19eb7b6aca4b2a5bea2a59ba3bca6a4ba9bc593bdc99bbdbea3c2a8c0aca59cb4b1afab9a9ea7b89ea2ba93acafd9b49ec7abaea5d5a4c3c5a0b6a09fb8a3b59bb795bae7c8acc09dc9a8aeb7cca7bfb298bba8aaa5c0c3a092a0a3c39caabab5afceb7a1cd9a8c8caeabb8b4afb9bea8a8aab4add8a0c4d7afd799c2a2a8b7a2b49faea9bbb2b3bbb6a6a9bb9898b8a997b6a1b2bab6bda9a1a89ece9ca6c39aa5a1a8b9bd959f9fa6a3a3aec4a6cfb0a1aea3a59bc7aea2a7a4a4b0a5afbaa1a4c1babeb1aba5ae9ca6ceb7d6cee696acb8b0a5a8dbaca0abb7b4ad96a2a5e1aacea5afaea2baad9abfa7a9b79eb2b6a6a6a4ab9ca7b397cdbdb0a1b8afaca9baa0a4c4a1c0a4d5b5a0bca3bca1c0a0a4bba4a1a7c499a1b1a39bd0b590aebeb4a69da5b2c3b0a0a4a8cf98b9a5a0adc9c1e4b0a1a69da2a5b89c9ba6a0b5a69ba99ca7a79e9ea799a09aa2a69d979ba49fb4a398a7a1a4a1959d9ba2a5a7a1a3a5a3a5a89d9ba29cb7bba4a4b0b7cfc5c4c0b5ada4a8bca8afa99ea3a7a49fa6ad9ab2b4a49e98",
+        "b3b1c1b4cfb8aea8aba8b1a4a9ada89fb5a8b099b2bab1ac9fa5b6bab5aba99baaa4b79da7a7afadadb4b6c4aca3ac9cbbb5b2c6aea5a1ad9da0b4baaaa6bdb5b0a4aab6b89ea2a591ae9a9ba798b4afceacafada6b1ada9a3a4a8b69b99afaba2aee7c1b9c6b9e5aea9919a9ba3a7b5a8b0cc9fa8ada4a1a69fa69fac9cbea0c4b3a0a5a8a2b1b9acb29aa1a4afb8acb3b5bee4e8ced799b391a6a8a2a6aeadbca294a8b9c1b7bfc4a6aaa69aa2a7bca5b0a4aba1b49ccdaca6a8b1afacc0a3abadbaa4a6b8acadac9fab999ab8c6b0b1b1bda49b9daf99a79c9c9ab9c3aaaebeaeaca2b6a2aba1b1b2aaafb8a9aeaaa2bc9aa6b4a4b1a6aca7a0a4cdab9aacbba0a099a0a4be9ab4a49da8bbb6a9a2c3b1b4b6bab7c2b1b5b8bdb8c2b6aeb0b0a6aacab0c1c5bcbabbbcb998a79c9ba3a8aca29fa6bea9aca4a8a6aab0a6b3a8959cab9e98a5a9a49faca6a3a2a7d5a9c4a1b9a0b0a8a0a9a6afa5989b9db299a7acaac3cfc9b8d7b7a9a6b4ada8acbcc1b4bcb8bab7b7a7b0adb1a2caabb1a4c7bdb1abbfbcc0b498b9cba09fa8b7a8a7aba3e2ba9bbeb6bf95aea6cd9a9fac91cf03aeba929bb798b2bba8ada59ac3b4a3b2a2a8aabaaba098b1a4a3d2aaa3a8bac2acb1a9b6afaabdacaeacbcb69dc597aa99a3a09db2f7a5a09fcacda3c3e1cc9fbf8faca9b8b4b1dfa2d1a0abb79ba4e4a6b9c2c1af9cadc4a5aba6a0c0b6bca9bd89a1c69ac7ada09ea49ec49eb2b4b89ca9d1a594b2a6b5a6a9aba0a2a4ac9ab8b5c2c7b0ae909ac8beaabfa694b4a3a189afd2a2a0aaa29a9ab0a3beb592ab9b98a5d3bede9cc69ecfd7a9a8cfac92e698a89eb8a8a2a1bd9ecc9eb68ed7b3aea99ab9a0b1a79bc6a9a2eda5a3b794a3b2bbeea3ca98bdb8a796b69abb948cbfb3b2b4ad9998c2b3d9a3a9aea3aa98c29dc9b2a7a4a6ada199a098a6a0e7f8dac6b993eba6a7c9d895e5a8a9b5a19aeaccbb9bbd9d97c5bcafb4b8a5ba98a8d1a7a29ba8afc0baa89da3a8cca0b7aaafa0dab6e8d3a4cca1a8a09baaaca2afc0babaaab9b0a9ca96b99ca4a6b69fa3aeb2bf94b4b299e3b3acc5baa7b1aad9ed959d9aacb7acb2a3bbe5b5c2acc4a0a3b8b3a8bcad9fd09da9bf9eb4a59f9bbfb8b2ab9f9dc0cfc1e0d2a4a1a0a69f92bd9bb6a4a2b0b19b92a2b89caca6b0b7a6eda99cd0ab9bbfadb599989aa5bcaf98aea4c1bba1a8cba9a99a9eaa9ab69eb8a6c6bca597aea7aeb3aaa4c4b1a19abaae9a98a896cbb3a2b1b7a4b3acb2a1d9e1a4ae9cd49fb3a5aba5c9a1c8a3d4d1acc499fdc595a39fa3a1a2ae9eadada7aba79fa49ea9b198a3969a9eaf8fa7aea9a4a29e97a0a3a2999da2a8a6aca4b0a0a097cca5a2928fb1baa9adafaa9ba99ba19fa3adaaa9aba1a0a2a2a7aaa7a1a5b2",
+        "c0b2a5a7a2c8a8b0c1a2bb9aaeada5a6a9a79e9ea3a09ca4a7b4cbbbbdcfbbbaddaa96bab0baaeaaaaadabe1a4adb5ccb09fa5d8b4a4a8c698ae9fe7a8abccb8cab1bba4d1aebba0b3e0bba8bcb3d3b0c0a6b3b4b6a3c0a6a1a69fba9aa79ebbaeb0bcaba7bfb7ddaeaeb7a3b9bca5caa5c2c0a4c1c2a39fa8a3a79b96a8c6a5c6aeada49db1ace1a2a8a492a2a1b59ba59aa2b4a1c7afa3bc9fababb1a3c6b0bfa09faeb3c6b7b6caa1b7aa9ca7a3d397b1a1a9a5bbb0ceb6cac6b5bdbac6aebabfd2a0adada8b5baa3b29dacacd2aeaeb3c9b599a3aea4a89b9da6d5da9ea9b8aec4a1c8a3a9a3a2bda6a0aba7a69ca1c29dadada7b2a1a79ea09bdca7a1afba9b9ba9a3a8d4a5adb8bcb2beaa9bcbb6bccfb2bac1c2a5b7b0b3bbb0b6b3c9c5aecdd4c1c5bbb2a1cdc2bcb5b3bbaab8b2a2ae9da1bba8aeacaaafadaab2a1a7a1c8b1b1a9b7a1a6a4d7d6b8afbcedabd0c3c1a1bcb7b7aab5a49e92acb3c3acb9b29dc9cdd9bcc5b4c1b5fbe0bdbbc2c9c6e2c3d4cbc5d9e4c6bfd3d2cbc8c5bdb5cbc0a8bbaed0a79ea3aaa09fc0a8a1a2a9b59fa2a3b0c2a9a0aab3a7aaa397acaea6b09b9cb19dbec7aea6a6a6ab9da8a99d9ea3c6b194a4aca6a5b59db5b1aebda49eaeb7a3a1afa0a8b0a5aca1c7a3b2a9b0949c9ebba6a2aaa7b2a4abb6b7aba197a3a0a9a5b7be99b5afaba8a9a4baa2b9ccafab98a8b9a0a1afa497a5a3a6ab9e9dab99b6aaa3a59b9da5a9a4afb6aab1aaa6a5a2b1a4a4aba19f999b9b9bada1acb5b698a494b7aaafb2a7a0a0a1a393aeb6a0abb0a2a0a5b9a3a3c4a3a3ada7b7b6aeb49f99a19cb5a2a7a9aca4b19e9fa3a3af9fa9b7a0a8a09d98bb9fb59da4aea5a1a09ebfb5a9c0a2aaa397a2a0a7be9dc1a1d99d9d97a8aab9a1a0a6b0b5aba7a69aaea7d79f9da69aaaa4aea8bbb99cabb5a5a0aaa4a8a69cb2b6b99fb1a7b89ba9b4cfa6bda5afc3a7bab6a6a8a69e9ea1bd9ca2a7aaaea8ada8c79e9b93bba7b6b6a59aa7a6a8a3b4a3aeaeb0b2bab0a7ab9f9ba6a5b2b0c6b1acb3a2b2a5a0a6a09c9fa3a299989da1b3a0a6a1a6aaa1ba969fbfa3b0a5abafbb9c9fa3b2a1b2a79ea3b9aca4a9a4a1a9b6bc9eacaaa0a5a5a6b9aba7a2b4a8a8a9a8a0a9adb0a1a3b4a9b2a0a1ad9ca1b4a0a9acacbf95a1a3a3b1a298a3b0a1a0b4a49ab7999cb1a9af9493b3a59e9aaca19cc9b5aaa1c09f9ead969aab9aa6b1a5afafa8a8a0a0aeafaaadaba9a5a5bea1a5a09999bab59da8a3aea19ba6a1ccc0aaa69dbe9ea9a9a3aac699afb3a3b0aeb4b1b9afc2aec0c9a3a8a4b2b1aaab97bbd6dad0d5cfbfb6cad3bdf2baaecda0adb8bfa5c0dfa6a4b4a7b1c4a3baa395a2a5c6aea699aca5acabada6ae9f97a9ab9bc5c3b3c2b3c9bdb1d7bce9d8c8c1aa",
+        "b4b6a2a0a2c3a2a7a892b496a1a3a29c9aa1a59d9ca1a19fa2a7b7b8bdafa1a3baaca0ada9a9bba2a0a1a6dda4ab9eb1b5a29bccaaa9a3aea9a3a1b3b4b4cec0a9b4c3a9d8a9a9a3a1c6a49da5a2c6acbdab9bac9fa1a5acb4ad9ba69b9ba2a89da5bbae9cccafd8aab4bba5a6b0b5bcafb4a9a6d3c6b7bdafacc5a8a9b6cda5b5a1a9a2a6a0a8b39aa3a39fa898b0a1a09ba6b3a6bfb5abc99fb8a3b9adceb9baadaabcb7cdc9c5e4abaca89caeaec9a6a2a9b6bbbeacc2b3b5bcacc4b4c2abaab6c9a4a5aaa4a9b3a4ad9ea7b3d4c1bdbbcfbfa5c6bcb4baa5adaee5e3a8b4b7b5b0bbc2a2a8a7a8a9b4b5bcae9e989ab6aab6c3aeb1adaea3ada1cfb0a3b1b9aaa5b0cdb2ce9cacb8b5b6b8b8accfb9c7d5b1c0caccb0bcb7bbc5b5c0c7bfccafd0e1ccd7d3c0b2d1c8b2aaa9aea2aaaea4a89f9bb39ea5a9b2b09fb1ac9e9e99aaa19f989ca7abb4babda1abb4e2b7bdb4d7a9cac0b4aac5adb5aeb9aacaacb6baa4c9c7ddc9c1b0c3adc7ebbfcfc3cac9e3c7cdc5bdd1d8c0d3cdc8b8afc0c9c8d9b9a4c0adcaa29f9fa5a7a2b7aaaaaba1aea2a5b1b0bfa2a0a1aea0a2a5a4adb1aaada6a0a9abbbccb0aaadaebfa2a8a9a8a2a5caa8a3a8a79baab09ba4a4b8caa3ababb7a7a5b29fa1b7b3aa9fb39eb0a5a29da89eb9a8a6aca2aba0a5bbb1aea8a3b6a5b7a6bdc5accab8afaaa99eb8aeb5c8ac9fa5aab9adaab9ada0a4adb0b8a4aaa9a3b5a3a6b4a2a4a9b1aaa4aeaeadb2aca9a7aeafa5b6aeb0a5a7a8a8a9aab7b7b0a0a9aeb8a8b2aab4a4a3a2a899b2b3aea2a1ada3aba6b0a1cea4aeacababb6b9b8a99aa9afaba8a8acb2a2bea7a0a99fafa9aab3a3aea4a1a3bdb2b09da2b7a7a9a8abb5aca6c1a7b49f9faba4b1b49dbea3bba3a6a6b4adc3a5a3a8a6a5a3a1a9a4a6adc7a5a9aba6a59ea6a1a8b99fa4aaaca1afa8a3a69fb4b6cdaac0a6c3a3a5bad1a6b5a798bcabadb4a7b7a7a2ae9fc1a2a5afa3a8aba9acc1a4a398bea0bfc7aba3a7aca9aaba99b7a5beaca7bfa5b9a2a9a6a5b3a7a4b4b0c0a5b6aba1aeb6a19da6a59ba797adaca5afa4a7a3a6c59ca4c7abada2a8b8c2aaa9a8aaa9a69ea6a7b8b4a6b0acacaaadb1ab9ea7a1ada1a5b6a3aa9aa1a8a7b1a79eb2a6b2b3a4b9aaa3afa3b2a5a6b0b0aeaaadb79ca0a4a7baa798a7b4a19da9a99fbd9ea7b6aeb6a49da8aba09bb2aea9b9c1b0a6c1a6afa6a3aba0a3a7b2a1b2b6a1aea4a5a7b2a6a4acafada5c5a7a7a0a7a6b3c7a8aba4a1a399a5a5c7b8ad9ea2c8a0aa9da4aabaa4b0a6a5b7a2a7a3bfa6af9fb9c4aca3a0abb3a6a4a4abaca3a9a2b199a4a0a9abbcac9dbe9a98af93a0a8b0b1a8a2b2a4c1aeada6aaa6a5bea7a59ea4a5a8b1a9a9aaaba9a7a2a2a7a0a3a9acb5a9b2ccabcac1c0a5a6",
+        "aecba59fa3b6a59b9f9da19ca59f9b9faca1acb1a2989c9ca69da4b3b3b09ca2ada6ad9ea9a2baadababaeb2a3a2ae9ea6a2a3c69fa89ea7bdaba1b3afa7baacafafaba5baa3a99ba2bca8ada7a6b8a4b8a29e97a7ae9ea4b1a4a3a59fa9aaa7a6accbb9a3b3a2b8b4aba3a2a5aca3a4a7a8aab1a5bea5a59fa0ada09e9db1a8ba9cb39ea19ca9aea1a8a2a6a3a9a6b09fa6a7c0bac2adbde29aabadc9c1e2a9afb7b4a4d7bae5ddc6beb0c5bebcafc0aba89dc4cac79dcfa7a1a8aadbbad4a6a8a8c9cca8b3b0a7afa3a8a09da8bbafafa1d2a5b9a09eb2aeb7a5acc2b6acacaaa9a9b2c2b6b1b4cbac9da9ada5b8a8b0ceaaac9dccc5c7c2aebcc7bbc2a49db2aeb0a298acb9b3d3a1a1b0baaeaba7b5baa5aea9acafaba3acb6bac3b7a7a7b6a5b7abb4b2b3b2b6b9a9aaa0c2a7a3b5a199ada4a1c3abb1a6acb3a0b3acaeaa9faba7a5a1aaa7959eb5b1b1b199bea99cc5c6b0bfb3a8a1aea4a9aeafa3b19db79faeada6bdb5b6b9c1a7afa3acaeb4abb5b5a9acbdbda5b9a9aea7b7b5c9b6b5b8c7ccaab7aec9aca1a1a5ae9cbba4a3bb9abba494d2c1c5a8a1a6b2a19fa9aab5abb6aeaeb1a9bbbbc5aca0ab9dbaa89ca7cca6b0d4a0a4a0a1a4a3c5acaab5c1d1a19e9ea1a0a7afa2a2b7aaacb2c5a09bbfa898a7add7acada9b0abc3a2c5daa99ea0be9ebcaabee1a2baaba5a8ababcfb8bac8c69c9da2c2a3a1bfd5b0a3b0a9afa2cbab92ccc19db6ad96baa6a6a7b9a6a7c3a5a3b1afa8abbaaab8ac95b7a8aba1d6caaa96b3bfb8a9ada6c1b3afa898a0b0dba2b0aaa498bea6caa4c2959c9fd0a4c1bfc2aaae94c1c6a992c0a79bd4b2a9a7a2a4a99cc1a0c2b396a7cab4b6b3a2d0a19a9caabeb7a4c1a0bbacc0a4b8b9c8b2c9a0c4b0b2a1b7adcb96a8a8a7afa596aea5b8a0d1c8a8d19aaea2c2a6bbb09fb6a8a79e94bd9bb4adb5fad5b4bfa4c4a2a8bde39dd7a792bda6a3b8afbcaca2999dbda3acb7a1a6cca6a8bca2a395c0a2cec0a3c59ebea9b4c3aabea1cebeb2ba92caa9a7b99fb49ea3a5cbb6ada6a5bbb3d8a3a0a4c991af9ba3b3cebe9f9ea49ee2978fcb999e98a7cbc19ea09eaaabaab4a0a5cdb9a8a1a2a2a7ada9a6a4ac94c9b2afbea3ad93acb6bdc4a698a6a5bdd2bbcdc0b2a9deb1aa95b1aeaba6acbba396a2a8c6a3999fa1b09cc4a49bcd9b90b7a6bd93a1a6ada9a2b4be9ec3b8aec2c09cc2b2bfada6d0a3b5a6b4bda7c0a49f9fb3a5b0b3c1aa9ecea799acb29cd7bea4a19daf9c98a6a3d5dda5aa93d9a19faca1abb79fc1aaa8b09da0adbf9e9da2b8b9ada6a7a4ae9fa7a0a69fabaca7b3999ea1a9b3b0aea4c7b7a9a4a7a7a5a6b1ae9baba8afa79da7aca699b9adaca1a6b2b1aca4a8b1aeadaa9ba2a4a29ea5beab9ec1a4a0afa7a1a09d"
+      ],
+      "tensorflow_version": "2.15.1"
+    },
+    "host_reference": {
+      "outputs_hex": [
+        "81bba48d968fab939d9be9c380b280ac91919b9a9aa68180d095808d9c8183a783c3be95b8c8b0f4a192b5e496e1b4a0c3e9a995808080a3a7809d8891809bb8a2c8ae8f9baba2d0c3afd2809c9b9c8997a8b0d19f95c3a3ae8d8b95cc9aecc280a6d5ae87cc9fdac5adadadc9a999a6afcb8f95f2bfb79580a585809e81b8abd393a080989697ab809eabd4bacad99da7b7a2d6aad7f9d0e6d3e60ec5d3f7a41606d5e91fe3fff6bddfc3c6c787b830c8c898c2cfc8f0c2b8d9dcf23ee601cdbdc4528ef0a2108017bfd3acf082abb99ed3d985ea80a697e18080e7cd96a98580b0aef6cb9fcdb29c87d3c7e0bedeadcd0cb68ffb80c79e92938080d4c080c0bcd69cc685c6eabaafabb999b9e680e4eecdc9f0bade068214c2e1d780d6c6b6d081dbc9ddd9b6a99ec1d2ed9f989e80a4a280d3daed9ec3a8a083b9b0b7d0ca8894bcc5b2b6b7c4b1a8dfd6c0a79b28e58bbb8ad08080c18b8b8080bbcd9e0dadc7d290b09addb6d6a791cfae9686a98080b005abb6b8a38009aa87c6cdeee8f8c8cbb180809f80a8b08f80a9aacde2d2d3efa9a69daa80b8b6a4a5ab98bf849f80adac25c89eaa889abff698b49ad1e0a99abfa693809a8c91a6a980c583da80aab9c4a580a68d83adb7b49a09b980b8e49d88a19f9eb080dfb98197809ae2989aa4acb380e79c9780a8d6d197d680a3b4b4a8d4c1eefda2d180d09eb28b9febeb869edf93aaa0c4999980bca1888eeee391c9c886d00dc6a0be848d9baad380a3e3a197b0d79ccb80a780c7b8d180b78c9c8789b3d1d597a5fa80938096a394f49486c3ce9291accedcc792b3b3c9b0b1ce83b69d92d9c6b78b96bdabd7cc80bad19b80a6980980bfb7bd8b9580db93bbac9a98ae88c395da8bf1b4cab6a898fcbf859c90b1ad93aedd80a9a9a893a2a1ab80a9bbc6c394a9a2cdb3a6c5808e8aa99b17caacb5c280a418c080d2d680cb9efea280ab9480bcbaec9bc387ccb28ad6fe96a9ef809480d5c4d6b8a1c3a2b69a97bec0f6b283bb80b9bdb7b58aa5808b9ea4a1a1ab9f8095bfb986cba2d5aa9b80929ec4e0a38097138d9991b690ae9c89cd96cb80e3ac80c68a80cbe18cbba4cd999d94b1a08d8f81809ea79ba1e09e92b500858b88ada8a5acc8b6cac4a01eaed2a6cea280c5d580b48580c983aaa89fb2b79a9e94d7add4abb5aac980eca5a6b288c19a9fa5b49ed4c7bc9e95a5968ec0c280bbc78c8ad7bdaaa0a6a585b18dae9d80b8a9cbf5d3cb8f98ada89d9bb188cb11869880e28999b6a78fbab7968680bf80bc809080a8b8dabd8089beb9dcb4989c918289b2acb4a1db80a4aacea194cdd9b583c9a08580b68c80809480b1bd938b8d98afa18ecaaf9dbfb7a7b39e9bccacb3aad2a4a5d08089c597819cb1bfbac6bb",
+        "b2c28fcdb8c1a694aca6bcc195a6af96b6b2b4bd859b87c9b88093808f98839ca1c4bd808696a98080c3b7b49599809bac96b9ad888082a180808dbcba92e086abd0ddadf1aaa19a80b395b7a2c69b81bfae8e89808080c38fa4bbaeb8cc08c3c3969d8fabbcb4ae839080928cada6a19fcedb98bdd29db6bab2a0c2849cb68ec6b4989297809bd4cea98a9cbe8998ab808ea4b798cb93c1c9acc6a69db4bfa8abbfadb7acd1c7d9daa6ab9fa0969f9a81a697b48399c5afadb5b6c79ab4a587d7c3cb80c9a99398b6a1b8a0bbbdb4cacaa9bbcf96ae8e86959fa2a8a78d88ced3ba949691808e9cbfa780a1abbd92a9b8c4859380a28f80ae9384a6beb9b496c1a0bcc092d09dc0c8c9a6aea8a9af99b4baaeaeb68b87a29e9f97879d9a80a0bbe3b79698eba6a2a199d0acd58dd5d6b88590acddc5c989a89cc2aca0c683ade2808ca1c3a1849ab5be928c97ce8abaa6a097cba0808f919d919484809781bd9e9c9183a8bf9e8db4a5809eb680acac8da9c9abb59aa3b0a9d2a29bb2a7a69880aeb4a2b2c6da8dd5c2a59faab8b091afbfeccdabe4a6c711dcda85d9d880ebc4afb2c7b2bdeebee697a713af809fa6a5d488c7dcbbc7b8948b80b5c7ceafa58bd2cdc0b4a3d2b295e4cacfc5989ebfc5d0d5b9ceb38792eada8b8ccadeb3dda9b6c2b8efc58b988bb18f83cbf382d0909ffe9784adc98e80ada7cdd8bfb4118ad686adc180d0d787e4e5a080aaf6f880aaa8a6bc80d998c4a187b7bba8d6d9ceb2fab4c0abbff28ff1ddc2d5b1d2c0ae8a9c80bde1c3d6ca98ab97aba2b2b49fbf8bb5acfa909ff5e5b39c97abaaac80cc80b1d080ad99ba90c480b980dc839f9ab3a288d09cb3b5e59b809aaacfbf9edcc1e1c786bfe8aad2a295b5a4c6c8f80ce9b1c8861ba3cda3ccda8097939b8faaa5e1cf9ba4a4dca2a59f90aab3d0bbe6f3c095a80aabeb9890cbcf9dacacc6ab99e8b5e2b8b4b7a788a69cbff8d6b39196afd49ea6d5e3ed128085ea80aeb280a7b98080a5eca6eb97ac94a0c096c18880ee90a1f389a2a6e9cc97acadb68eabb590cff28daca8b3b6aea280d5e408cacdb2a8a0c7bea8b586949bb61095a8dbc6bac1be81879aa9a4869796d190bbc2c995a7dbb680b0b2acce87e44f8098a8bbc1baa2aeb0b7d2bc0880d2aecdc4a6aebdd1acfd94ae9da7abeeb794b6acb297e5b693c7b3cd9286d2fffb94b9b3d2a296bca78dd9808980a0cca7b393adf7b9ae92aa89a2bf80d7f7e99193b3cd08b4b2bdaf92cba9c0f494bed084acccd5e5a9d7cbbee0acae88c794c5ab9ca4d198a9a880a39cc39c80b8e5b197afb5b8949cb58c809d9d809db3bf9ba1a2b5a282a5c49382a9aacbb88bb2caafd5bbe9cdb7a189c4c4c1c8999dbaad808083808d80a18080bf",
+        "bfafd4b5a9a0a5ab9eaab89c9bac9e96de9396c2ac8caca888beb9adcbaa9da3b2a8d992ae8cada7c4c4ccc6a69ba8aca98bb2b39ca18a8ba0949e8fa5d2c1a29d9c9f949b9da38cb08e9aa7b4ada88b82838fd0acb596d6aae489cca0d4a7c6f1a4ce0baacca99ac2a2baaea5a29684c3b8d0bc87a68080ad989a8092ac81a2a0e8beb1c2bab3d49aa7bfa4c097d597d7f3ddfcdfb3b080c7b092d3cabac0a985b2b4a7c0c2cfd9b3a687a494adb5bc9b8096aeb085c0b1b7aababcbd95a8a9dbb0aaac9fc2beb7c4bcb2b3b9a5d3a4cbb1aca5949487b8ccb1d69ca3c99baab8bca5c6b78caa9dabc0c8ccc1a3c78fabb18cd5b4b0b5b4cbb8c19dc2a2d293c1acc982c79fa199a0c1b0d2cac5c3a9b1bca2b6caafb5afadaa9dc2cd97b7ab85be91c087a2ad80c79db8a1ab92d2b998cef4d9a0a0b59dabae95b380848095808797a18b8080a0a3b6a99fa18caa8cc3c080b8b4a2aaa9b3b39e9f9b898aae9bb5a289c3b4beaae780c484afb5a59cb0b2be9d96a8b7b4b6ce00bfbbbed2c280c6d9cda7c4b58bb1d4d2b6b1dcc4d0b4b49117f5a5b6c3e29da38982cdbf80c19c8094a0d0b5a780a192c9cd94b0b2a682c0e4d2acc2af80c2b195a9b891aca5b2a3b887b48989a795aeb187a0d2ad85b1f1b4bfbce4a18b8ad38db6d180baa3d0f380e8a5d0a7a6c49bd0a5a8ae9c91b1c580aac480b88f8797bd9380f5e2ac8f8e87cc8d80a8e3a3d0a38984d79b92c4ae9cb3c2baafdac4b980d1a2b3ad8dbab4f7b69cd5b2b8b4c2dfd38db8b181bf8380a4b4c2e680f5d18caadd90d590bab7bfb9c186eac0abceb79080b7b580c1cdccab8eb880addaa387db939ea3a1f5c6b080d2acb48fd0ab8a96c89694afc194db0e90b9c8aaa79f8db68dacc89ebbd8938cb7a9a3b88d80acaabae583e6b19aacdebfd3bd9bd49e80d0a4cf80c680a2ffb188f18fd995a4b4cd9096e8adea90bcababc691889680e3ac90b0b68007a2aaccb79b80a6b9c0aa98f9e4b78dacd99fcd92bdfbc7baaaf7a699fdb1a880beb2d1bed3eebbe0a5ef8b86e0d692c2b9c1bedca0b4add2899d92c1b5908c959b8fae8680c3b28191c6b5b5c492b4bfb58b80d8a4b9be88b090c8a580b1a5f3d8c0e0c195bb8099b9d008ebe480b4d9a291d0db9997b297aecc94abc9dcb6cebcacceace2c0b6ceb2b9d682b3b2bda580b79896bc80bb9ba5de8ddea9b8fd99d9e48d98e6d28688eec0ebb2b98284b7af95a99ca6a5a1b3a282a580a1dbc1b8bea0dab5b4a99fabe1b4d8a8d6b7bd80d9e180bca48ab5a18687a180bcaaaada9d839f87b4b28b80b39ba3a793a89fa48cb4a0a18bc6d896c397ae938292aaa585a2a1bfa39087bfb1958c9d80a791a89380bb8bd7d2accddaabb49c95b5a0a580b79fb7bfaf",
+        "8990f1d312e3beb8bfa99a92ad85b594eeaffb808ac4c2d39ac8faf1e5cbb0a8ee8eeaa2e4b0d6ffd0fe0cfcd59fc9c0d69abe11b9a99180b6dec194b780d1e29280a1b8cea380d5808082858880d30011c6ece4db28d2c6b380ae049491baa7bec60407fce5110515a880cdaa96e4a4a2e247e3c6f8a3a9ed808080b3809e8e05ac838e82a2ca05d4a8898380ae808cdad6c91a4fdf1e80ce808e9480898097d8808080c1bf94849880b28b8080a0a880d080e9bf8598d5a38b86a0808f8b85a3adbec4aff3adbaab82968096faba80ad80c0888080cd808080808ba7c880ab0fced19da5aeb4c8e2f5b7a9b59dbadca0b5809dfa86b6a9abd8a796048089cd0f808080a5bbb480bc9991a5e5b59bb1cf8db0dfe3fafe80e5dce2cae4bfe1cea18d99afc2e4cff2a0dcc3f2809c8084a087e6b5a38fc19a8a80b180acbe82cb98da87c8a29bc291be8090938d8baffad9cd8087bee8cbc4c0afeb858080cbf89ec18fe8ddf2d7c024c5b8b2cee0a1a9dd16adb9d7abc4dba1b3b1d08a2195b491d7baa7bbcce8dd9caa97c8b38299bec582a1c9f6958fcebc9080aab7f08bc3dc809d3983368092ac809895bd808687f8a49dee8002808ea092bba3a89ec8bbbdbc9acfc1c798db9ff8dfb6e3a6b1d28cc197c380a393c2e5149b948ed01b80a3ccc198e7809a96fa0be0e3b0cfaaf4c2909f0297dba8b1a9aec9808084e680dcdcb7cbb78a9cd3ab848091978db885aa988b8098809ecea68094ad80949a8089aab9808008af9ebfa59780fbe0b0828080c783c89f9de290a593b4a180a0aab5ac880dd981b2f180b3850a80e888e0a1ac06a815a080800e92abb5ecbdf5a20080f79fc7ac8d80ab99c595c2bc801dc5b6c4800e80c6c080c680d2c893828180b280a4acc7bcafe284b8a5e609809980f2808ea59296bb8e80fb05b3af80c6a39112f6b8d7ce86ed8480c9e5adeea18f8b8aa3e0dfb3b6ad80ad921891cdc5ceb99694d4988c809ea5c5bac384e592caa8b780b8ae1cc5d812a2afbabf8098c5a2c1a39280b9c3f9ad80d6a2048daee9dec4aca3d08080c3b7a2f31388808e9da580e4b9808d80b9ee1caee1bf8097b4aac8c788a29793f2c785d691e8cc9480a080938fad83998eaab5b5dfafbe9f8480809780b2aba5a59ddd96ab8093919aacc72eb4b7c8fc8ae280ada3cab1a198ae8084ba8099a6ad92ca8cc8cf80b083c480b2a5ad80a8d4aa9ecbd6af96dd9df8e48fa990ab80aba1b9948eb294cea8809e90982ff595c480ca91c487c29bf59bcc80bdf88028924acc80908098989080b9a5c696d580b980a9abc380b980918089808080b88e8394ae809989809f9aad80a99f8ca28083d8809c808785ccb995aeaba78080a48d8eb8809a978880b680fbce808092e4",
+        "dacea49f9bf3ceaae193a980938290a999808080a2a282a8d182e3ad80ff0dd72bdba0bbd0b9acbed1a1ba108090c016dc809a0e808b94d3809883fc808e9880d0aaac9ad30cd0adc022f780fbd0dc9bcec7d1cc8db2ebdc98bd80a7809aa183b6cfeeedc4c4c916a9a9b0aeced4d8f1beb191c2ccf09e96b1b2ac9daa9f0380ae9dc39288a392f394ba878396b6c796c58e96bc800dc6aac99686a9afb9f1a6c692afa1a1b7beb9d080a0afaeb380e28b9b93c2b4ef9bf1d7d0a7c8eae1e4dfa5caf0cbd09faacada968082849ee3b39ad9c7c3808d998994a28aa7d5e280a0b18ec082b3c6d2b7c1bc8885959dabb49aceb3a3a0a8c8d7a5a99ab2efd2808fcb8180a38385cad3d6ecf6dec5a380e0b6addfa58eaeaf9fadb1bbba80b58fecb2afcad3b0c4aa9ca0f3d3bdb8b3cbc2c9e6b5f3a0a7b2cbc78fa4a1d4bebb8080d908b3c2c5f7a0888d023acacfcd0da90605d5a1e2ceded5c4a3948b9fa4df97ad9580b9dec6a2f2c1c1b436f3cdbdabcec6cdbda7f2c9fa17a2b4f3b1c1bbc5bdc5c0c4a6c78bd2ba9480ccc1c7bfbabea6a09fb3bb95a6d4afe39795bab8b082bca29ac1819cb880c4d5b281849c8a96dfba808b98d5d580aecc95c0bbbb07bbd99cb4a8a680c0998bb98dda99b189ecb5c09ce78b809bba8680c9d6a590aba6b5808e80a085abae83bd8acbd9a69298bac280b9e3c2a8a8a5cfb391a195928ab29e9a8b8ac0b9c69f80c5808093a4bfaea185c480e5988bd680a69292a995cdb59fc2b2d4b8d1829a80cbbeb78aa5a1c29b9091d1bc93b2f6b380d98a9c97b6b394b1c3a180a4bf80ca9987a1bfa39f918fa4999cb3b4e2838cb890b7808b80c7809ebaa3b79da5bd97cfc98cc78bfcb680a38c95dc80e3b0e3b980a8c898b3809fb1b9d191998a8080891e93948b8089a7978fc79b98ba8fbbc4cca7ae8689bb96c393a780d98099991cc8ddb6a3de8218d3c095aa8c9289ad80bda8b89dac87b1dbc28080debf8dd18489a1c796cb8f80b2f0c7d8dcdf809eafb6afafa2a3abd9cfb88ebd80bfab80a891d2b3af80aa8df58084808ba880d09a9fb594a1a9cda6838ca1a3a6b5becb9fcc9380b2a480afb7e3b680b09e918698c7b9b2bec2d680b6a38f93bbb2ba8e88a2b6cb82a8b780a4c48cbfb49db89db1beb992b6898fb191a4cd8da095b4b38ba49d8080e5b780808283a4a0a28380ca809bb380a29d80c49dbebf9a9ad384a3d9c3c9b48cd397a1a793b6a0a99dd5c790a198c68097ca80fec3a7a3abdeac8cbda3bbc180a2d1999aa0cec5b6b2cdaab5d6859895cab7928580c4dbcde0f39e9faef3e0922dae8d9f8080dda5808df38f82c69facaea9ab9c80808a9e88b492c6a593aeb19ea2a49ccdcd93a7b6a4b0c3ddab80e59dd2fbb2c680",
+        "bdaa92a091c380b8a891d08fb4c2a4adaea994aa80a8aac0aa8c9791b6be9e93bde8aabdb9a7d4cf8eaac5e6d6998ee6a6bab7f4a8a5b19aa5c8b48db5beccb48bb4d1a7d3c4bbbd90dfc9aa8bb2fa9ca98096a7809e97c8c6c89e97b29a949b889ec0bc9fd1c3a6a5d8bb9fa2a0caaaf6d19cb0f0d9b6bcb7a3b4a8b0d9c7bfa1c8a4ab9fb0a5a297919280a385b590cc83998096b49fba88b2d1898080acb3b5808f96aca19085b4839c9a80b6bcc28083dbd5e493a6a094a4c9a39e97b096a0cdc5bea0bea387afb2bda488d0a6b4e5cec5daa39b9894f5ae98bfcdc8c1f2bc87a9cec5ad918c9ba4bbb7a5b4908b978db7becad8ad899daba3d2a19cacbff0c5a6c0ffd4c18c87aecac4bad7c2a8aea8b19bdd80b48baba4ceb7a5c398b0d5b7e4ddeab5f7e0d7d4e485c6c0c3a6a7beb79999b8bc9c99a1b9bbb1bb94a5849899b1808088b4abb7b4a381b9a7d6aa849c8edbe4bbc1cab6bebcd7b780a08c909e9b9cd1afafa0c6d1d5dcbae002eadcb6e8faefe7cbf2cde6f9c5aa9a9fa8d5eaa0d8a3c6a6b0a3a4acb1c69480a3a1c4bac3b8a9b596ceb2bb898fc7abb6a39da8b996cda6b7a6cdb39db1a9a2a79c968ab19eaa858a92e7b3888ab680c3b0bde69d94aed893aca780b89cb3b1aa91c8bfb680abbb98c49692a9a8c389b503f7bdcbf0a3c2bcb5b5caaa9ec5bb9acbaf8d9e92e580a2c29dea9a98b2ae808bb4a8a8a1c2a1c1d9a2ada48c9f9ec691a3c0c3a5b6cfa8a5a09acda49dd1bed3d1b291c1c2bc9c9a938c9aa99f8db8a5b584aca898b780d1c1f29c9e80c99bcba3878fa9a892db83a191abbc90ade2a5998da9b3aab897a49abda6c5bd8b8bc0abc9b4ab91cd8fa69d8fa5bccba8b2ada8c5bf8dc49da2a3a5ed9cc2a19988b1b4b08eab8b959d90a9c7ccb6b4a7b7a4af91b386c9d2b88f9aa3b9ba9e879bafb9cbe79fbcb9ec93ae9cd2bfc198b88da4c39498bcd69db8b295988e9da1b3c6b9dea7b4ec86b4a6c6a8b7a8b5e180bf9f8f9aa6d48b9edc9eacec9bcc90a5958ea0bfb1a6bca2e78f96a08ea19e8acbd19884d4e2c9b5b2d1c988a4cdd5a980adf6c8b3de98b899c4929aad94c2bcbad4a0b6a8c6b280af98978da2ada6c680a3a18ebca395a69e80d2dbd1ada6c894c0b4b196a0c18ba6c1bbb3a5bebe9c9cb3a5919bbbaeb6b18aa60f8d989de9acb98a90c0a0958ea4c3cd87d2b8b5bda993c7caad839bbdc6ad9e858688948f84b8c7b8a2c0a29ead98cce08d87aa8fbf92a4a6cde2a2938cb1a6aa99a39fb6afab9a91b682908b97b6cd95bcc08f95a4a8b9af97ada4a8939f86b39caf89e1a8d3a1a9b69699edd6bfbfcdd09cabb38fb5ddc9b199bea3b98d97809880ad9fafac9182b198a7ab9aa2bee5e5de92afc0b1f1c7d3c291",
+        "91f18086b0c5b2a9b2c3bd8194a58080afc195bd8787a5b4a38daab9c8bb9cc5d5cbe580c380f9bfe6b9b988b1c3d8d0c8ceb6019a94af80e3e08d9fd7b4b894809fc6cad6a3b29d91c08cc0d598c691ccd5bf80d8bbac9680919e808e808080809df4f0bef6a3a7cae6c68ca49e9f8980ccbe92998087959b80cfb5ce93a1bb9284bcaebdbbe4c48083efdda1a7aec6a68db7a09cb3abed409fb4dde6e3058e94b8899306b5dee702f6ade8e1e4ceb3afba93fbdf0984f8ad94a5b9fcc9fb8098d131dad3bacfcddfaa9394b6bcad86c89503c2d5a880b2f2e282f707bcb7f3c6b584e1c4e6dce4108f9f93c5bebe83869ca3ac97ea12d9edd3eafecdd380bee5ccb1d19cd6f89ddec0f7b9f0adadada7feb1cfa38080d28394dfd7afb6b1a2d2ccbbbcb58aabbcdcfcb1b7b3c7a3bca795a7ef8094e8c3ff95cbd491c1ecaede9c98a9c1c4d3cfa298b4b9ffb5a8bea38406b9c01304edd9ebafbbe0c7f8c2bb1abb04ac85acdcc4ccb0979e9fe386d9bd9feb8fd6c0b9aba98092cfa5a835ecdbe6a0ee9ed79fb88880809d93a8ab8680ad8080808004e3ca858094d080bc808bb9c3ae80919fa6caa1aea5a18080c9b38db5dda99cbddccb8089b283e98082e2e8c4808e9dc1809bbb889d8083978c9d80a3fa818084d9ffab9f94afc8ef80d6ebbea7949880c5a6ade380a4a2a4bbcea0bdb3adceb18d808ae692adcb12ae96aebfa780bdc19001ca80808e80a1a1a0d3bc85a7d88281b48fa5a099a6ae8080b78086c1bab6938090d5d592ba99d9d5cb99869680db87adaba39dbcb3bbb2ab808097cfcce9bcb599a288cebe98a8808080cfe88f80808090bfe6ccc1b4808bc1f0eebe80b880909180d380a2b7a78da5ed84c3bdb680c5adbec9b8849d90d39d80de808e969acb9beb84a904b2da80a880f0a7aaaf908c8c9ca5809b99a793ec7ad2b9a0b5c2acb3b5e1b9da978085d28cded594848880a5b6a388a3909908be879ebf949b0280c8af980c80e4cab1e8b7ac9ee1c285c280c7d9aede8ef7b5808399d1918080b3c0a4c38089cf928d809580e6a7bab4a9d22cd58004b0919980fdd08080808c94c8dd93cdcbc79994ad808e9bd0d280a880d78f8acf86808080c5b1b09480a6a4b30c8cacdbb49cf18c9f80ab809e80cc9b82859db6c6c7808080b3a2b2ba80ab80808cc884808faa9895bab3d082a5b482f7cd8e9580eaa7800dd580a4c29da8e89b9e808e9fada39d8080e2ba80b29a9b9ebcb9a5809b808084aae0c1b38280b4bc8080acb7a68ec3cd88bd978fd9dbbbb0a0849dcec6f380809398aac19baaa7b282808ed08cd2a7a3c403bbaecacbc68d90efa2809ba0bcad8080cc809eaecaaea69bbfbbcd97bdb4c199a48e8eacac938edda19ce5a488c9ba9f80a1"
+      ],
+      "tensorflow_version": "2.15.1"
+    }
+  },
+  "mobilenet_v3_small": {
+    "source": "https://huggingface.co/litert-community/MobileNet-v3-small/commit/77f13855abb1d843015ff3605e5748b960ffe7dd",
+    "source_detail": "Historical static channelwise INT8 TorchVision checkpoint. Provider later withdrew this export due to poor accuracy. No accuracy inference is drawn. Preprocessed the same way as MobileNetV2.",
+    "schema_version": 3,
+    "model_bytes": 2876640,
+    "model_sha256": "b07b0db7ecce321db4c6b729f035c76d3ea5df9ccb1e5f0535af5a4ad2325efd",
+    "input_bytes": 150528,
+    "input_sha256": "a14b78aa7ee271863bbecc41f775fca16f510814eb6cdf463586c970545b43cb",
+    "input": {
+      "shape": [
+        1,
+        3,
+        224,
+        224
+      ],
+      "dtype": "INT8",
+      "scale": [
+        0.017623191699385643
+      ],
+      "zero_point": [
+        -14
+      ]
+    },
+    "output": {
+      "shape": [
+        1,
+        1000
+      ],
+      "dtype": "INT8",
+      "scale": [
+        0.09926129877567291
+      ],
+      "zero_point": [
+        -4
+      ]
+    },
+    "operators": [
+      {
+        "op": "TRANSPOSE",
+        "version": 1,
+        "input_shape": [
+          1,
+          3,
+          224,
+          224
+        ]
+      },
+      {
+        "op": "PAD",
+        "version": 1,
+        "input_shape": [
+          1,
+          224,
+          224,
+          3
+        ]
+      },
+      {
+        "op": "CONV_2D",
+        "version": 1,
+        "input_shape": [
+          1,
+          226,
+          226,
+          3
+        ]
+      },
+      {
+        "op": "HARD_SWISH",
+        "version": 1,
+        "input_shape": [
+          1,
+          112,
+          112,
+          16
+        ]
+      },
+      {
+        "op": "PAD",
+        "version": 1,
+        "input_shape": [
+          1,
+          112,
+          112,
+          16
+        ]
+      },
+      {
+        "op": "DEPTHWISE_CONV_2D",
+        "version": 1,
+        "input_shape": [
+          1,
+          114,
+          114,
+          16
+        ]
+      },
+      {
+        "op": "AVERAGE_POOL_2D",
+        "version": 1,
+        "input_shape": [
+          1,
+          56,
+          56,
+          16
+        ]
+      },
+      {
+        "op": "CONV_2D",
+        "version": 1,
+        "input_shape": [
+          1,
+          1,
+          1,
+          16
+        ]
+      },
+      {
+        "op": "CONV_2D",
+        "version": 1,
+        "input_shape": [
+          1,
+          1,
+          1,
+          8
+        ]
+      },
+      {
+        "op": "ADD",
+        "version": 1,
+        "input_shape": [
+          1,
+          1,
+          1,
+          16
+        ]
+      },
+      {
+        "op": "MUL",
+        "version": 1,
+        "input_shape": [
+          1,
+          1,
+          1,
+          16
+        ]
+      },
+      {
+        "op": "MUL",
+        "version": 1,
+        "input_shape": [
+          1,
+          1,
+          1,
+          16
+        ]
+      },
+      {
+        "op": "CONV_2D",
+        "version": 1,
+        "input_shape": [
+          1,
+          56,
+          56,
+          16
+        ]
+      },
+      {
+        "op": "CONV_2D",
+        "version": 1,
+        "input_shape": [
+          1,
+          56,
+          56,
+          16
+        ]
+      },
+      {
+        "op": "PAD",
+        "version": 1,
+        "input_shape": [
+          1,
+          56,
+          56,
+          72
+        ]
+      },
+      {
+        "op": "DEPTHWISE_CONV_2D",
+        "version": 1,
+        "input_shape": [
+          1,
+          58,
+          58,
+          72
+        ]
+      },
+      {
+        "op": "CONV_2D",
+        "version": 1,
+        "input_shape": [
+          1,
+          28,
+          28,
+          72
+        ]
+      },
+      {
+        "op": "CONV_2D",
+        "version": 1,
+        "input_shape": [
+          1,
+          28,
+          28,
+          24
+        ]
+      },
+      {
+        "op": "DEPTHWISE_CONV_2D",
+        "version": 1,
+        "input_shape": [
+          1,
+          28,
+          28,
+          88
+        ]
+      },
+      {
+        "op": "CONV_2D",
+        "version": 1,
+        "input_shape": [
+          1,
+          28,
+          28,
+          88
+        ]
+      },
+      {
+        "op": "ADD",
+        "version": 1,
+        "input_shape": [
+          1,
+          28,
+          28,
+          24
+        ]
+      },
+      {
+        "op": "CONV_2D",
+        "version": 1,
+        "input_shape": [
+          1,
+          28,
+          28,
+          24
+        ]
+      },
+      {
+        "op": "HARD_SWISH",
+        "version": 1,
+        "input_shape": [
+          1,
+          28,
+          28,
+          96
+        ]
+      },
+      {
+        "op": "PAD",
+        "version": 1,
+        "input_shape": [
+          1,
+          28,
+          28,
+          96
+        ]
+      },
+      {
+        "op": "DEPTHWISE_CONV_2D",
+        "version": 1,
+        "input_shape": [
+          1,
+          32,
+          32,
+          96
+        ]
+      },
+      {
+        "op": "HARD_SWISH",
+        "version": 1,
+        "input_shape": [
+          1,
+          14,
+          14,
+          96
+        ]
+      },
+      {
+        "op": "AVERAGE_POOL_2D",
+        "version": 1,
+        "input_shape": [
+          1,
+          14,
+          14,
+          96
+        ]
+      },
+      {
+        "op": "CONV_2D",
+        "version": 1,
+        "input_shape": [
+          1,
+          1,
+          1,
+          96
+        ]
+      },
+      {
+        "op": "CONV_2D",
+        "version": 1,
+        "input_shape": [
+          1,
+          1,
+          1,
+          24
+        ]
+      },
+      {
+        "op": "ADD",
+        "version": 1,
+        "input_shape": [
+          1,
+          1,
+          1,
+          96
+        ]
+      },
+      {
+        "op": "MUL",
+        "version": 1,
+        "input_shape": [
+          1,
+          1,
+          1,
+          96
+        ]
+      },
+      {
+        "op": "MUL",
+        "version": 1,
+        "input_shape": [
+          1,
+          1,
+          1,
+          96
+        ]
+      },
+      {
+        "op": "CONV_2D",
+        "version": 1,
+        "input_shape": [
+          1,
+          14,
+          14,
+          96
+        ]
+      },
+      {
+        "op": "CONV_2D",
+        "version": 1,
+        "input_shape": [
+          1,
+          14,
+          14,
+          40
+        ]
+      },
+      {
+        "op": "HARD_SWISH",
+        "version": 1,
+        "input_shape": [
+          1,
+          14,
+          14,
+          240
+        ]
+      },
+      {
+        "op": "DEPTHWISE_CONV_2D",
+        "version": 1,
+        "input_shape": [
+          1,
+          14,
+          14,
+          240
+        ]
+      },
+      {
+        "op": "HARD_SWISH",
+        "version": 1,
+        "input_shape": [
+          1,
+          14,
+          14,
+          240
+        ]
+      },
+      {
+        "op": "AVERAGE_POOL_2D",
+        "version": 1,
+        "input_shape": [
+          1,
+          14,
+          14,
+          240
+        ]
+      },
+      {
+        "op": "CONV_2D",
+        "version": 1,
+        "input_shape": [
+          1,
+          1,
+          1,
+          240
+        ]
+      },
+      {
+        "op": "CONV_2D",
+        "version": 1,
+        "input_shape": [
+          1,
+          1,
+          1,
+          64
+        ]
+      },
+      {
+        "op": "ADD",
+        "version": 1,
+        "input_shape": [
+          1,
+          1,
+          1,
+          240
+        ]
+      },
+      {
+        "op": "MUL",
+        "version": 1,
+        "input_shape": [
+          1,
+          1,
+          1,
+          240
+        ]
+      },
+      {
+        "op": "MUL",
+        "version": 1,
+        "input_shape": [
+          1,
+          1,
+          1,
+          240
+        ]
+      },
+      {
+        "op": "CONV_2D",
+        "version": 1,
+        "input_shape": [
+          1,
+          14,
+          14,
+          240
+        ]
+      },
+      {
+        "op": "ADD",
+        "version": 1,
+        "input_shape": [
+          1,
+          14,
+          14,
+          40
+        ]
+      },
+      {
+        "op": "CONV_2D",
+        "version": 1,
+        "input_shape": [
+          1,
+          14,
+          14,
+          40
+        ]
+      },
+      {
+        "op": "HARD_SWISH",
+        "version": 1,
+        "input_shape": [
+          1,
+          14,
+          14,
+          240
+        ]
+      },
+      {
+        "op": "DEPTHWISE_CONV_2D",
+        "version": 1,
+        "input_shape": [
+          1,
+          14,
+          14,
+          240
+        ]
+      },
+      {
+        "op": "HARD_SWISH",
+        "version": 1,
+        "input_shape": [
+          1,
+          14,
+          14,
+          240
+        ]
+      },
+      {
+        "op": "AVERAGE_POOL_2D",
+        "version": 1,
+        "input_shape": [
+          1,
+          14,
+          14,
+          240
+        ]
+      },
+      {
+        "op": "CONV_2D",
+        "version": 1,
+        "input_shape": [
+          1,
+          1,
+          1,
+          240
+        ]
+      },
+      {
+        "op": "CONV_2D",
+        "version": 1,
+        "input_shape": [
+          1,
+          1,
+          1,
+          64
+        ]
+      },
+      {
+        "op": "ADD",
+        "version": 1,
+        "input_shape": [
+          1,
+          1,
+          1,
+          240
+        ]
+      },
+      {
+        "op": "MUL",
+        "version": 1,
+        "input_shape": [
+          1,
+          1,
+          1,
+          240
+        ]
+      },
+      {
+        "op": "MUL",
+        "version": 1,
+        "input_shape": [
+          1,
+          1,
+          1,
+          240
+        ]
+      },
+      {
+        "op": "CONV_2D",
+        "version": 1,
+        "input_shape": [
+          1,
+          14,
+          14,
+          240
+        ]
+      },
+      {
+        "op": "ADD",
+        "version": 1,
+        "input_shape": [
+          1,
+          14,
+          14,
+          40
+        ]
+      },
+      {
+        "op": "CONV_2D",
+        "version": 1,
+        "input_shape": [
+          1,
+          14,
+          14,
+          40
+        ]
+      },
+      {
+        "op": "HARD_SWISH",
+        "version": 1,
+        "input_shape": [
+          1,
+          14,
+          14,
+          120
+        ]
+      },
+      {
+        "op": "DEPTHWISE_CONV_2D",
+        "version": 1,
+        "input_shape": [
+          1,
+          14,
+          14,
+          120
+        ]
+      },
+      {
+        "op": "HARD_SWISH",
+        "version": 1,
+        "input_shape": [
+          1,
+          14,
+          14,
+          120
+        ]
+      },
+      {
+        "op": "AVERAGE_POOL_2D",
+        "version": 1,
+        "input_shape": [
+          1,
+          14,
+          14,
+          120
+        ]
+      },
+      {
+        "op": "CONV_2D",
+        "version": 1,
+        "input_shape": [
+          1,
+          1,
+          1,
+          120
+        ]
+      },
+      {
+        "op": "CONV_2D",
+        "version": 1,
+        "input_shape": [
+          1,
+          1,
+          1,
+          32
+        ]
+      },
+      {
+        "op": "ADD",
+        "version": 1,
+        "input_shape": [
+          1,
+          1,
+          1,
+          120
+        ]
+      },
+      {
+        "op": "MUL",
+        "version": 1,
+        "input_shape": [
+          1,
+          1,
+          1,
+          120
+        ]
+      },
+      {
+        "op": "MUL",
+        "version": 1,
+        "input_shape": [
+          1,
+          1,
+          1,
+          120
+        ]
+      },
+      {
+        "op": "CONV_2D",
+        "version": 1,
+        "input_shape": [
+          1,
+          14,
+          14,
+          120
+        ]
+      },
+      {
+        "op": "CONV_2D",
+        "version": 1,
+        "input_shape": [
+          1,
+          14,
+          14,
+          48
+        ]
+      },
+      {
+        "op": "HARD_SWISH",
+        "version": 1,
+        "input_shape": [
+          1,
+          14,
+          14,
+          144
+        ]
+      },
+      {
+        "op": "DEPTHWISE_CONV_2D",
+        "version": 1,
+        "input_shape": [
+          1,
+          14,
+          14,
+          144
+        ]
+      },
+      {
+        "op": "HARD_SWISH",
+        "version": 1,
+        "input_shape": [
+          1,
+          14,
+          14,
+          144
+        ]
+      },
+      {
+        "op": "AVERAGE_POOL_2D",
+        "version": 1,
+        "input_shape": [
+          1,
+          14,
+          14,
+          144
+        ]
+      },
+      {
+        "op": "CONV_2D",
+        "version": 1,
+        "input_shape": [
+          1,
+          1,
+          1,
+          144
+        ]
+      },
+      {
+        "op": "CONV_2D",
+        "version": 1,
+        "input_shape": [
+          1,
+          1,
+          1,
+          40
+        ]
+      },
+      {
+        "op": "ADD",
+        "version": 1,
+        "input_shape": [
+          1,
+          1,
+          1,
+          144
+        ]
+      },
+      {
+        "op": "MUL",
+        "version": 1,
+        "input_shape": [
+          1,
+          1,
+          1,
+          144
+        ]
+      },
+      {
+        "op": "MUL",
+        "version": 1,
+        "input_shape": [
+          1,
+          1,
+          1,
+          144
+        ]
+      },
+      {
+        "op": "CONV_2D",
+        "version": 1,
+        "input_shape": [
+          1,
+          14,
+          14,
+          144
+        ]
+      },
+      {
+        "op": "ADD",
+        "version": 1,
+        "input_shape": [
+          1,
+          14,
+          14,
+          48
+        ]
+      },
+      {
+        "op": "CONV_2D",
+        "version": 1,
+        "input_shape": [
+          1,
+          14,
+          14,
+          48
+        ]
+      },
+      {
+        "op": "HARD_SWISH",
+        "version": 1,
+        "input_shape": [
+          1,
+          14,
+          14,
+          288
+        ]
+      },
+      {
+        "op": "PAD",
+        "version": 1,
+        "input_shape": [
+          1,
+          14,
+          14,
+          288
+        ]
+      },
+      {
+        "op": "DEPTHWISE_CONV_2D",
+        "version": 1,
+        "input_shape": [
+          1,
+          18,
+          18,
+          288
+        ]
+      },
+      {
+        "op": "HARD_SWISH",
+        "version": 1,
+        "input_shape": [
+          1,
+          7,
+          7,
+          288
+        ]
+      },
+      {
+        "op": "AVERAGE_POOL_2D",
+        "version": 1,
+        "input_shape": [
+          1,
+          7,
+          7,
+          288
+        ]
+      },
+      {
+        "op": "CONV_2D",
+        "version": 1,
+        "input_shape": [
+          1,
+          1,
+          1,
+          288
+        ]
+      },
+      {
+        "op": "CONV_2D",
+        "version": 1,
+        "input_shape": [
+          1,
+          1,
+          1,
+          72
+        ]
+      },
+      {
+        "op": "ADD",
+        "version": 1,
+        "input_shape": [
+          1,
+          1,
+          1,
+          288
+        ]
+      },
+      {
+        "op": "MUL",
+        "version": 1,
+        "input_shape": [
+          1,
+          1,
+          1,
+          288
+        ]
+      },
+      {
+        "op": "MUL",
+        "version": 1,
+        "input_shape": [
+          1,
+          1,
+          1,
+          288
+        ]
+      },
+      {
+        "op": "CONV_2D",
+        "version": 1,
+        "input_shape": [
+          1,
+          7,
+          7,
+          288
+        ]
+      },
+      {
+        "op": "CONV_2D",
+        "version": 1,
+        "input_shape": [
+          1,
+          7,
+          7,
+          96
+        ]
+      },
+      {
+        "op": "HARD_SWISH",
+        "version": 1,
+        "input_shape": [
+          1,
+          7,
+          7,
+          576
+        ]
+      },
+      {
+        "op": "DEPTHWISE_CONV_2D",
+        "version": 1,
+        "input_shape": [
+          1,
+          7,
+          7,
+          576
+        ]
+      },
+      {
+        "op": "HARD_SWISH",
+        "version": 1,
+        "input_shape": [
+          1,
+          7,
+          7,
+          576
+        ]
+      },
+      {
+        "op": "AVERAGE_POOL_2D",
+        "version": 1,
+        "input_shape": [
+          1,
+          7,
+          7,
+          576
+        ]
+      },
+      {
+        "op": "CONV_2D",
+        "version": 1,
+        "input_shape": [
+          1,
+          1,
+          1,
+          576
+        ]
+      },
+      {
+        "op": "CONV_2D",
+        "version": 1,
+        "input_shape": [
+          1,
+          1,
+          1,
+          144
+        ]
+      },
+      {
+        "op": "ADD",
+        "version": 1,
+        "input_shape": [
+          1,
+          1,
+          1,
+          576
+        ]
+      },
+      {
+        "op": "MUL",
+        "version": 1,
+        "input_shape": [
+          1,
+          1,
+          1,
+          576
+        ]
+      },
+      {
+        "op": "MUL",
+        "version": 1,
+        "input_shape": [
+          1,
+          1,
+          1,
+          576
+        ]
+      },
+      {
+        "op": "CONV_2D",
+        "version": 1,
+        "input_shape": [
+          1,
+          7,
+          7,
+          576
+        ]
+      },
+      {
+        "op": "ADD",
+        "version": 1,
+        "input_shape": [
+          1,
+          7,
+          7,
+          96
+        ]
+      },
+      {
+        "op": "CONV_2D",
+        "version": 1,
+        "input_shape": [
+          1,
+          7,
+          7,
+          96
+        ]
+      },
+      {
+        "op": "HARD_SWISH",
+        "version": 1,
+        "input_shape": [
+          1,
+          7,
+          7,
+          576
+        ]
+      },
+      {
+        "op": "DEPTHWISE_CONV_2D",
+        "version": 1,
+        "input_shape": [
+          1,
+          7,
+          7,
+          576
+        ]
+      },
+      {
+        "op": "HARD_SWISH",
+        "version": 1,
+        "input_shape": [
+          1,
+          7,
+          7,
+          576
+        ]
+      },
+      {
+        "op": "AVERAGE_POOL_2D",
+        "version": 1,
+        "input_shape": [
+          1,
+          7,
+          7,
+          576
+        ]
+      },
+      {
+        "op": "CONV_2D",
+        "version": 1,
+        "input_shape": [
+          1,
+          1,
+          1,
+          576
+        ]
+      },
+      {
+        "op": "CONV_2D",
+        "version": 1,
+        "input_shape": [
+          1,
+          1,
+          1,
+          144
+        ]
+      },
+      {
+        "op": "ADD",
+        "version": 1,
+        "input_shape": [
+          1,
+          1,
+          1,
+          576
+        ]
+      },
+      {
+        "op": "MUL",
+        "version": 1,
+        "input_shape": [
+          1,
+          1,
+          1,
+          576
+        ]
+      },
+      {
+        "op": "MUL",
+        "version": 1,
+        "input_shape": [
+          1,
+          1,
+          1,
+          576
+        ]
+      },
+      {
+        "op": "CONV_2D",
+        "version": 1,
+        "input_shape": [
+          1,
+          7,
+          7,
+          576
+        ]
+      },
+      {
+        "op": "ADD",
+        "version": 1,
+        "input_shape": [
+          1,
+          7,
+          7,
+          96
+        ]
+      },
+      {
+        "op": "CONV_2D",
+        "version": 1,
+        "input_shape": [
+          1,
+          7,
+          7,
+          96
+        ]
+      },
+      {
+        "op": "HARD_SWISH",
+        "version": 1,
+        "input_shape": [
+          1,
+          7,
+          7,
+          576
+        ]
+      },
+      {
+        "op": "AVERAGE_POOL_2D",
+        "version": 1,
+        "input_shape": [
+          1,
+          7,
+          7,
+          576
+        ]
+      },
+      {
+        "op": "RESHAPE",
+        "version": 1,
+        "input_shape": [
+          1,
+          1,
+          1,
+          576
+        ]
+      },
+      {
+        "op": "FULLY_CONNECTED",
+        "version": 1,
+        "input_shape": [
+          1,
+          576
+        ]
+      },
+      {
+        "op": "HARD_SWISH",
+        "version": 1,
+        "input_shape": [
+          1,
+          1024
+        ]
+      },
+      {
+        "op": "FULLY_CONNECTED",
+        "version": 1,
+        "input_shape": [
+          1,
+          1024
+        ]
+      }
+    ],
+    "operator_counts": {
+      "TRANSPOSE": 1,
+      "PAD": 5,
+      "CONV_2D": 41,
+      "HARD_SWISH": 19,
+      "DEPTHWISE_CONV_2D": 11,
+      "AVERAGE_POOL_2D": 10,
+      "ADD": 15,
+      "MUL": 18,
+      "RESHAPE": 1,
+      "FULLY_CONNECTED": 2
+    },
+    "training_and_architecture": null,
+    "validation_input_sha256": [
+      "5ff0f8b477c3f3458f04b6e5a9b6007bd910fde4d4b38f222377ac77e7b60726",
+      "2f00b84ace1a95767522076ffe3581a1608f62ba479b1ada1947c298bc555be4",
+      "994426c4bc31dcecb7d27ec7efb655304f85a0e731487bfef148a1bc83bd230c",
+      "0ae1d91327c7fb02feb895988930d7ef17f65e782658b8d28d3b46b2f5e62124",
+      "6487ea444aecaeab639d15922722d9d32644fda627a5f89feca133e8a0538c09",
+      "aade25e4acdfab9a397319233887b6d5326c6fbe062f2dbb8f2853a9800ea57a"
+    ],
+    "host_tflite": {
+      "outputs_hex": [
+        "eb0911f316fd07f4f6f5fdfaf2f5f1f409f616e5fe2d1820f3ccdfdecbc5c8f7e6f30dddf6dcf5d9ebd3dde0cbd3e3f1bff1e9ebefece6ecf8d1ece3efece3dfe807ebecebd3ecee04060ef8010107ee0bf1fcf2e70afcedfefcfbf610040cf708f9252102ead9f001e4e307ebf8e9f9f3ececf5f7e9e3e4e2d1d5c6e3ebf0142c1218f608031bfc040e07090812001a1cec20ff14f102fae6e6b7e1eae5dff5e6eaf8f2ead4faf7f4d7f3f5ecebe1eededbefe6f2ddf8f8f1eaf8e8f2f6f2eeebfdecf3e2f0ebf6e8ebe0fce9f6ece5f4e8fa08e9e4e0f1e5faf3dce4e9eeece8ebddfae1e5e2e6f5e7f3f20006e5dcf0e6f7eadce8eff4f5fbf6fcdef5e7e7eaf1f3e4d9dde9eff4e9e6ede4eff0fcfaf4e6fffdf80502f2f4e7e506f9f2e7f4d5ece1dfe3030903f7e2dbf1f5effee2e3e9f8f0f20e03f2f9f5fef3efe9f8ecf8def2f0ed10f5e1f0e7eaf8e2dbe2e6e5e3e4eaf6efe2d7fbf6f8eae3eefff0f9fceffafbfbf4e20af6e7fbf3eee7fdeee4ddebddf1f0f6edfcf1e8f1e602feddebf911f6dcf7fb08f500f4e212fc0d01f90a1e25f8060536fbf50d25f7eff836fd11f505fa11140908e7ec10f5e9f0f6ddf8f61315f9fafbfd02f2ed0c000206e0ede7efe900010e05eb08ea00f6fc0b01f713e40af8fc15e3f8f40d0de21dfef111fc06fe0f1122ff0400f108f6ee030afef1fcf7e90af9fffe13f702ed10f0f20fee071009fbe8ecfaeffe1b11feec551dff12fadd13eb091de9f0fc12e01e16eaf61bf8fde91decfa181af1fff8f427fdda0bf2f9ebfaef0005cc09ebf4f1e1faf508f70004e7ef120ffb11f4fee9f6f814f1011f17eb01def819f909ee04fd44f406f2f703fff20b22f9fff9f4fb0ef3fdffe6f81b01e8f8fd09f7fa05eef0f613e41a150aea040806e4eef5fd2bfefcfefb13fc15f7f51dfbe40debe902f904e715f9fdf51d04f1ec29fcff24efd9fcf5ffec070ce4faf2fe2df40110df0308070914060e1104eb0fed00f903040416f7f8f716f9fef8fe0516fede03f6fee71107190926000beff5f5fefa011e12fef5020dfa0a0eeffd18f9f10bfe0ee60d0af8e4e8edf9fff6f527272815050e05fe07eaef03f120fbf9e5fd05f2fef3f30603e225f6fb08171f0b0211f5f11006f4eaefe9f2fa0bf80ddc07fbf8150df70b0efafdfdfd07091f15f908fe06ed20fbe312f3e0d919140207f6eb02f2f1080feef5fb1be2ddf2ffee0108f204f8efe90ff7d4ec05fff03404ff39fefa10f2fcf90eea3c2b060435faeaf1010bf2da1bf5172a420c07f6fdffd7efd205ece5e0dee0d5d2e1ecdfe2e5e0e3e9d8dff7e1f4f2ebd9ded4d4dbe10ed4e5e0ececf9d901f604f2fb22fa0dee08040b11eefa14ff14f80bea03ffead400e6eddbfdf5ec03f9",
+        "ebf7fbe80802fcf0f7f6f1f3eff4f8f6050006ee0015070cf1d3e1dcd1ccd1f8e7ec03dcf4ddf4efe1e0dcf8d7e4e1f7c7e5efebeee4e1ebf0d7f0ece8f2f0f6e706e9f1e5e3f40004090cfc02fe0deffbf5f4f2f401f3fff7faf7fa0c02fdf902061815ffe7e8f3efdee804e9ebe309f5f6f2ecf3f2f3eeeee8eaeaefeff0131e1b0b0a10f817f7fe0d0103010902070bf60def05ef0704edf0ddeaf7f8f3fbedf6ff0bf6e700fffff0f404fafef0f9efea00eef3eaf8fd02eff0eef6f3fcf3e7f0f3fbeaf1e9f1eee9effcf5efeafcf9f1ff0efbf1eaf5f605fceef2e9f7f0ebfce6f5f2f8f4f7f9f1f3f700fef1ebf9f0f9f1e6fbfb02fef5000ce3fefdf5e701fef4e6f3f7fcfbe9e9f0eeeff3ecedf2e9f3e8f9f4fee7f0e7f008f1eff1f8f6f0ddebf1effa04eddef4f5e9fe05e6edf8fef4e6f7f4f4fbeff4e8e8e9faf9fae3f0f1e603e2fbe5e0f6f7e5dde9eaf1deeeeefaedd3d4f4e4e8e5e0e7ffeef406fef8f5eff4f3f5ede8f0f8e1ef04f6e9e5e7eef7ebfdebefe2e8fdf100f5e2e3f101f6e602eef3f30803e219ff120919161b17030e0339050b193413081d260c031a1a1c1b161217f60b1005071308e709fc1223f900fc0b100a070d050e0ff112f2f3fb001d0b02050d08190502211207110007fdff1ff203fe2010f71f15050f08150c11282304280e050ff7fc0e1d29ed00f2010c08020e17fa11f6160c0309051d0f0b0703120f0ffe2420f8fb452c11090bfe1cfa0a19fb010820f4132c07042513fde62afeff24110b120809190bf5110d0df30aff0509f110f7fd09051dfb07071d0ef60b2508fd22f917ff03091f090c16230022ec1a1611fb04fc102a1114fa020e191d08291401110bf608fa1206f8021f0cf410160d0a0cfffa1cfa0ffc282500f919210bf30304fc27f6060efc1b022101061c01e31306fb0c040f01230b13fc27190efb0d09fa3503e50e0518f91e1bf6fcfb04171c2416fd11080902140d031f0af519f71003120a1d0806030f1a06110a1a162610eb15000d0627112a1b271b1908fb030a1021231506010f1a090e11fc1e2a101c0f0c29021b17faf6fb110e20f8ff2a3022200b1707030c0d0922f7181405001c0cff09ff020b0afb2dfbfe17232327060bfa03171607fd080cf80a201a1bf91f0c0d1314091c1dfe1a1208171c13260a13060bf2280fe11ffdf30019210416040507f8f812090e0f0729f3f81a0a0d10120d111300f60607f1fe0c0df83302092b0d12160403f90bfb30230f03240d08fe130ff1ec3105242e40171cfffafef3faf102f2efe6f1ececf1effae5e5f4eaeff5e8e8edf1f6fdf6e8f0ebe5f6ec0de5fdee0cf7fcdf15000cf80014fffbfe0e06ff0e000e130a07f901eff7f8f8eefae6f1eef3ececeeff",
+        "ddf202de07f6fff300faf4fdeff2e6f809fc1de8fd1e121cedc6e1d8c3cacdfcd7eb07dff7e1fbe5f9d5d2d9d2ccf0f4b9ede2d3f6e1ede8f4e0e7e3eeede5e9e2feedececd4faf103030b0a0e110cf207f9f5edfe14fc02f7000afc0c0a01f20d0616240feae5e700ecf0fae1e9e0ffeef0f9f1fed4e8f1e8dddfd8edfaf42a2c1a18030ffa19ff0214080c1318fe2417f322e8f9e606fae7e9cbe9f4e6e5fbe8ea0202f3dffefcf7e100fff3f0e5f6eae6f2e0eff1f8f4f4eff2e9ebf3f7edecf9f7fae9efeeede9f4ddfcf5f3ebeef1eb000bf4f0f3f6ec05f7e6e6e9f8ecedf1daf6e4f3edf0f2e9eff7ff02ede4fef3f9e7eef0f7fef6f4fa0cdcf5f5f1e8fe01e0e2e1eef4ebdee3ebe7eceefcf6f4e5fcf20104fff2e0d7e1ffe5e3e3f7dadad8c4dbf30300e9dbd80bf4030decedf511faf40907fb08000b01f6f7e7e3f9d9e5f8e901e3ddf7ebf2f9e5dbdce7e7eaf0ebfff4dcc8fcecece9dce005ecfafcf5eeede2e5def6f8e2f0f4d9dcf1e6e0d2e7dee8e7ede6ebe6dfebe9f0e0dae5ecf9e3d7efe0fbeaeee8d215f5fe11fd0e1616fc0b052c0708171e0af709260001ed0dfc00121f02e4050efafbf3eed30afc0415f3fefafd08ecec02fa0014dc03e4efe9020d0002ed0ffb10010d17140916f6fbf4ef0aeafafb1b08e509020311ed0ff31614350d0b12f710fbf0091814f1f2eef209f7f60922ee15f608f8effefa0008060bf2fefcfef4130efeee532c1214fce21eed1829e1f6fe0ef1150ffa0219effce01c000a2c16fe17fff52506eb13f910e4f3ef0201e403eaf4feec07fd18f80501e4fb1a19f611f406ebedfc160a062316f318e5032203fbe602f62e0109eff80d0209042909070602f10bf914fce6fb20fdfbfd1015fbf61aee0af31dea261a04ed0d1effe4f7fd001dee09060213020f01060efce90cebe7040205f718fa08f328fbf1ed1ff90730f3e201fef9ef1818de03f9f2120d0f22ed1207fa170b020bfe06df14f60a02040f1d06e4fc051700000406041908dd0cfb11f01c190e1d1f041cf30ef7101014311805fb010605010ef3141af40404091ffa0800f2e9effa080ffcf03120221ffd0615fd0b08f111e822eee3f61417e7e8eaeafeffe02bfa060f290119fc0ef5fc051200f1fdedef0c11031ded150bfb0708f01112ee0d01fd0b001819f805080adc280de424fcd8df2e14fb0401d609e7f50519fb00f619def1ff0e01090efe0509f0f61df4e1ecfbfff73114002812f410f5f6fb06ed431c1003180e00fd1001dfe618e51f1e3efbf9f3f70be5f7dcffe7e1dee3ece3e1e7f7e8dbeee9f1ecd8e2f6e6f4efe3d3e7d1d2d9e016d5f7e4f002f6da12020ae6f30ff505f30afd0005f0fd180ffdf9f6e70f02eaf00aedf0e2f9efeb01f7",
+        "e002f6cdf2e9f0f705efebfae6ece2f803f414d8f5150510e9c4dcd9c4c6cbeedadbfdd8e9dce7e0f2d9d6cebfc6e7e3b8ded1d5f9e1e4ddf0dfe3e4ece6e6e9d8fceae1ead7f0defbfc07fe03060cf0fdeff3f5fb09001011fa090a0b00ffed090b1c2409d7d9edfee8eaf4e3dde2fbe8ecebfcf6cde3e1e6e3dfd4f7f1e3202c1d16f700f51bf1020605fa0215f2200fe90cd7f4d9fcf0dfead9dcf3efe8fae1dcf6f8e8ddf7f003e6f4fcf1fbe1f1e6e4eccde4e7ede3fceaf7d9eeeee3e8f4f3e1e5dbe3e3dde5eedf01eceee4efdfe1f511f7f0effbea06f1d7e7d7f3e3e6eddaefe2eeeeededd7e1ec0202e7e8faedf1d9e1dde7f0ede7eb01cff6e4e7e6f7ffe7e4ddeae7deded7e2dbefecf3f5f2dff2ebff01fceeded8e5fceacedee0d4cfd5c6d5eaf7f7ede2dcf7e8f3f5d6dbecf5e2e7f4fef307ecfee1e8ecefd8f1dae2e7e2f5d8dae8e2ef00e8d3d4e0dcebe8eaeee4c8c2e6ddd7d8bfccf7d5dee0e6f6e8f5f7def7f8d3e5f4cfd4f1e3dfd7f5e0e3daf1f1e8e5eaf1eee3edc4d5eaebd9ddfbdcf6f3f6f0c81af50513ebfa1b0502fcfa28f10b0b17fff91a19160df30d01001904f9e4fe14f6f9f7f3df11eae815f30df9e511f0ec07f4f6ebea08ecfdeff70f0800f3edf80500060f180c0bf103e0f20eecfbf72bf9dc0700faf1e518f81a112e150605fc01f500e61320def7eee90af1f6fe0efe0dee05f7ec0af1ec05fb0ef905fdfada0c08f7ec4d210719fbde09dfeb1ddfea0718ed1304f3f621eff3e720fb1022031314f4f3131bdf070009def2ebf80cf406dfeef6eb0af41703f608e3ec2114f408f503f7edf30cf5f91712ef11d0fd24faeeefed021202feecf3070418001b02f81705ec0cff1409e1fd1405edfa0d0801f60af507e918eb262c07ca121e06d9f5fafd1ff10dfafb19da09faf70ce0e50eeedcf6f20bef11f90ced13eaf1ff1cf91332f9cc0afc0bee1627ecdfefff0c0c1e1af1f60be41e0e050e05face16f102ee090b1b0ad6f90efcfcfff308fc160aeaf4030aef112215081cff14e407fb1a18152e14eaf5fd02f80406f9051af7060c0b16050d00eeeaf1ec100ef0e225201c2b1006fd18fb12fc10f523ffe3f11a0ae5edeedffafce91bf6040138072af916f706f50be9e4fdfdfcf5070b1fe60508ee0108f1161cf903080400e80b19f3f3ff02e92801bc1f0acfea1b15fffe05d606f3e30417ef03e70cd7e9010cfffd06050b0bf3ef1d00e2d8fe06df2b11fd2f10fd0bf4e0fa0eef342e0f0b1308140716efd4e325e7191a350b0df0fa04f5fcda08f3dcd2e3e7d8d8d9eadfdce1e1e7ddd8e1e5ddf1fae7d8e2dbcfd1e006d6f8ebfcf8f8d516f603e9f108e2faecf2edfff6e8021e05ede6eceb00edead4fbd6dbdfeadbd2f4f9",
+        "ecf505e50af3f6f101fff9f9f5f2eaea01f503e4ec240f1de0d3ebdbd4c8d302e8f0fedaebdb05eafad4d8e1dfd6fb07c2edd4e002ecebf6f9d4edeef6f3f1e3fa03f1f0e5d001f410131b0f0d1f0ef002f1f4f7f2fcfcf3f4f605fb021600eb1af8fc1b02e3e0d701d8e5fbeceedd0400f8f7eceee9f1f9ede6d3d7e3f9f71f291c09fe0e0b0dfdfd0102000608f90d1ce011e8efe503fbe4dec8e6f2e8dbefe8f0f702ead8f8f3f3e5ff00edf5daf5e4dbe9d7e6e5ebeeeceaeedeecf4feece5f1f6e7ddececf9e0eae202eef1f2edf4eaf601ede2e9f6f8fcfbe2eae2f2e4e0e8e0ede9f0efebf1efeef0f7faefdbefe7ede8e2ecf2f9ebebf603daeffcececf4f7ddd5dee8ebf4e5dde8e6eceff2e6ecdefae2f8f5f7dedadcd9fae2dddae6d7dbdad2dfe5f6efe4dbe5f5fdf90ef3f0f014eeed090d0919fd14fdf9eee4e9fad6e5e6e100e1e6f2f2f2fee4d6dae5e1e8e2e2ffe4d9ca02e8e7e4d9ed05effdf6f3e9f4f3ebe0f9efe4f6eae6ebfcf4e7d7e1dfeae6e5f2f2f6e0f4e6f6e1e0eaee06e9d7f4f405f8f7f6d80b030902fb07fc1c020d07261801190f10ea1021ff14f112ee050f1001da1106f9ec0c04ddfaf80a10edfbecfc06f8f300ecfc0bd609effcf0f31002f4f904f711f4fe11f60610e404f9d4fbf6f8ef1a12dc09f8f504edfdfe10132efe0a01e90ff0e908110df0eef2e4f9e9f50905e81ae8fcf4effeed0ff81401e6060af4fd090aeeea3a1106faf9c811e1071af1ff130ae61408fffc21dbfce11304072718031cfb021dfed71ff403e10deffbefddf9eeeb04e90cf806fa0a01f0fc1c0ef708fcfcdcfefe15fff8240ceb0fe8f51400f0e706f22bf901fef9061103011e09fc0205e9fbf90508ecfb19f404f4070cf5fb0c0013ed26e91d0d0ae10715fde0f6fff92f04f809fd06f815f1020ffbdffef2ddf60210fb1af910eb17f009de16fb0d35f7e501f3ffee1918dff909f9110bfd0cec0408fa080cfdf509f8d818f70becf8fa0e08e9e80d17f7f50008021507f201f80de31c1608212eff18e6050ef7f90a2b09fcfa090b06fafef1000c00ed07f910e50103e6e5f500fe0406f6312517210a050efd16000016f828f7eae90a16f2f6d9f300fbe633eef6f427f80ff41af9ed070506f9fef6f1ff09fd08f70ae8f0041400ff06f6100efc0cfb1519ee0b00f1e01506d321f0dfd92304fb0105e114e2f70bf8fdfbf015d7fbf603f8edfb03050cec010ef1efdffe05eb29fe0a1a00f709ecf4e70de24f2f12fe0f0508041ff5e9e608e71f1933fc04fefcf6d6e3de06eadcd7e1deeae8feffe8e9f6f0fb05dce7f6e6f6eee7d6e4dbd1e3de0ed7e8ebebf7fdd506eef7ebfb0df40be400fdfe05eaf0050c0b02f1ea01f7f8ec0cdff3e6f5fdee01f5",
+        "f9f7fae605efffeef8fef8f9f2f3f9ee09e60be3f72b202efdd2e9ead8cad2fbdbeb04ddf6d7fcdbf6e2e4dfd9ddf1f0c6e7f5e1f4f0eaf0edd5e9eaf7f3e6d4ebf1e4efe2dcf901fa0c15020a11140902e6f1f4f10cf4f507f802f6150506f90afa0b1300fae9ed01dae20def03eeffe8edfef1f9eaf1f2e6d8ccd8ebedfd1c3015160e0c0d1a08fa0908f0fe0cfc0c1aed13ef00f002fbdce0bdd4e6e6ddf3dfe1f1f2e8dff6e9f4deeef2eaeed3ecdee2efdaebdff1fcf9edeae9e2f8f7f0dfefe0ebdae7d5ebdee7ebf8e5f1f6eef8f6ed02ebe9dfeae5eeecdbdcedece4e6e4e5e6dbdee6e8f0ebf2ebf5feded7e7e1e9ded0e3e5efeae4ebf8d5e9e4e6e6faf4e9dae2d8efeee6e2ebd8e9e5eef3ece9f8fdfffef1eceaf2dc01e7e5e3f0d0dcdedde0f8fde7f1dfe6fefafc02f5fcf60efcf10bfef6050500faf4000300e6d7f0f1d901eef8ebf7fa05eddee6e0f8e4e8ee06f9dfd4fbeef8f5eeec02f0f30af4f9fdefebe403eaebf8e6e0e0efdcded6eaddf3e6f2e7f3e1e2e8e3e6ddf3f4f304f6e2faf812f8f8efec1100fbeff8fd1b24ff05022a17fd151efaf50b28020ef618ed06142509ec0300eefff1f2ecfdf5100de8f5ec060ee7ef07031d19dceef5f4ef010bfe06f20ee20afeeff609050eddfefbf40df604f60b19e70bf7f90df6f808061b34040f0eef1efaee13050cf5fefbe20700fe0c05f6f8e503f3f80f0322011615f1f015e5fb1b13f5f73e14080fffd91de5142be6effb00e0190bfdf51df7fcf51bebea1d2afc0bf8fb1cf4dc0af8f3f603f4f8f4d103f5f1fbe0f70704f90609edf8211bfafdedf7dfe70715ec072329f30defee0af9f9f20dfe29f8fdefee040aff091b0001fe03f1ffef00fcde0125f804f3f713edee03f4f9fc1adf191210fa070afbedf7ec041f060418f6130612efed0b02e208e7f104f406df28f603fc1b07edec0bf40015f2dffbee02f72417ebf3fbf82c07121dfa0f12f60b04f80009fdd022f00c07f509fe1cf5fa00200bfc0a02f52704f204f407e518fe141b1d04fff5edfff3fbf4230706f30104fa0bfff70617feea00f419e51917f5e3dceaec0b01ee1b1b251ffe0df4fa10f10113f11e0902e8f022eef601f40102e824f7f8f00c1313f118f3f2190807f8f3f2f4050cf40ff206f4f5140af5030bf40015fb060d2323f9fcfa02f70efcfa0de3e8cf24170009fced00ec04170201faef1eebdcf6fe07f21b05f409ec00ff01e0f90bf9d82df9102300fd0cf907eb0bf0442bf5f726f9f9fa1210e3e018f4052c430902e9f1ead7e1dcfaece5eadedfdbd2e7ecd7d9d7cfe7e9dbe60aedf8fef0e0e9e8e6e8ef17d6e9e5e4eef2ccfef9fbeb0023f80ae117020c14effaf6ff140302ee00f3fad803e9eadffaf1f302fc",
+        "ef0a10f6160311faf7fc02fcf1f9fdf30cfa0ff2f9261b18f5daeae8d7dccaf7dff709e0f8e0fbe1f2dfe3edd7dfeffccfebe6eff3edebf2f5d4e4e9eef5edebef08f6f3f0f0fdfa061116030b0a19fb10fdf704f50bf7fefffdfbf7090307f6fdff1f1400ededf603e4ef10f202ef04f7f5faf80a00f1f1f0e6e7e4eef9010f220e14fb05fa09fefc11090b0a11031415f31b0916040b00eff3cee9f8f6e7faf1f40000f4e700fefff1fafff5f9ecf7ebeafaeef8f5fc02fefafcf1f8fe00f3f4fbf5fdebf6f0fde8eeef04f7f7f2f0f7eefc0df6f3edf8f003fce7edf4f7f5f5f0e6f6ecf6f6f1f7f3eef40301e9e8f3ecfeefe5f8f9fbfbf7fb05e7fff6edebfd04f2edf6f2f9fdecedf4f4f6f8fcf9f7f5fbf7030412faf8eff308fbf1eef9e8f1eae3effe0107fce2e704f60209f0f5f108faf80e05fb030104fdf3f9faf2feedf8feeb15eff7f6f3fb08f2e6eceef5f0fef102f7e3dc01f0fde6e8ed08f7f912fdfafbf4f8e708f4ebebf3ebe8f7e8e7dfede0f9eaf9e9efe0e9e3e2fbe9e8f0fe09f7e104030bf5fb00e8240509100b0d22200908073d0e04191f0aff11290815081103191b1b14fdfd0df7fafe04ee07f91c2d03fefd090cf9fc11031012ebfcf001f8060c020cf715020e0204130c0616fa13f9f813f9fc011e13ee2b0605140b140e210f230a10060f1308ff111418ff03ffff140509121ffc14f312020109fd140c0e0d0100040af5282c05fb5023161a11ec1af3121f00fc0711f92720fa0e200c0af52e04fe231c001907032803eb0f0b07f50201120be20eedfc09f613f91002120afcfe191b0513f411f4faff15021627190410eb0a27160cf7000535ff16f805040d05132b0505030a0516f51c0aec122e05f9050715fafc12f70f0417ef202b19ff1421fef9fbfc012b02051100230b24fcfd0f09ee0df0f611030ef31e0906052c0c01ff260f0c3204df0e0603f91214eafb070626080e1cef11140a0e1512102408f513fa0d0d170d160d000813260909fc0a0d2108f119020c061f15251a291d1b04fa000205072a170c040e0707131cff09160a070c0123f6201307ecf5fc041401ff2a2f2b2600250b071206fa10ff230102f81615000802fa1000f22cf204192a24190b13f8011d1202f907fdf7051a0f1aef1c0d031d1106110f12010f071205272111051014f029fdee2603edec221f071304f00af4fb130fffff0a2aeeec08090c140705111301fe1e0eecf817fdf53f06122d130a16090a0b1303362b06032a10f803061900ef28fd252c3f161804f90cf5f7e603f8f3ecede8eddff400e6ebf4eeeef6eef301f20005f7e3f5e3e3eff519eaf7eb020106e30e050df80317fe12060f0c1119f60e0a0a12fb0ef200f1f4e202f6fdedf9f9f6fc02"
+      ],
+      "tensorflow_version": "2.15.1"
+    },
+    "host_reference": {
+      "outputs_hex": [
+        "eb0913f314fc05f8f8f902fcf7f9f5f60df613e900341e25f8cae1ddc6c2c8f8e8f70edff7dbf4dbead7dde4cacee6f3c1f4ebedeeeee4edf7d1efe2eeefe6e2ea08e8efead5ecef060910f6030204f00cf4fcf9ec10fcec01fcfdfb150614fc0afe2a2904e5dbf300e0db04f3fae4f5f1ececf1f0eae4e3e4cfd2c5e3e5f01831171ffc0e0b26ff07140d10121d0b1f26ee23fd12ef06fce5e4badeebe8dff4e8eaf7eee7d0f9f9f2d9f4f6eaeddaefe1d8efe5eddefaf8f3eaf6e8f5f6f3efe9faeaf2e0ebe7f5e3ebe1fde9f2ece7f3e3f705ebe3def0e4f6f2d9dfe9ece8e4ebddf7e3e3e0e4f3e5f1edfb04e7dcf0e9fae9d6e9ecf4f2f3f3f7dcf8e1e5e8f0f4e1d5d8eaecf4e9e4eee2eef1faf9f3e4fef8fd0600f1f1e6e305f5f0e8f2d3eae1e1e50104fff3e3dfedf6eefde3e4e8f8eff40e05f5fcf300f5ede6fdedfde3f3ede910f9e6efe8eff5dfdbe5ebebe3e1ecf3efe0d4f6f4f5e9e2f000f6fd03effafafbf3e506f1e6f8f1efe900efe6e1eddef9f2f7f0fdeeeaf4e50600ddecfa10f6ddf5ff0ef403f9e510010ffdfa102027fc030635fbf00e22f8eef839fc0bf406f913160a09e5ee0ff5e6f2f9def6f91815fafff908fff6f309ff060ae3ece8f4edfe050a05eb0fe9fff6f407fef713df08f90311e3faf90e0fe41efced15fe04020c14260005fdef0bf8ed070a00f0fafae907fd05fc0ef509ec11f0f30eed0f100ef8ebecfcf1051c12fcea5117020efbdf16ee0f18eaf1fa10d92019ebf819f8fbe619f5f61819f302f2f52efdd906f2f5ebfdeb0204cf05f0f9f5e800fa07f90100e9ed100dfc0dee02e9fcfa12f0001e1aec00e0fa18f903f104fa42f807f3f60503f30b1cf900f9f8fe0af100fce4f91afeecfbf80bf9fc02eff5f312e41a140ee9040904e6eef0fa2efbfa00fe0f0218f9f02004e20defe901f503e015f703f51c08f5ec23fcff28f2dafdf105f10a0ce501f2fd2ef40212e0070a0a021807041101e913ed04f501000515f8f7f91bf503f7fc041afde204fafce71404180d28000beeeff5f5fc011d0f01f00412fb0b0bf1fc12fff006f90ce20e09f6e7e8eff803f6f8232526150112ff0006ebf100ee1b02f7e1fd0bf503f7f709fee228f6f5021621070419eff21205f5f0eee8f2f80cfb0de407f8fa170cff080dfd03fefb080d1d1afb03fb07ec1cf9e913f2dfda1e190202f7f504f2f2090df0f8fb1ce6def1fcf0fc07f609fcf0ec0bfbd7ef0603e936fd003c00f911f3faf609eb3b2c020639f5e9ee0d10f8d81bf3142a440a07f4f6fad4eacd01e8e3d9d8d8d1d3e2e7dee0e3dee6ecd6e3fee0f3f5ebd9dfd9dadde10dd3dfdee8e9f5d500f402f0ff1e0013f20f0e1219f3fb120216f80feafefef0d202e7eadcfef9ed02f7",
+        "e9f2f6e40703fdedf3f7eeefeceff5f202fa06e8fc12060bf3d3e0ddd4c9cff6e4e601dcf0def0ecdfdcdbf2d3e4dff2c3e6f0e9ede0dde6ecd2ece7e7f0ecf5e301e7eee2e5f00003050afd01000ef4faf2f3f4f1fef1fdf7f7f4f80a02f9f701041612fbebe6f5f1dae6fee6ebe30af3f9f3ebf2edf3eceee7e8e6efedef0f1c1a06090ff715f7f90b00feff06010409f70cee07ed0501e7ebd7e1f3f5eff8eceffb08f5e5fdfcffecf202f9fde9faebe7ffebf0e8f4fdffecedeaf3f2faf2e2eceef7e6eee5edeae8edf8efeeecf9f5f1fd0ef7efe9f1f302fae9f0e9f5ebeafae3f4eff3f1f4f4f0f4f602fdeee5f6f0f8f0e5f6fa01fcf5fe0ae0fbf9f4e5fefaf2e5eef5f8f8e7e6efeceff3ecebf1e6f3e7f8f2fce5ece7ed08eeeaeef6f4eddeebf3effa06f0dcf2f6eaff09e7f3fa03f4e6f7f3f2fceff1e6e3e6fdfaf8e5f0f0e807e1fbe4ddf4f5e1e0e8e8f0dbeeedf9ebd3d1f4e5e7e6dfe502ecf302fef4f5edf0eff5ece8eff5dded05f5e5e1e7ecf1e9fbe9efe4e5fbeafcf3e4e4f003f0e4ffecefee0800df19fe0b0719121c170209fd3bff0b1339120a1f2510061f141f1a17141af1090effff1805e404f90d23f703fa090f05030e040a0eed12f0f4fc021c0d040407081801051f0f0910fa03fff924f2fefb240ff52013040a05130c12271f052e0b030cf7fe0d182de900f1fc0b06fc0a17fa0bf1180f020afb1f0c0902060b0f0ef72422fbfb452f0e090afd1af50719fc010d22f0122f04042912fce226fafd1f0c0d0d070a130cf1100d0ef306020305e90af4f909011af902071b12f70c2806fd24f715ffff0c220a0b1225fd1de8171a12f507fb0f280d11f8040b1b1f04291401160bf008f40d09f6031d0bf80d1807080afcfd1bfa0ff92627fff71b240bef0007f92bf7040bf91afe22000517fcdc1402f90f030eff220813fb251613f90f07fa3301e2100917f81e1ef7f6fb0219181e13f90a080408160cff1d09f314f310ff0e0a1a0701ff111405110d1e10270eea100106062a132a182d171609fa03060e1f211302fa0e1d091311fb1f2f0820140b2efd1a1afaf1f8141120f7fd293324250a19080306050525f8171606fd220dfa08fefd0a09f827fcfe1721232cfe070002141707f9070bf50722181bf81a080c0f14071a19fe1712071217142c07170408f5290bde19fdf3fc13210814020106faf71008100d0629f4f61a040d0e140c0e16fdf40308edfb0e0cf93601082f0b121301fdf912fb2f230f04280c0cfd0d0aeee937092731421c2001fb01f2f6ef02f1f0e6f2eaedeaeef8e0e3f1ecebf4e5e5ebf0f4fbf6ebf2ece5f9eb0ee3fbf10cf6fcde12000bf2ff0ff8f8f80afdfb0bfa08100707f8fbedf9f7f6ecf7e2f1f1f4e9eaef00",
+        "dbf403da05f4fcf502f7f5fef0f6e6f90cfc1febfc1e131fedc5ded8c2c8cbfad7ea06dcf5e1fae7fad5d3dad1ccf2f3b8e8ddd6f5e2eae8f2e0e2e3eeece3e9e3f9ebe9e9d9faf307050f0e0d1409f204f9f3eafd12fa05f7010e000b0b04f40e0516250de8e4e700edf2f9dce4db01eef0f8f0fccfe7f1e5dee0d6ecf7f02f2f1c1b010ff81efd010f08081417fc231af320eaf8e606fbebe9d0edf2e8e8faebec0304f6e30100f6e300fef5f2e9f8ece6f1e4f1f0f8f1f4ebf2e8ebf2f8eeedf9f8fde6efefececf2e0fcf5f3ebeff3ec0509f6eef4f8ed08f8e6e4e9fcedeff4daf9e6f4edf0f3ebf2fb0003efe600f2fde9f0f3fa01f9f5fd0cdaf8f8f4ea0007e2e5e4eff3eddfe3ede9eeeffcf5f6e800f50204fff3e4dae200e9e3e2f9dcd8d8c7daee02fde7d7d809f4040dedebf812f8f60907fb0eff0e01f4fae8e4fedce9f8ebffe0dcf3eef3fbe8dbdde8e5eef2ebfdf2dbc4faebe9e6d9e107e9f9f9f9efece4e7ddfafde1f4f7dbddf5e8e4d8e5dfe8e6f2ededeae2f1ecf2e2dae2edfae1d2f0e1f8e9efe7cf15f5fe1100111815fa0c042f04091a1a06f509250404f00df9ff141d04e60210faf9f5edd607fb0116f301fafb0aeded06f7ff10dd01e7eee8040efefcf30afe0f000f15120b13f7f9f3ed10eaf9fd1c09e30901020cef11f51615350e0d0ef310f9f5071714ebf1eef30afaf90a20ed16f508f7f0fef801070207f4fefb01f50f0e01ec542d0d17fde31bed1427e2f8010cf41510fdff1df2fde216ff0e2b17fd1501f8200ae916f712e4f5efff00e803eaf303e907fa17f80601e9fd1f19f712f806ecf0fa140b042517f218e7062101fee7fff72a0408f0fc0d041104270d080afef20bfd15fce5fc2000fafd1014fbf61af308f51deb241c03eb0e23fde4f6fdfe1eee0f04ff10000e04090df8e90eebe8060208fb17fd0bf425faefec1ffe0733f3e201fefcee171bde00f7f3140d0a20ed0e06f8170c010bfc08e112f40b0105111f07e7fc081502ff0407051808dd0afd11ee1d1f0e1d20031ff310fc0f1016301803fb010805020ff01618f10705081ff80901f4e8eff90c0ffdf230222020020814fe0b09f60fe624f0e3f81317eae6e7ed0001e228fa070d2d051bfd10f6fd051200f2fef1f10b120320f11508f90605f00d0fee0f00ff09fb1719f505060bdd2810e026ffd6df2d16fc0304da0ce9f50419f7fdf618def1fe0bff0a0bfd060bf1f31df8e1ecfe02f63417fe2a11f311f4f3f707ec431d12041c1006fe0ffde3e416e61d1e3cfef7f3f907e4f5dbfbebe0dfe2ede6e3e4f7ecdceee8f2efd5e2f4e6f3f3e3d0e9d1d2dbe00fd1f7eaf000f8da14010be7f10cf500f005fbf900ebfc1a0ef8fbf7e70d01eced07eaf0e2f8ece802f8",
+        "e306f5cdf5eaf0f705f0edfee6efe3f302f812dbf613030feac5dcd9c6c8ccf2dbd8fdd7e6dbe7e3f2dcd7cfc0c4e9e4badfd1d6f6e2e5ddecdee3e3ede8e7e4d7f7e9e0e8d8f0ddfaff09ff060a07f4fdeff1f5f907fc0e13f605080d0101ef080c1a2409d4d8edfde8e8fae6dfe3fceaefeefff4cfe5e3e8e7ded6faefe51f2b1d14f800f51df0030607fd0117f32211ee0ed6f1d7fcf3dce8d4d6eff1e9f9e0d8f3f5e6dbf4ee03eaf5fef5fcdef3e8e6eecce2e5ece3fbe8f5d6eeece5e6f3f0e0e4d9e2dfdde1eadd02e8eee5efdfe0f411f7f0ecf7e805f0d7e5d7f2e4e8eed7eee2ecefeeefd6dfe80303e3e3f7ebf0d8dcdbe7efede5e900ccf7e3e9e5f9fee7dfdaeae8dedcd5e0daf2f1f3f5f2e1f5ed030302eedad6e1fde8d0dde1d8d1d4c5d7ecfafbece1ddf5ebf1f9daddecf4e0e9f403f50beb00e2eaecf2d9f2d9e1e4def4dcdeeae2f1ffe7d6d7e1dcece8eaede4c6c0e4dcd9d9c2cff8d9e2e7edf5e9f5f9def7f5cfdef3d0d2f3e5e3d8f4e3e6ddefefe6e2e7f0ece4edc4d4e8ebdddefee0f7f7fcf0cb19f50712ef041e0304fcf827f10c0c1901fd17171808f30efdff1608fae4fe14f0f5f7f0e10de9ec1af40bfce810efeb0af1fbeee50aecfef3f50f0a00f1f3f606000511160f0bf306def20feffff82af9dc0901faf6e517f616132e120703fb05f2ffe9121fdff7f0e708f2f6fe0e0111ed05f4ee0beff209fc08f90800f7df0c07f3ed4c1c0418fcdf08e0ec1ce3ea0816ef1105f5f923f1f2e91dfa0c24061110f4f1141ce1060108e2f3e9f60df202dfedf6ec10f41707f808e2ed2411f409f903f6eff20cf5f81a12ef11cf0025faebf5ee041801fcf1f10a0819041d00f61806ea09fd1007e5fe1501edf90d0b00f50af407ea18ee243009cf0f2203d8f5fdfb21f20efaf818dd0cf6f80ee0e50becdff5f10bec15f90deb15eaf1fc15f91133fbc809000aea1726efe3f2030c0d1e1af2f90ce71c13070c05f7ce16f303ee0b08180bd7fa1000fc01f507ff1a0cecf3ff0cee142215091cfe11e407fd1917142c0feaf50005f80603fb061bf6080c091a0210ffeeedf3ef1110f0e51f211c2c1408f81afb11fa10f22001e0f01a0ae2ebede4fcfbea1cf604fd380c27f615f808f60dece5faf900fc030d20e60305ef010ef3141bfb090a0402e90a19f2f2fc00e72a01bf1f08cfea1d18fffe05da09f5e10818f300e80edce90209fffb03050d0bf5ee20fee2dcfc04dd2b12ff3410fe08f3e1f90bef3830110d1a09160817f0d6e427e71919350e0df0fc05f7fedd08f5e0d3e5e8dcdbdaeddfdcdfe3eadfdae3e8dff2fcead9e5dcced0e306d8f9eefffbffd616f603ebf606e4faf0f4f001f9eb041a0aebececeafeefefd4fddadbdfecdcd6f5fd",
+        "ebf205e308f3f5f100fcf8f9f9f6ecef02f604e3f1261121e0cfeadcd4c3d0fee5edfedae9d704e9fad8d8deded3fc08c1efd3e502ece7f6f8d5e9eff6f4f0e0fc01f1ece4cefbf20b0f170b0c1c09ee02f1f7fbf500ffeff5f905fd051002eb18fbf92202e1ddd702d4e7f4eaeedb03fdf5f8e8ece5ebf6e7e1cdd3e0f6f8212d210d000f0812fe020401000b0efe101ae115e7ece302f9dfdcc5e4f0e4d8eee7eef300ead6f6f5f2e1fffde9f4d6f3e2dae9d8e5e9e9eaece9ecdfebf2fdeae3f2f7e6dde7eaf6dce9e003ebf0efeaf0e7f9ffeae0e9f5f7fcfbe1e8dfefe0dee7dcede6efe9e6edededecf6fbebd6ede6ebe6dee9eff4e9e7f5ffd7eff6e8eaf0f7dad3dde7e7ede6dce8eaecedf2e5e9dbfce0faf8f7e0d8dad9fde1d8dae4d4d7d9cbdee1f3ece1dee4f2faf509efeaec0fecec0a0a0518f914fcf8ede5e7f5d6e3e8e103e2e2f0f0f1fbe2d3dae5e1e8e4e103e7dbca02e9e6e3daee06ebfcf5f1e9f1f5ecddf7f0e5f5e8e4eafaf4e6d6e6dfebe1e2f4f1f5e1f2e5f6e0dde8ea02e7d4f1f308f6f6f5d6080205fef709ff20010a092517fd180d0ae70d21fc13ee0ee8010e1102db0e05f5ec0b01e0f7f60d0df2fceb0003f6f002e9ff0ad003edfdeff20efff5f507f60feffe0ff1060de105fbd0fef5f6ec1a12d607f3f307eefdff0d12300108fee80cf0e80a140bf0f0f3e0f6e9f503fee71de8fdf1f2faec0df41103e50106f3020006ede63a0f04fff6c312e10a19f1fc1106e61402fdf822d9fcdf0e0909251a021cf9022001d722f101e009edf9eddcf3eceb00e605f602f609fdeefb1e0ff406f9f8dbfbfc15fcf3270be80be7f211fceae502ee2af6fcf9f7040b00041905f50803ebfbf90803e8f915f106f10408f0f711ff12eb24e21e0c0be40510fbddf4f9f83503f706f903fb13f1ff0b01ddfcefddf20211fc1bf50ceb12f40adf12f80f35f3e100f2fdf21913dbfb0dfc1208fe0eea0405fc0a0afaf206f3d816f50de7f1fb0705ebe40d1af5f5ff06fe1504f1faf80be31919061e33f911e2040cf5f4082a0902fa080b02fbf8f0fd0affec04f70de301fde3e5f3fc030403fc2c24152009050afc13fe0111f629f7e7e90c13eff5d7ef00f7e434eaf5ee26fa0cf918faea030403f9faf0f00005fa08f405e6f5051301ff06f51210fa07f61017f00effeddf1507d320f0deda2803fbfc02e312e0f30af6fafbf212d7f8f103f6ebfb010108ea020af1ede1fe02ea2400081ffdf107e6f5e30bdf4c2e11fd1301080621f3ede307e81b1632fd03f8fcf4d3e0d906e8d6d3dfdee4e6fc00e6e9f2eef805d6e6f7e7f0ede5d7e2dad3e2db0cd0e3eaeaf3f9d203e9f4e9fb0bf70ce4fffffe05eaee01080700ede9fffaf5ea0ee2f4eaf4fcec02f5",
+        "f6fafcea10eef9ebf5f7f2f4eff3f6eb09eb0ce3f9312431ffd5eaedd9d2cffed8e806d7f6d202ddfde6e7e4dddaf7f5c8ecf6e1f1ede6f1ebcde6edf5ebe0d2e9f4e5ede1d6f405f70b10fe0a11110a04ebf1f5f30ff3f707f9fff4160108fa0af80b16fef8e7f0fcd7dd08f406f404e6ed04f7f8e4ebf0e5d5ccd7ebeb04203219180e0f0f1b06fa0a0af1ff0efb121ff01cf000f103fbdbdbb7cfe0e6e1f0dbe1f1f4e6def9ecf5deeef3ebefd3eadde0eadaeadcf1f8f5e7e5e7e5f8f2eddbeedceed9e4d1ead6e1e5f7e1ecf3eaf4f6ea02e7e7d9e6dfeae7d5d7e8eae5e7e5dee9d4dbe3e9f2eaefedf1ffdcd3e4dfeadec9e4e3eceae3edf4d2eededfe3f8f2e6d6ddd6edf2e5dfecdbeae6f0f7edebfaf900fff1efe9f2dafde7e3def1cadae0dbe0f6fceaeee3e601fb0002f8faf30ffbf20e00f7020601fdfa010300e3d0eaead201f5f8ecf4f9fce9d7e3dbf5dee6ee01f7dfd2f8ebf0f6edf002eff407f3f9f9ebe7e103ebe9f5e5dddeeddaddd6eadceee5f1e3eedcdee6e0e8def3f3f200fbe5fcfa15f8fdf2ed0bfefeecf7001c29fe03fd2c11fd1022f4eb0e260310f619e8040e2207e3fbfeedfbf2eeeaf7f21007e8f9e8050ae2ea07fa1713d4eaf2f3ec030c0207e90add04fbeff400010cddfefcf112f4faf00e16e70aeef00bf5f30702192c010b08eb1ef9f214fe0ef6fbf5e20400010406f1f2e20af3f40b0021fd0c10e9eb15e2f91b0eeef13d10090efcdd1ae2162ce2ebf6fdda1309f1f31bf3faf018e9e71b26fd09f7f41ffad9fff5eff1fdededf2ca03edeff5dbf5fffff3010beff42115faf8ecf6dce6031aed06212cef0aebe706f9f7f60afa29f1fceced0507fb0519f9000301e701f202f9daff22fa00f2f00eebed00eff7f71bdd1e0d0dfb0806fde9f5e80325090110f00c070ee8e90c01de01e4ec01f301e12df0fffe1908edeb0df0ff16ecdaf8eafef41e16edf4fcf92e061015f00f0afa0702f70107f8d120e80b00f505ff1eecf7fd1c03f907fef12403ed02f501e019fd120f2001faf1e601edf5f3210206ebfe06f40800f30a1dfde601f51ae11313f0ded6ebf407faeb16172c1efe0bf5f00debfe08e71d06fde3ed1bebf2feecff00e824f3f6ee081310f214f1e8180b02f7ebeef2ff07f40deb08f2f9150af8fd05f2ff0ff8020c2124f7faf2fff50bfcf90fe3e5d02211fa09ffedfbe9fd1201fcf6f01cebd0f2f903ef1703f406e903fef9dffc0af8d72cf60b29fff70df1ffe70ae64425f3f92ff3f6f7110ae1da16ec01293e07fce4efe4cfdbd8f7e7e0e6d9dad6d3ebeed6d4cfcae6e4d4e309eaf4ffefd9e8e3e3e2e814d3e3e3ddeaefc5fcf4f8e5fc21f80ae313ff0713eaf2f6fb14fcfeedfff3f3cf00e6e0e1fbedf303fd",
+        "ee0a10f514010ef5f8f9fef8f0f8faf10afc11f3f628191afad8e6e4d6d5c8f8e0f406d9f4defadcf0d9dee7d2dcebf9c6e4e3eef5ece8f0f6d1e2e7eef4e8ecec0af4f2efeefcfc09151b050d0c19fc0efdf802f50bf602fffefaf50a0009f5fdfc1d14fee7ebf001e1ec11f0ffed03f7f4fafa0afdeef0eee3e5e1f0fb0114240f18fb05fd0dfbf80b0807090efe0f17f01a0517fd0bfeeaefcae8f3efe4f9edf1fd00f2e1fdfcfcebf6fcf2f8ecf5e8e4f6ebf4f1f9fefcf3f8ebf3fefff0f4f9f3f8e8efebf9e6edf002f6f4edeef5ecfc0cf4eee6f4eefff7e3e5edf4efeef1e1f4e8f1ede9f2eeecf30200e4e2f0e7faece1f4f7f9f9f6fb06dff8f4eae6fa00ece7f3eff7f7e7e8f1eff3f5fcf9f3f1fbf7000410f6f5eeec09faedebf4e3eae3e0e8f8fb07f6e1e703f50108eff0f109fef91104f7010002f9f3fa02f6ffeaf8fce814eef3f2effa05eee2e8ebedebf8f2fdf0e0d1fce9f0e5e4ec07f4f40bfafaf6f5f8e106f5ebeeefe7e0f8e4e3dbebdbf7e8f5e7eedfe6e4e1fcece2ebf907f4e0020109f3fa02ea1f02060e0a0d2620050400400a04152006f8112b0a150c11ff16191915f6fa0df5f6fd01e904f3162afefefb030df4f90c010e0ae8feeff9f0040d030bf70dfd0cfe0511090311f211f5f314f7fa001e0de72702000e05110c1e1122071002061302fe0a1017f800fffd1200090f1efb0bee1200fd0bf8110e090af8fc0404f2262602f75225151b0deb14ee0f1efcfb0910f0241ef50a1f0607f127fcfb201c001607ff2702e4090b05f3fefe0b0be010ecf708f40df712ff0a0dfaf719160213f40df1fafd1602142619030ee50724100af6fe022efd10f903050d070f2a020604020014f41706eb0f2b05f1050611f8fa11f9070318ea1e2713f9141efff3f5f9fc2d05040efd1f0421fbfb0c03ea0ef1f10cfc07f31f0303032a07fefe2809073401da0d01fef51017ecf604012e070d1ae81010030f130f121d07f312f70809120d1611fc060e210808fc05091c02f014030a001d1021142b181801fbfb01030928150bfd0d0707111af90a1707040cfd21f71e1205eceefc0413fafc2a2e2d26ff1f0a051004f911fe2700fff51114fc09fef70b01f028f3011524261b021af9ff1c11fbf301fdf503170b1deb180bfe1a0e050e0f0bf90c040f0424200b010a10ef28fae72401e6e8211c061004ef09f2f81010fcff062be9e6050504100703090ffefb1e09e6f217fdef41050b3310071605020511fe372c04012f0afafe0317fbea26f71e303e121200fa0aedf5e402f6ede9e4e6e8dbeffde5e6f0ebecf5ebf200edfc04f4dff2e2e1edf012e6f6e8f9ff02e00d020cf5ff17fd11fd0a080c15f00a0d0612f80def01eeefdbfff4f6eff9f4f2fefe"
+      ],
+      "tensorflow_version": "2.15.1"
+    }
+  },
+  "neutral_control": {
+    "source": "https://www.cs.toronto.edu/~kriz/cifar.html",
+    "source_detail": "Kit custom CNN. TensorFlow 2.15.1, 1 epoch, 12000 samples, seed 1729, Adam, 128 calibration images, full integer TFLite quantization. Fixed test image 0.",
+    "schema_version": 3,
+    "model_bytes": 29688,
+    "model_sha256": "76ad751c2211e3ff0ba448f21e92b9e2ea007109efd270940c734d941ee26ac0",
+    "input_bytes": 3072,
+    "input_sha256": "9f2b799d8a7d23ea057764d98841e08038753212d8fcb06b4b8f28a859926511",
+    "input": {
+      "shape": [
+        1,
+        32,
+        32,
+        3
+      ],
+      "dtype": "INT8",
+      "scale": [
+        0.003921568859368563
+      ],
+      "zero_point": [
+        -128
+      ]
+    },
+    "output": {
+      "shape": [
+        1,
+        10
+      ],
+      "dtype": "INT8",
+      "scale": [
+        0.03360695764422417
+      ],
+      "zero_point": [
+        23
+      ]
+    },
+    "operators": [
+      {
+        "op": "CONV_2D",
+        "version": 3,
+        "input_shape": [
+          1,
+          32,
+          32,
+          3
+        ]
+      },
+      {
+        "op": "CONV_2D",
+        "version": 3,
+        "input_shape": [
+          1,
+          16,
+          16,
+          16
+        ]
+      },
+      {
+        "op": "RESHAPE",
+        "version": 1,
+        "input_shape": [
+          1,
+          8,
+          8,
+          32
+        ]
+      },
+      {
+        "op": "FULLY_CONNECTED",
+        "version": 4,
+        "input_shape": [
+          1,
+          2048
+        ]
+      }
+    ],
+    "operator_counts": {
+      "CONV_2D": 2,
+      "RESHAPE": 1,
+      "FULLY_CONNECTED": 1
+    },
+    "training_and_architecture": {
+      "name": "neutral_control",
+      "origin": "custom CIFAR-10 CNN; trained from scratch",
+      "training_epochs": 1,
+      "train_samples": 12000,
+      "test_accuracy_1000": 0.38999998569488525,
+      "input_shape": [
+        1,
+        32,
+        32,
+        3
+      ],
+      "output_shape": [
+        1,
+        10
+      ],
+      "input_scale": 0.003921568859368563,
+      "input_zero_point": -128,
+      "host_output": [
+        -4,
+        15,
+        27,
+        49,
+        -13,
+        31,
+        14,
+        -22,
+        1,
+        -35
+      ],
+      "ops": [
+        {
+          "name": "CONV_2D",
+          "inputs": [
+            [
+              1,
+              32,
+              32,
+              3
+            ],
+            [
+              16,
+              3,
+              3,
+              3
+            ],
+            [
+              16
+            ]
+          ]
+        },
+        {
+          "name": "CONV_2D",
+          "inputs": [
+            [
+              1,
+              16,
+              16,
+              16
+            ],
+            [
+              32,
+              3,
+              3,
+              16
+            ],
+            [
+              32
+            ]
+          ]
+        },
+        {
+          "name": "RESHAPE",
+          "inputs": [
+            [
+              1,
+              8,
+              8,
+              32
+            ],
+            [
+              2
+            ]
+          ]
+        },
+        {
+          "name": "FULLY_CONNECTED",
+          "inputs": [
+            [
+              1,
+              2048
+            ],
+            [
+              10,
+              2048
+            ],
+            [
+              10
+            ]
+          ]
+        }
+      ],
+      "dataset": "CIFAR-10",
+      "fixed_test_index": 0,
+      "model_sha256": "76ad751c2211e3ff0ba448f21e92b9e2ea007109efd270940c734d941ee26ac0",
+      "input_sha256": "9f2b799d8a7d23ea057764d98841e08038753212d8fcb06b4b8f28a859926511",
+      "note": "Full-model correctness on the board must be checked across builds. Built-in TFLM MEAN is not ESP-NN MEAN."
+    },
+    "validation_input_sha256": [
+      "e68c61fd5a85a20d66067d1958489782815e9252c504bddc2c3bf97f618ac947",
+      "77a418536d99728b84b93dd88981cf7ca3e0a527298c4c78897b3ccc9b1b1584",
+      "1ed76ff104fc947eb6d3e4d4fd13998651c847e2b4231464f757bfd85362dc99",
+      "c21980452db8447c35e1948f47a86f80663b2fd5109fc7fbcc8b6291de835419",
+      "18751af1ce2d0b648efc7d1db94329019791d3fdcb0378e5a334327a3a6822e2",
+      "05f1f9629852a68839ba5aed6894e52da87a2bb1845f005a774fa6f7d017e90c"
+    ],
+    "host_tflite": {
+      "outputs_hex": [
+        "fc0f1b31f31f0eea01dd",
+        "2b39ffe4b7d6c0e44c46",
+        "3d1d03fbc2f4beea5a25",
+        "350d15facfe5c7fa4703",
+        "e5e23128292b221edfd6",
+        "b02408340724351bb808",
+        "cc3af237e737160ed2f6"
+      ],
+      "tensorflow_version": "2.15.1"
+    },
+    "host_reference": {
+      "outputs_hex": [
+        "fc0f1b31f31f0eea01dd",
+        "2b39ffe4b7d5c0e44c46",
+        "3d1d03fbc2f4beea5a25",
+        "350d15facfe5c7fa4703",
+        "e5e23128292b221edfd6",
+        "b02408340724351bb808",
+        "cc3af237e737160ed2f6"
+      ],
+      "tensorflow_version": "2.15.1"
+    }
+  },
+  "person_detection": {
+    "source": "https://github.com/espressif/esp-tflite-micro/tree/df8722334a80ceabc609c1e72968f417cd9437f1/examples/person_detection",
+    "source_detail": "Espressif's Apache-2.0 example. Exact bundled model and sample image0 with XOR 0x80.",
+    "schema_version": 3,
+    "model_bytes": 300568,
+    "model_sha256": "808cfdfc0cf3a6fa6f6fa26bfa379ea97c16d5db7334637766e39c3408502e9d",
+    "input_bytes": 9216,
+    "input_sha256": "db70d628c69397a470e7d42c8d4c189962715c17a4458b41f34fef7695df9733",
+    "input": {
+      "shape": [
+        1,
+        96,
+        96,
+        1
+      ],
+      "dtype": "INT8",
+      "scale": [
+        0.007843137718737125
+      ],
+      "zero_point": [
+        -1
+      ]
+    },
+    "output": {
+      "shape": [
+        1,
+        2
+      ],
+      "dtype": "INT8",
+      "scale": [
+        0.00390625
+      ],
+      "zero_point": [
+        -128
+      ]
+    },
+    "operators": [
+      {
+        "op": "DEPTHWISE_CONV_2D",
+        "version": 3,
+        "input_shape": [
+          1,
+          96,
+          96,
+          1
+        ]
+      },
+      {
+        "op": "DEPTHWISE_CONV_2D",
+        "version": 3,
+        "input_shape": [
+          1,
+          48,
+          48,
+          8
+        ]
+      },
+      {
+        "op": "CONV_2D",
+        "version": 2,
+        "input_shape": [
+          1,
+          48,
+          48,
+          8
+        ]
+      },
+      {
+        "op": "DEPTHWISE_CONV_2D",
+        "version": 3,
+        "input_shape": [
+          1,
+          48,
+          48,
+          16
+        ]
+      },
+      {
+        "op": "CONV_2D",
+        "version": 2,
+        "input_shape": [
+          1,
+          24,
+          24,
+          16
+        ]
+      },
+      {
+        "op": "DEPTHWISE_CONV_2D",
+        "version": 3,
+        "input_shape": [
+          1,
+          24,
+          24,
+          32
+        ]
+      },
+      {
+        "op": "CONV_2D",
+        "version": 2,
+        "input_shape": [
+          1,
+          24,
+          24,
+          32
+        ]
+      },
+      {
+        "op": "DEPTHWISE_CONV_2D",
+        "version": 3,
+        "input_shape": [
+          1,
+          24,
+          24,
+          32
+        ]
+      },
+      {
+        "op": "CONV_2D",
+        "version": 2,
+        "input_shape": [
+          1,
+          12,
+          12,
+          32
+        ]
+      },
+      {
+        "op": "DEPTHWISE_CONV_2D",
+        "version": 3,
+        "input_shape": [
+          1,
+          12,
+          12,
+          64
+        ]
+      },
+      {
+        "op": "CONV_2D",
+        "version": 2,
+        "input_shape": [
+          1,
+          12,
+          12,
+          64
+        ]
+      },
+      {
+        "op": "DEPTHWISE_CONV_2D",
+        "version": 3,
+        "input_shape": [
+          1,
+          12,
+          12,
+          64
+        ]
+      },
+      {
+        "op": "CONV_2D",
+        "version": 2,
+        "input_shape": [
+          1,
+          6,
+          6,
+          64
+        ]
+      },
+      {
+        "op": "DEPTHWISE_CONV_2D",
+        "version": 3,
+        "input_shape": [
+          1,
+          6,
+          6,
+          128
+        ]
+      },
+      {
+        "op": "CONV_2D",
+        "version": 2,
+        "input_shape": [
+          1,
+          6,
+          6,
+          128
+        ]
+      },
+      {
+        "op": "DEPTHWISE_CONV_2D",
+        "version": 3,
+        "input_shape": [
+          1,
+          6,
+          6,
+          128
+        ]
+      },
+      {
+        "op": "CONV_2D",
+        "version": 2,
+        "input_shape": [
+          1,
+          6,
+          6,
+          128
+        ]
+      },
+      {
+        "op": "DEPTHWISE_CONV_2D",
+        "version": 3,
+        "input_shape": [
+          1,
+          6,
+          6,
+          128
+        ]
+      },
+      {
+        "op": "CONV_2D",
+        "version": 2,
+        "input_shape": [
+          1,
+          6,
+          6,
+          128
+        ]
+      },
+      {
+        "op": "DEPTHWISE_CONV_2D",
+        "version": 3,
+        "input_shape": [
+          1,
+          6,
+          6,
+          128
+        ]
+      },
+      {
+        "op": "CONV_2D",
+        "version": 2,
+        "input_shape": [
+          1,
+          6,
+          6,
+          128
+        ]
+      },
+      {
+        "op": "DEPTHWISE_CONV_2D",
+        "version": 3,
+        "input_shape": [
+          1,
+          6,
+          6,
+          128
+        ]
+      },
+      {
+        "op": "CONV_2D",
+        "version": 2,
+        "input_shape": [
+          1,
+          6,
+          6,
+          128
+        ]
+      },
+      {
+        "op": "DEPTHWISE_CONV_2D",
+        "version": 3,
+        "input_shape": [
+          1,
+          6,
+          6,
+          128
+        ]
+      },
+      {
+        "op": "CONV_2D",
+        "version": 2,
+        "input_shape": [
+          1,
+          3,
+          3,
+          128
+        ]
+      },
+      {
+        "op": "DEPTHWISE_CONV_2D",
+        "version": 3,
+        "input_shape": [
+          1,
+          3,
+          3,
+          256
+        ]
+      },
+      {
+        "op": "CONV_2D",
+        "version": 2,
+        "input_shape": [
+          1,
+          3,
+          3,
+          256
+        ]
+      },
+      {
+        "op": "AVERAGE_POOL_2D",
+        "version": 2,
+        "input_shape": [
+          1,
+          3,
+          3,
+          256
+        ]
+      },
+      {
+        "op": "CONV_2D",
+        "version": 2,
+        "input_shape": [
+          1,
+          1,
+          1,
+          256
+        ]
+      },
+      {
+        "op": "RESHAPE",
+        "version": 1,
+        "input_shape": [
+          1,
+          1,
+          1,
+          2
+        ]
+      },
+      {
+        "op": "SOFTMAX",
+        "version": 2,
+        "input_shape": [
+          1,
+          2
+        ]
+      }
+    ],
+    "operator_counts": {
+      "DEPTHWISE_CONV_2D": 14,
+      "CONV_2D": 14,
+      "AVERAGE_POOL_2D": 1,
+      "RESHAPE": 1,
+      "SOFTMAX": 1
+    },
+    "training_and_architecture": null,
+    "validation_input_sha256": [],
+    "host_tflite": {
+      "error": "quantized_dimension must be in range [0, 1). Was 3.Tensor 33 has invalid quantization parameters.quantized_dimension must be in range [0, 1). Was 3.Tensor 36 has invalid quantization parameters.quantized_dimension must be in range [0, 1). Was 3.Tensor 40 has invalid quantization parameters.quantized_dimension must be in range [0, 1). Was 3.Tensor 44 has invalid quantization parameters.quantized_dimension must be in range [0, 1). Was 3.Tensor 48 has invalid quantization parameters.quantized_dimension must be in range [0, 1). Was 3.Tensor 52 has invalid quantization parameters.quantized_dimension must be in range [0, 1). Was 3.Tensor 56 has invalid quantization parameters.quantized_dimension must be in range [0, 1). Was 3.Tensor 60 has invalid quantization parameters.quantized_dimension must be in range [0, 1). Was 3.Tensor 64 has invalid quantization parameters.quantized_dimension must be in range [0, 1). Was 3.Tensor 68 has invalid quantization parameters.quantized_dimension must be in range [0, 1). Was 3.Tensor 72 has invalid quantization parameters.quantized_dimension must be in range [0, 1). Was 3.Tensor 76 has invalid quantization parameters.quantized_dimension must be in range [0, 1). Was 3.Tensor 80 has invalid quantization parameters.quantized_dimension must be in range [0, 1). Was 3.Tensor 84 has invalid quantization parameters."
+    },
+    "host_reference": {
+      "error": "quantized_dimension must be in range [0, 1). Was 3.Tensor 33 has invalid quantization parameters.quantized_dimension must be in range [0, 1). Was 3.Tensor 36 has invalid quantization parameters.quantized_dimension must be in range [0, 1). Was 3.Tensor 40 has invalid quantization parameters.quantized_dimension must be in range [0, 1). Was 3.Tensor 44 has invalid quantization parameters.quantized_dimension must be in range [0, 1). Was 3.Tensor 48 has invalid quantization parameters.quantized_dimension must be in range [0, 1). Was 3.Tensor 52 has invalid quantization parameters.quantized_dimension must be in range [0, 1). Was 3.Tensor 56 has invalid quantization parameters.quantized_dimension must be in range [0, 1). Was 3.Tensor 60 has invalid quantization parameters.quantized_dimension must be in range [0, 1). Was 3.Tensor 64 has invalid quantization parameters.quantized_dimension must be in range [0, 1). Was 3.Tensor 68 has invalid quantization parameters.quantized_dimension must be in range [0, 1). Was 3.Tensor 72 has invalid quantization parameters.quantized_dimension must be in range [0, 1). Was 3.Tensor 76 has invalid quantization parameters.quantized_dimension must be in range [0, 1). Was 3.Tensor 80 has invalid quantization parameters.quantized_dimension must be in range [0, 1). Was 3.Tensor 84 has invalid quantization parameters."
+    }
+  }
+}
