@@ -1,0 +1,238 @@
+CORRECTNESS cifar_mean_wide stock
+CAPTURE_PASS /tmp/espnn-global-mean-study.HUg2Ul20/results/diagnostics/cifar_mean_wide/stock-probe.log
+CORRECTNESS cifar_mean_wide opt2
+CAPTURE_PASS /tmp/espnn-global-mean-study.HUg2Ul20/results/diagnostics/cifar_mean_wide/opt2-probe.log
+CORRECTNESS cifar_mean_wide mean
+CAPTURE_PASS /tmp/espnn-global-mean-study.HUg2Ul20/results/diagnostics/cifar_mean_wide/mean-probe.log
+CORRECTNESS cifar_mean_wide combined
+CAPTURE_PASS /tmp/espnn-global-mean-study.HUg2Ul20/results/diagnostics/cifar_mean_wide/combined-probe.log
+TIMING full cifar_mean_wide
+CAPTURE_PASS /tmp/espnn-global-mean-study.HUg2Ul20/results/logs/cifar_mean_wide/stock-1.log
+OK: model=cifar_mean_wide variant=stock boot=1
+CAPTURE_PASS /tmp/espnn-global-mean-study.HUg2Ul20/results/logs/cifar_mean_wide/opt2-1.log
+OK: model=cifar_mean_wide variant=opt2 boot=1
+CAPTURE_PASS /tmp/espnn-global-mean-study.HUg2Ul20/results/logs/cifar_mean_wide/mean-1.log
+OK: model=cifar_mean_wide variant=mean boot=1
+CAPTURE_PASS /tmp/espnn-global-mean-study.HUg2Ul20/results/logs/cifar_mean_wide/combined-1.log
+OK: model=cifar_mean_wide variant=combined boot=1
+CAPTURE_PASS /tmp/espnn-global-mean-study.HUg2Ul20/results/logs/cifar_mean_wide/combined-2.log
+OK: model=cifar_mean_wide variant=combined boot=2
+CAPTURE_PASS /tmp/espnn-global-mean-study.HUg2Ul20/results/logs/cifar_mean_wide/mean-2.log
+OK: model=cifar_mean_wide variant=mean boot=2
+CAPTURE_PASS /tmp/espnn-global-mean-study.HUg2Ul20/results/logs/cifar_mean_wide/opt2-2.log
+OK: model=cifar_mean_wide variant=opt2 boot=2
+CAPTURE_PASS /tmp/espnn-global-mean-study.HUg2Ul20/results/logs/cifar_mean_wide/stock-2.log
+OK: model=cifar_mean_wide variant=stock boot=2
+cifar_mean_wide                stock      16389.0 us    3933476.5 cyc   1.000x BASELINE
+cifar_mean_wide                opt2       16438.0 us    3945478.0 cyc   0.997x CONTROL ONLY
+cifar_mean_wide                mean       16038.0 us    3849262.0 cyc   1.022x WIN
+cifar_mean_wide                combined   16028.0 us    3846926.0 cyc   1.023x WIN
+OUTPUT /tmp/espnn-global-mean-study.HUg2Ul20/results/analysis/compare.csv /tmp/espnn-global-mean-study.HUg2Ul20/results/analysis/compare.json
+CORRECTNESS cifar_mean_large stock
+CAPTURE_PASS /tmp/espnn-global-mean-study.HUg2Ul20/results/diagnostics/cifar_mean_large/stock-probe.log
+CORRECTNESS cifar_mean_large opt2
+CAPTURE_PASS /tmp/espnn-global-mean-study.HUg2Ul20/results/diagnostics/cifar_mean_large/opt2-probe.log
+CORRECTNESS cifar_mean_large mean
+CAPTURE_PASS /tmp/espnn-global-mean-study.HUg2Ul20/results/diagnostics/cifar_mean_large/mean-probe.log
+CORRECTNESS cifar_mean_large combined
+CAPTURE_PASS /tmp/espnn-global-mean-study.HUg2Ul20/results/diagnostics/cifar_mean_large/combined-probe.log
+TIMING full cifar_mean_large
+CAPTURE_PASS /tmp/espnn-global-mean-study.HUg2Ul20/results/logs/cifar_mean_large/stock-1.log
+OK: model=cifar_mean_large variant=stock boot=1
+CAPTURE_PASS /tmp/espnn-global-mean-study.HUg2Ul20/results/logs/cifar_mean_large/opt2-1.log
+OK: model=cifar_mean_large variant=opt2 boot=1
+CAPTURE_PASS /tmp/espnn-global-mean-study.HUg2Ul20/results/logs/cifar_mean_large/mean-1.log
+OK: model=cifar_mean_large variant=mean boot=1
+CAPTURE_PASS /tmp/espnn-global-mean-study.HUg2Ul20/results/logs/cifar_mean_large/combined-1.log
+OK: model=cifar_mean_large variant=combined boot=1
+CAPTURE_PASS /tmp/espnn-global-mean-study.HUg2Ul20/results/logs/cifar_mean_large/combined-2.log
+OK: model=cifar_mean_large variant=combined boot=2
+CAPTURE_PASS /tmp/espnn-global-mean-study.HUg2Ul20/results/logs/cifar_mean_large/mean-2.log
+OK: model=cifar_mean_large variant=mean boot=2
+CAPTURE_PASS /tmp/espnn-global-mean-study.HUg2Ul20/results/logs/cifar_mean_large/opt2-2.log
+OK: model=cifar_mean_large variant=opt2 boot=2
+CAPTURE_PASS /tmp/espnn-global-mean-study.HUg2Ul20/results/logs/cifar_mean_large/stock-2.log
+OK: model=cifar_mean_large variant=stock boot=2
+cifar_mean_large               stock      16346.5 us    3923427.0 cyc   1.000x BASELINE
+cifar_mean_large               opt2       16379.0 us    3931179.0 cyc   0.998x CONTROL ONLY
+cifar_mean_large               mean       15972.0 us    3833473.0 cyc   1.023x WIN
+cifar_mean_large               combined   15988.0 us    3837262.0 cyc   1.022x WIN
+cifar_mean_wide                stock      16389.0 us    3933476.5 cyc   1.000x BASELINE
+cifar_mean_wide                opt2       16438.0 us    3945478.0 cyc   0.997x CONTROL ONLY
+cifar_mean_wide                mean       16038.0 us    3849262.0 cyc   1.022x WIN
+cifar_mean_wide                combined   16028.0 us    3846926.0 cyc   1.023x WIN
+OUTPUT /tmp/espnn-global-mean-study.HUg2Ul20/results/analysis/compare.csv /tmp/espnn-global-mean-study.HUg2Ul20/results/analysis/compare.json
+CORRECTNESS mean_only stock
+CAPTURE_PASS /tmp/espnn-global-mean-study.HUg2Ul20/results/diagnostics/mean_only/stock-probe.log
+CORRECTNESS mean_only opt2
+CAPTURE_PASS /tmp/espnn-global-mean-study.HUg2Ul20/results/diagnostics/mean_only/opt2-probe.log
+CORRECTNESS mean_only mean
+CAPTURE_PASS /tmp/espnn-global-mean-study.HUg2Ul20/results/diagnostics/mean_only/mean-probe.log
+CORRECTNESS mean_only combined
+CAPTURE_PASS /tmp/espnn-global-mean-study.HUg2Ul20/results/diagnostics/mean_only/combined-probe.log
+CORRECTNESS both stock
+CAPTURE_PASS /tmp/espnn-global-mean-study.HUg2Ul20/results/diagnostics/both/stock-probe.log
+CORRECTNESS both opt2
+CAPTURE_PASS /tmp/espnn-global-mean-study.HUg2Ul20/results/diagnostics/both/opt2-probe.log
+CORRECTNESS both mean
+CAPTURE_PASS /tmp/espnn-global-mean-study.HUg2Ul20/results/diagnostics/both/mean-probe.log
+CORRECTNESS both combined
+CAPTURE_PASS /tmp/espnn-global-mean-study.HUg2Ul20/results/diagnostics/both/combined-probe.log
+CORRECTNESS depthwise_both stock
+CAPTURE_PASS /tmp/espnn-global-mean-study.HUg2Ul20/results/diagnostics/depthwise_both/stock-probe.log
+CORRECTNESS depthwise_both opt2
+CAPTURE_PASS /tmp/espnn-global-mean-study.HUg2Ul20/results/diagnostics/depthwise_both/opt2-probe.log
+CORRECTNESS depthwise_both mean
+CAPTURE_PASS /tmp/espnn-global-mean-study.HUg2Ul20/results/diagnostics/depthwise_both/mean-probe.log
+CORRECTNESS depthwise_both combined
+CAPTURE_PASS /tmp/espnn-global-mean-study.HUg2Ul20/results/diagnostics/depthwise_both/combined-probe.log
+TIMING profile cifar_mean_wide
+CAPTURE_PASS /tmp/espnn-global-mean-study.HUg2Ul20/results/logs/cifar_mean_wide/stock-1.log
+OK: model=cifar_mean_wide variant=stock boot=1
+CAPTURE_PASS /tmp/espnn-global-mean-study.HUg2Ul20/results/logs/cifar_mean_wide/opt2-1.log
+OK: model=cifar_mean_wide variant=opt2 boot=1
+CAPTURE_PASS /tmp/espnn-global-mean-study.HUg2Ul20/results/logs/cifar_mean_wide/mean-1.log
+OK: model=cifar_mean_wide variant=mean boot=1
+CAPTURE_PASS /tmp/espnn-global-mean-study.HUg2Ul20/results/logs/cifar_mean_wide/combined-1.log
+OK: model=cifar_mean_wide variant=combined boot=1
+CAPTURE_PASS /tmp/espnn-global-mean-study.HUg2Ul20/results/logs/cifar_mean_wide/combined-2.log
+OK: model=cifar_mean_wide variant=combined boot=2
+CAPTURE_PASS /tmp/espnn-global-mean-study.HUg2Ul20/results/logs/cifar_mean_wide/mean-2.log
+OK: model=cifar_mean_wide variant=mean boot=2
+CAPTURE_PASS /tmp/espnn-global-mean-study.HUg2Ul20/results/logs/cifar_mean_wide/opt2-2.log
+OK: model=cifar_mean_wide variant=opt2 boot=2
+CAPTURE_PASS /tmp/espnn-global-mean-study.HUg2Ul20/results/logs/cifar_mean_wide/stock-2.log
+OK: model=cifar_mean_wide variant=stock boot=2
+cifar_mean_wide                stock      16381.5 us    3931700.0 cyc   1.000x BASELINE
+cifar_mean_wide                opt2       16355.0 us    3925442.0 cyc   1.002x CONTROL ONLY
+cifar_mean_wide                mean       16048.5 us    3852032.0 cyc   1.021x WIN
+cifar_mean_wide                combined   16066.0 us    3856641.5 cyc   1.020x WIN
+OUTPUT /tmp/espnn-global-mean-study.HUg2Ul20/results/analysis/compare.csv /tmp/espnn-global-mean-study.HUg2Ul20/results/analysis/compare.json
+TIMING profile cifar_mean_large
+CAPTURE_PASS /tmp/espnn-global-mean-study.HUg2Ul20/results/logs/cifar_mean_large/stock-1.log
+OK: model=cifar_mean_large variant=stock boot=1
+CAPTURE_PASS /tmp/espnn-global-mean-study.HUg2Ul20/results/logs/cifar_mean_large/opt2-1.log
+OK: model=cifar_mean_large variant=opt2 boot=1
+CAPTURE_PASS /tmp/espnn-global-mean-study.HUg2Ul20/results/logs/cifar_mean_large/mean-1.log
+OK: model=cifar_mean_large variant=mean boot=1
+CAPTURE_PASS /tmp/espnn-global-mean-study.HUg2Ul20/results/logs/cifar_mean_large/combined-1.log
+OK: model=cifar_mean_large variant=combined boot=1
+CAPTURE_PASS /tmp/espnn-global-mean-study.HUg2Ul20/results/logs/cifar_mean_large/combined-2.log
+OK: model=cifar_mean_large variant=combined boot=2
+CAPTURE_PASS /tmp/espnn-global-mean-study.HUg2Ul20/results/logs/cifar_mean_large/mean-2.log
+OK: model=cifar_mean_large variant=mean boot=2
+CAPTURE_PASS /tmp/espnn-global-mean-study.HUg2Ul20/results/logs/cifar_mean_large/opt2-2.log
+OK: model=cifar_mean_large variant=opt2 boot=2
+CAPTURE_PASS /tmp/espnn-global-mean-study.HUg2Ul20/results/logs/cifar_mean_large/stock-2.log
+OK: model=cifar_mean_large variant=stock boot=2
+cifar_mean_large               stock      16337.0 us    3921087.0 cyc   1.000x BASELINE
+cifar_mean_large               opt2       16320.0 us    3917013.0 cyc   1.001x CONTROL ONLY
+cifar_mean_large               mean       16002.8 us    3840846.0 cyc   1.021x WIN
+cifar_mean_large               combined   16027.2 us    3847048.5 cyc   1.019x WIN
+cifar_mean_wide                stock      16381.5 us    3931700.0 cyc   1.000x BASELINE
+cifar_mean_wide                opt2       16355.0 us    3925442.0 cyc   1.002x CONTROL ONLY
+cifar_mean_wide                mean       16048.5 us    3852032.0 cyc   1.021x WIN
+cifar_mean_wide                combined   16066.0 us    3856641.5 cyc   1.020x WIN
+OUTPUT /tmp/espnn-global-mean-study.HUg2Ul20/results/analysis/compare.csv /tmp/espnn-global-mean-study.HUg2Ul20/results/analysis/compare.json
+TIMING profile mean_only
+CAPTURE_PASS /tmp/espnn-global-mean-study.HUg2Ul20/results/logs/mean_only/stock-1.log
+OK: model=mean_only variant=stock boot=1
+CAPTURE_PASS /tmp/espnn-global-mean-study.HUg2Ul20/results/logs/mean_only/opt2-1.log
+OK: model=mean_only variant=opt2 boot=1
+CAPTURE_PASS /tmp/espnn-global-mean-study.HUg2Ul20/results/logs/mean_only/mean-1.log
+OK: model=mean_only variant=mean boot=1
+CAPTURE_PASS /tmp/espnn-global-mean-study.HUg2Ul20/results/logs/mean_only/combined-1.log
+OK: model=mean_only variant=combined boot=1
+CAPTURE_PASS /tmp/espnn-global-mean-study.HUg2Ul20/results/logs/mean_only/combined-2.log
+OK: model=mean_only variant=combined boot=2
+CAPTURE_PASS /tmp/espnn-global-mean-study.HUg2Ul20/results/logs/mean_only/mean-2.log
+OK: model=mean_only variant=mean boot=2
+CAPTURE_PASS /tmp/espnn-global-mean-study.HUg2Ul20/results/logs/mean_only/opt2-2.log
+OK: model=mean_only variant=opt2 boot=2
+CAPTURE_PASS /tmp/espnn-global-mean-study.HUg2Ul20/results/logs/mean_only/stock-2.log
+OK: model=mean_only variant=stock boot=2
+cifar_mean_large               stock      16337.0 us    3921087.0 cyc   1.000x BASELINE
+cifar_mean_large               opt2       16320.0 us    3917013.0 cyc   1.001x CONTROL ONLY
+cifar_mean_large               mean       16002.8 us    3840846.0 cyc   1.021x WIN
+cifar_mean_large               combined   16027.2 us    3847048.5 cyc   1.019x WIN
+cifar_mean_wide                stock      16381.5 us    3931700.0 cyc   1.000x BASELINE
+cifar_mean_wide                opt2       16355.0 us    3925442.0 cyc   1.002x CONTROL ONLY
+cifar_mean_wide                mean       16048.5 us    3852032.0 cyc   1.021x WIN
+cifar_mean_wide                combined   16066.0 us    3856641.5 cyc   1.020x WIN
+mean_only                      stock       3186.0 us     764961.0 cyc   1.000x BASELINE
+mean_only                      opt2        3150.8 us     756417.0 cyc   1.011x CONTROL ONLY
+mean_only                      mean        3139.0 us     753679.5 cyc   1.015x WIN
+mean_only                      combined    3139.0 us     753747.0 cyc   1.015x WIN
+OUTPUT /tmp/espnn-global-mean-study.HUg2Ul20/results/analysis/compare.csv /tmp/espnn-global-mean-study.HUg2Ul20/results/analysis/compare.json
+TIMING profile both
+CAPTURE_PASS /tmp/espnn-global-mean-study.HUg2Ul20/results/logs/both/stock-1.log
+OK: model=both variant=stock boot=1
+CAPTURE_PASS /tmp/espnn-global-mean-study.HUg2Ul20/results/logs/both/opt2-1.log
+OK: model=both variant=opt2 boot=1
+CAPTURE_PASS /tmp/espnn-global-mean-study.HUg2Ul20/results/logs/both/mean-1.log
+OK: model=both variant=mean boot=1
+CAPTURE_PASS /tmp/espnn-global-mean-study.HUg2Ul20/results/logs/both/combined-1.log
+OK: model=both variant=combined boot=1
+CAPTURE_PASS /tmp/espnn-global-mean-study.HUg2Ul20/results/logs/both/combined-2.log
+OK: model=both variant=combined boot=2
+CAPTURE_PASS /tmp/espnn-global-mean-study.HUg2Ul20/results/logs/both/mean-2.log
+OK: model=both variant=mean boot=2
+CAPTURE_PASS /tmp/espnn-global-mean-study.HUg2Ul20/results/logs/both/opt2-2.log
+OK: model=both variant=opt2 boot=2
+CAPTURE_PASS /tmp/espnn-global-mean-study.HUg2Ul20/results/logs/both/stock-2.log
+OK: model=both variant=stock boot=2
+both                           stock       3627.5 us     870705.0 cyc   1.000x BASELINE
+both                           opt2        3224.5 us     774252.0 cyc   1.125x WIN
+both                           mean        3619.0 us     869185.0 cyc   1.002x NEUTRAL
+both                           combined    3209.8 us     770573.0 cyc   1.130x WIN
+cifar_mean_large               stock      16337.0 us    3921087.0 cyc   1.000x BASELINE
+cifar_mean_large               opt2       16320.0 us    3917013.0 cyc   1.001x CONTROL ONLY
+cifar_mean_large               mean       16002.8 us    3840846.0 cyc   1.021x WIN
+cifar_mean_large               combined   16027.2 us    3847048.5 cyc   1.019x WIN
+cifar_mean_wide                stock      16381.5 us    3931700.0 cyc   1.000x BASELINE
+cifar_mean_wide                opt2       16355.0 us    3925442.0 cyc   1.002x CONTROL ONLY
+cifar_mean_wide                mean       16048.5 us    3852032.0 cyc   1.021x WIN
+cifar_mean_wide                combined   16066.0 us    3856641.5 cyc   1.020x WIN
+mean_only                      stock       3186.0 us     764961.0 cyc   1.000x BASELINE
+mean_only                      opt2        3150.8 us     756417.0 cyc   1.011x CONTROL ONLY
+mean_only                      mean        3139.0 us     753679.5 cyc   1.015x WIN
+mean_only                      combined    3139.0 us     753747.0 cyc   1.015x WIN
+OUTPUT /tmp/espnn-global-mean-study.HUg2Ul20/results/analysis/compare.csv /tmp/espnn-global-mean-study.HUg2Ul20/results/analysis/compare.json
+TIMING profile depthwise_both
+CAPTURE_PASS /tmp/espnn-global-mean-study.HUg2Ul20/results/logs/depthwise_both/stock-1.log
+OK: model=depthwise_both variant=stock boot=1
+CAPTURE_PASS /tmp/espnn-global-mean-study.HUg2Ul20/results/logs/depthwise_both/opt2-1.log
+OK: model=depthwise_both variant=opt2 boot=1
+CAPTURE_PASS /tmp/espnn-global-mean-study.HUg2Ul20/results/logs/depthwise_both/mean-1.log
+OK: model=depthwise_both variant=mean boot=1
+CAPTURE_PASS /tmp/espnn-global-mean-study.HUg2Ul20/results/logs/depthwise_both/combined-1.log
+OK: model=depthwise_both variant=combined boot=1
+CAPTURE_PASS /tmp/espnn-global-mean-study.HUg2Ul20/results/logs/depthwise_both/combined-2.log
+OK: model=depthwise_both variant=combined boot=2
+CAPTURE_PASS /tmp/espnn-global-mean-study.HUg2Ul20/results/logs/depthwise_both/mean-2.log
+OK: model=depthwise_both variant=mean boot=2
+CAPTURE_PASS /tmp/espnn-global-mean-study.HUg2Ul20/results/logs/depthwise_both/opt2-2.log
+OK: model=depthwise_both variant=opt2 boot=2
+CAPTURE_PASS /tmp/espnn-global-mean-study.HUg2Ul20/results/logs/depthwise_both/stock-2.log
+OK: model=depthwise_both variant=stock boot=2
+both                           stock       3627.5 us     870705.0 cyc   1.000x BASELINE
+both                           opt2        3224.5 us     774252.0 cyc   1.125x WIN
+both                           mean        3619.0 us     869185.0 cyc   1.002x NEUTRAL
+both                           combined    3209.8 us     770573.0 cyc   1.130x WIN
+cifar_mean_large               stock      16337.0 us    3921087.0 cyc   1.000x BASELINE
+cifar_mean_large               opt2       16320.0 us    3917013.0 cyc   1.001x CONTROL ONLY
+cifar_mean_large               mean       16002.8 us    3840846.0 cyc   1.021x WIN
+cifar_mean_large               combined   16027.2 us    3847048.5 cyc   1.019x WIN
+cifar_mean_wide                stock      16381.5 us    3931700.0 cyc   1.000x BASELINE
+cifar_mean_wide                opt2       16355.0 us    3925442.0 cyc   1.002x CONTROL ONLY
+cifar_mean_wide                mean       16048.5 us    3852032.0 cyc   1.021x WIN
+cifar_mean_wide                combined   16066.0 us    3856641.5 cyc   1.020x WIN
+depthwise_both                 stock       4985.0 us    1196452.0 cyc   1.000x BASELINE
+depthwise_both                 opt2        4644.0 us    1114615.0 cyc   1.073x WIN
+depthwise_both                 mean        4857.0 us    1166285.0 cyc   1.026x WIN
+depthwise_both                 combined    4499.5 us    1080082.0 cyc   1.108x WIN
+mean_only                      stock       3186.0 us     764961.0 cyc   1.000x BASELINE
+mean_only                      opt2        3150.8 us     756417.0 cyc   1.011x CONTROL ONLY
+mean_only                      mean        3139.0 us     753679.5 cyc   1.015x WIN
+mean_only                      combined    3139.0 us     753747.0 cyc   1.015x WIN
+OUTPUT /tmp/espnn-global-mean-study.HUg2Ul20/results/analysis/compare.csv /tmp/espnn-global-mean-study.HUg2Ul20/results/analysis/compare.json

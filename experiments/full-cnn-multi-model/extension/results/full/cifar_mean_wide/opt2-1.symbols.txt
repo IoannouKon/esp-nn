@@ -1,0 +1,2 @@
+4204ec58 000000ac T esp_nn_max_pool_s8_esp32s3_sliding_row_asm
+42034a38 000003b6 T esp_nn_mean_nhwc_s8_esp32s3

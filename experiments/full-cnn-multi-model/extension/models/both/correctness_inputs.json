@@ -1,0 +1,66 @@
+{
+  "seed": 231121,
+  "input_size": 3072,
+  "cases": [
+    {
+      "label": "constant_-128",
+      "sha256": "753412db29fc2970bed80a0cefed2d3caf17b282ed5b9b8707b5c39929a27fce",
+      "desktop_reference_output_hex": "dd02f90006fc0f09d702"
+    },
+    {
+      "label": "constant_0",
+      "sha256": "e80232b4d18d0bb7e794be263ba937626f383f9917d4b8a737ba893a8f752293",
+      "desktop_reference_output_hex": "16ed170d0b0ef5f10ef1"
+    },
+    {
+      "label": "constant_127",
+      "sha256": "036f359b285349f5aab468cc032b45bcfa057fb2e7ce0b54c32f1f71116e8b1c",
+      "desktop_reference_output_hex": "50eb220ffa0acde042fa"
+    },
+    {
+      "label": "checkerboard",
+      "sha256": "01d68efc66e84b0c6ec7dfc51792da6fc68b53e0ec88d3ca5ef9ee97e6d29a5d",
+      "desktop_reference_output_hex": "dd1dfff811fb2e0bc50b"
+    },
+    {
+      "label": "random_0",
+      "sha256": "9bf17b79c479715e4f6a5e3687161c823bc12a835cac74a98665f1ff87138f4c",
+      "desktop_reference_output_hex": "df4fddefe6e914f9d057"
+    },
+    {
+      "label": "random_1",
+      "sha256": "35dbfe97f171cf18a52c597e1bb729e42339a419cca6cb720eeafa4eb2ddf9fe",
+      "desktop_reference_output_hex": "db41e8f7f2f71d02c348"
+    },
+    {
+      "label": "random_2",
+      "sha256": "f29b06b5acce3704a241b1536649238e2f8bacbe8ecb02b7f4e19b51e85cae48",
+      "desktop_reference_output_hex": "ea59deece1e413f1d75d"
+    },
+    {
+      "label": "cifar10_test_1",
+      "sha256": "e68c61fd5a85a20d66067d1958489782815e9252c504bddc2c3bf97f618ac947",
+      "desktop_reference_output_hex": "3d2bfffad8e7cce33630"
+    },
+    {
+      "label": "cifar10_test_2",
+      "sha256": "77a418536d99728b84b93dd88981cf7ca3e0a527298c4c78897b3ccc9b1b1584",
+      "desktop_reference_output_hex": "450e0afbe0edc8e34315"
+    },
+    {
+      "label": "cifar10_test_3",
+      "sha256": "1ed76ff104fc947eb6d3e4d4fd13998651c847e2b4231464f757bfd85362dc99",
+      "desktop_reference_output_hex": "511d06f8daeac5d94923"
+    },
+    {
+      "label": "cifar10_test_4",
+      "sha256": "c21980452db8447c35e1948f47a86f80663b2fd5109fc7fbcc8b6291de835419",
+      "desktop_reference_output_hex": "d9e52a21322b2f1abddf"
+    },
+    {
+      "label": "cifar10_test_5",
+      "sha256": "18751af1ce2d0b648efc7d1db94329019791d3fdcb0378e5a334327a3a6822e2",
+      "desktop_reference_output_hex": "c7f51c172b203917acf0"
+    }
+  ]
+}

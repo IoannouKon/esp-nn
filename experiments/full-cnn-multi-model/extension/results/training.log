@@ -1,0 +1,49 @@
+Epoch 1/2
+157/157 - 7s - loss: 2.1426 - accuracy: 0.1010 - 7s/epoch - 47ms/step
+Epoch 2/2
+157/157 - 7s - loss: 2.0239 - accuracy: 0.1013 - 7s/epoch - 42ms/step
+Summary on the non-converted ops:
+---------------------------------
+ * Accepted dialects: tfl, builtin, func
+ * Non-Converted Ops: 7, Total Ops 14, % non-converted = 50.00 %
+ * 7 ARITH ops
+
+- arith.constant:    7 occurrences  (f32: 6, i32: 1)
+
+
+
+  (f32: 2)
+  (f32: 1)
+  (f32: 1)
+fully_quantize: 0, inference_type: 6, input_inference_type: INT8, output_inference_type: INT8
+INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+GENERATED cifar_mean_wide model_size 26992 ops ['CONV_2D', 'CONV_2D', 'MEAN', 'FULLY_CONNECTED']
+Epoch 1/2
+157/157 - 11s - loss: 2.1847 - accuracy: 0.1006 - 11s/epoch - 71ms/step
+Epoch 2/2
+157/157 - 10s - loss: 2.0705 - accuracy: 0.1014 - 10s/epoch - 67ms/step
+Summary on the non-converted ops:
+---------------------------------
+ * Accepted dialects: tfl, builtin, func
+ * Non-Converted Ops: 7, Total Ops 14, % non-converted = 50.00 %
+ * 7 ARITH ops
+
+- arith.constant:    7 occurrences  (f32: 6, i32: 1)
+
+
+
+  (f32: 2)
+  (f32: 1)
+  (f32: 1)
+fully_quantize: 0, inference_type: 6, input_inference_type: INT8, output_inference_type: INT8
+GENERATED cifar_mean_large model_size 9528 ops ['CONV_2D', 'CONV_2D', 'MEAN', 'FULLY_CONNECTED']
+MEAN_GRAPH mean_only {'input_shape': [1, 8, 8, 32], 'axes': [1, 2], 'keep_dims': True, 'input_scale': 0.019021907821297646, 'output_scale': 0.011842872947454453, 'input_zero_point': -128, 'output_zero_point': -128}
+MEAN_GRAPH both {'input_shape': [1, 8, 8, 32], 'axes': [1, 2], 'keep_dims': True, 'input_scale': 0.015682673081755638, 'output_scale': 0.013626101426780224, 'input_zero_point': -128, 'output_zero_point': -128}
+Traceback (most recent call last):
+  File "/home/kostis/Desktop/ESP-NN/full-cnn-multi-model-publish/experiments/full-cnn-multi-model/extension/scripts/prepare_models.py", line 148, in <module>
+    (training.OUT / "mean_graphs.json").write_text(json.dumps(manifest, indent=2) + "\n")
+  File "/home/kostis/Desktop/ESP-NN/full-cnn-multi-model-publish/experiments/full-cnn-multi-model/extension/scripts/prepare_models.py", line 141, in main
+    if name in NEW_MODELS:
+  File "/home/kostis/Desktop/ESP-NN/full-cnn-multi-model-publish/experiments/full-cnn-multi-model/extension/scripts/prepare_models.py", line 52, in audit
+    assert shape == [1, *expected], (path, shape)
+AssertionError: (PosixPath('/home/kostis/Desktop/ESP-NN/full-cnn-multi-model-publish/experiments/full-cnn-multi-model/models/depthwise_both'), [1, 16, 16, 32])

@@ -1,0 +1,50 @@
+Epoch 1/2
+157/157 - 8s - loss: 2.1426 - accuracy: 0.1010 - 8s/epoch - 52ms/step
+Epoch 2/2
+157/157 - 11s - loss: 2.0239 - accuracy: 0.1013 - 11s/epoch - 70ms/step
+Summary on the non-converted ops:
+---------------------------------
+ * Accepted dialects: tfl, builtin, func
+ * Non-Converted Ops: 7, Total Ops 14, % non-converted = 50.00 %
+ * 7 ARITH ops
+
+- arith.constant:    7 occurrences  (f32: 6, i32: 1)
+
+
+
+  (f32: 2)
+  (f32: 1)
+  (f32: 1)
+fully_quantize: 0, inference_type: 6, input_inference_type: INT8, output_inference_type: INT8
+INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+GENERATED cifar_mean_wide model_size 26992 ops ['CONV_2D', 'CONV_2D', 'MEAN', 'FULLY_CONNECTED']
+Epoch 1/2
+157/157 - 14s - loss: 2.1847 - accuracy: 0.1006 - 14s/epoch - 89ms/step
+Epoch 2/2
+157/157 - 16s - loss: 2.0705 - accuracy: 0.1014 - 16s/epoch - 102ms/step
+Summary on the non-converted ops:
+---------------------------------
+ * Accepted dialects: tfl, builtin, func
+ * Non-Converted Ops: 7, Total Ops 14, % non-converted = 50.00 %
+ * 7 ARITH ops
+
+- arith.constant:    7 occurrences  (f32: 6, i32: 1)
+
+
+
+  (f32: 2)
+  (f32: 1)
+  (f32: 1)
+fully_quantize: 0, inference_type: 6, input_inference_type: INT8, output_inference_type: INT8
+GENERATED cifar_mean_large model_size 9528 ops ['CONV_2D', 'CONV_2D', 'MEAN', 'FULLY_CONNECTED']
+MEAN_GRAPH mean_only {'input_shape': [1, 8, 8, 32], 'axes': [1, 2], 'keep_dims': True, 'input_scale': 0.019021907821297646, 'output_scale': 0.011842872947454453, 'input_zero_point': -128, 'output_zero_point': -128}
+MEAN_GRAPH both {'input_shape': [1, 8, 8, 32], 'axes': [1, 2], 'keep_dims': True, 'input_scale': 0.015682673081755638, 'output_scale': 0.013626101426780224, 'input_zero_point': -128, 'output_zero_point': -128}
+MEAN_GRAPH depthwise_both {'input_shape': [1, 16, 16, 32], 'axes': [1, 2], 'keep_dims': True, 'input_scale': 0.012462533079087734, 'output_scale': 0.009918144904077053, 'input_zero_point': -128, 'output_zero_point': -128}
+MEAN_GRAPH cifar_mean_wide {'input_shape': [1, 14, 14, 128], 'axes': [1, 2], 'keep_dims': True, 'input_scale': 0.012678669765591621, 'output_scale': 0.005934067536145449, 'input_zero_point': -128, 'output_zero_point': -128}
+MEAN_GRAPH cifar_mean_large {'input_shape': [1, 28, 28, 32], 'axes': [1, 2], 'keep_dims': True, 'input_scale': 0.022134656086564064, 'output_scale': 0.011197756975889206, 'input_zero_point': -128, 'output_zero_point': -128}
+EXACT_TRAINING_REPLAY cifar_mean_wide model.tflite 1a73eae068083f8f5553667f12ec6106ea5595589db194a9d3f90af36b19faf7
+EXACT_TRAINING_REPLAY cifar_mean_wide input.bin 9f2b799d8a7d23ea057764d98841e08038753212d8fcb06b4b8f28a859926511
+EXACT_TRAINING_REPLAY cifar_mean_wide correctness_inputs.bin a027c383830851a21a10e9490b1342412aab8ca68966a82828f651547a2fd735
+EXACT_TRAINING_REPLAY cifar_mean_large model.tflite dc4dade4eaaf793a152690d1e6d7162ee2a730c0bb3099f34f372d57b3da7d69
+EXACT_TRAINING_REPLAY cifar_mean_large input.bin 9f2b799d8a7d23ea057764d98841e08038753212d8fcb06b4b8f28a859926511
+EXACT_TRAINING_REPLAY cifar_mean_large correctness_inputs.bin a027c383830851a21a10e9490b1342412aab8ca68966a82828f651547a2fd735

@@ -1,0 +1,87 @@
+{
+  "mean_only": {
+    "input_shape": [
+      1,
+      8,
+      8,
+      32
+    ],
+    "axes": [
+      1,
+      2
+    ],
+    "keep_dims": true,
+    "input_scale": 0.019021907821297646,
+    "output_scale": 0.011842872947454453,
+    "input_zero_point": -128,
+    "output_zero_point": -128
+  },
+  "both": {
+    "input_shape": [
+      1,
+      8,
+      8,
+      32
+    ],
+    "axes": [
+      1,
+      2
+    ],
+    "keep_dims": true,
+    "input_scale": 0.015682673081755638,
+    "output_scale": 0.013626101426780224,
+    "input_zero_point": -128,
+    "output_zero_point": -128
+  },
+  "depthwise_both": {
+    "input_shape": [
+      1,
+      16,
+      16,
+      32
+    ],
+    "axes": [
+      1,
+      2
+    ],
+    "keep_dims": true,
+    "input_scale": 0.012462533079087734,
+    "output_scale": 0.009918144904077053,
+    "input_zero_point": -128,
+    "output_zero_point": -128
+  },
+  "cifar_mean_wide": {
+    "input_shape": [
+      1,
+      14,
+      14,
+      128
+    ],
+    "axes": [
+      1,
+      2
+    ],
+    "keep_dims": true,
+    "input_scale": 0.012678669765591621,
+    "output_scale": 0.005934067536145449,
+    "input_zero_point": -128,
+    "output_zero_point": -128
+  },
+  "cifar_mean_large": {
+    "input_shape": [
+      1,
+      28,
+      28,
+      32
+    ],
+    "axes": [
+      1,
+      2
+    ],
+    "keep_dims": true,
+    "input_scale": 0.022134656086564064,
+    "output_scale": 0.011197756975889206,
+    "input_zero_point": -128,
+    "output_zero_point": -128
+  }
+}

@@ -1,0 +1,25 @@
+2026-11-21T17:15:38+02:00
+ESP-IDF v5.5.1-dirty
+fcae32885b0296b32044cb99ecbdc50d98dddb83
+ M examples/get-started/blink/main/blink_example_main.c
+ M examples/get-started/hello_world/main/hello_world_main.c
+?? esp-who/
+xtensa-esp-elf-gcc (crosstool-NG esp-14.2.0_20241119) 14.2.0
+total 0
+lrwxrwxrwx 1 root root 13 Nov 21 11:38 usb-Espressif_USB_JTAG_serial_debug_unit_A0:85:E3:F5:48:4C-if00 -> ../../ttyACM0
+Python 3.10.13
+6d958be074577803d12ecdefd02955f39262c83c16fe9348329d7fe0b5c001ce  /tmp/espnn-multicnn-keras/datasets/cifar-10-batches-py.tar.gz
+stock
+ace42ac7721119cd543fc40ffe719e601fa8f20f
+df8722334a80ceabc609c1e72968f417cd9437f1
+opt2
+edb003c6770491abb74766835f4c803b9d4f5a20
+df8722334a80ceabc609c1e72968f417cd9437f1
+mean
+4bfa49c64a932f700688c2007a01d8ea1fa102ac
+df8722334a80ceabc609c1e72968f417cd9437f1
+combined
+4bfa49c64a932f700688c2007a01d8ea1fa102ac
+df8722334a80ceabc609c1e72968f417cd9437f1
+ M src/pooling/esp_nn_max_pool_s8_esp32s3.S
+ M src/pooling/esp_nn_max_pool_s8_esp32s3.c

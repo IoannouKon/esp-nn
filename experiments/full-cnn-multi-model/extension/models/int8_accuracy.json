@@ -1,0 +1,18 @@
+{
+  "cifar_mean_wide": {
+    "test_indices": [
+      0,
+      999
+    ],
+    "correct": 233,
+    "total": 1000
+  },
+  "cifar_mean_large": {
+    "test_indices": [
+      0,
+      999
+    ],
+    "correct": 218,
+    "total": 1000
+  }
+}

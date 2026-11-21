@@ -1,0 +1,157 @@
+Executing action: monitor
+Running idf_monitor in directory /home/kostis/Desktop/ESP-NN/full-cnn-run/stock/app
+Executing "/home/kostis/.espressif/python_env/idf5.5_py3.10_env/bin/python /home/kostis/esp_s3/esp-idf/tools/idf_monitor.py -p /dev/ttyACM0 -b 115200 --toolchain-prefix xtensa-esp32s3-elf- --target esp32s3 --revision 0 /home/kostis/Desktop/ESP-NN/full-cnn-run/stock/app/build/espnn_multi_cnn.elf /home/kostis/Desktop/ESP-NN/full-cnn-run/stock/app/build/bootloader/bootloader.elf --no-reset -m '/home/kostis/.espressif/python_env/idf5.5_py3.10_env/bin/python' '/home/kostis/esp_s3/esp-idf/tools/idf.py' '-B'"...
+[0;33m--- esp-idf-monitor 1.8.0 on /dev/ttyACM0 115200[0m
+[0;33m--- Quit: Ctrl+] | Menu: Ctrl+T | Help: Ctrl+T followed by Ctrl+H[0m
+[0;32mI (112) esp_image: segment 4: paddr=000807e4 vaddr=40378cd0 sizeCNN_MEAN route=esp_nn shape=16x16x32 input=0x3c080920 output=0x3c0829a0 zp_in=-128 zp_out=-128 multiplier=1349198175 shift=-7 trials=6 compared=384 mismatches=0[0m
+CNN_QACC diagnostic_blocks=0
+CNN_CASE_OUTPUT index=10 bytes=10 hex=f01230253029322ceb16
+CNN_CASE index=11
+CNN_POOL input=0x3c080920 output=0x3c083920 shape=16x16x16 out=16x16 filter=3x3 stride=1x1 pad=1x1 sliding_rows=0
+CNN_MEAN route=esp_nn shape=16x16x32 input=0x3c080920 output=0x3c0829a0 zp_in=-128 zp_out=-128 multiplier=1349198175 shift=-7 trials=6 compared=384 mismatches=0
+CNN_QACC diagnostic_blocks=0
+CNN_CASE_OUTPUT index=11 bytes=10 hex=c31c30363c325936be15
+CNN_CASE_DONE cases=12 heap_integrity=ok arena_guard=ok stack_high_water_bytes=4776
+CNN_PROBE_DONE
+[0;32mI (1149) main_task: Returned from app_main()[0m
+
+CAPTURE_RESET_SENT
+ESP-ROM:esp32s3-20210327
+Build:Mar 27 2021
+rst:0x15 (USB_UART_CHIP_RESET),boot:0x2a (SPI_FAST_FLASH_BOOT)
+Saved PC:0x403770ca
+[0m--- 0x403770ca: [0;33mesp_cpu_wait_for_intr[0m[0m at [0;32m/home/kostis/esp_s3/esp-idf/components/esp_hw_support/cpu.c[0m[0m:[1;31m64[0m
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fce2820,len:0x1588
+load:0x403c8700,len:0xc24
+[0m--- 0x403c8700: [0;33m_stext[0m[0m at [0;32m??[0m[0m:[1;31m?[0m
+load:0x403cb700,len:0x2ef0
+entry 0x403c88f4
+[0m--- 0x403c88f4: [0;33mcall_start_cpu0[0m[0m at [0;32m/home/kostis/esp_s3/esp-idf/components/bootloader/subproject/main/bootloader_start.c[0m[0m:[1;31m25[0m
+[0;32mI (24) boot: ESP-IDF v5.5.1-dirty 2nd stage bootloader[0m
+[0;32mI (24) boot: compile time Nov 21 2026 12:15:34[0m
+[0;33mW (25) boot: Unicore bootloader[0m
+[0;32mI (25) boot: chip revision: v0.2[0m
+[0;32mI (25) boot: efuse block revision: v1.3[0m
+[0;32mI (25) boot.esp32s3: Boot SPI Speed : 80MHz[0m
+[0;32mI (25) boot.esp32s3: SPI Mode       : DIO[0m
+[0;32mI (26) boot.esp32s3: SPI Flash Size : 8MB[0m
+[0;32mI (26) boot: Enabling RNG early entropy source...[0m
+[0;32mI (26) boot: Partition Table:[0m
+[0;32mI (26) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (27) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (27) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (27) boot:  2 factory          factory app      00 00 00010000 00400000[0m
+[0;32mI (28) boot: End of partition table[0m
+[0;32mI (28) esp_image: segment 0: paddr=00010020 vaddr=3c060020 size=19024h (102436) map[0m
+[0;32mI (46) esp_image: segment 1: paddr=0002904c vaddr=3fc90f00 size=022f4h (  8948) load[0m
+[0;32mI (49) esp_image: segment 2: paddr=0002b348 vaddr=40374000 size=04cd0h ( 19664) load[0m
+[0;32mI (53) esp_image: segment 3: paddr=00030020 vaddr=42000020 size=507bch (329660) map[0m
+[0;32mI (112) esp_image: segment 4: paddr=000807e4 vaddr=40378cd0 size=081dch ( 33244) load[0m
+[0;32mI (119) esp_image: segment 5: paddr=000889c8 vaddr=50000000 size=00020h (    32) load[0m
+[0;32mI (125) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (125) boot: Disabling RNG early entropy source...[0m
+[0;32mI (126) octal_psram: vendor id    : 0x0d (AP)[0m
+[0;32mI (126) octal_psram: dev id       : 0x02 (generation 3)[0m
+[0;32mI (126) octal_psram: density      : 0x03 (64 Mbit)[0m
+[0;32mI (126) octal_psram: good-die     : 0x01 (Pass)[0m
+[0;32mI (127) octal_psram: Latency      : 0x01 (Fixed)[0m
+[0;32mI (127) octal_psram: VCC          : 0x01 (3V)[0m
+[0;32mI (127) octal_psram: SRF          : 0x01 (Fast Refresh)[0m
+[0;32mI (127) octal_psram: BurstType    : 0x01 (Hybrid Wrap)[0m
+[0;32mI (127) octal_psram: BurstLen     : 0x01 (32 Byte)[0m
+[0;32mI (128) octal_psram: Readlatency  : 0x02 (10 cycles@Fixed)[0m
+[0;32mI (128) octal_psram: DriveStrength: 0x00 (1/1)[0m
+[0;32mI (129) MSPI Timing: PSRAM timing tuning index: 5[0m
+[0;32mI (129) esp_psram: Found 8MB PSRAM device[0m
+[0;32mI (129) esp_psram: Speed: 80MHz[0m
+[0;32mI (129) cpu_start: Unicore app[0m
+[0;32mI (129) cpu_start: Single core mode[0m
+[0;32mI (415) esp_psram: SPI SRAM memory test OK[0m
+[0;32mI (423) cpu_start: Pro cpu start user code[0m
+[0;32mI (423) cpu_start: cpu freq: 240000000 Hz[0m
+[0;32mI (424) app_init: Application information:[0m
+[0;32mI (424) app_init: Project name:     espnn_multi_cnn[0m
+[0;32mI (424) app_init: App version:      1[0m
+[0;32mI (424) app_init: Compile time:     Nov 21 2026 12:15:24[0m
+[0;32mI (424) app_init: ELF file SHA256:  dd2e0c9e6...[0m
+[0;32mI (424) app_init: ESP-IDF:          v5.5.1-dirty[0m
+[0;32mI (424) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (425) efuse_init: Max chip rev:     v0.99 [0m
+[0;32mI (425) efuse_init: Chip rev:         v0.2[0m
+[0;32mI (425) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (425) heap_init: At 3FC93A98 len 00055C78 (343 KiB): RAM[0m
+[0;32mI (425) heap_init: At 3FCE9710 len 00005724 (21 KiB): RAM[0m
+[0;32mI (425) heap_init: At 600FE000 len 00001FE8 (7 KiB): RTCRAM[0m
+[0;32mI (426) esp_psram: Adding pool of 8192K of PSRAM memory to heap allocator[0m
+[0;32mI (426) spi_flash: detected chip: gd[0m
+[0;32mI (426) spi_flash: flash io: dio[0m
+[0;32mI (426) sleep_gpio: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (427) sleep_gpio: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (427) main_task: Started on CPU0[0m
+[0;32mI (427) main_task: Calling app_main()[0m
+CNN_START cpu_mhz=240 model_bytes=7000 input_bytes=3072 output_bytes=10 arena=psram arena_cap=2097152 arena_used=18060
+CNN_ROUTING max_pool=requires_dispatch_probe mean=guarded_esp_nn_bridge
+CNN_CASE index=0
+CNN_POOL input=0x3c080920 output=0x3c083920 shape=16x16x16 out=16x16 filter=3x3 stride=1x1 pad=1x1 sliding_rows=0
+CNN_MEAN route=esp_nn shape=16x16x32 input=0x3c080920 output=0x3c0829a0 zp_in=-128 zp_out=-128 multiplier=1349198175 shift=-7 trials=6 compared=384 mismatches=0
+CNN_QACC diagnostic_blocks=0
+CNN_CASE_OUTPUT index=0 bytes=10 hex=fd28253029283d27fc1d
+CNN_CASE index=1
+CNN_POOL input=0x3c080920 output=0x3c083920 shape=16x16x16 out=16x16 filter=3x3 stride=1x1 pad=1x1 sliding_rows=0
+CNN_MEAN route=esp_nn shape=16x16x32 input=0x3c080920 output=0x3c0829a0 zp_in=-128 zp_out=-128 multiplier=1349198175 shift=-7 trials=6 compared=384 mismatches=0
+CNN_QACC diagnostic_blocks=0
+CNN_CASE_OUTPUT index=1 bytes=10 hex=2513251a1c1a0c162917
+CNN_CASE index=2
+CNN_POOL input=0x3c080920 output=0x3c083920 shape=16x16x16 out=16x16 filter=3x3 stride=1x1 pad=1x1 sliding_rows=0
+CNN_MEAN route=esp_nn shape=16x16x32 input=0x3c080920 output=0x3c0829a0 zp_in=-128 zp_out=-128 multiplier=1349198175 shift=-7 trials=6 compared=384 mismatches=0
+CNN_QACC diagnostic_blocks=0
+CNN_CASE_OUTPUT index=2 bytes=10 hex=53141405f509cbfd531c
+CNN_CASE index=3
+CNN_POOL input=0x3c080920 output=0x3c083920 shape=16x16x16 out=16x16 filter=3x3 stride=1x1 pad=1x1 sliding_rows=0
+CNN_MEAN route=esp_nn shape=16x16x32 input=0x3c080920 output=0x3c0829a0 zp_in=-128 zp_out=-128 multiplier=1349198175 shift=-7 trials=6 compared=384 mismatches=0
+CNN_QACC diagnostic_blocks=0
+CNN_CASE_OUTPUT index=3 bytes=10 hex=1f052a1c221b101a2810
+CNN_CASE index=4
+CNN_POOL input=0x3c080920 output=0x3c083920 shape=16x16x16 out=16x16 filter=3x3 stride=1x1 pad=1x1 sliding_rows=0
+CNN_MEAN route=esp_nn shape=16x16x32 input=0x3c080920 output=0x3c0829a0 zp_in=-128 zp_out=-128 multiplier=1349198175 shift=-7 trials=6 compared=384 mismatches=0
+CNN_QACC diagnostic_blocks=0
+CNN_CASE_OUTPUT index=4 bytes=10 hex=19420e10ed19e914013e
+CNN_CASE index=5
+CNN_POOL input=0x3c080920 output=0x3c083920 shape=16x16x16 out=16x16 filter=3x3 stride=1x1 pad=1x1 sliding_rows=0
+CNN_MEAN route=esp_nn shape=16x16x32 input=0x3c080920 output=0x3c0829a0 zp_in=-128 zp_out=-128 multiplier=1349198175 shift=-7 trials=6 compared=384 mismatches=0
+CNN_QACC diagnostic_blocks=0
+CNN_CASE_OUTPUT index=5 bytes=10 hex=18410e10ef19ea16003d
+CNN_CASE index=6
+CNN_POOL input=0x3c080920 output=0x3c083920 shape=16x16x16 out=16x16 filter=3x3 stride=1x1 pad=1x1 sliding_rows=0
+CNN_MEAN route=esp_nn shape=16x16x32 input=0x3c080920 output=0x3c0829a0 zp_in=-128 zp_out=-128 multiplier=1349198175 shift=-7 trials=6 compared=384 mismatches=0
+CNN_QACC diagnostic_blocks=0
+CNN_CASE_OUTPUT index=6 bytes=10 hex=1a430d10eb18e7150140
+CNN_CASE index=7
+CNN_POOL input=0x3c080920 output=0x3c083920 shape=16x16x16 out=16x16 filter=3x3 stride=1x1 pad=1x1 sliding_rows=0
+CNN_MEAN route=esp_nn shape=16x16x32 input=0x3c080920 output=0x3c0829a0 zp_in=-128 zp_out=-128 multiplier=1349198175 shift=-7 trials=6 compared=384 mismatches=0
+CNN_QACC diagnostic_blocks=0
+CNN_CASE_OUTPUT index=7 bytes=10 hex=3d2a120df611de08342a
+CNN_CASE index=8
+CNN_POOL input=0x3c080920 output=0x3c083920 shape=16x16x16 out=16x16 filter=3x3 stride=1x1 pad=1x1 sliding_rows=0
+CNN_MEAN route=esp_nn shape=16x16x32 input=0x3c080920 output=0x3c0829a0 zp_in=-128 zp_out=-128 multiplier=1349198175 shift=-7 trials=6 compared=384 mismatches=0
+CNN_QACC diagnostic_blocks=0
+CNN_CASE_OUTPUT index=8 bytes=10 hex=4a25130cf70eda044526
+CNN_CASE index=9
+CNN_POOL input=0x3c080920 output=0x3c083920 shape=16x16x16 out=16x16 filter=3x3 stride=1x1 pad=1x1 sliding_rows=0
+CNN_MEAN route=esp_nn shape=16x16x32 input=0x3c080920 output=0x3c0829a0 zp_in=-128 zp_out=-128 multiplier=1349198175 shift=-7 trials=6 compared=384 mismatches=0
+CNN_QACC diagnostic_blocks=0
+CNN_CASE_OUTPUT index=9 bytes=10 hex=4225130cf810dc073b28
+CNN_CASE index=10
+CNN_POOL input=0x3c080920 output=0x3c083920 shape=16x16x16 out=16x16 filter=3x3 stride=1x1 pad=1x1 sliding_rows=0
+CNN_MEAN route=esp_nn shape=16x16x32 input=0x3c080920 output=0x3c0829a0 zp_in=-128 zp_out=-128 multiplier=1349198175 shift=-7 trials=6 compared=384 mismatches=0
+CNN_QACC diagnostic_blocks=0
+CNN_CASE_OUTPUT index=10 bytes=10 hex=f01230253029322ceb16
+CNN_CASE index=11
+CNN_POOL input=0x3c080920 output=0x3c083920 shape=16x16x16 out=16x16 filter=3x3 stride=1x1 pad=1x1 sliding_rows=0
+CNN_MEAN route=esp_nn shape=16x16x32 input=0x3c080920 output=0x3c0829a0 zp_in=-128 zp_out=-128 multiplier=1349198175 shift=-7 trials=6 compared=384 mismatches=0
+CNN_QACC diagnostic_blocks=0
+CNN_CASE_OUTPUT index=11 bytes=10 hex=c31c30363c325936be15
+CNN_CASE_DONE cases=12 heap_integrity=ok arena_guard=ok stack_high_water_bytes=4776
+CNN_PROBE_DONE
