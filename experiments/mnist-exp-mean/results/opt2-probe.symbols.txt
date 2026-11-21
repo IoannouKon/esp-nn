@@ -1,0 +1,7 @@
+4200c1a8 0000001a T tflite::micro::Register_MAX_POOL_2D()
+42005d2c 000000a2 T __wrap_esp_nn_max_pool_s8_esp32s3
+42005d00 0000002c T __wrap_esp_nn_max_pool_s8_esp32s3_sliding_row_asm
+4201f938 0000015a T esp_nn_max_pool_s8_ansi
+4201265c 0000020c T esp_nn_max_pool_s8_esp32s3
+4201fa94 0000034b T esp_nn_max_pool_s8_esp32s3_asm
+4201fde0 000000ac T esp_nn_max_pool_s8_esp32s3_sliding_row_asm
