@@ -1,0 +1,5 @@
+esp_nn_max_pool_s8_esp32s3.c -Og -std=gnu23 -mlongcalls -fno-unroll-loops -O2
+esp_nn_max_pool_s8_esp32s3.S -Og -mlongcalls -fno-unroll-loops -O2
+s3_maxpool_stream.S -Og -mlongcalls -fno-unroll-loops -O2
+s3_maxpool_scheduled.S -Og -mlongcalls -fno-unroll-loops -O2
+11 pooling compile commands match after build-path normalization.

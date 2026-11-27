@@ -1,0 +1,4 @@
+3edad4fcaac28ae8a4c49e97b56e0894abe82055
+43e476757d3a21d2e7400079ec3e25ef73436df6
+fff9895c82d744c7237be8847347bdd1b07c6643
+41e89d9de2f7fc38b0f6400df884d276b735b5a3bd491a55094d558e5faba696  ablation/esp-nn/experiments/s3-maxpool-ablation/ablation-harness.patch

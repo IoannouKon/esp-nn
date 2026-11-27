@@ -1,0 +1,3 @@
+Bank 0: modes 13, 15 passed 861 checks each.
+Bank 1: modes 24, 25, 26 passed 861 checks each.
+Bank 2: modes 16, 17, 18, 19 passed 861 checks each.
