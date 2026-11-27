@@ -1,0 +1,8 @@
+43e476757d3a21d2e7400079ec3e25ef73436df6
+experiment/s3-maxpool-cache-locality
+93c8f198e0ff139b6914d568426fd670709b9961
+d63724883b4a1744d185cf3ab4011cd669ae0377
+fff9895c82d744c7237be8847347bdd1b07c6643
+## contrib/s3-maxpool-simd...fork/contrib/s3-maxpool-simd
+total 0
+lrwxrwxrwx 1 root root 13 Nov 27 19:00 usb-Espressif_USB_JTAG_serial_debug_unit_A0:85:E3:F5:48:4C-if00 -> ../../ttyACM0

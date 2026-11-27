@@ -1,0 +1,6 @@
+42022b4c 000000b0 T esp_nn_max_pool_s8_esp32s3_sliding_row_asm
+42021bc8 000000c6 T s3_maxpool_tile_asm
+42021fb8 0000010b T s3_maxpool_scheduled_pair_asm
+42021c90 00000135 T s3_maxpool_column_first_asm
+42021dc8 000001ee T s3_maxpool_scheduled_asm
+420220c4 00000402 T s3_maxpool_stream_asm

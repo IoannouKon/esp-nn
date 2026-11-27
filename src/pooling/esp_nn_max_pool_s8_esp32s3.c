@@ -72,6 +72,61 @@ extern void esp_nn_max_pool_s8_esp32s3_sliding_row_asm(
     uint32_t row_bytes, uint32_t rows, uint32_t pad,
     int32_t activation_min, int32_t activation_max);
 
+typedef struct {
+    uint32_t row_bytes;
+    uint32_t channels;
+    uint32_t rows;
+    uint32_t pad;
+} s3mp_stream_row_t;
+
+_Static_assert(offsetof(s3mp_stream_row_t, row_bytes) == S3MP_STREAM_ROW_BYTES, "stream row layout");
+_Static_assert(offsetof(s3mp_stream_row_t, channels) == S3MP_STREAM_CHANNELS, "stream row layout");
+_Static_assert(offsetof(s3mp_stream_row_t, rows) == S3MP_STREAM_ROWS, "stream row layout");
+_Static_assert(offsetof(s3mp_stream_row_t, pad) == S3MP_STREAM_PAD, "stream row layout");
+
+extern void esp_nn_max_pool_s8_esp32s3_stream_row(
+    const int8_t *input, int8_t *output, const s3mp_stream_row_t *row,
+    int8_t *history, unsigned width, unsigned batch_bytes);
+extern void esp_nn_max_pool_s8_esp32s3_pair_row(
+    const int8_t *input, int8_t *output, const s3mp_stream_row_t *row, unsigned width);
+
+static __attribute__((noinline)) void stream_same_pool(
+    const int8_t *input, int8_t *output, unsigned width, unsigned height,
+    unsigned channels, unsigned pad)
+{
+    /* A 5x5 window needs four previous column maxima. Each aligned plane
+     * stores one 16-byte vector per channel group in the current batch. */
+    _Alignas(16) int8_t history[4 * S3MP_STREAM_BATCH_BYTES];
+    s3mp_stream_row_t row = { .row_bytes = width * channels, .channels = channels, .pad = pad };
+    for (unsigned y = 0; y < height; ++y) {
+        const unsigned top = y > pad ? y - pad : 0;
+        const unsigned bottom = min(y + pad + 1, height);
+        row.rows = bottom - top;
+        const int8_t *in = input + (size_t) top * row.row_bytes;
+        int8_t *out = output + (size_t) y * row.row_bytes;
+        for (unsigned ch = 0; ch < channels; ch += S3MP_STREAM_BATCH_BYTES) {
+            const unsigned batch = min(channels - ch, S3MP_STREAM_BATCH_BYTES);
+            esp_nn_max_pool_s8_esp32s3_stream_row(in + ch, out + ch, &row, history, width, batch);
+        }
+    }
+}
+
+static __attribute__((noinline)) void pair_same_pool(
+    const int8_t *input, int8_t *output, unsigned width, unsigned height)
+{
+    const size_t pitch = width * 32;
+    s3mp_stream_row_t row = { .row_bytes = pitch, .channels = 32, .rows = 2 };
+    esp_nn_max_pool_s8_esp32s3_pair_row(input, output, &row, width);
+    row.rows = 3;
+    for (unsigned y = 1; y + 1 < height; ++y) {
+        output += pitch;
+        esp_nn_max_pool_s8_esp32s3_pair_row(input, output, &row, width);
+        input += pitch;
+    }
+    row.rows = 2;
+    esp_nn_max_pool_s8_esp32s3_pair_row(input, output + pitch, &row, width);
+}
+
 /* An output pixel whose window misses the input entirely gets the clamped
  * INT8_MIN, as in the reference. That happens when the padding is as wide as
  * the filter, or when the output is larger than the padded input covers.
@@ -135,6 +190,15 @@ void esp_nn_max_pool_s8_esp32s3(const int8_t *input,
         const uintptr_t distance = in_addr < out_addr ? out_addr - in_addr : in_addr - out_addr;
         /* Reuse requires disjoint input and output tensors of the same size. */
         if (distance >= (uint64_t) row_bytes * input_ht) {
+            /* The streaming leaves omit clamping over the full int8 range. */
+            if (channels > 16 && activation_min == INT8_MIN && activation_max == INT8_MAX) {
+                if (channels == 32 && filter_wd == 3) {
+                    pair_same_pool(input, output, input_wd, input_ht);
+                } else {
+                    stream_same_pool(input, output, input_wd, input_ht, channels, pad_wd);
+                }
+                return;
+            }
             for (int y = 0; y < output_ht; y++) {
                 const int top = y < pad_ht ? 0 : y - pad_ht;
                 const int end = y + pad_ht + 1;

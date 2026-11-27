@@ -1,0 +1,1486 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 400f772..0ad765f 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -60,6 +60,11 @@ if(CONFIG_IDF_TARGET_ESP32S3)
+         "src/fully_connected/esp_nn_fully_connected_s8_esp32s3.S"
+         "src/fully_connected/esp_nn_fully_connected_per_ch_s8_esp32s3.S"
+         "src/pooling/esp_nn_max_pool_s8_esp32s3.c"
++        "src/pooling/s3_maxpool_experiment_master.c"
++        "src/pooling/s3_maxpool_locality.c"
++        "src/pooling/s3_maxpool_locality.S"
++        "src/pooling/s3_maxpool_scheduled.S"
++        "src/pooling/s3_maxpool_stream.S"
+         "src/pooling/esp_nn_max_pool_s8_esp32s3.S"
+         "src/pooling/esp_nn_avg_pool_s8_esp32s3.c"
+         "src/pooling/esp_nn_avg_pool_s8_esp32s3.S"
+diff --git a/bench_app/components/bench_harness/CMakeLists.txt b/bench_app/components/bench_harness/CMakeLists.txt
+index 24b4408..7da4a5e 100644
+--- a/bench_app/components/bench_harness/CMakeLists.txt
++++ b/bench_app/components/bench_harness/CMakeLists.txt
+@@ -1,3 +1,3 @@
+ idf_component_register(SRCS "bench.c"
+                        INCLUDE_DIRS "include"
+-                       PRIV_REQUIRES esp_hw_support freertos heap)
++                       PRIV_REQUIRES esp_hw_support esp_driver_usb_serial_jtag freertos heap perfmon soc xtensa)
+diff --git a/bench_app/components/bench_harness/bench.c b/bench_app/components/bench_harness/bench.c
+index fbc1ba3..95878ed 100644
+--- a/bench_app/components/bench_harness/bench.c
++++ b/bench_app/components/bench_harness/bench.c
+@@ -6,14 +6,21 @@
+ 
+ #include <inttypes.h>
+ #include <stdio.h>
++#include <stdlib.h>
+ #include <string.h>
+ 
+ #include "freertos/FreeRTOS.h"
+ #include "esp_cpu.h"
+ #include "esp_heap_caps.h"
++#include "driver/usb_serial_jtag.h"
++#include "esp_memory_utils.h"
+ #include "sdkconfig.h"
+ 
+ #include "bench.h"
++#include "soc/extmem_reg.h"
++#include "soc/soc.h"
++#include "xtensa/xt_perf_consts.h"
++#include "xtensa_perfmon_access.h"
+ 
+ /* ------------------------------------------------------------------ PRNG -- */
+ 
+@@ -78,8 +85,7 @@ void *bench_alloc(size_t size, bench_mem_t mem)
+ #else
+     const uint32_t int_caps = MALLOC_CAP_INTERNAL;
+ #endif
+-    const uint32_t caps = (mem == BENCH_MEM_EXT && bench_has_psram())
+-                          ? MALLOC_CAP_SPIRAM : int_caps;
++    const uint32_t caps = mem == BENCH_MEM_EXT ? MALLOC_CAP_SPIRAM : int_caps;
+     return heap_caps_aligned_alloc(16, size ? size : 1, caps | MALLOC_CAP_8BIT);
+ }
+ 
+@@ -158,6 +164,63 @@ static bool time_calls(const bench_case_t *c, bench_fn fn, int8_t *out,
+     return ok;
+ }
+ 
++/* A separate measured call keeps hardware-counter setup and MMIO out of
++ * the nine-call cycle measurement. It uses the same input and fill policy. */
++typedef struct {
++    uint32_t opt, miss, accesses, events[4];
++    bool checked;
++} pool_measurement_t;
++
++static pool_measurement_t profile_pool(const bench_case_t *c, int i, int8_t *out,
++                                       const int8_t *gold, uint32_t opt, bool timing_ok)
++{
++    uint32_t events[4];
++    const uint16_t select[2][2] = {
++        { XTPERF_CNT_INSN, XTPERF_CNT_D_STALL },
++        { XTPERF_CNT_I_STALL, XTPERF_CNT_BUBBLES },
++    };
++    const uint16_t mask[2][2] = {
++        { XTPERF_MASK_INSN_ALL, XTPERF_MASK_D_STALL_STORE_BUF_FULL },
++        { XTPERF_MASK_I_STALL_TIE_PORT, XTPERF_MASK_BUBBLES_R_HOLD_REG_DEP },
++    };
++    uint32_t miss = 0;
++    uint32_t accesses = 0;
++    bool ok = true;
++    for (int pass = 0; pass < 2; ++pass) {
++        memset(out, 0x5a, c->out_size);
++        guard_fill(out, c->out_size, 0);
++        portDISABLE_INTERRUPTS();
++        xtensa_perfmon_init(0, select[pass][0], mask[pass][0], 0, -1);
++        xtensa_perfmon_init(1, select[pass][1], mask[pass][1], 0, -1);
++        const uint32_t before_miss = REG_READ(EXTMEM_DBUS_ACS_SPIRAM_MISS_CNT_REG);
++        const uint32_t before_access = REG_READ(EXTMEM_DBUS_ACS_CNT_REG);
++        xtensa_perfmon_start();
++        c->variants[i].call(c->ctx, 0, out);
++        xtensa_perfmon_stop();
++        miss = REG_READ(EXTMEM_DBUS_ACS_SPIRAM_MISS_CNT_REG) - before_miss;
++        accesses = REG_READ(EXTMEM_DBUS_ACS_CNT_REG) - before_access;
++        events[2 * pass] = xtensa_perfmon_value(0);
++        events[2 * pass + 1] = xtensa_perfmon_value(1);
++        portENABLE_INTERRUPTS();
++        ok = (memcmp(out, gold, c->out_size) == 0 && guard_ok(out, c->out_size, 0)) && ok;
++    }
++    return (pool_measurement_t) {
++        .opt = opt, .miss = miss, .accesses = accesses,
++        .events = { events[0], events[1], events[2], events[3] },
++        .checked = ok && timing_ok,
++    };
++}
++
++static void emit_pool(const bench_case_t *c, int i, const pool_measurement_t *m)
++{
++    printf("MET %s %s %" PRIu32 " %d %" PRIu32 " %" PRIu32 " %" PRIu32
++           " %" PRIu32 " %" PRIu32 " %" PRIu32 " %s\n",
++           c->variants[i].name, c->mem == BENCH_MEM_EXT ? "ext" : "int", m->opt, m->checked,
++           m->miss, m->accesses, m->events[0], m->events[1], m->events[2], m->events[3], c->shape);
++    fflush(stdout);
++    usb_serial_jtag_wait_tx_done(pdMS_TO_TICKS(100));
++}
++
+ static const char *mem_name(bench_mem_t mem)
+ {
+     return (mem == BENCH_MEM_EXT && bench_has_psram()) ? "ext" : "int";
+@@ -166,6 +229,17 @@ static const char *mem_name(bench_mem_t mem)
+ int bench_run(const bench_case_t *c)
+ {
+     int failures = 0;
++    const bool audit_pool = strcmp(c->op, "max_pool") == 0;
++    bool placement_ok = false;
++    /* Under sustained cache conflicts the slow case can starve the console.
++     * Retain its entire diagnostic record until the benchmark task
++     * has yielded and the serial transport can drain. */
++    pool_measurement_t deferred[24];
++    const bool defer_pool = audit_pool && c->reference_irqs_on;
++    if (defer_pool && c->n_variants > sizeof(deferred) / sizeof(deferred[0])) {
++        abort();
++    }
++
+     /* The output gets guard bytes on both sides; the expected outputs live in
+      * internal RAM, out of the way of the timed accesses. */
+     int8_t *out_raw = bench_alloc(c->out_size + 2 * BENCH_GUARD, c->mem);
+@@ -178,6 +252,19 @@ int bench_run(const bench_case_t *c)
+         goto done;
+     }
+     int8_t *out = out_raw + BENCH_GUARD;
++    if (audit_pool) {
++        int8_t *last = out + c->out_size + BENCH_GUARD - 1;
++        const bool out_region = c->mem == BENCH_MEM_EXT
++            ? esp_ptr_external_ram(out_raw) && esp_ptr_external_ram(last)
++            : esp_ptr_in_dram(out_raw) && esp_ptr_in_dram(last);
++        placement_ok = out_region && !((uintptr_t) out & 15)
++            && esp_ptr_in_dram(gold[0]) && esp_ptr_in_dram(gold[0] + c->out_size - 1)
++            && esp_ptr_in_dram(gold[1]) && esp_ptr_in_dram(gold[1] + c->out_size - 1);
++        if (!placement_ok) {
++            bench_skip(c->op, c->shape, c->mem);
++            goto done;
++        }
++    }
+ 
+     for (int v = 0; v < 2; v++) {
+         if (c->prep) {
+@@ -187,7 +274,7 @@ int bench_run(const bench_case_t *c)
+     }
+ 
+     uint32_t ansi = 0;
+-    time_calls(c, c->ref, out, NULL, &ansi, true);
++    time_calls(c, c->ref, out, NULL, &ansi, !c->reference_irqs_on);
+ 
+     for (int i = 0; i < c->n_variants; i++) {
+         uint32_t opt = 0;
+@@ -200,13 +287,39 @@ int bench_run(const bench_case_t *c)
+                " ratio=%" PRIu32 ".%02" PRIu32 " result=%s shape=\"%s\"\n",
+                c->op, c->variants[i].name, mem_name(c->mem), ansi, opt,
+                ratio_x100 / 100, ratio_x100 % 100, ok ? "ok" : "MISMATCH", c->shape);
+-        if (!ok) {
++        bool profile_ok = true;
++        if (audit_pool) {
++            printf("MP %s %s %" PRIu32 " %d %s\n", c->variants[i].name,
++                   mem_name(c->mem), opt, ok, c->shape);
++            const pool_measurement_t m = profile_pool(c, i, out, gold[0], opt, ok);
++            profile_ok = m.checked;
++            if (defer_pool) {
++                deferred[i] = m;
++            } else {
++                emit_pool(c, i, &m);
++            }
++        }
++        if (!ok || !profile_ok) {
+             failures++;
+         }
+     }
++    if (defer_pool) {
++        vTaskDelay(pdMS_TO_TICKS(300));
++        for (int i = 0; i < c->n_variants; ++i) {
++            emit_pool(c, i, &deferred[i]);
++            vTaskDelay(pdMS_TO_TICKS(30));
++        }
++    }
+     s_cases++;
+ 
+ done:
++    if (audit_pool) {
++        printf("POOL_OUTPUT mem=%s bytes=%zu raw=%p gold0=%p gold1=%p guard=%d "
++               "failures=%d result=%s shape=\"%s\"\n",
++               c->mem == BENCH_MEM_EXT ? "ext" : "int", c->out_size, (void *) out_raw,
++               (void *) gold[0], (void *) gold[1], BENCH_GUARD, failures,
++               placement_ok ? "ok" : "FAIL", c->shape);
++    }
+     bench_free(out_raw);
+     bench_free(gold[0]);
+     bench_free(gold[1]);
+diff --git a/bench_app/components/bench_harness/include/bench.h b/bench_app/components/bench_harness/include/bench.h
+index 040d4eb..5a37425 100644
+--- a/bench_app/components/bench_harness/include/bench.h
++++ b/bench_app/components/bench_harness/include/bench.h
+@@ -94,6 +94,9 @@ typedef struct {
+      * and the other core's interrupt watchdog fires. The reference is still
+      * timed with interrupts off. */
+     bool irqs_on;
++    /* Slow diagnostic reference calls may leave interrupts enabled. The
++     * optimized timing and reference outputs are unaffected. */
++    bool reference_irqs_on;
+ } bench_case_t;
+ 
+ /* Runs one case and prints its BENCH lines. Returns the number of variants
+diff --git a/bench_app/main/CMakeLists.txt b/bench_app/main/CMakeLists.txt
+index a10fe8e..1fb70fe 100644
+--- a/bench_app/main/CMakeLists.txt
++++ b/bench_app/main/CMakeLists.txt
+@@ -6,4 +6,4 @@ idf_component_register(SRCS "bench_main.c"
+                             "bench_pooling.c"
+                             "bench_activations.c"
+                             "bench_softmax_mean.c"
+-                       PRIV_REQUIRES esp-nn bench_harness esp_rom freertos)
++                       PRIV_REQUIRES esp-nn bench_harness esp_hw_support esp_driver_usb_serial_jtag esp_rom freertos soc)
+diff --git a/bench_app/main/bench_main.c b/bench_app/main/bench_main.c
+index b18dea8..7410538 100644
+--- a/bench_app/main/bench_main.c
++++ b/bench_app/main/bench_main.c
+@@ -14,6 +14,8 @@
+ #include "freertos/task.h"
+ #include "esp_heap_caps.h"
+ #include "esp_rom_sys.h"
++#include "driver/usb_serial_jtag.h"
++#include "driver/usb_serial_jtag_vfs.h"
+ #include "esp_idf_version.h"
+ #include "sdkconfig.h"
+ 
+@@ -26,6 +28,11 @@
+ static void bench_task(void *arg)
+ {
+     (void) arg;
++    usb_serial_jtag_driver_config_t serial = {
++        .tx_buffer_size = 1024, .rx_buffer_size = 256,
++    };
++    ESP_ERROR_CHECK(usb_serial_jtag_driver_install(&serial));
++    usb_serial_jtag_vfs_use_driver();
+     printf("BENCH_START target=%s idf=%s cpu_mhz=%u psram=%d iters=%d seed=0x%08x\n",
+            CONFIG_IDF_TARGET, esp_get_idf_version(), (unsigned) esp_rom_get_cpu_ticks_per_us(),
+            bench_has_psram(), BENCH_ITERS, (unsigned) BENCH_SEED);
+diff --git a/bench_app/main/bench_pooling.c b/bench_app/main/bench_pooling.c
+index 1ca77f6..3163485 100644
+--- a/bench_app/main/bench_pooling.c
++++ b/bench_app/main/bench_pooling.c
+@@ -8,18 +8,89 @@
+ 
+ #include <esp_nn.h>
+ 
++#include "esp_memory_utils.h"
++#include "esp32s3/rom/cache.h"
++#include "sdkconfig.h"
++#include "soc/extmem_reg.h"
++#include "soc/soc.h"
++
+ #include "bench_ops.h"
++#include "../../src/pooling/s3_maxpool_locality.h"
+ 
+ typedef struct {
+     int in_wd, in_ht, ch, f_wd, f_ht, stride, pad;
+     bench_mem_t mem;
++    bool max_only;
+ } pool_shape_t;
+ 
+-/* The shapes of the README tables. */
++/* Reviewer cases first. The sweep holds tensor bytes constant across aspects
++ * and channel strides, and mirrors selected DRAM/PSRAM cases. */
+ static const pool_shape_t s_shapes[] = {
+-    { 16, 16, 16, 3, 3, 1, 1, BENCH_MEM_INT },
++    { 16, 16, 16, 3, 3, 1, 1, BENCH_MEM_INT, false },
++    { 16, 16, 16, 3, 3, 1, 1, BENCH_MEM_EXT, true },
++    { 6, 6, 128, 5, 5, 1, 2, BENCH_MEM_EXT, true },
+     /* MaxPool 5x5 of YOLO11n's SPPF block. */
+-    { 12, 12, 128, 5, 5, 1, 2, BENCH_MEM_EXT },
++    { 12, 12, 128, 5, 5, 1, 2, BENCH_MEM_EXT, false },
++    { 20, 20, 128, 5, 5, 1, 2, BENCH_MEM_EXT, true },
++    { 32, 32, 64, 3, 3, 1, 1, BENCH_MEM_EXT, true },
++    { 56, 56, 32, 3, 3, 1, 1, BENCH_MEM_EXT, true },
++    { 16, 16, 16, 5, 5, 1, 2, BENCH_MEM_EXT, true },
++    { 16, 16, 16, 5, 5, 1, 2, BENCH_MEM_INT, true },
++    { 6, 6, 128, 5, 5, 1, 2, BENCH_MEM_INT, true },
++    { 12, 12, 128, 5, 5, 1, 2, BENCH_MEM_INT, true },
++    { 20, 20, 128, 5, 5, 1, 2, BENCH_MEM_INT, true },
++    { 8, 64, 64, 3, 3, 1, 1, BENCH_MEM_EXT, true },
++    { 8, 64, 64, 3, 3, 1, 1, BENCH_MEM_INT, true },
++    { 16, 32, 64, 3, 3, 1, 1, BENCH_MEM_EXT, true },
++    { 16, 32, 64, 3, 3, 1, 1, BENCH_MEM_INT, true },
++    { 32, 16, 64, 3, 3, 1, 1, BENCH_MEM_EXT, true },
++    { 32, 16, 64, 3, 3, 1, 1, BENCH_MEM_INT, true },
++    { 64, 8, 64, 3, 3, 1, 1, BENCH_MEM_EXT, true },
++    { 64, 8, 64, 3, 3, 1, 1, BENCH_MEM_INT, true },
++    { 64, 32, 16, 3, 3, 1, 1, BENCH_MEM_EXT, true },
++    { 64, 32, 16, 3, 3, 1, 1, BENCH_MEM_INT, true },
++    { 32, 32, 32, 3, 3, 1, 1, BENCH_MEM_EXT, true },
++    { 32, 32, 32, 3, 3, 1, 1, BENCH_MEM_INT, true },
++    { 16, 16, 128, 3, 3, 1, 1, BENCH_MEM_EXT, true },
++    { 16, 16, 128, 3, 3, 1, 1, BENCH_MEM_INT, true },
++    { 32, 32, 48, 3, 3, 1, 1, BENCH_MEM_EXT, true },
++    { 32, 32, 48, 3, 3, 1, 1, BENCH_MEM_INT, true },
++    { 32, 24, 64, 3, 3, 1, 1, BENCH_MEM_EXT, true },
++    { 32, 24, 64, 3, 3, 1, 1, BENCH_MEM_INT, true },
++    { 16, 24, 128, 3, 3, 1, 1, BENCH_MEM_EXT, true },
++    { 16, 24, 128, 3, 3, 1, 1, BENCH_MEM_INT, true },
++    { 8, 64, 64, 5, 5, 1, 2, BENCH_MEM_EXT, true },
++    { 8, 64, 64, 5, 5, 1, 2, BENCH_MEM_INT, true },
++    { 16, 32, 64, 5, 5, 1, 2, BENCH_MEM_EXT, true },
++    { 16, 32, 64, 5, 5, 1, 2, BENCH_MEM_INT, true },
++    { 32, 16, 64, 5, 5, 1, 2, BENCH_MEM_EXT, true },
++    { 32, 16, 64, 5, 5, 1, 2, BENCH_MEM_INT, true },
++    { 64, 8, 64, 5, 5, 1, 2, BENCH_MEM_EXT, true },
++    { 64, 8, 64, 5, 5, 1, 2, BENCH_MEM_INT, true },
++    { 64, 32, 16, 5, 5, 1, 2, BENCH_MEM_EXT, true },
++    { 64, 32, 16, 5, 5, 1, 2, BENCH_MEM_INT, true },
++    { 32, 32, 32, 5, 5, 1, 2, BENCH_MEM_EXT, true },
++    { 32, 32, 32, 5, 5, 1, 2, BENCH_MEM_INT, true },
++    { 16, 16, 128, 5, 5, 1, 2, BENCH_MEM_EXT, true },
++    { 16, 16, 128, 5, 5, 1, 2, BENCH_MEM_INT, true },
++    { 32, 32, 48, 5, 5, 1, 2, BENCH_MEM_EXT, true },
++    { 32, 32, 48, 5, 5, 1, 2, BENCH_MEM_INT, true },
++    { 8, 32, 64, 3, 3, 1, 1, BENCH_MEM_EXT, true },
++    { 8, 32, 64, 3, 3, 1, 1, BENCH_MEM_INT, true },
++    { 64, 32, 64, 3, 3, 1, 1, BENCH_MEM_EXT, true },
++    { 32, 8, 64, 3, 3, 1, 1, BENCH_MEM_EXT, true },
++    { 32, 8, 64, 3, 3, 1, 1, BENCH_MEM_INT, true },
++    { 32, 64, 64, 3, 3, 1, 1, BENCH_MEM_EXT, true },
++    { 128, 16, 64, 3, 3, 1, 1, BENCH_MEM_EXT, true },
++    { 128, 16, 64, 5, 5, 1, 2, BENCH_MEM_EXT, true },
++    { 256, 8, 64, 3, 3, 1, 1, BENCH_MEM_EXT, true },
++    { 256, 8, 64, 5, 5, 1, 2, BENCH_MEM_EXT, true },
++    { 7, 5, 48, 5, 5, 1, 2, BENCH_MEM_EXT, true },
++    { 7, 5, 48, 5, 5, 1, 2, BENCH_MEM_INT, true },
++    { 5, 7, 48, 5, 5, 1, 2, BENCH_MEM_EXT, true },
++    { 5, 7, 48, 5, 5, 1, 2, BENCH_MEM_INT, true },
++    { 3, 3, 16, 3, 3, 1, 1, BENCH_MEM_EXT, true },
++    { 3, 3, 16, 3, 3, 1, 1, BENCH_MEM_INT, true },
+ };
+ 
+ typedef struct {
+@@ -32,18 +103,45 @@ typedef struct {
+     (c)->out_ht, (c)->s->stride, (c)->s->stride, (c)->s->f_wd, (c)->s->f_ht, (c)->s->pad, \
+     (c)->s->pad, -128, 127, (c)->s->ch
+ 
+-static void max_ref(void *p, int v, int8_t *out)
++extern __typeof__(esp_nn_max_pool_s8_esp32s3) s3_maxpool_experiment_master;
++
++static void max_master(void *p, int v, int8_t *out)
+ {
+     const pool_ctx_t *c = p;
+-    esp_nn_max_pool_s8_ansi(POOL_ARGS(c, c->input[v], out));
++    s3_maxpool_experiment_master(POOL_ARGS(c, c->input[v], out));
+ }
+ 
+-static void max_opt(void *p, int v, int8_t *out)
++static void max_ref(void *p, int v, int8_t *out)
+ {
+     const pool_ctx_t *c = p;
+-    esp_nn_max_pool_s8(POOL_ARGS(c, c->input[v], out));
++    esp_nn_max_pool_s8_ansi(POOL_ARGS(c, c->input[v], out));
+ }
+ 
++#define EXPT_WRAPPER(name, mode) \
++    static void name(void *p, int v, int8_t *out) \
++    { \
++        const pool_ctx_t *c = p; \
++        s3_maxpool_locality_mode = mode; \
++        esp_nn_max_pool_s8(POOL_ARGS(c, c->input[v], out)); \
++    }
++
++EXPT_WRAPPER(max_v0, LOC_CURRENT)
++EXPT_WRAPPER(max_v1, LOC_COLUMN_FIRST)
++EXPT_WRAPPER(max_t4, LOC_TILE_4)
++EXPT_WRAPPER(max_t8, LOC_TILE_8)
++EXPT_WRAPPER(max_t16, LOC_TILE_16)
++EXPT_WRAPPER(max_t32, LOC_TILE_32)
++EXPT_WRAPPER(max_b4, LOC_BAND_4)
++EXPT_WRAPPER(max_b8, LOC_BAND_8)
++EXPT_WRAPPER(max_b16, LOC_BAND_16)
++EXPT_WRAPPER(max_b32, LOC_BAND_32)
++EXPT_WRAPPER(max_sched, LOC_SCHEDULED)
++EXPT_WRAPPER(max_pair, LOC_PAIRED)
++EXPT_WRAPPER(max_stream, LOC_STREAM)
++EXPT_WRAPPER(max_stream0, LOC_STREAM_RETAIN_SINGLE)
++EXPT_WRAPPER(max_fit, LOC_FIT)
++EXPT_WRAPPER(max_fit0, LOC_FIT_RETAIN_SINGLE)
++
+ static void avg_ref(void *p, int v, int8_t *out)
+ {
+     const pool_ctx_t *c = p;
+@@ -57,13 +155,39 @@ static void avg_opt(void *p, int v, int8_t *out)
+ }
+ 
+ static const bench_variant_t s_max_variants[] = {
+-    { "esp_nn", max_opt },
++    { "master", max_master },
++    { "v0", max_v0 },
++    { "v1", max_v1 },
++    { "t4", max_t4 },
++    { "t8", max_t8 },
++    { "t16", max_t16 },
++    { "t32", max_t32 },
++    { "b4", max_b4 },
++    { "b8", max_b8 },
++    { "b16", max_b16 },
++    { "b32", max_b32 },
++    { "sched", max_sched },
++    { "pair", max_pair },
++    { "stream", max_stream },
++    { "stream0", max_stream0 },
++    { "fit", max_fit },
++    { "fit0", max_fit0 },
+ };
+ 
+ static const bench_variant_t s_avg_variants[] = {
+     { "esp_nn", avg_opt },
+ };
+ 
++static bool input_in_region(const int8_t *input, size_t size, bench_mem_t mem)
++{
++    if (!input || ((uintptr_t) input & 15)) {
++        return false;
++    }
++    return mem == BENCH_MEM_EXT
++        ? esp_ptr_external_ram(input) && esp_ptr_external_ram(input + size - 1)
++        : esp_ptr_in_dram(input) && esp_ptr_in_dram(input + size - 1);
++}
++
+ static void run_shape(const pool_shape_t *s)
+ {
+     const size_t in_size = (size_t) s->in_wd * s->in_ht * s->ch;
+@@ -77,7 +201,9 @@ static void run_shape(const pool_shape_t *s)
+     snprintf(shape, sizeof(shape), "input %dx%dx%d, filter %dx%d, pad %d, stride %d",
+              s->in_wd, s->in_ht, s->ch, s->f_wd, s->f_ht, s->pad, s->stride);
+ 
+-    if (in[0] && in[1]) {
++    const bool placed = input_in_region(in[0], in_size, s->mem)
++                     && input_in_region(in[1], in_size, s->mem);
++    if (placed) {
+         bench_seed_case("pool", shape);
+         bench_fill(in[0], in_size);
+         bench_fill(in[1], in_size);
+@@ -88,6 +214,7 @@ static void run_shape(const pool_shape_t *s)
+             .op = "max_pool", .shape = shape, .mem = s->mem, .out_size = out_size,
+             .ref = max_ref, .variants = s_max_variants,
+             .n_variants = sizeof(s_max_variants) / sizeof(s_max_variants[0]), .ctx = &c,
++            .reference_irqs_on = s->f_wd == 5 && in_size >= 128 * 1024,
+         };
+         const bench_case_t avg_case = {
+             .op = "avg_pool", .shape = shape, .mem = s->mem, .out_size = out_size,
+@@ -95,17 +222,33 @@ static void run_shape(const pool_shape_t *s)
+             .n_variants = sizeof(s_avg_variants) / sizeof(s_avg_variants[0]), .ctx = &c,
+         };
+         bench_run(&max_case);
+-        bench_run(&avg_case);
++        if (!s->max_only) {
++            bench_run(&avg_case);
++        }
+     } else {
+         bench_skip("max_pool", shape, s->mem);
+-        bench_skip("avg_pool", shape, s->mem);
++        if (!s->max_only) {
++            bench_skip("avg_pool", shape, s->mem);
++        }
+     }
++    printf("POOL_INPUT mem=%s bytes=%zu in0=%p in1=%p result=%s shape=\"%s\"\n",
++           s->mem == BENCH_MEM_EXT ? "ext" : "int", in_size,
++           (void *) in[0], (void *) in[1], placed ? "ok" : "FAIL", shape);
+     bench_free(in[0]);
+     bench_free(in[1]);
+ }
+ 
+ void bench_pooling(void)
+ {
++    const unsigned i_ctrl = REG_READ(EXTMEM_ICACHE_CTRL_REG);
++    const unsigned d_ctrl = REG_READ(EXTMEM_DCACHE_CTRL_REG);
++    printf("POOL_CACHE ictrl=0x%x dctrl=0x%x icache_kib=%u icache_ways=%u icache_line=%u "
++           "dcache_kib=%u dcache_ways_config=%u dcache_line=%u psram_mhz_config=%u\n",
++           i_ctrl, d_ctrl, (i_ctrl & EXTMEM_ICACHE_SIZE_MODE) ? 32u : 16u,
++           (i_ctrl & EXTMEM_ICACHE_WAY_MODE) ? 8u : 4u, (unsigned) Cache_Get_ICache_Line_Size(),
++           (d_ctrl & EXTMEM_DCACHE_SIZE_MODE) ? 64u : 32u,
++           CONFIG_ESP32S3_DCACHE_ASSOCIATED_WAYS, (unsigned) Cache_Get_DCache_Line_Size(),
++           CONFIG_SPIRAM_SPEED);
+     for (int i = 0; i < (int) (sizeof(s_shapes) / sizeof(s_shapes[0])); i++) {
+         run_shape(&s_shapes[i]);
+     }
+diff --git a/src/pooling/esp_nn_max_pool_s8_esp32s3.c b/src/pooling/esp_nn_max_pool_s8_esp32s3.c
+index 00dffc2..c3eef00 100644
+--- a/src/pooling/esp_nn_max_pool_s8_esp32s3.c
++++ b/src/pooling/esp_nn_max_pool_s8_esp32s3.c
+@@ -30,6 +30,7 @@
+ #include <esp_memory_utils.h>
+ #include <common_functions.h>
+ #include "esp_nn_max_pool_s8_esp32s3.h"
++#include "s3_maxpool_locality.h"
+ 
+ typedef struct {
+     int32_t n32;        /* 32-lane chunks per pixel */
+@@ -135,6 +136,15 @@ void esp_nn_max_pool_s8_esp32s3(const int8_t *input,
+         const uintptr_t distance = in_addr < out_addr ? out_addr - in_addr : in_addr - out_addr;
+         /* Reuse requires disjoint input and output tensors of the same size. */
+         if (distance >= (uint64_t) row_bytes * input_ht) {
++            const unsigned mode = s3_maxpool_locality_mode;
++            if (mode != LOC_CURRENT &&
++                ((mode != LOC_STREAM_RETAIN_SINGLE && mode != LOC_FIT_RETAIN_SINGLE) ||
++                 channels > 16) &&
++                (mode < LOC_SCHEDULED || (activation_min == INT8_MIN && activation_max == INT8_MAX))) {
++                s3_maxpool_locality(input, output, input_wd, input_ht, channels, pad_wd,
++                                    activation_min, activation_max, mode);
++                return;
++            }
+             for (int y = 0; y < output_ht; y++) {
+                 const int top = y < pad_ht ? 0 : y - pad_ht;
+                 const int end = y + pad_ht + 1;
+diff --git a/src/pooling/s3_maxpool_experiment_master.c b/src/pooling/s3_maxpool_experiment_master.c
+new file mode 100644
+index 0000000..ab25452
+--- /dev/null
++++ b/src/pooling/s3_maxpool_experiment_master.c
+@@ -0,0 +1,207 @@
++/*
++ * SPDX-FileCopyrightText: 2026 Espressif Systems (Shanghai) CO LTD
++ *
++ * SPDX-License-Identifier: Apache-2.0
++ */
++
++/*
++ * ESP32-S3 max pool.
++ *
++ * The C part clips each window to the input. It makes one leaf call for the
++ * unclipped interior run and one per border pixel, so the SIMD leaf
++ * (esp_nn_max_pool_s8_esp32s3.S) has no bounds checks. Rows whose windows
++ * are not clipped vertically share each call, to save the call overhead.
++ * When the output is one column wide, such a band is a single call.
++ *
++ * The leaf uses 64-bit loads when channels % 8 == 0, which need 8-byte
++ * buffers, and 32-bit loads otherwise, which need 4-byte ones. With a 16-byte
++ * aligned input and channels % 16 == 0 it uses 128-bit loads. These loads
++ * ignore the low address bits, so a buffer below that alignment would be read
++ * and written lane-shifted. Anything else goes to the reference: channels
++ * % 4 != 0, lower alignment, or activation limits outside int8. Tensor data
++ * is normally 16-byte aligned, so the vector paths stay the common ones.
++ */
++
++#include <stdbool.h>
++#include <stddef.h>
++#include <stdint.h>
++#include <string.h>
++#include <esp_nn_ansi_headers.h>
++#include <esp_memory_utils.h>
++#include <common_functions.h>
++#include "esp_nn_max_pool_s8_esp32s3.h"
++
++typedef struct {
++    int32_t n32;        /* 32-lane chunks per pixel */
++    int32_t n16;        /* 16-lane chunks per pixel, 0 or 1 */
++    int32_t n8;         /* 8-lane chunks per pixel, 0 or 1 */
++    int32_t n4;         /* 4-lane chunks per pixel */
++    int32_t channels;
++    int32_t in_step;    /* input bytes between output pixels of a row */
++    int32_t row_bytes;  /* input bytes per input row */
++    int8_t act_min;
++    int8_t act_max;
++    int32_t n16_full;   /* channels / 16 if channels % 16 == 0, else 0 */
++    int32_t in_row_step;  /* input bytes between output rows */
++    int32_t out_row_step; /* output bytes between output rows */
++    int32_t rows;       /* rows for esp_nn_max_pool_s8_esp32s3_rows */
++    int32_t rows_left;  /* esp_nn_max_pool_s8_esp32s3_rows scratch */
++} s3mp_args_t;
++
++/* The assembly reads these at the offsets in esp_nn_max_pool_s8_esp32s3.h */
++_Static_assert(offsetof(s3mp_args_t, n32) == S3MP_N32, "s3mp_args_t layout");
++_Static_assert(offsetof(s3mp_args_t, n16) == S3MP_N16, "s3mp_args_t layout");
++_Static_assert(offsetof(s3mp_args_t, n8) == S3MP_N8, "s3mp_args_t layout");
++_Static_assert(offsetof(s3mp_args_t, n4) == S3MP_N4, "s3mp_args_t layout");
++_Static_assert(offsetof(s3mp_args_t, channels) == S3MP_CHANNELS, "s3mp_args_t layout");
++_Static_assert(offsetof(s3mp_args_t, in_step) == S3MP_IN_STEP, "s3mp_args_t layout");
++_Static_assert(offsetof(s3mp_args_t, row_bytes) == S3MP_ROW_BYTES, "s3mp_args_t layout");
++_Static_assert(offsetof(s3mp_args_t, act_min) == S3MP_ACT_MIN, "s3mp_args_t layout");
++_Static_assert(offsetof(s3mp_args_t, act_max) == S3MP_ACT_MAX, "s3mp_args_t layout");
++_Static_assert(offsetof(s3mp_args_t, n16_full) == S3MP_N16_FULL, "s3mp_args_t layout");
++_Static_assert(offsetof(s3mp_args_t, in_row_step) == S3MP_IN_ROW_STEP, "s3mp_args_t layout");
++_Static_assert(offsetof(s3mp_args_t, out_row_step) == S3MP_OUT_ROW_STEP, "s3mp_args_t layout");
++_Static_assert(offsetof(s3mp_args_t, rows) == S3MP_ROWS, "s3mp_args_t layout");
++_Static_assert(offsetof(s3mp_args_t, rows_left) == S3MP_ROWS_LEFT, "s3mp_args_t layout");
++
++typedef void s3mp_fn(s3mp_args_t *a, const int8_t *in, int8_t *out,
++                     int n, int fw, int fh);
++extern s3mp_fn esp_nn_max_pool_s8_esp32s3_run, esp_nn_max_pool_s8_esp32s3_rows;
++
++/* An output pixel whose window misses the input entirely gets the clamped
++ * INT8_MIN, as in the reference. That happens when the padding is as wide as
++ * the filter, or when the output is larger than the padded input covers.
++ * TFLite's SAME and VALID shapes never have one, so this stays out of line. */
++static __attribute__((noinline, cold)) void fill_empty(int8_t *out, int n,
++                                                      int32_t act_min, int32_t act_max)
++{
++    memset(out, min(max(INT8_MIN, act_min), act_max), (size_t) n);
++}
++
++/* The same for one border column of a band: n bytes in each of rows rows */
++static __attribute__((noinline, cold)) void fill_empty_rows(int8_t *out, int n, int rows,
++                                                           int row_step, int32_t act_min,
++                                                           int32_t act_max)
++{
++    for (int r = 0; r < rows; r++) {
++        fill_empty(out + r * row_step, n, act_min, act_max);
++    }
++}
++
++void s3_maxpool_experiment_master(const int8_t *input,
++                                const uint16_t input_wd,
++                                const uint16_t input_ht,
++                                int8_t *output,
++                                const uint16_t output_wd,
++                                const uint16_t output_ht,
++                                const uint16_t stride_wd,
++                                const uint16_t stride_ht,
++                                const uint16_t filter_wd,
++                                const uint16_t filter_ht,
++                                const uint16_t pad_wd,
++                                const uint16_t pad_ht,
++                                const int32_t activation_min,
++                                const int32_t activation_max,
++                                const uint16_t channels)
++{
++    const uintptr_t bufs = (uintptr_t) input | (uintptr_t) output;
++    const uintptr_t need = (channels % 8 == 0) ? 7u : 3u;
++    /* The leaf clamps with int8 limits. Others, which TFLite never passes,
++     * take the reference so the result stays exact. */
++    const bool limits_int8 = activation_min >= INT8_MIN && activation_min <= INT8_MAX &&
++                             activation_max >= INT8_MIN && activation_max <= INT8_MAX;
++    if (channels % 4 != 0 || (bufs & need) != 0 || filter_wd == 0 || !limits_int8) {
++        esp_nn_max_pool_s8_ansi(input, input_wd, input_ht, output, output_wd,
++                                output_ht, stride_wd, stride_ht, filter_wd, filter_ht,
++                                pad_wd, pad_ht, activation_min, activation_max,
++                                channels);
++        return;
++    }
++
++    const int ch = channels;
++    /* Field by field: an initializer would also zero the row fields */
++    s3mp_args_t a;
++    a.n32 = (ch % 8 == 0) ? ch / 32 : 0;
++    a.n16 = (ch % 8 == 0) ? (ch / 16) & 1 : 0;
++    a.n8 = (ch % 8 == 0) ? (ch / 8) & 1 : 0;
++    a.n4 = (ch % 8 == 0) ? 0 : ch / 4;
++    a.channels = ch;
++    a.row_bytes = input_wd * ch;
++    a.in_row_step = stride_ht * a.row_bytes;
++    a.out_row_step = output_wd * ch;
++    /* One output column: a band is one pixel run down the column */
++    a.in_step = (output_wd == 1) ? a.in_row_step : stride_wd * ch;
++    a.act_min = (int8_t) activation_min;
++    a.act_max = (int8_t) activation_max;
++    a.n16_full = (ch % 16 == 0) ? ch / 16 : 0;
++
++    /* Output columns [ox_lo, ox_hi) have windows fully inside the row */
++    int ox_lo = 0;
++    while (ox_lo < output_wd && ox_lo * stride_wd < pad_wd) {
++        ox_lo++;
++    }
++    int ox_hi = output_wd;
++    while (ox_hi > ox_lo && (ox_hi - 1) * stride_wd - pad_wd + filter_wd > input_wd) {
++        ox_hi--;
++    }
++
++    /*
++     * Unclipped rows share each leaf call, so each border column is walked
++     * down the band. PSRAM goes through the cache, where that would fetch
++     * the column's lines again, so there only rows without border columns
++     * share.
++     */
++    const bool bands = (ox_lo == 0 && ox_hi == output_wd) || !esp_ptr_external_ram(input);
++    int rows;
++    for (int oy = 0; oy < output_ht; oy += rows) {
++        const int y0 = oy * stride_ht - pad_ht;
++        const int ys = max(y0, 0);
++        const int fh = min(y0 + filter_ht, input_ht) - ys;
++        if (__builtin_expect(fh <= 0, 0)) {
++            fill_empty(output + oy * output_wd * ch, output_wd * ch, activation_min, activation_max);
++            rows = 1;
++            continue;
++        }
++        rows = 1;
++        if (fh == filter_ht && oy + 1 < output_ht && bands) {
++            while (oy + rows < output_ht &&
++                   y0 + rows * stride_ht + filter_ht <= input_ht) {
++                rows++;
++            }
++            a.rows = rows;
++            if (output_wd == 1) {
++                const int fw = min(filter_wd - pad_wd, input_wd);
++                if (__builtin_expect(fw <= 0, 0)) {
++                    fill_empty(output + oy * ch, rows * ch, activation_min, activation_max);
++                    continue;
++                }
++                esp_nn_max_pool_s8_esp32s3_run(&a, input + ys * a.row_bytes, output + oy * ch, rows, fw, fh);
++                continue;
++            }
++        }
++        s3mp_fn *const run = (rows > 1) ? esp_nn_max_pool_s8_esp32s3_rows : esp_nn_max_pool_s8_esp32s3_run;
++        const int8_t *in_row = input + ys * a.row_bytes;
++        int8_t *out = output + oy * output_wd * ch;
++
++        for (int ox = 0; ox < output_wd; ox++) {
++            if (ox == ox_lo && ox_hi > ox_lo) {
++                const int n = ox_hi - ox_lo;
++                run(&a, in_row + (ox_lo * stride_wd - pad_wd) * ch, out, n,
++                    filter_wd, fh);
++                out += n * ch;
++                ox = ox_hi - 1;
++                continue;
++            }
++            const int x0 = ox * stride_wd - pad_wd;
++            const int xs = max(x0, 0);
++            const int fw = min(x0 + filter_wd, input_wd) - xs;
++            if (__builtin_expect(fw <= 0, 0)) {
++                /* In a band this pixel stands for its column in every row */
++                fill_empty_rows(out, ch, rows, output_wd * ch, activation_min, activation_max);
++            } else {
++                run(&a, in_row + xs * ch, out, 1, fw, fh);
++            }
++            out += ch;
++        }
++    }
++}
+diff --git a/src/pooling/s3_maxpool_locality.S b/src/pooling/s3_maxpool_locality.S
+new file mode 100644
+index 0000000..1af8e49
+--- /dev/null
++++ b/src/pooling/s3_maxpool_locality.S
+@@ -0,0 +1,175 @@
++#include "s3_maxpool_locality.h"
++
++    .text
++
++    // q6/q7 are activation limits. The output instruction advances one pixel.
++    .macro store_pixel value, out, stride
++    ee.vmax.s8    q0,\value,q6
++    ee.vmin.s8    q0,q0,q7
++    ee.vst.128.xp q0,\out,\stride
++    .endm
++
++    .macro load_column result, ptr, rows_minus_one, stride
++    ee.vld.128.xp \result,\ptr,\stride
++    loopgtz \rows_minus_one,7f
++    ee.vld.128.xp q0,\ptr,\stride
++    ee.vmax.s8 \result,\result,q0
++7:
++    .endm
++
++    // Tile-local vector history, seeded by valid left halo columns.
++    .macro tile_body pad, history
++    movi.n  a10, -128
++    s32i.n  a10,a1,0
++    ee.vldbc.8 q2,a1
++    mv.qr   q3,q2
++    .if \pad == 2
++    mv.qr   q4,q2
++    mv.qr   q5,q2
++    .endif
++    neg     a6,a6
++1:
++    mov.n   a10,a2
++    load_column q1,a10,a9,a8
++    add.n   a2,a2,a11
++    bltz    a6,2f
++    ee.vmax.s8 q0,\history,q1
++    store_pixel q0,a3,a11
++2:
++    .if \pad == 2
++    ee.vmax.s8 q5,q4,q1
++    ee.vmax.s8 q4,q3,q1
++    .endif
++    ee.vmax.s8 q3,q2,q1
++    mv.qr   q2,q1
++    addi.n  a6,a6,1
++    addi.n  a5,a5,-1
++    bnez    a5,1b
++    beqz    a7,4f
++    .if \pad == 2
++    // A one-pixel final tile can have one remaining left-halo output to skip.
++    bltz    a6,3f
++    .endif
++    store_pixel \history,a3,a11
++    .if \pad == 2
++    beqi    a7,1,4f
++3:
++    store_pixel q4,a3,a11
++    .endif
++4:
++    retw.n
++    .endm
++
++    .align 4
++    .global s3_maxpool_tile_asm
++    .type s3_maxpool_tile_asm,@function
++s3_maxpool_tile_asm:
++    // 64-byte frame leaves the sentinel at a1+0 below the spill area.
++    entry   a1,64
++    l32i.n  a8,a4,LOC_ROW_BYTES
++    l32i.n  a9,a4,LOC_ROWS
++    addi.n  a9,a9,-1
++    l32i.n  a11,a4,LOC_CHANNELS
++    l8ui    a10,a4,LOC_PAD
++    addi    a4,a4,LOC_MIN
++    ee.vldbc.8.ip q6,a4,1
++    ee.vldbc.8 q7,a4
++    beqi    a10,1,.Ltile3
++    tile_body 2,q5
++.Ltile3:
++    tile_body 1,q3
++    .size s3_maxpool_tile_asm,.-s3_maxpool_tile_asm
++
++    // All groups in the batch of the current input column before advancing x.
++    // State layout stores two or four prefix maxima next to each other per group.
++    .macro column_body pad, history, shift, hist_offset
++    movi.n  a11,-128
++    s32i.n  a11,a1,0
++    ee.vldbc.8 q2,a1
++    slli    a4,a7,\shift
++    mov.n   a14,a5
++    add.n   a4,a5,a4
++1:
++    ee.vst.128.ip q2,a14,16
++    bltu    a14,a4,1b
++    movi.n  a11,-\pad
++2:
++    mov.n   a12,a2
++    mov.n   a13,a3
++    mov.n   a14,a5
++    add.n   a4,a2,a7
++3:
++    mov.n   a15,a12
++    load_column q1,a15,a10,a9
++    ee.vld.128.ip q2,a14,16
++    ee.vld.128.ip q3,a14,16
++    .if \pad == 2
++    ee.vld.128.ip q4,a14,16
++    ee.vld.128.ip q5,a14,16
++    .endif
++    addi    a14,a14,-(16 << \shift)
++    bltz    a11,4f
++    ee.vmax.s8 q0,\history,q1
++    ee.vmax.s8 q0,q0,q6
++    ee.vmin.s8 q0,q0,q7
++    ee.vst.128.ip q0,a13,16
++4:
++    .if \pad == 2
++    ee.vmax.s8 q5,q4,q1
++    ee.vmax.s8 q4,q3,q1
++    .endif
++    ee.vmax.s8 q3,q2,q1
++    ee.vst.128.ip q1,a14,16
++    ee.vst.128.ip q3,a14,16
++    .if \pad == 2
++    ee.vst.128.ip q4,a14,16
++    ee.vst.128.ip q5,a14,16
++    .endif
++    addi    a12,a12,16
++    bltu    a12,a4,3b
++    bltz    a11,5f
++    add.n   a3,a3,a8
++5:
++    addi.n  a11,a11,1
++    add.n   a2,a2,a8
++    addi.n  a6,a6,-1
++    bnez    a6,2b
++
++    // Right border uses only the final prefix maxima, with no input halo loads.
++    addi    a14,a5,\hist_offset
++    add.n   a4,a3,a7
++    add.n   a15,a3,a8
++6:
++    ee.vld.128.ip q1,a14,(16 << \shift)
++    ee.vmax.s8 q0,q1,q6
++    ee.vmin.s8 q0,q0,q7
++    ee.vst.128.ip q0,a3,16
++    .if \pad == 2
++    addi    a12,a14,-80
++    ee.vld.128.ip q1,a12,0
++    ee.vmax.s8 q0,q1,q6
++    ee.vmin.s8 q0,q0,q7
++    ee.vst.128.ip q0,a15,16
++    .endif
++    bltu    a3,a4,6b
++    retw.n
++    .endm
++
++    .align 4
++    .global s3_maxpool_column_first_asm
++    .type s3_maxpool_column_first_asm,@function
++s3_maxpool_column_first_asm:
++    entry   a1,64
++    l32i.n  a8,a4,LOC_CHANNELS
++    l32i.n  a9,a4,LOC_ROW_BYTES
++    l32i.n  a10,a4,LOC_ROWS
++    addi.n  a10,a10,-1
++    l8ui    a11,a4,LOC_PAD
++    addi    a4,a4,LOC_MIN
++    ee.vldbc.8.ip q6,a4,1
++    ee.vldbc.8 q7,a4
++    beqi    a11,1,.Lcolumn3
++    column_body 2,q5,2,48
++.Lcolumn3:
++    column_body 1,q3,1,16
++    .size s3_maxpool_column_first_asm,.-s3_maxpool_column_first_asm
+diff --git a/src/pooling/s3_maxpool_locality.c b/src/pooling/s3_maxpool_locality.c
+new file mode 100644
+index 0000000..a05e033
+--- /dev/null
++++ b/src/pooling/s3_maxpool_locality.c
+@@ -0,0 +1,79 @@
++#include "s3_maxpool_locality.h"
++#include <stdbool.h>
++
++#define COLUMN_BATCH_BYTES 128
++
++unsigned s3_maxpool_locality_mode;
++
++static void column_first(const int8_t *input, int8_t *output, unsigned width,
++                         unsigned height, locality_row_t row, bool stream)
++{
++    /* Two or four 16-byte prefix maxima per group. Limit stack use independent
++     * of tensor dimensions. All groups are processed together up to 128 channels. */
++    _Alignas(16) int8_t history[4 * COLUMN_BATCH_BYTES];
++    __typeof__(s3_maxpool_column_first_asm) *leaf = stream ? s3_maxpool_stream_asm : s3_maxpool_column_first_asm;
++    for (unsigned y = 0; y < height; ++y) {
++        const unsigned top = y > row.pad ? y - row.pad : 0;
++        const unsigned end = y + row.pad + 1;
++        row.rows = (end < height ? end : height) - top;
++        for (unsigned ch = 0; ch < row.channels; ch += COLUMN_BATCH_BYTES) {
++            const unsigned remaining = row.channels - ch;
++            const unsigned batch = remaining < COLUMN_BATCH_BYTES ? remaining : COLUMN_BATCH_BYTES;
++            leaf(input + (size_t) top * row.row_bytes + ch,
++                                        output + (size_t) y * row.row_bytes + ch,
++                                        &row, history, width, batch);
++        }
++    }
++}
++
++void s3_maxpool_locality(const int8_t *input, int8_t *output,
++                        unsigned width, unsigned height, unsigned channels,
++                        unsigned pad, int8_t act_min, int8_t act_max,
++                        unsigned mode)
++{
++    locality_row_t row = {
++        .row_bytes = width * channels, .channels = channels,
++        .activation_min = act_min, .activation_max = act_max, .pad = pad,
++    };
++    const bool fit = mode >= LOC_FIT;
++    const bool whole_row_pair = fit && pad == 1 && channels == 32;
++    if (mode == LOC_COLUMN_FIRST ||
++        (mode >= LOC_STREAM && channels > 16 && !whole_row_pair)) {
++        column_first(input, output, width, height, row, mode >= LOC_STREAM);
++        return;
++    }
++
++    const bool scheduled = mode >= LOC_SCHEDULED;
++    const bool row_bands = mode >= LOC_BAND_4 && !scheduled;
++    const unsigned band = row_bands ? 4 : 1;
++    const unsigned tile_mode = row_bands ? mode - LOC_BAND_4 : mode - LOC_TILE_4;
++    const unsigned tile = fit ? width : scheduled ? (pad == 1 ? 32 : 16) : 4u << tile_mode;
++    __typeof__(s3_maxpool_tile_asm) *single = scheduled ? s3_maxpool_scheduled_asm : s3_maxpool_tile_asm;
++    for (unsigned y0 = 0; y0 < height; y0 += band) {
++        const unsigned y_end = y0 + band < height ? y0 + band : height;
++        for (unsigned x = 0; x < width; x += tile) {
++            const unsigned output_end = x + tile < width ? x + tile : width;
++            const unsigned left = x > pad ? x - pad : 0;
++            const unsigned desired_right = output_end + pad;
++            const unsigned right = desired_right < width ? desired_right : width;
++            for (unsigned y = y0; y < y_end; ++y) {
++                const unsigned top = y > pad ? y - pad : 0;
++                const unsigned end = y + pad + 1;
++                row.rows = (end < height ? end : height) - top;
++                const int8_t *in = input + (size_t) top * row.row_bytes + left * channels;
++                int8_t *out = output + (size_t) y * row.row_bytes + x * channels;
++                unsigned ch = 0;
++                if (whole_row_pair || (mode == LOC_PAIRED && pad == 1)) {
++                    for (; ch + 32 <= channels; ch += 32) {
++                        s3_maxpool_scheduled_pair_asm(in + ch, out + ch, &row, right - left,
++                                                     x + pad - left, desired_right - right);
++                    }
++                }
++                for (; ch < channels; ch += 16) {
++                    single(in + ch, out + ch, &row, right - left,
++                           x + pad - left, desired_right - right);
++                }
++            }
++        }
++    }
++}
+diff --git a/src/pooling/s3_maxpool_locality.h b/src/pooling/s3_maxpool_locality.h
+new file mode 100644
+index 0000000..3344bfe
+--- /dev/null
++++ b/src/pooling/s3_maxpool_locality.h
+@@ -0,0 +1,74 @@
++/* Shared C/assembler layout for the experimental max-pool leaves. */
++#ifndef S3_MAXPOOL_LOCALITY_H
++#define S3_MAXPOOL_LOCALITY_H
++
++#define LOC_ROW_BYTES 0
++#define LOC_CHANNELS 4
++#define LOC_ROWS 8
++#define LOC_MIN 12
++#define LOC_MAX 13
++#define LOC_PAD 14
++
++#ifndef __ASSEMBLER__
++#include <stdint.h>
++#include <stddef.h>
++
++typedef struct {
++    uint32_t row_bytes;
++    uint32_t channels;
++    uint32_t rows;
++    int8_t activation_min;
++    int8_t activation_max;
++    uint8_t pad;
++} locality_row_t;
++
++_Static_assert(offsetof(locality_row_t, row_bytes) == LOC_ROW_BYTES, "row bytes offset");
++_Static_assert(offsetof(locality_row_t, channels) == LOC_CHANNELS, "channels offset");
++_Static_assert(offsetof(locality_row_t, rows) == LOC_ROWS, "row count offset");
++_Static_assert(offsetof(locality_row_t, activation_min) == LOC_MIN, "activation min offset");
++_Static_assert(offsetof(locality_row_t, activation_max) == LOC_MAX, "activation max offset");
++_Static_assert(offsetof(locality_row_t, pad) == LOC_PAD, "pad offset");
++
++enum {
++    LOC_CURRENT,
++    LOC_COLUMN_FIRST,
++    LOC_TILE_4,
++    LOC_TILE_8,
++    LOC_TILE_16,
++    LOC_TILE_32,
++    LOC_BAND_4,
++    LOC_BAND_8,
++    LOC_BAND_16,
++    LOC_BAND_32,
++    LOC_SCHEDULED,
++    LOC_PAIRED,
++    LOC_STREAM,
++    LOC_STREAM_RETAIN_SINGLE,
++    LOC_FIT,
++    LOC_FIT_RETAIN_SINGLE,
++    LOC_MODE_COUNT
++};
++
++extern unsigned s3_maxpool_locality_mode;
++
++void s3_maxpool_stream_asm(const int8_t *input, int8_t *output,
++                          const locality_row_t *row, int8_t *scratch,
++                          unsigned width, unsigned batch_bytes);
++void s3_maxpool_column_first_asm(const int8_t *input, int8_t *output,
++                                const locality_row_t *row, int8_t *scratch,
++                                unsigned width, unsigned batch_bytes);
++void s3_maxpool_tile_asm(const int8_t *input, int8_t *output,
++                        const locality_row_t *row, unsigned input_cols,
++                        unsigned skip_cols, unsigned right_cols);
++void s3_maxpool_scheduled_asm(const int8_t *input, int8_t *output,
++                              const locality_row_t *row, unsigned input_cols,
++                              unsigned skip_cols, unsigned right_cols);
++void s3_maxpool_scheduled_pair_asm(const int8_t *input, int8_t *output,
++                                   const locality_row_t *row, unsigned input_cols,
++                                   unsigned skip_cols, unsigned right_cols);
++void s3_maxpool_locality(const int8_t *input, int8_t *output,
++                        unsigned width, unsigned height, unsigned channels,
++                        unsigned pad, int8_t act_min, int8_t act_max,
++                        unsigned mode);
++#endif
++#endif
+diff --git a/src/pooling/s3_maxpool_scheduled.S b/src/pooling/s3_maxpool_scheduled.S
+new file mode 100644
+index 0000000..86b7438
+--- /dev/null
++++ b/src/pooling/s3_maxpool_scheduled.S
+@@ -0,0 +1,170 @@
++#include "s3_maxpool_locality.h"
++
++    .text
++
++    // Up to four prefix maxima live in q2...q5. q0/q6/q7 are free for
++    // independent loads because this leaf only handles full int8 activation.
++    .macro single_column rows
++    mov.n   a10,a2
++    ee.vld.128.xp q1,a10,a8
++    ee.vld.128.xp q0,a10,a8
++    .if \rows >= 3
++    ee.vld.128.xp q6,a10,a8
++    .endif
++    ee.vmax.s8 q1,q1,q0
++    .if \rows >= 4
++    ee.vld.128.xp q7,a10,a8
++    .endif
++    .if \rows == 5
++    ee.vld.128.xp q0,a10,a8
++    .endif
++    add.n   a2,a2,a11
++    .if \rows >= 3
++    ee.vmax.s8 q1,q1,q6
++    .endif
++    .if \rows == 4
++    ee.vmax.s8 q1,q1,q7
++    .endif
++    .if \rows == 5
++    ee.vmax.s8 q7,q7,q0
++    ee.vmax.s8 q1,q1,q7
++    .endif
++    .endm
++
++    .macro single_history pad
++    .if \pad == 2
++    ee.vmax.s8 q5,q4,q1
++    ee.vmax.s8 q4,q3,q1
++    .endif
++    ee.vmax.s8 q3,q2,q1
++    mv.qr   q2,q1
++    .endm
++
++    .macro single_tile pad, history, rows
++    loopgtz a14,1f
++    single_column \rows
++    single_history \pad
++1:
++    loopgtz a15,2f
++    single_column \rows
++    ee.vmax.s8 q0,\history,q1
++    ee.vst.128.xp q0,a3,a11
++    single_history \pad
++2:
++    beqz    a7,4f
++    .if \pad == 2
++    bltz    a15,3f
++    .endif
++    ee.vst.128.xp \history,a3,a11
++    .if \pad == 2
++    beqi    a7,1,4f
++3:
++    ee.vst.128.xp q4,a3,a11
++    .endif
++4:
++    retw.n
++    .endm
++
++    .align 4
++    .global s3_maxpool_scheduled_asm
++    .type s3_maxpool_scheduled_asm,@function
++s3_maxpool_scheduled_asm:
++    entry   a1,64
++    l32i.n  a8,a4,LOC_ROW_BYTES
++    l32i.n  a9,a4,LOC_ROWS
++    l32i.n  a11,a4,LOC_CHANNELS
++    l8ui    a10,a4,LOC_PAD
++    minu    a14,a5,a6
++    sub     a15,a5,a6
++    movi.n  a13,-128
++    s32i.n  a13,a1,0
++    ee.vldbc.8 q2,a1
++    mv.qr   q3,q2
++    beqi    a10,1,.Lscheduled3
++    mv.qr   q4,q2
++    mv.qr   q5,q2
++    beqi    a9,5,.Lscheduled55
++    beqi    a9,4,.Lscheduled54
++    single_tile 2,q5,3
++.Lscheduled54:
++    single_tile 2,q5,4
++.Lscheduled55:
++    single_tile 2,q5,5
++.Lscheduled3:
++    beqi    a9,3,.Lscheduled33
++    single_tile 1,q3,2
++.Lscheduled33:
++    single_tile 1,q3,3
++    .size s3_maxpool_scheduled_asm,.-s3_maxpool_scheduled_asm
++
++    // Pair two neighboring channel groups for 3x3. Their independent loads
++    // and reductions can overlap, and each output pixel gets adjacent stores.
++    .macro pair_column rows
++    mov.n   a10,a2
++    addi    a13,a2,16
++    ee.vld.128.xp q1,a10,a8
++    ee.vld.128.xp q0,a13,a8
++    ee.vld.128.xp q6,a10,a8
++    ee.vld.128.xp q7,a13,a8
++    ee.vmax.s8 q1,q1,q6
++    ee.vmax.s8 q0,q0,q7
++    .if \rows == 3
++    ee.vld.128.xp q6,a10,a8
++    ee.vld.128.xp q7,a13,a8
++    .endif
++    add.n   a2,a2,a11
++    .if \rows == 3
++    ee.vmax.s8 q1,q1,q6
++    ee.vmax.s8 q0,q0,q7
++    .endif
++    .endm
++
++    .macro pair_history
++    ee.vmax.s8 q3,q2,q1
++    ee.vmax.s8 q5,q4,q0
++    mv.qr   q2,q1
++    mv.qr   q4,q0
++    .endm
++
++    .macro pair_tile rows
++    loopgtz a14,1f
++    pair_column \rows
++    pair_history
++1:
++    loopgtz a15,2f
++    pair_column \rows
++    ee.vmax.s8 q6,q3,q1
++    ee.vmax.s8 q7,q5,q0
++    ee.vst.128.xp q6,a3,a11
++    ee.vst.128.xp q7,a12,a11
++    pair_history
++2:
++    beqz    a7,3f
++    ee.vst.128.xp q3,a3,a11
++    ee.vst.128.xp q5,a12,a11
++3:
++    retw.n
++    .endm
++
++    .align 4
++    .global s3_maxpool_scheduled_pair_asm
++    .type s3_maxpool_scheduled_pair_asm,@function
++s3_maxpool_scheduled_pair_asm:
++    entry   a1,64
++    l32i.n  a8,a4,LOC_ROW_BYTES
++    l32i.n  a9,a4,LOC_ROWS
++    l32i.n  a11,a4,LOC_CHANNELS
++    addi    a12,a3,16
++    minu    a14,a5,a6
++    sub     a15,a5,a6
++    movi.n  a13,-128
++    s32i.n  a13,a1,0
++    ee.vldbc.8 q2,a1
++    mv.qr   q3,q2
++    mv.qr   q4,q2
++    mv.qr   q5,q2
++    beqi    a9,3,.Lpair3
++    pair_tile 2
++.Lpair3:
++    pair_tile 3
++    .size s3_maxpool_scheduled_pair_asm,.-s3_maxpool_scheduled_pair_asm
+diff --git a/src/pooling/s3_maxpool_stream.S b/src/pooling/s3_maxpool_stream.S
+new file mode 100644
+index 0000000..ac2c7eb
+--- /dev/null
++++ b/src/pooling/s3_maxpool_stream.S
+@@ -0,0 +1,150 @@
++#include "s3_maxpool_locality.h"
++
++    .text
++
++    // In the full-range path the temporary registers are free until the
++    // history is loaded. Issue independent loads before consuming them.
++    .macro stream_vertical rows
++    mov.n   a15,a12
++    ee.vld.128.xp q1,a15,a9
++    ee.vld.128.xp q0,a15,a9
++    .if \rows >= 3
++    ee.vld.128.xp q2,a15,a9
++    .endif
++    ee.vmax.s8 q1,q1,q0
++    .if \rows >= 4
++    ee.vld.128.xp q3,a15,a9
++    .endif
++    .if \rows == 5
++    ee.vld.128.xp q4,a15,a9
++    ee.vmax.s8 q3,q3,q4
++    .endif
++    .if \rows >= 3
++    ee.vmax.s8 q1,q1,q2
++    .endif
++    .if \rows >= 4
++    ee.vmax.s8 q1,q1,q3
++    .endif
++    .endm
++
++    .macro stream_row pad, rows
++    // Seed all ring planes with column zero. Duplicating the first valid
++    // column leaves the max unchanged for windows clipped at the left.
++    mov.n   a12,a2
++    mov.n   a14,a5
++    add.n   a4,a2,a7
++1:
++    stream_vertical \rows
++    mov.n   a15,a14
++    ee.vst.128.xp q1,a15,a11
++    ee.vst.128.xp q1,a15,a11
++    .if \pad == 2
++    ee.vst.128.xp q1,a15,a11
++    ee.vst.128.xp q1,a15,a11
++    .endif
++    addi    a14,a14,16
++    addi    a12,a12,16
++    bltu    a12,a4,1b
++    add.n   a2,a2,a8
++    addi.n  a6,a6,-1
++
++    .if \pad == 2
++    // 5x5 needs one more valid prefix column before the first output.
++    extui   a15,a6,0,2
++    slli    a15,a15,7
++    add.n   a14,a5,a15
++    mov.n   a12,a2
++    add.n   a4,a2,a7
++2:
++    stream_vertical \rows
++    ee.vst.128.ip q1,a14,16
++    addi    a12,a12,16
++    bltu    a12,a4,2b
++    add.n   a2,a2,a8
++    addi.n  a6,a6,-1
++    .endif
++
++3:
++    mov.n   a12,a2
++    mov.n   a13,a3
++    mov.n   a14,a5
++    .if \pad == 2
++    extui   a10,a6,0,2
++    .else
++    extui   a10,a6,0,1
++    .endif
++    slli    a10,a10,7
++    add.n   a10,a5,a10
++    add.n   a4,a2,a7
++4:
++    stream_vertical \rows
++    mov.n   a15,a14
++    ee.vld.128.xp q2,a15,a11
++    ee.vld.128.xp q3,a15,a11
++    .if \pad == 2
++    ee.vld.128.xp q4,a15,a11
++    ee.vld.128.xp q5,a15,a11
++    ee.vmax.s8 q4,q4,q5
++    .endif
++    ee.vmax.s8 q2,q2,q3
++    .if \pad == 2
++    ee.vmax.s8 q2,q2,q4
++    .endif
++    ee.vst.128.ip q1,a10,16
++    ee.vmax.s8 q0,q2,q1
++    ee.vst.128.ip q0,a13,16
++    addi    a12,a12,16
++    addi    a14,a14,16
++    bltu    a12,a4,4b
++    add.n   a3,a3,a8
++    add.n   a2,a2,a8
++    addi.n  a6,a6,-1
++    bnez    a6,3b
++
++    // At the right, the latest 5x5 columns are in slots 1,2,3,0,
++    // ordered newest to oldest. The last output drops slot zero.
++    mov.n   a14,a5
++    add.n   a4,a3,a7
++    add.n   a13,a3,a8
++5:
++    mov.n   a15,a14
++    ee.vld.128.xp q2,a15,a11
++    ee.vld.128.xp q3,a15,a11
++    .if \pad == 2
++    ee.vld.128.xp q4,a15,a11
++    ee.vld.128.xp q5,a15,a11
++    ee.vmax.s8 q4,q4,q5
++    ee.vmax.s8 q3,q3,q4
++    ee.vst.128.ip q3,a13,16
++    .endif
++    ee.vmax.s8 q2,q2,q3
++    ee.vst.128.ip q2,a3,16
++    addi    a14,a14,16
++    bltu    a3,a4,5b
++    retw.n
++    .endm
++
++    .align 4
++    .global s3_maxpool_stream_asm
++    .type s3_maxpool_stream_asm,@function
++s3_maxpool_stream_asm:
++    entry   a1,64
++    l32i.n  a8,a4,LOC_CHANNELS
++    l32i.n  a9,a4,LOC_ROW_BYTES
++    l32i.n  a10,a4,LOC_ROWS
++    l8ui    a4,a4,LOC_PAD
++    movi    a11,128
++    beqi    a4,1,.Lstream3
++    beqi    a10,5,.Lstream55
++    beqi    a10,4,.Lstream54
++    stream_row 2,3
++.Lstream54:
++    stream_row 2,4
++.Lstream55:
++    stream_row 2,5
++.Lstream3:
++    beqi    a10,3,.Lstream33
++    stream_row 1,2
++.Lstream33:
++    stream_row 1,3
++    .size s3_maxpool_stream_asm,.-s3_maxpool_stream_asm
+diff --git a/test_app/main/main.c b/test_app/main/main.c
+index b1a9b19..f20335a 100644
+--- a/test_app/main/main.c
++++ b/test_app/main/main.c
+@@ -16,6 +16,7 @@
+ #include <test_functions.h>
+ #include <esp_nn_multicore.h>
+ #include <esp_timer.h>
++#include "../../src/pooling/s3_maxpool_locality.h"
+ 
+ 
+ #if __has_include("esp_idf_version.h")
+@@ -100,7 +101,7 @@ uint32_t profile_opt_end()
+            esp_nn_test_skipped - skipped_before);                   \
+ } while (0)
+ 
+-void app_main()
++static void run_test_suite(void)
+ {
+ #if CONFIG_IDF_TARGET_ESP32S3 || CONFIG_IDF_TARGET_ESP32P4
+     /* Exercise the dual-core split paths in the bit-exactness sweeps. */
+@@ -152,7 +153,22 @@ void app_main()
+                (unsigned)CONFIG_NN_DUAL_CORE_WORKER_STACK_SIZE);
+     }
+ #endif
+-    printf("TEST_SUMMARY: passed=%"PRIu32", failed=%"PRIu32", skipped=%"PRIu32"\n",
+-        esp_nn_test_passed, esp_nn_test_failed, esp_nn_test_skipped);
+-    printf("TEST_RESULT: %s\n", esp_nn_test_failed == 0 ? "PASS" : "FAIL");
++}
++
++void app_main(void)
++{
++    bool ok = true;
++    for (unsigned mode = LOC_CURRENT; mode < LOC_MODE_COUNT; ++mode) {
++        s3_maxpool_locality_mode = mode;
++        esp_nn_test_passed = 0;
++        esp_nn_test_failed = 0;
++        esp_nn_test_skipped = 0;
++        printf("MODE_START %u\n", mode);
++        run_test_suite();
++        printf("MODE_DONE %u passed=%"PRIu32" failed=%"PRIu32" skipped=%"PRIu32"\n",
++               mode, esp_nn_test_passed, esp_nn_test_failed, esp_nn_test_skipped);
++        printf("MAIN_STACK mode=%u min_free=%u\n", mode, (unsigned) uxTaskGetStackHighWaterMark(NULL));
++        ok = ok && esp_nn_test_failed == 0 && esp_nn_test_skipped == 0;
++    }
++    printf("TEST_RESULT: %s\n", ok ? "PASS" : "FAIL");
+ }
+diff --git a/tests/src/pooling_test.c b/tests/src/pooling_test.c
+index 80a4378..e09a941 100644
+--- a/tests/src/pooling_test.c
++++ b/tests/src/pooling_test.c
+@@ -281,4 +281,10 @@ void esp_nn_max_pool_s8_test()
+     run_max_pool_test(5, 5, 16, 5, 5, 1, 1, 2, 2, iter++);
+     /* The same geometry takes the reference with activation limits outside int8 */
+     run_max_pool_test_act(12, 12, 16, 5, 5, 1, 1, 2, 2, -200, 200, iter++);
++    /* Odd final tiles, rectangular inputs, clamping and a second channel batch. */
++    run_max_pool_test_act(5, 7, 48, 5, 5, 1, 1, 2, 2, -11, 19, iter++);
++    run_max_pool_test_act(9, 5, 32, 5, 5, 1, 1, 2, 2, -37, 55, iter++);
++    run_max_pool_test_act(17, 7, 64, 5, 5, 1, 1, 2, 2, -124, -3, iter++);
++    run_max_pool_test_act(33, 5, 16, 5, 5, 1, 1, 2, 2, 123, 127, iter++);
++    run_max_pool_test_act(13, 7, 160, 3, 3, 1, 1, 1, 1, -9, 11, iter++);
+ }

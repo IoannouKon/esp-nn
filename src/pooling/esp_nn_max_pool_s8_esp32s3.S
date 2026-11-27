@@ -807,3 +807,219 @@ esp_nn_max_pool_s8_esp32s3_sliding_row_asm:
 .Lpool_sliding_3x3:
     pool_sliding_row 1,q3
     .size   esp_nn_max_pool_s8_esp32s3_sliding_row_asm, . - esp_nn_max_pool_s8_esp32s3_sliding_row_asm
+
+    // In the full-range path the temporary registers are free until the
+    // history is loaded. Issue independent loads before consuming them.
+    .macro stream_vertical rows
+    mov.n   a15,a12
+    ee.vld.128.xp q1,a15,a9
+    ee.vld.128.xp q0,a15,a9
+    .if \rows >= 3
+    ee.vld.128.xp q2,a15,a9
+    .endif
+    ee.vmax.s8 q1,q1,q0
+    .if \rows >= 4
+    ee.vld.128.xp q3,a15,a9
+    .endif
+    .if \rows == 5
+    ee.vld.128.xp q4,a15,a9
+    ee.vmax.s8 q3,q3,q4
+    .endif
+    .if \rows >= 3
+    ee.vmax.s8 q1,q1,q2
+    .endif
+    .if \rows >= 4
+    ee.vmax.s8 q1,q1,q3
+    .endif
+    .endm
+
+    .macro stream_row pad, rows
+    // Seed all ring planes with column zero. Duplicating the first valid
+    // column leaves the max unchanged for windows clipped at the left.
+    mov.n   a12,a2
+    mov.n   a14,a5
+    add.n   a4,a2,a7
+1:
+    stream_vertical \rows
+    mov.n   a15,a14
+    ee.vst.128.xp q1,a15,a11
+    ee.vst.128.xp q1,a15,a11
+    .if \pad == 2
+    ee.vst.128.xp q1,a15,a11
+    ee.vst.128.xp q1,a15,a11
+    .endif
+    addi    a14,a14,16
+    addi    a12,a12,16
+    bltu    a12,a4,1b
+    add.n   a2,a2,a8
+    addi.n  a6,a6,-1
+
+    .if \pad == 2
+    // 5x5 needs one more valid prefix column before the first output.
+    extui   a15,a6,0,2
+    slli    a15,a15,S3MP_STREAM_BATCH_SHIFT
+    add.n   a14,a5,a15
+    mov.n   a12,a2
+    add.n   a4,a2,a7
+2:
+    stream_vertical \rows
+    ee.vst.128.ip q1,a14,16
+    addi    a12,a12,16
+    bltu    a12,a4,2b
+    add.n   a2,a2,a8
+    addi.n  a6,a6,-1
+    .endif
+
+3:
+    mov.n   a12,a2
+    mov.n   a13,a3
+    mov.n   a14,a5
+    .if \pad == 2
+    extui   a10,a6,0,2
+    .else
+    extui   a10,a6,0,1
+    .endif
+    slli    a10,a10,S3MP_STREAM_BATCH_SHIFT
+    add.n   a10,a5,a10
+    add.n   a4,a2,a7
+4:
+    stream_vertical \rows
+    mov.n   a15,a14
+    ee.vld.128.xp q2,a15,a11
+    ee.vld.128.xp q3,a15,a11
+    .if \pad == 2
+    ee.vld.128.xp q4,a15,a11
+    ee.vld.128.xp q5,a15,a11
+    ee.vmax.s8 q4,q4,q5
+    .endif
+    ee.vmax.s8 q2,q2,q3
+    .if \pad == 2
+    ee.vmax.s8 q2,q2,q4
+    .endif
+    ee.vst.128.ip q1,a10,16
+    ee.vmax.s8 q0,q2,q1
+    ee.vst.128.ip q0,a13,16
+    addi    a12,a12,16
+    addi    a14,a14,16
+    bltu    a12,a4,4b
+    add.n   a3,a3,a8
+    add.n   a2,a2,a8
+    addi.n  a6,a6,-1
+    bnez    a6,3b
+
+    // At the right, the latest 5x5 columns are in slots 1,2,3,0,
+    // ordered newest to oldest. The last output drops slot zero.
+    mov.n   a14,a5
+    add.n   a4,a3,a7
+    add.n   a13,a3,a8
+5:
+    mov.n   a15,a14
+    ee.vld.128.xp q2,a15,a11
+    ee.vld.128.xp q3,a15,a11
+    .if \pad == 2
+    ee.vld.128.xp q4,a15,a11
+    ee.vld.128.xp q5,a15,a11
+    ee.vmax.s8 q4,q4,q5
+    ee.vmax.s8 q3,q3,q4
+    ee.vst.128.ip q3,a13,16
+    .endif
+    ee.vmax.s8 q2,q2,q3
+    ee.vst.128.ip q2,a3,16
+    addi    a14,a14,16
+    bltu    a3,a4,5b
+    retw.n
+    .endm
+
+    .align 4
+    .global esp_nn_max_pool_s8_esp32s3_stream_row
+    .hidden esp_nn_max_pool_s8_esp32s3_stream_row
+    .type esp_nn_max_pool_s8_esp32s3_stream_row,@function
+esp_nn_max_pool_s8_esp32s3_stream_row:
+    entry   a1,64
+    l32i.n  a8,a4,S3MP_STREAM_CHANNELS
+    l32i.n  a9,a4,S3MP_STREAM_ROW_BYTES
+    l32i.n  a10,a4,S3MP_STREAM_ROWS
+    l32i.n  a4,a4,S3MP_STREAM_PAD
+    movi    a11,S3MP_STREAM_BATCH_BYTES
+    beqi    a4,1,.Lstream3
+    beqi    a10,5,.Lstream55
+    beqi    a10,4,.Lstream54
+    stream_row 2,3
+.Lstream54:
+    stream_row 2,4
+.Lstream55:
+    stream_row 2,5
+.Lstream3:
+    beqi    a10,3,.Lstream33
+    stream_row 1,2
+.Lstream33:
+    stream_row 1,3
+    .size esp_nn_max_pool_s8_esp32s3_stream_row,.-esp_nn_max_pool_s8_esp32s3_stream_row
+
+    // Pair two neighboring channel groups for 3x3. Their independent loads
+    // and reductions can overlap, and each output pixel gets adjacent stores.
+    .macro pair_column rows
+    mov.n   a10,a2
+    addi    a13,a2,16
+    ee.vld.128.xp q1,a10,a8
+    ee.vld.128.xp q0,a13,a8
+    ee.vld.128.xp q6,a10,a8
+    ee.vld.128.xp q7,a13,a8
+    ee.vmax.s8 q1,q1,q6
+    ee.vmax.s8 q0,q0,q7
+    .if \rows == 3
+    ee.vld.128.xp q6,a10,a8
+    ee.vld.128.xp q7,a13,a8
+    .endif
+    add.n   a2,a2,a11
+    .if \rows == 3
+    ee.vmax.s8 q1,q1,q6
+    ee.vmax.s8 q0,q0,q7
+    .endif
+    .endm
+
+    .macro pair_history
+    ee.vmax.s8 q3,q2,q1
+    ee.vmax.s8 q5,q4,q0
+    mv.qr   q2,q1
+    mv.qr   q4,q0
+    .endm
+
+    .macro pair_row rows
+    pair_column \rows
+    pair_history
+    loopgtz a15,2f
+    pair_column \rows
+    ee.vmax.s8 q6,q3,q1
+    ee.vmax.s8 q7,q5,q0
+    ee.vst.128.xp q6,a3,a11
+    ee.vst.128.xp q7,a12,a11
+    pair_history
+2:
+    ee.vst.128.xp q3,a3,a11
+    ee.vst.128.xp q5,a12,a11
+    retw.n
+    .endm
+
+    .align 4
+    .global esp_nn_max_pool_s8_esp32s3_pair_row
+    .hidden esp_nn_max_pool_s8_esp32s3_pair_row
+    .type esp_nn_max_pool_s8_esp32s3_pair_row,@function
+esp_nn_max_pool_s8_esp32s3_pair_row:
+    entry   a1,64
+    l32i.n  a8,a4,S3MP_STREAM_ROW_BYTES
+    l32i.n  a9,a4,S3MP_STREAM_ROWS
+    l32i.n  a11,a4,S3MP_STREAM_CHANNELS
+    addi    a12,a3,16
+    addi.n  a15,a5,-1
+    movi.n  a13,-128
+    s32i.n  a13,a1,0
+    ee.vldbc.8 q2,a1
+    mv.qr   q3,q2
+    mv.qr   q4,q2
+    mv.qr   q5,q2
+    beqi    a9,3,.Lpair3
+    pair_row 2
+.Lpair3:
+    pair_row 3
+    .size esp_nn_max_pool_s8_esp32s3_pair_row,.-esp_nn_max_pool_s8_esp32s3_pair_row

@@ -1,0 +1,3 @@
+# Preserve the original serial line endings and display source patches as text.
+*.log -text -diff
+*.patch -whitespace

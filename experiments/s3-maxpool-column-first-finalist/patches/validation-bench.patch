@@ -1,0 +1,189 @@
+diff --git a/bench_app/components/bench_harness/bench.c b/bench_app/components/bench_harness/bench.c
+index fbc1ba3..79cb710 100644
+--- a/bench_app/components/bench_harness/bench.c
++++ b/bench_app/components/bench_harness/bench.c
+@@ -11,6 +11,7 @@
+ #include "freertos/FreeRTOS.h"
+ #include "esp_cpu.h"
+ #include "esp_heap_caps.h"
++#include "esp_memory_utils.h"
+ #include "sdkconfig.h"
+ 
+ #include "bench.h"
+@@ -78,8 +79,7 @@ void *bench_alloc(size_t size, bench_mem_t mem)
+ #else
+     const uint32_t int_caps = MALLOC_CAP_INTERNAL;
+ #endif
+-    const uint32_t caps = (mem == BENCH_MEM_EXT && bench_has_psram())
+-                          ? MALLOC_CAP_SPIRAM : int_caps;
++    const uint32_t caps = mem == BENCH_MEM_EXT ? MALLOC_CAP_SPIRAM : int_caps;
+     return heap_caps_aligned_alloc(16, size ? size : 1, caps | MALLOC_CAP_8BIT);
+ }
+ 
+@@ -166,6 +166,9 @@ static const char *mem_name(bench_mem_t mem)
+ int bench_run(const bench_case_t *c)
+ {
+     int failures = 0;
++    const bool audit_pool = strcmp(c->op, "max_pool") == 0;
++    bool placement_ok = false;
++    uint32_t audited_cycles = 0;
+     /* The output gets guard bytes on both sides; the expected outputs live in
+      * internal RAM, out of the way of the timed accesses. */
+     int8_t *out_raw = bench_alloc(c->out_size + 2 * BENCH_GUARD, c->mem);
+@@ -178,6 +181,19 @@ int bench_run(const bench_case_t *c)
+         goto done;
+     }
+     int8_t *out = out_raw + BENCH_GUARD;
++    if (audit_pool) {
++        int8_t *last = out + c->out_size + BENCH_GUARD - 1;
++        const bool out_region = c->mem == BENCH_MEM_EXT
++            ? esp_ptr_external_ram(out_raw) && esp_ptr_external_ram(last)
++            : esp_ptr_in_dram(out_raw) && esp_ptr_in_dram(last);
++        placement_ok = out_region && !((uintptr_t) out & 15)
++            && esp_ptr_in_dram(gold[0]) && esp_ptr_in_dram(gold[0] + c->out_size - 1)
++            && esp_ptr_in_dram(gold[1]) && esp_ptr_in_dram(gold[1] + c->out_size - 1);
++        if (!placement_ok) {
++            bench_skip(c->op, c->shape, c->mem);
++            goto done;
++        }
++    }
+ 
+     for (int v = 0; v < 2; v++) {
+         if (c->prep) {
+@@ -192,6 +208,9 @@ int bench_run(const bench_case_t *c)
+     for (int i = 0; i < c->n_variants; i++) {
+         uint32_t opt = 0;
+         const bool ok = time_calls(c, c->variants[i].call, out, gold, &opt, !c->irqs_on);
++        if (audit_pool) {
++            audited_cycles = opt;
++        }
+         if (c->cycles) {
+             c->cycles[i] = opt;
+         }
+@@ -207,6 +226,13 @@ int bench_run(const bench_case_t *c)
+     s_cases++;
+ 
+ done:
++    if (audit_pool) {
++        printf("POOL_OUTPUT mem=%s bytes=%zu raw=%p gold0=%p gold1=%p guard=%d "
++               "opt=%" PRIu32 " failures=%d result=%s shape=\"%s\"\n",
++               c->mem == BENCH_MEM_EXT ? "ext" : "int", c->out_size, (void *) out_raw,
++               (void *) gold[0], (void *) gold[1], BENCH_GUARD, audited_cycles, failures,
++               placement_ok ? "ok" : "FAIL", c->shape);
++    }
+     bench_free(out_raw);
+     bench_free(gold[0]);
+     bench_free(gold[1]);
+diff --git a/bench_app/main/CMakeLists.txt b/bench_app/main/CMakeLists.txt
+index a10fe8e..7e92477 100644
+--- a/bench_app/main/CMakeLists.txt
++++ b/bench_app/main/CMakeLists.txt
+@@ -6,4 +6,4 @@ idf_component_register(SRCS "bench_main.c"
+                             "bench_pooling.c"
+                             "bench_activations.c"
+                             "bench_softmax_mean.c"
+-                       PRIV_REQUIRES esp-nn bench_harness esp_rom freertos)
++                       PRIV_REQUIRES esp-nn bench_harness esp_hw_support esp_rom freertos soc)
+diff --git a/bench_app/main/bench_pooling.c b/bench_app/main/bench_pooling.c
+index 1ca77f6..28e6ae3 100644
+--- a/bench_app/main/bench_pooling.c
++++ b/bench_app/main/bench_pooling.c
+@@ -8,18 +8,32 @@
+ 
+ #include <esp_nn.h>
+ 
++#include "esp_memory_utils.h"
++#include "esp32s3/rom/cache.h"
++#include "sdkconfig.h"
++#include "soc/extmem_reg.h"
++#include "soc/soc.h"
++
+ #include "bench_ops.h"
+ 
+ typedef struct {
+     int in_wd, in_ht, ch, f_wd, f_ht, stride, pad;
+     bench_mem_t mem;
++    bool max_only;
+ } pool_shape_t;
+ 
+ /* The shapes of the README tables. */
+ static const pool_shape_t s_shapes[] = {
+-    { 16, 16, 16, 3, 3, 1, 1, BENCH_MEM_INT },
++    { 16, 16, 16, 3, 3, 1, 1, BENCH_MEM_INT, false },
++    { 16, 16, 16, 3, 3, 1, 1, BENCH_MEM_EXT, true },
++    { 6, 6, 128, 5, 5, 1, 2, BENCH_MEM_EXT, true },
+     /* MaxPool 5x5 of YOLO11n's SPPF block. */
+-    { 12, 12, 128, 5, 5, 1, 2, BENCH_MEM_EXT },
++    { 12, 12, 128, 5, 5, 1, 2, BENCH_MEM_EXT, false },
++    { 20, 20, 128, 5, 5, 1, 2, BENCH_MEM_EXT, true },
++    { 32, 32, 64, 3, 3, 1, 1, BENCH_MEM_EXT, true },
++    { 56, 56, 32, 3, 3, 1, 1, BENCH_MEM_EXT, true },
++    { 32, 24, 64, 3, 3, 1, 1, BENCH_MEM_EXT, true },
++    { 256, 8, 64, 3, 3, 1, 1, BENCH_MEM_EXT, true },
+ };
+ 
+ typedef struct {
+@@ -64,6 +78,16 @@ static const bench_variant_t s_avg_variants[] = {
+     { "esp_nn", avg_opt },
+ };
+ 
++static bool input_in_region(const int8_t *input, size_t size, bench_mem_t mem)
++{
++    if (!input || ((uintptr_t) input & 15)) {
++        return false;
++    }
++    return mem == BENCH_MEM_EXT
++        ? esp_ptr_external_ram(input) && esp_ptr_external_ram(input + size - 1)
++        : esp_ptr_in_dram(input) && esp_ptr_in_dram(input + size - 1);
++}
++
+ static void run_shape(const pool_shape_t *s)
+ {
+     const size_t in_size = (size_t) s->in_wd * s->in_ht * s->ch;
+@@ -77,7 +101,9 @@ static void run_shape(const pool_shape_t *s)
+     snprintf(shape, sizeof(shape), "input %dx%dx%d, filter %dx%d, pad %d, stride %d",
+              s->in_wd, s->in_ht, s->ch, s->f_wd, s->f_ht, s->pad, s->stride);
+ 
+-    if (in[0] && in[1]) {
++    const bool placed = input_in_region(in[0], in_size, s->mem)
++                     && input_in_region(in[1], in_size, s->mem);
++    if (placed) {
+         bench_seed_case("pool", shape);
+         bench_fill(in[0], in_size);
+         bench_fill(in[1], in_size);
+@@ -95,17 +121,33 @@ static void run_shape(const pool_shape_t *s)
+             .n_variants = sizeof(s_avg_variants) / sizeof(s_avg_variants[0]), .ctx = &c,
+         };
+         bench_run(&max_case);
+-        bench_run(&avg_case);
++        if (!s->max_only) {
++            bench_run(&avg_case);
++        }
+     } else {
+         bench_skip("max_pool", shape, s->mem);
+-        bench_skip("avg_pool", shape, s->mem);
++        if (!s->max_only) {
++            bench_skip("avg_pool", shape, s->mem);
++        }
+     }
++    printf("POOL_INPUT mem=%s bytes=%zu in0=%p in1=%p result=%s shape=\"%s\"\n",
++           s->mem == BENCH_MEM_EXT ? "ext" : "int", in_size,
++           (void *) in[0], (void *) in[1], placed ? "ok" : "FAIL", shape);
+     bench_free(in[0]);
+     bench_free(in[1]);
+ }
+ 
+ void bench_pooling(void)
+ {
++    const unsigned i_ctrl = REG_READ(EXTMEM_ICACHE_CTRL_REG);
++    const unsigned d_ctrl = REG_READ(EXTMEM_DCACHE_CTRL_REG);
++    printf("POOL_CACHE ictrl=0x%x dctrl=0x%x icache_kib=%u icache_ways=%u icache_line=%u "
++           "dcache_kib=%u dcache_ways_config=%u dcache_line=%u psram_mhz_config=%u\n",
++           i_ctrl, d_ctrl, (i_ctrl & EXTMEM_ICACHE_SIZE_MODE) ? 32u : 16u,
++           (i_ctrl & EXTMEM_ICACHE_WAY_MODE) ? 8u : 4u, (unsigned) Cache_Get_ICache_Line_Size(),
++           (d_ctrl & EXTMEM_DCACHE_SIZE_MODE) ? 64u : 32u,
++           CONFIG_ESP32S3_DCACHE_ASSOCIATED_WAYS, (unsigned) Cache_Get_DCache_Line_Size(),
++           CONFIG_SPIRAM_SPEED);
+     for (int i = 0; i < (int) (sizeof(s_shapes) / sizeof(s_shapes[0])); i++) {
+         run_shape(&s_shapes[i]);
+     }

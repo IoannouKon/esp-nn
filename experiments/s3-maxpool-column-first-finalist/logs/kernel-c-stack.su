@@ -1,0 +1,5 @@
+pr68-cache-locality/experiment/esp-nn/src/pooling/s3_maxpool_locality.c:8:13:column_first	560	static
+pr68-cache-locality/experiment/esp-nn/src/pooling/s3_maxpool_locality.c:29:6:s3_maxpool_locality	192	static
+/home/kostis/Desktop/ESP-NN/pr68-cache-locality/experiment/esp-nn/src/pooling/esp_nn_max_pool_s8_esp32s3.c:80:45:fill_empty	32	static
+/home/kostis/Desktop/ESP-NN/pr68-cache-locality/experiment/esp-nn/src/pooling/esp_nn_max_pool_s8_esp32s3.c:87:45:fill_empty_rows	48	static
+/home/kostis/Desktop/ESP-NN/pr68-cache-locality/experiment/esp-nn/src/pooling/esp_nn_max_pool_s8_esp32s3.c:96:6:esp_nn_max_pool_s8_esp32s3	240	static

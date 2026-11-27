@@ -1,0 +1,5 @@
+/home/kostis/Desktop/ESP-NN/pr68-cache-locality/final-review/patch-check/esp-nn/src/pooling/esp_nn_max_pool_s8_esp32s3.c:114:39:pair_same_pool	64	static
+/home/kostis/Desktop/ESP-NN/pr68-cache-locality/final-review/patch-check/esp-nn/src/pooling/esp_nn_max_pool_s8_esp32s3.c:93:39:stream_same_pool	592	static
+/home/kostis/Desktop/ESP-NN/pr68-cache-locality/final-review/patch-check/esp-nn/src/pooling/esp_nn_max_pool_s8_esp32s3.c:134:45:fill_empty	32	static
+/home/kostis/Desktop/ESP-NN/pr68-cache-locality/final-review/patch-check/esp-nn/src/pooling/esp_nn_max_pool_s8_esp32s3.c:141:45:fill_empty_rows	48	static
+/home/kostis/Desktop/ESP-NN/pr68-cache-locality/final-review/patch-check/esp-nn/src/pooling/esp_nn_max_pool_s8_esp32s3.c:150:6:esp_nn_max_pool_s8_esp32s3	240	static

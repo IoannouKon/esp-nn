@@ -1,0 +1,50 @@
+[1/20] Building ASM object esp-idf/esp-nn/CMakeFiles/__idf_esp-nn.dir/src/pooling/s3_maxpool_locality.S.obj
+[2/20] Building ASM object esp-idf/esp-nn/CMakeFiles/__idf_esp-nn.dir/src/pooling/s3_maxpool_scheduled.S.obj
+[3/20] Building ASM object esp-idf/esp-nn/CMakeFiles/__idf_esp-nn.dir/src/pooling/s3_maxpool_stream.S.obj
+[4/20] Performing build step for 'bootloader'
+[1/1] cd /home/kostis/Desktop/ESP-NN/pr68-cache-locality/build/experiment64/bootloader && /home/kostis/Desktop/ESP-NN/pr68-cache-locality/../pr68-reviewer-repro/python_env/idf6.1_py3.10_env/bin/python /home/kostis/Desktop/ESP-NN/pr68-reviewer-repro/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 bootloader 0x0 /home/kostis/Desktop/ESP-NN/pr68-cache-locality/build/experiment64/bootloader/bootloader.bin
+Bootloader binary size 0x5280 bytes. 0x2d80 bytes (36%) free.
+[5/18] Building C object esp-idf/esp-nn/CMakeFiles/__idf_esp-nn.dir/src/pooling/s3_maxpool_locality.c.obj
+[6/18] Building C object esp-idf/main/CMakeFiles/__idf_main.dir/bench_depthwise.c.obj
+[7/18] Building C object esp-idf/main/CMakeFiles/__idf_main.dir/bench_main.c.obj
+[8/18] Building C object esp-idf/main/CMakeFiles/__idf_main.dir/bench_pooling.c.obj
+[9/18] Building C object esp-idf/esp-nn/CMakeFiles/__idf_esp-nn.dir/src/pooling/esp_nn_max_pool_s8_esp32s3.c.obj
+[10/18] Building C object esp-idf/main/CMakeFiles/__idf_main.dir/bench_activations.c.obj
+[11/18] Building C object esp-idf/main/CMakeFiles/__idf_main.dir/bench_softmax_mean.c.obj
+[12/18] Linking C static library esp-idf/esp-nn/libesp-nn.a
+[13/18] Linking C static library esp-idf/main/libmain.a
+[14/18] Generating esp-idf/esp_system/ld/sections.ld
+NOTE: /home/kostis/Desktop/ESP-NN/pr68-reviewer-repro/esp-idf/components/bt/host/nimble/Kconfig.in:1428: BT_NIMBLE_MESH_PROVISIONER: 'default 0' is not a valid bool value (only 'y' and 'n' are allowed). Value is treated as 'n'.
+NOTE: /home/kostis/Desktop/ESP-NN/pr68-reviewer-repro/esp-idf/components/fatfs/Kconfig:240: FATFS_PRINT_LLI: 'default 0' is not a valid bool value (only 'y' and 'n' are allowed). Value is treated as 'n'.
+NOTE: /home/kostis/Desktop/ESP-NN/pr68-reviewer-repro/esp-idf/components/fatfs/Kconfig:245: FATFS_PRINT_FLOAT: 'default 0' is not a valid bool value (only 'y' and 'n' are allowed). Value is treated as 'n'.
+NOTE: /home/kostis/Desktop/ESP-NN/pr68-reviewer-repro/esp-idf/components/bootloader/Kconfig.projbuild:383: Deprecation notice: hex literal '0' without '0x' prefix detected. In the next major version, hex literals will be required to have a '0x' prefix.
+NOTE: /home/kostis/Desktop/ESP-NN/pr68-reviewer-repro/esp-idf/components/bootloader/Kconfig.projbuild:423: Deprecation notice: hex literal '0' without '0x' prefix detected. In the next major version, hex literals will be required to have a '0x' prefix.
+NOTE: /home/kostis/Desktop/ESP-NN/pr68-reviewer-repro/esp-idf/components/bt/common/Kconfig.in:136: Deprecation notice: hex literal '0' without '0x' prefix detected. In the next major version, hex literals will be required to have a '0x' prefix.
+NOTE: /home/kostis/Desktop/ESP-NN/pr68-reviewer-repro/esp-idf/components/bt/host/nimble/Kconfig.in:1023: Deprecation notice: hex literal '0' without '0x' prefix detected. In the next major version, hex literals will be required to have a '0x' prefix.
+NOTE: /home/kostis/Desktop/ESP-NN/pr68-reviewer-repro/esp-idf/components/bt/controller/esp32c3/Kconfig.in:652: Deprecation notice: hex literal '0' without '0x' prefix detected. In the next major version, hex literals will be required to have a '0x' prefix.
+NOTE: /home/kostis/Desktop/ESP-NN/pr68-reviewer-repro/esp-idf/components/esp_hw_support/./lowpower/port/esp32p4/Kconfig.p4_rev3_mspi_workaround:6: Deprecation notice: hex literal '0' without '0x' prefix detected. In the next major version, hex literals will be required to have a '0x' prefix.
+NOTE: /home/kostis/Desktop/ESP-NN/pr68-reviewer-repro/esp-idf/components/esp_mm/Kconfig:20: Deprecation notice: hex literal '0' without '0x' prefix detected. In the next major version, hex literals will be required to have a '0x' prefix.
+NOTE: /home/kostis/Desktop/ESP-NN/pr68-reviewer-repro/esp-idf/components/esp_system/./port/soc/esp32s3/Kconfig.memory:21: Deprecation notice: hex literal '0' without '0x' prefix detected. In the next major version, hex literals will be required to have a '0x' prefix.
+NOTE: /home/kostis/Desktop/ESP-NN/pr68-reviewer-repro/esp-idf/components/openthread/Kconfig:106: Deprecation notice: hex literal '0' without '0x' prefix detected. In the next major version, hex literals will be required to have a '0x' prefix.
+[15/18] Building C object CMakeFiles/bench_app.elf.dir/project_elf_src_esp32s3.c.obj
+[16/18] Linking CXX executable bench_app.elf
+[17/18] Generating binary image from built executable
+esptool v5.7.0
+Creating ESP32-S3 image...
+Merged 3 ELF sections.
+Successfully created ESP32-S3 image.
+Generated /home/kostis/Desktop/ESP-NN/pr68-cache-locality/build/experiment64/bench_app.bin
+[18/18] cd /home/kostis/Desktop/ESP-NN/pr68-cache-locality/build/experiment64 && /home/kostis/Desktop/ESP-NN/pr68-cache-locality/../pr68-reviewer-repro/python_env/idf6.1_py3.10_env/bin/python /home/kostis/Desktop/ESP-NN/pr68-reviewer-repro/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 partition --type app /home/kostis/Desktop/ESP-NN/pr68-cache-locality/build/experiment64/partition_table/partition-table.bin /home/kostis/Desktop/ESP-NN/pr68-cache-locality/build/experiment64/bench_app.bin
+bench_app.bin binary size 0x44790 bytes. Smallest app partition is 0x100000 bytes. 0xbb870 bytes (73%) free.
+Executing action: all (aliases: build)
+Running ninja in directory /home/kostis/Desktop/ESP-NN/pr68-cache-locality/build/experiment64
+Executing "ninja -j 4 all"...
+
+Project build complete. To flash, run:
+ idf.py flash
+or
+ idf.py -p PORT flash
+or
+ python -m esptool --chip esp32s3 -b 460800 --before default-reset --after hard-reset write-flash --flash-mode dio --flash-size 8MB --flash-freq 80m 0x0 ../../../build/experiment64/bootloader/bootloader.bin 0x8000 ../../../build/experiment64/partition_table/partition-table.bin 0x10000 ../../../build/experiment64/bench_app.bin
+or from the "/home/kostis/Desktop/ESP-NN/pr68-cache-locality/build/experiment64" directory
+ python -m esptool --chip esp32s3 -b 460800 --before default-reset --after hard-reset write-flash "@flash_args"

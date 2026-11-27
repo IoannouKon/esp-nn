@@ -1,0 +1,1621 @@
+Executing action: monitor
+Running idf_monitor in directory /home/kostis/Desktop/ESP-NN/pr68-cache-locality/experiment/esp-nn/bench_app
+Executing "/home/kostis/Desktop/ESP-NN/pr68-cache-locality/../pr68-reviewer-repro/python_env/idf6.1_py3.10_env/bin/python /home/kostis/Desktop/ESP-NN/pr68-reviewer-repro/esp-idf/tools/idf_monitor.py -p /dev/ttyACM0 -b 115200 --toolchain-prefix xtensa-esp32s3-elf- --target esp32s3 --revision 0 /home/kostis/Desktop/ESP-NN/pr68-cache-locality/build/diagnostic64/bench_app.elf /home/kostis/Desktop/ESP-NN/pr68-cache-locality/build/diagnostic64/bootloader/bootloader.elf --no-reset -m '/home/kostis/Desktop/ESP-NN/pr68-cache-locality/../pr68-reviewer-repro/python_env/idf6.1_py3.10_env/bin/python' '/home/kostis/Desktop/ESP-NN/pr68-reviewer-repro/esp-idf/tools/idf.py' '--ccache' '-B' '/home/kostis/Desktop/ESP-NN/pr68-cache-locality/build/diagnostic64' '-p' '/dev/ttyACM0'"...
+--- esp-idf-monitor 1.11.0 on /dev/ttyACM0 115200
+--- Quit: Ctrl+] | Menu: Ctrl+T | Help: Ctrl+T followed by Ctrl+H
+[0;32mI (103) esp_image: segment 3: paddr=00020020 vaddr=42000020 sizeBENCH op=depthwise_conv variant=esp_nn mem=int ansi=10740502 opt=2135838 ratio=5.03 result=ok shape="input 1x384x128, filter 1x1x3x128, pad (0,1), stride (1,1)"[0m
+BENCH op=depthwise_conv variant=esp_nn mem=int ansi=5359217 opt=1071013 ratio=5.00 result=ok shape="input 1x192x256, filter 1x1x3x256, pad (0,1), stride (1,2)"
+BENCH op=fully_connected variant=esp_nn mem=int ansi=8447 opt=770 ratio=10.97 result=ok shape="length 271, 3 outputs, input offset 7"
+BENCH op=fully_connected variant=esp_nn_operands_8mod16 mem=int ansi=8447 opt=1558 ratio=5.42 result=ok shape="length 271, 3 outputs, input offset 7"
+BENCH op=fully_connected variant=esp_nn mem=ext ansi=680818 opt=28560 ratio=23.84 result=ok shape="length 256, 256 outputs, input offset -3"
+BENCH op=fully_connected variant=esp_nn_operands_8mod16 mem=ext ansi=680818 opt=108729 ratio=6.26 result=ok shape="length 256, 256 outputs, input offset -3"
+BENCH op=fully_connected variant=esp_nn mem=ext ansi=672037 opt=26630 ratio=25.24 result=ok shape="length 512, 128 outputs, input offset -3"
+BENCH op=fully_connected variant=esp_nn_operands_8mod16 mem=ext ansi=672037 opt=102869 ratio=6.53 result=ok shape="length 512, 128 outputs, input offset -3"
+BENCH op=fully_connected variant=esp_nn mem=ext 
+CAPTURE_RESET_SENT
+ansi=1183431 opt=288924 ratio=4.10 result=ok shape="length 320, 320 outputs, input offset -3"
+BENCH op=fully_connected variant=esp_nn_operands_8mod16 mem=ext ansi=1183431 opt=311524 ratio=3.80 result=ok shape="length 320, ESP-ROM:esp32s3-20210327
+Build:Mar 27 2021
+rst:0x15 (USB_UART_CHIP_RESET),boot:0x2a (SPI_FAST_FLASH_BOOT)
+Saved PC:0x42008070
+--- 0x42008070: uart_ll_get_txfifo_len at /home/kostis/Desktop/ESP-NN/pr68-reviewer-repro/esp-idf/components/esp_hal_uart/esp32s3/include/hal/uart_ll.h:529(inlined by) uart_tx_char at /home/kostis/Desktop/ESP-NN/pr68-reviewer-repro/esp-idf/components/esp_driver_uart/src/uart_vfs.c:191
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fce2820,len:0x14f0
+load:0x403c8700,len:0xde4
+--- 0x403c8700: _stext at ??:?
+load:0x403cb700,len:0x2f58
+entry 0x403c8904
+--- 0x403c8904: call_start_cpu0 at /home/kostis/Desktop/ESP-NN/pr68-reviewer-repro/esp-idf/components/bootloader/subproject/main/bootloader_start.c:27
+[0;32mI (24) boot: ESP-IDF v6.1 2nd stage bootloader[0m
+[0;32mI (24) boot: compile time Nov 27 2026 19:34:43[0m
+[0;32mI (25) boot: Multicore bootloader[0m
+[0;32mI (25) boot: chip revision: v0.2[0m
+[0;32mI (27) boot: efuse block revision: v1.3[0m
+[0;32mI (31) boot.esp32s3: Boot SPI Speed : 80MHz[0m
+[0;32mI (35) boot.esp32s3: SPI Mode       : DIO[0m
+[0;32mI (39) boot.esp32s3: SPI Flash Size : 8MB[0m
+[0;32mI (42) boot: Enabling RNG early entropy source...[0m
+[0;32mI (47) boot: Partition Table:[0m
+[0;32mI (49) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (56) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (62) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (69) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (75) boot: End of partition table[0m
+[0;32mI (79) esp_image: segment 0: paddr=00010020 vaddr=3c030020 size=0ab98h ( 43928) map[0m
+[0;32mI (94) esp_image: segment 1: paddr=0001abc0 vaddr=3fc91600 size=03618h ( 13848) load[0m
+[0;32mI (97) esp_image: segment 2: paddr=0001e1e0 vaddr=40374000 size=01e38h (  7736) load[0m
+[0;32mI (103) esp_image: segment 3: paddr=00020020 vaddr=42000020 size=25660h (153184) map[0m
+[0;32mI (136) esp_image: segment 4: paddr=00045688 vaddr=40375e38 size=0b744h ( 46916) load[0m
+[0;32mI (147) esp_image: segment 5: paddr=00050dd4 vaddr=50000000 size=00024h (    36) load[0m
+[0;32mI (154) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (154) boot: Disabling RNG early entropy source...[0m
+[0;32mI (165) octal_psram: vendor id    : 0x0d (AP)[0m
+[0;32mI (165) octal_psram: dev id       : 0x02 (generation 3)[0m
+[0;32mI (166) octal_psram: density      : 0x03 (64 Mbit)[0m
+[0;32mI (168) octal_psram: good-die     : 0x01 (Pass)[0m
+[0;32mI (172) octal_psram: Latency      : 0x01 (Fixed)[0m
+[0;32mI (176) octal_psram: VCC          : 0x01 (3V)[0m
+[0;32mI (180) octal_psram: SRF          : 0x01 (Fast Refresh)[0m
+[0;32mI (185) octal_psram: BurstType    : 0x01 (Hybrid Wrap)[0m
+[0;32mI (190) octal_psram: BurstLen     : 0x01 (32 Byte)[0m
+[0;32mI (195) octal_psram: Readlatency  : 0x02 (10 cycles@Fixed)[0m
+[0;32mI (200) octal_psram: DriveStrength: 0x00 (1/1)[0m
+[0;32mI (204) MSPI Timing: Enter psram timing tuning[0m
+[0;32mI (209) esp_psram: Found 8MB PSRAM device[0m
+[0;32mI (212) esp_psram: Speed: 80MHz[0m
+[0;32mI (215) cpu_start: Multicore app[0m
+[0;32mI (519) esp_psram: SPI SRAM memory test OK[0m
+[0;32mI (528) cpu_start: GPIO 44 and 43 are used as console UART I/O pins[0m
+[0;32mI (528) cpu_start: Pro cpu start user code[0m
+[0;32mI (528) cpu_start: cpu freq: 240000000 Hz[0m
+[0;32mI (530) app_init: Application information:[0m
+[0;32mI (534) app_init: Project name:     bench_app[0m
+[0;32mI (538) app_init: App version:      pr68-locality[0m
+[0;32mI (542) app_init: Compile time:     Nov 27 2026 19:35:36[0m
+[0;32mI (547) app_init: ELF file SHA256:  183a5ea89...[0m
+[0;32mI (552) app_init: ESP-IDF:          v6.1[0m
+[0;32mI (555) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (559) efuse_init: Max chip rev:     v0.99 [0m
+[0;32mI (563) efuse_init: Chip rev:         v0.2[0m
+[0;32mI (567) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (573) heap_init: At 3FC95700 len 00054010 (336 KiB): RAM[0m
+[0;32mI (578) heap_init: At 3FCE9710 len 00005724 (21 KiB): RAM[0m
+[0;32mI (583) heap_init: At 600FE000 len 00001FE8 (7 KiB): RTCRAM[0m
+[0;32mI (589) esp_psram: Adding pool of 8192K of PSRAM memory to heap allocator[0m
+[0;32mI (596) spi_flash: detected chip: gd[0m
+[0;32mI (599) spi_flash: flash io: dio[0m
+[0;32mI (602) sleep_gpio: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (608) sleep_gpio: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (615) main_task: Started on CPU0[0m
+[0;32mI (615) main_task: Calling app_main()[0m
+BENCH_START target=esp32s3 idf=v6.1 cpu_mhz=240 psram=1 iters=9 seed=0xc0ffee42
+BENCH op=conv variant=esp_nn mem=ext ansi=4727760 opt=123306 ratio=38.34 result=ok shape="input 10x10x64, filter 64x1x1x64, pad 0, stride 1"
+BENCH op=conv variant=esp_nn mem=ext ansi=316374 opt=17664 ratio=17.91 result=ok shape="input 8x8x16, filter 16x1x1x16, pad 0, stride 1"
+BENCH op=conv variant=esp_nn mem=ext ansi=1349660 opt=70824 ratio=19.06 result=ok shape="input 8x8x3, filter 64x3x3x3, pad 0, stride 1"
+BENCH op=conv variant=esp_nn mem=ext ansi=2399211 opt=99119 ratio=24.21 result=ok shape="input 10x10x3, filter 64x3x3x3, pad 0, stride 1"
+BENCH op=conv variant=esp_nn mem=int ansi=359826 opt=18653 ratio=19.29 result=ok shape="input 8x8x16, filter 16x3x3x16, pad 0, stride 2"
+BENCH op=depthwise_conv variant=esp_nn mem=ext ansi=1138115 opt=86357 ratio=13.18 result=ok shape="input 18x18x16, filter 1x3x3x16, pad (0,0), stride (1,1)"
+BENCH op=depthwise_conv variant=esp_nn mem=ext ansi=871457 opt=66773 ratio=13.05 result=ok shape="input 16x16x16, filter 1x3x3x16, pad (0,0), stride (1,1)"
+BENCH op=depthwise_conv variant=esp_nn mem=int ansi=422629 opt=37090 ratio=11.39 result=ok shape="input 10x10x16, filter 1x3x3x16, pad (1,1), stride (1,1)"
+BENCH op=depthwise_conv variant=esp_nn mem=ext ansi=1280645 opt=260655 ratio=4.91 result=ok shape="input 12x12x4, filter 8x5x5x4, pad (1,1), stride (1,1)"
+BENCH op=depthwise_conv variant=esp_nn mem=int ansi=10740504 opt=2135843 ratio=5.03 result=ok shape="input 1x384x128, filter 1x1x3x128, pad (0,1), stride (1,1)"
+BENCH op=depthwise_conv variant=esp_nn mem=int ansi=5359220 opt=1071013 ratio=5.00 result=ok shape="input 1x192x256, filter 1x1x3x256, pad (0,1), stride (1,2)"
+BENCH op=fully_connected variant=esp_nn mem=int ansi=8447 opt=770 ratio=10.97 result=ok shape="length 271, 3 outputs, input offset 7"
+BENCH op=fully_connected variant=esp_nn_operands_8mod16 mem=int ansi=8447 opt=1558 ratio=5.42 result=ok shape="length 271, 3 outputs, input offset 7"
+BENCH op=fully_connected variant=esp_nn mem=ext ansi=680818 opt=28560 ratio=23.84 result=ok shape="length 256, 256 outputs, input offset -3"
+BENCH op=fully_connected variant=esp_nn_operands_8mod16 mem=ext ansi=680818 opt=108729 ratio=6.26 result=ok shape="length 256, 256 outputs, input offset -3"
+BENCH op=fully_connected variant=esp_nn mem=ext ansi=672037 opt=26630 ratio=25.24 result=ok shape="length 512, 128 outputs, input offset -3"
+BENCH op=fully_connected variant=esp_nn_operands_8mod16 mem=ext ansi=672037 opt=102869 ratio=6.53 result=ok shape="length 512, 128 outputs, input offset -3"
+BENCH op=fully_connected variant=esp_nn mem=ext ansi=1183431 opt=288924 ratio=4.10 result=ok shape="length 320, 320 outputs, input offset -3"
+BENCH op=fully_connected variant=esp_nn_operands_8mod16 mem=ext ansi=1183431 opt=311524 ratio=3.80 result=ok shape="length 320, 320 outputs, input offset -3"
+BENCH op=fully_connected variant=esp_nn mem=ext ansi=348237 opt=15588 ratio=22.34 result=ok shape="length 128, 256 outputs, input offset -3"
+BENCH op=fully_connected variant=esp_nn_operands_8mod16 mem=ext ansi=348237 opt=59064 ratio=5.90 result=ok shape="length 128, 256 outputs, input offset -3"
+BENCH op=fully_connected variant=esp_nn mem=ext ansi=184397 opt=13284 ratio=13.88 result=ok shape="length 64, 256 outputs, input offset -3"
+BENCH op=fully_connected variant=esp_nn_operands_8mod16 mem=ext ansi=184397 opt=38584 ratio=4.78 result=ok shape="length 64, 256 outputs, input offset -3"
+BENCH op=fully_connected variant=esp_nn mem=ext ansi=348237 opt=15332 ratio=22.71 result=ok shape="length 128, 256 outputs, input offset 0"
+BENCH op=fully_connected variant=esp_nn_operands_8mod16 mem=ext ansi=348237 opt=59064 ratio=5.90 result=ok shape="length 128, 256 outputs, input offset 0"
+BENCH op=fully_connected variant=esp_nn mem=int ansi=2007117 opt=47332 ratio=42.41 result=ok shape="length 384, 512 outputs, input offset 7"
+BENCH op=fully_connected variant=esp_nn mem=int ansi=2007117 opt=35912 ratio=55.89 result=ok shape="length 384, 512 outputs, input offset 7, worker on"
+BENCH op=fully_connected_batch variant=esp_nn mem=int ansi=753611 opt=95263 ratio=7.91 result=ok shape="batch 16, length 64, 64 outputs"
+BENCH op=fully_connected_batch variant=esp_nn_scratch mem=int ansi=753611 opt=29493 ratio=25.55 result=ok shape="batch 16, length 64, 64 outputs"
+BENCH op=fully_connected_batch variant=esp_nn mem=int ansi=3012444 opt=368607 ratio=8.17 result=ok shape="batch 32, length 64, 128 outputs"
+BENCH op=fully_connected_batch variant=esp_nn_scratch mem=int ansi=3012444 opt=94197 ratio=31.98 result=ok shape="batch 32, length 64, 128 outputs"
+BENCH op=fully_connected_batch variant=esp_nn mem=int ansi=1056287 opt=102815 ratio=10.27 result=ok shape="batch 4, length 128, 192 outputs"
+BENCH op=fully_connected_batch variant=esp_nn_scratch mem=int ansi=1056287 opt=62342 ratio=16.94 result=ok shape="batch 4, length 128, 192 outputs"
+BENCH op=fully_connected_batch variant=esp_nn mem=int ansi=1100287 opt=107095 ratio=10.27 result=ok shape="batch 4, length 128, 200 outputs"
+BENCH op=fully_connected_batch variant=esp_nn_scratch mem=int ansi=1100287 opt=65033 ratio=16.92 result=ok shape="batch 4, length 128, 200 outputs"
+BENCH op=fully_connected_batch variant=esp_nn_scratch mem=int ansi=2606327 opt=53512 ratio=48.71 result=ok shape="batch 48, length 160, 32 outputs"
+BENCH op=fully_connected_batch variant=esp_nn mem=int ansi=22531780 opt=1780575 ratio=12.65 result=ok shape="batch 64, length 128, 256 outputs"
+BENCH op=fully_connected_batch variant=esp_nn_scratch mem=int ansi=22531780 opt=505202 ratio=44.60 result=ok shape="batch 64, length 128, 256 outputs"
+BENCH op=fully_connected_batch variant=esp_nn mem=int ansi=66744 opt=10107 ratio=6.60 result=ok shape="batch 5, length 32, 32 outputs"
+BENCH op=fully_connected_batch variant=esp_nn_scratch mem=int ansi=66744 opt=8050 ratio=8.29 result=ok shape="batch 5, length 32, 32 outputs"
+BENCH op=fully_connected_batch variant=esp_nn mem=int ansi=273101 opt=67874 ratio=4.02 result=ok shape="batch 66, length 16, 16 outputs"
+BENCH op=fully_connected_batch variant=esp_nn_scratch mem=int ansi=273101 opt=18395 ratio=14.85 result=ok shape="batch 66, length 16, 16 outputs"
+BENCH op=add variant=esp_nn mem=ext ansi=271410 opt=60397 ratio=4.49 result=ok shape="size 1615"
+BENCH op=mul variant=esp_nn mem=ext ansi=117960 opt=6782 ratio=17.39 result=ok shape="size 1615"
+BENCH op=mul_broadcast variant=esp_nn mem=ext ansi=2097966 opt=148991 ratio=14.08 result=ok shape="49 positions x 576 channels"
+POOL_CACHE ictrl=0xb dctrl=0x15 icache_kib=16 icache_ways=8 icache_line=32 dcache_kib=64 dcache_ways_config=8 dcache_line=64 psram_mhz_config=80
+BENCH op=max_pool variant=master mem=int ansi=489649 opt=11954 ratio=40.96 result=ok shape="input 16x16x16, filter 3x3, pad 1, stride 1"
+MP master int 11954 1 input 16x16x16, filter 3x3, pad 1, stride 1
+PM master psram_miss=0 dbus=8 insn=9466 store=0 tie=0 dep=816 checked=1 input 16x16x16, filter 3x3, pad 1, stride 1
+BENCH op=max_pool variant=v0 mem=int ansi=489649 opt=7239 ratio=67.64 result=ok shape="input 16x16x16, filter 3x3, pad 1, stride 1"
+MP v0 int 7239 1 input 16x16x16, filter 3x3, pad 1, stride 1
+PM v0 psram_miss=0 dbus=8 insn=5830 store=0 tie=0 dep=523 checked=1 input 16x16x16, filter 3x3, pad 1, stride 1
+POOL_OUTPUT mem=int bytes=4096 raw=0x3fc9a1b0 gold0=0x3fc9b250 gold1=0x3fc9c270 guard=64 failures=0 result=ok shape="input 16x16x16, filter 3x3, pad 1, stride 1"
+BENCH op=avg_pool variant=esp_nn mem=int ansi=513355 opt=149374 ratio=3.44 result=ok shape="input 16x16x16, filter 3x3, pad 1, stride 1"
+POOL_INPUT mem=int bytes=4096 in0=0x3fceda60 in1=0x3fc99190 result=ok shape="input 16x16x16, filter 3x3, pad 1, stride 1"
+BENCH op=max_pool variant=master mem=ext ansi=489649 opt=13087 ratio=37.41 result=ok shape="input 16x16x16, filter 3x3, pad 1, stride 1"
+MP master ext 13087 1 input 16x16x16, filter 3x3, pad 1, stride 1
+PM master psram_miss=0 dbus=2436 insn=10384 store=0 tie=0 dep=815 checked=1 input 16x16x16, filter 3x3, pad 1, stride 1
+BENCH op=max_pool variant=v0 mem=ext ansi=489649 opt=7239 ratio=67.64 result=ok shape="input 16x16x16, filter 3x3, pad 1, stride 1"
+MP v0 ext 7239 1 input 16x16x16, filter 3x3, pad 1, stride 1
+PM v0 psram_miss=0 dbus=1000 insn=5831 store=0 tie=0 dep=523 checked=1 input 16x16x16, filter 3x3, pad 1, stride 1
+POOL_OUTPUT mem=ext bytes=4096 raw=0x3c0429f0 gold0=0x3fceda60 gold1=0x3fc99190 guard=64 failures=0 result=ok shape="input 16x16x16, filter 3x3, pad 1, stride 1"
+POOL_INPUT mem=ext bytes=4096 in0=0x3c0409b0 in1=0x3c0419d0 result=ok shape="input 16x16x16, filter 3x3, pad 1, stride 1"
+BENCH op=max_pool variant=master mem=ext ansi=891213 opt=12837 ratio=69.43 result=ok shape="input 6x6x128, filter 5x5, pad 2, stride 1"
+MP master ext 12837 1 input 6x6x128, filter 5x5, pad 2, stride 1
+PM master psram_miss=0 dbus=5160 insn=10978 store=0 tie=0 dep=245 checked=1 input 6x6x128, filter 5x5, pad 2, stride 1
+BENCH op=max_pool variant=v0 mem=ext ansi=891213 opt=10748 ratio=82.92 result=ok shape="input 6x6x128, filter 5x5, pad 2, stride 1"
+MP v0 ext 10748 1 input 6x6x128, filter 5x5, pad 2, stride 1
+PM v0 psram_miss=0 dbus=1448 insn=8506 store=0 tie=0 dep=971 checked=1 input 6x6x128, filter 5x5, pad 2, stride 1
+POOL_OUTPUT mem=ext bytes=4608 raw=0x3c042df0 gold0=0x3fceda60 gold1=0x3fc99190 guard=64 failures=0 result=ok shape="input 6x6x128, filter 5x5, pad 2, stride 1"
+POOL_INPUT mem=ext bytes=4608 in0=0x3c0409b0 in1=0x3c041bd0 result=ok shape="input 6x6x128, filter 5x5, pad 2, stride 1"
+MP master ext 54002 1 input 12x12x128, filter 5x5, pad 2, stride 1
+PM master psram_miss=0 dbus=25608 insn=46720 store=7 tie=0 dep=707 checked=1 input 12x12x128, filter 5x5, pad 2, stride 1
+BENCH op=max_pool variant=v0 mem=ext ansi=4324810 opt=40070 ratio=107.93 result=ok shape="input 12x12x128, filter 5x5, pad 2, stride 1"
+MP v0 ext 40070 1 input 12x12x128, filter 5x5, pad 2, stride 1
+PM v0 psram_miss=0 dbus=6344 insn=31246 store=0 tie=0 dep=4235 checked=1 input 12x12x128, filter 5x5, pad 2, stride 1
+POOL_OUTPUT mem=ext bytes=18432 raw=0x3c0499f0 gold0=0x3fc99190 gold1=0x3fc9d9b0 guard=64 failures=0 result=ok shape="input 12x12x128, filter 5x5, pad 2, stride 1"
+BENCH op=avg_pool variant=esp_nn mem=ext ansi=4249626 opt=948182 ratio=4.48 result=ok shape="input 12x12x128, filter 5x5, pad 2, stride 1"
+POOL_INPUT mem=ext bytes=18432 in0=0x3c0409b0 in1=0x3c0451d0 result=ok shape="input 12x12x128, filter 5x5, pad 2, stride 1"
+BENCH op=max_pool variant=master mem=ext ansi=13007564 opt=305887 ratio=42.52 result=ok shape="input 20x20x128, filter 5x5, pad 2, stride 1"
+MP master ext 305887 1 input 20x20x128, filter 5x5, pad 2, stride 1
+PM master psram_miss=1010 dbus=77064 insn=133800 store=43610 tie=0 dep=1659 checked=1 input 20x20x128, filter 5x5, pad 2, stride 1
+BENCH op=max_pool variant=v0 mem=ext ansi=13007564 opt=338817 ratio=38.39 result=ok shape="input 20x20x128, filter 5x5, pad 2, stride 1"
+MP v0 ext 338817 1 input 20x20x128, filter 5x5, pad 2, stride 1
+PM v0 psram_miss=1006 dbus=18248 insn=83966 store=46908 tie=0 dep=12171 checked=1 input 20x20x128, filter 5x5, pad 2, stride 1
+POOL_OUTPUT mem=ext bytes=51200 raw=0x3c0599f0 gold0=0x3fc99190 gold1=0x3fca59b0 guard=64 failures=0 result=ok shape="input 20x20x128, filter 5x5, pad 2, stride 1"
+POOL_INPUT mem=ext bytes=51200 in0=0x3c0409b0 in1=0x3c04d1d0 result=ok shape="input 20x20x128, filter 5x5, pad 2, stride 1"
+BENCH op=max_pool variant=master mem=ext ansi=8024229 opt=377682 ratio=21.25 result=ok shape="input 32x32x64, filter 3x3, pad 1, stride 1"
+MP master ext 377682 1 input 32x32x64, filter 3x3, pad 1, stride 1
+PM master psram_miss=1301 dbus=39928 insn=92176 store=73679 tie=0 dep=975 checked=1 input 32x32x64, filter 3x3, pad 1, stride 1
+BENCH op=max_pool variant=v0 mem=ext ansi=8024229 opt=441702 ratio=18.17 result=ok shape="input 32x32x64, filter 3x3, pad 1, stride 1"
+MP v0 ext 441702 1 input 32x32x64, filter 3x3, pad 1, stride 1
+PM v0 psram_miss=1301 dbus=16136 insn=82279 store=55371 tie=0 dep=8203 checked=1 input 32x32x64, filter 3x3, pad 1, stride 1
+POOL_OUTPUT mem=ext bytes=65536 raw=0x3c0609f0 gold0=0x3fc99190 gold1=0x3fca91b0 guard=64 failures=0 result=ok shape="input 32x32x64, filter 3x3, pad 1, stride 1"
+POOL_INPUT mem=ext bytes=65536 in0=0x3c0409b0 in1=0x3c0509d0 result=ok shape="input 32x32x64, filter 3x3, pad 1, stride 1"
+BENCH op=max_pool variant=master mem=ext ansi=12508071 opt=836646 ratio=14.95 result=ok shape="input 56x56x32, filter 3x3, pad 1, stride 1"
+MP master ext 836646 1 input 56x56x32, filter 3x3, pad 1, stride 1
+PM master psram_miss=3139 dbus=61824 insn=153816 store=153339 tie=0 dep=1719 checked=1 input 56x56x32, filter 3x3, pad 1, stride 1
+BENCH op=max_pool variant=v0 mem=ext ansi=12508071 opt=903836 ratio=13.84 result=ok shape="input 56x56x32, filter 3x3, pad 1, stride 1"
+MP v0 ext 903836 1 input 56x56x32, filter 3x3, pad 1, stride 1
+PM v0 psram_miss=3139 dbus=24872 insn=123703 store=141531 tie=0 dep=12555 checked=1 input 56x56x32, filter 3x3, pad 1, stride 1
+POOL_OUTPUT mem=ext bytes=100352 raw=0x3c0719f0 gold0=0x3fc99190 gold1=0x3fcb19b0 guard=64 failures=0 result=ok shape="input 56x56x32, filter 3x3, pad 1, stride 1"
+POOL_INPUT mem=ext bytes=100352 in0=0x3c0409b0 in1=0x3c0591d0 result=ok shape="input 56x56x32, filter 3x3, pad 1, stride 1"
+BENCH op=max_pool variant=master mem=ext ansi=1016497 opt=36805 ratio=27.62 result=ok shape="input 16x16x16, filter 5x5, pad 2, stride 1"
+MP master ext 36805 1 input 16x16x16, filter 5x5, pad 2, stride 1
+PM master psram_miss=0 dbus=5992 insn=24268 store=0 tie=0 dep=6575 checked=1 input 16x16x16, filter 5x5, pad 2, stride 1
+BENCH op=max_pool variant=v0 mem=ext ansi=1016497 opt=9144 ratio=111.17 result=ok shape="input 16x16x16, filter 5x5, pad 2, stride 1"
+MP v0 ext 9144 1 input 16x16x16, filter 5x5, pad 2, stride 1
+PM v0 psram_miss=0 dbus=1448 insn=7254 store=0 tie=0 dep=971 checked=1 input 16x16x16, filter 5x5, pad 2, stride 1
+POOL_OUTPUT mem=ext bytes=4096 raw=0x3c0429f0 gold0=0x3fceda60 gold1=0x3fc99190 guard=64 failures=0 result=ok shape="input 16x16x16, filter 5x5, pad 2, stride 1"
+POOL_INPUT mem=ext bytes=4096 in0=0x3c0409b0 in1=0x3c0419d0 result=ok shape="input 16x16x16, filter 5x5, pad 2, stride 1"
+BENCH op=max_pool variant=master mem=int ansi=1016497 opt=35630 ratio=28.53 result=ok shape="input 16x16x16, filter 5x5, pad 2, stride 1"
+MP master int 35630 1 input 16x16x16, filter 5x5, pad 2, stride 1
+PM master psram_miss=0 dbus=8 insn=23300 store=0 tie=0 dep=6628 checked=1 input 16x16x16, filter 5x5, pad 2, stride 1
+BENCH op=max_pool variant=v0 mem=int ansi=1016497 opt=9144 ratio=111.17 result=ok shape="input 16x16x16, filter 5x5, pad 2, stride 1"
+MP v0 int 9144 1 input 16x16x16, filter 5x5, pad 2, stride 1
+PM v0 psram_miss=0 dbus=8 insn=7253 store=0 tie=0 dep=971 checked=1 input 16x16x16, filter 5x5, pad 2, stride 1
+POOL_OUTPUT mem=int bytes=4096 raw=0x3fc9a1b0 gold0=0x3fc9b250 gold1=0x3fc9c270 guard=64 failures=0 result=ok shape="input 16x16x16, filter 5x5, pad 2, stride 1"
+POOL_INPUT mem=int bytes=4096 in0=0x3fceda60 in1=0x3fc99190 result=ok shape="input 16x16x16, filter 5x5, pad 2, stride 1"
+BENCH op=max_pool variant=master mem=int ansi=891213 opt=12882 ratio=69.18 result=ok shape="input 6x6x128, filter 5x5, pad 2, stride 1"
+MP master int 12882 1 input 6x6x128, filter 5x5, pad 2, stride 1
+PM master psram_miss=0 dbus=8 insn=11000 store=0 tie=0 dep=268 checked=1 input 6x6x128, filter 5x5, pad 2, stride 1
+BENCH op=max_pool variant=v0 mem=int ansi=891213 opt=10748 ratio=82.92 result=ok shape="input 6x6x128, filter 5x5, pad 2, stride 1"
+MP v0 int 10748 1 input 6x6x128, filter 5x5, pad 2, stride 1
+PM v0 psram_miss=0 dbus=8 insn=8505 store=0 tie=0 dep=971 checked=1 input 6x6x128, filter 5x5, pad 2, stride 1
+POOL_OUTPUT mem=int bytes=4608 raw=0x3fc9a3b0 gold0=0x3fc9b650 gold1=0x3fc9c870 guard=64 failures=0 result=ok shape="input 6x6x128, filter 5x5, pad 2, stride 1"
+POOL_INPUT mem=int bytes=4608 in0=0x3fceda60 in1=0x3fc99190 result=ok shape="input 6x6x128, filter 5x5, pad 2, stride 1"
+MP master int 52998 1 input 12x12x128, filter 5x5, pad 2, stride 1
+PM master psram_miss=0 dbus=8 insn=46148 store=0 tie=0 dep=748 checked=1 input 12x12x128, filter 5x5, pad 2, stride 1
+BENCH op=max_pool variant=v0 mem=int ansi=4324583 opt=39728 ratio=108.85 result=ok shape="input 12x12x128, filter 5x5, pad 2, stride 1"
+MP v0 int 39728 1 input 12x12x128, filter 5x5, pad 2, stride 1
+PM v0 psram_miss=0 dbus=8 insn=31246 store=0 tie=0 dep=4235 checked=1 input 12x12x128, filter 5x5, pad 2, stride 1
+POOL_OUTPUT mem=int bytes=18432 raw=0x3fca21d0 gold0=0x3fca6a70 gold1=0x3fcab290 guard=64 failures=0 result=ok shape="input 12x12x128, filter 5x5, pad 2, stride 1"
+POOL_INPUT mem=int bytes=18432 in0=0x3fc99190 in1=0x3fc9d9b0 result=ok shape="input 12x12x128, filter 5x5, pad 2, stride 1"
+BENCH op=max_pool variant=master mem=int ansi=12921569 opt=150838 ratio=85.67 result=ok shape="input 20x20x128, filter 5x5, pad 2, stride 1"
+MP master int 150838 1 input 20x20x128, filter 5x5, pad 2, stride 1
+PM master psram_miss=0 dbus=8 insn=132436 store=0 tie=0 dep=1724 checked=1 input 20x20x128, filter 5x5, pad 2, stride 1
+BENCH op=max_pool variant=v0 mem=int ansi=12921569 opt=107040 ratio=120.72 result=ok shape="input 20x20x128, filter 5x5, pad 2, stride 1"
+MP v0 int 107040 1 input 20x20x128, filter 5x5, pad 2, stride 1
+PM v0 psram_miss=0 dbus=8 insn=83966 store=0 tie=0 dep=12171 checked=1 input 20x20x128, filter 5x5, pad 2, stride 1
+POOL_OUTPUT mem=int bytes=51200 raw=0x3fcb21d0 gold0=0x3fcbea70 gold1=0x3fccb290 guard=64 failures=0 result=ok shape="input 20x20x128, filter 5x5, pad 2, stride 1"
+POOL_INPUT mem=int bytes=51200 in0=0x3fc99190 in1=0x3fca59b0 result=ok shape="input 20x20x128, filter 5x5, pad 2, stride 1"
+BENCH op=max_pool variant=master mem=ext ansi=3881485 opt=126784 ratio=30.61 result=ok shape="input 8x64x64, filter 3x3, pad 1, stride 1"
+MP master ext 126784 1 input 8x64x64, filter 3x3, pad 1, stride 1
+PM master psram_miss=20 dbus=19320 insn=54944 store=2379 tie=0 dep=1631 checked=1 input 8x64x64, filter 3x3, pad 1, stride 1
+BENCH op=max_pool variant=v0 mem=ext ansi=3881485 opt=146759 ratio=26.45 result=ok shape="input 8x64x64, filter 3x3, pad 1, stride 1"
+MP v0 ext 146759 1 input 8x64x64, filter 3x3, pad 1, stride 1
+PM v0 psram_miss=19 dbus=8136 insn=48551 store=1627 tie=0 dep=4555 checked=1 input 8x64x64, filter 3x3, pad 1, stride 1
+POOL_OUTPUT mem=ext bytes=32768 raw=0x3c0509f0 gold0=0x3fc99190 gold1=0x3fca11b0 guard=64 failures=0 result=ok shape="input 8x64x64, filter 3x3, pad 1, stride 1"
+POOL_INPUT mem=ext bytes=32768 in0=0x3c0409b0 in1=0x3c0489d0 result=ok shape="input 8x64x64, filter 3x3, pad 1, stride 1"
+tride 1"
+MP master int 57602 1 input 8x64x64, filter 3x3, pad 1, stride 1
+PM master psram_miss=0 dbus=8 insn=50330 store=0 tie=0 dep=1584 checked=1 input 8x64x64, filter 3x3, pad 1, stride 1
+BENCH op=max_pool variant=v0 mem=int ansi=3835405 opt=61255 ratio=62.61 result=ok shape="input 8x64x64, filter 3x3, pad 1, stride 1"
+MP v0 int 61255 1 input 8x64x64, filter 3x3, pad 1, stride 1
+PM v0 psram_miss=0 dbus=8 insn=48551 store=0 tie=0 dep=4555 checked=1 input 8x64x64, filter 3x3, pad 1, stride 1
+POOL_OUTPUT mem=int bytes=32768 raw=0x3fca91d0 gold0=0x3fcb1270 gold1=0x3fcb9290 guard=64 failures=0 result=ok shape="input 8x64x64, filter 3x3, pad 1, stride 1"
+POOL_INPUT mem=int bytes=32768 in0=0x3fc99190 in1=0x3fca11b0 result=ok shape="input 8x64x64, filter 3x3, pad 1, stride 1"
+BENCH op=max_pool variant=master mem=ext ansi=3958714 opt=124099 ratio=31.90 result=ok shape="input 16x32x64, filter 3x3, pad 1, stride 1"
+MP master ext 124099 1 input 16x32x64, filter 3x3, pad 1, stride 1
+PM master psram_miss=22 dbus=19704 insn=49008 store=2525 tie=0 dep=879 checked=1 input 16x32x64, filter 3x3, pad 1, stride 1
+BENCH op=max_pool variant=v0 mem=ext ansi=3958714 opt=151055 ratio=26.21 result=ok shape="input 16x32x64, filter 3x3, pad 1, stride 1"
+MP v0 ext 151055 1 input 16x32x64, filter 3x3, pad 1, stride 1
+PM v0 psram_miss=21 dbus=8072 insn=43623 store=2945 tie=0 dep=4235 checked=1 input 16x32x64, filter 3x3, pad 1, stride 1
+POOL_OUTPUT mem=ext bytes=32768 raw=0x3c0509f0 gold0=0x3fc99190 gold1=0x3fca11b0 guard=64 failures=0 result=ok shape="input 16x32x64, filter 3x3, pad 1, stride 1"
+POOL_INPUT mem=ext bytes=32768 in0=0x3c0409b0 in1=0x3c0489d0 result=ok shape="input 16x32x64, filter 3x3, pad 1, stride 1"
+BENCH op=max_pool variant=master mem=int ansi=3911118 opt=51634 ratio=75.75 result=ok shape="input 16x32x64, filter 3x3, pad 1, stride 1"
+MP master int 51634 1 input 16x32x64, filter 3x3, pad 1, stride 1
+PM master psram_miss=0 dbus=8 insn=46858 store=0 tie=0 dep=864 checked=1 input 16x32x64, filter 3x3, pad 1, stride 1
+BENCH op=max_pool variant=v0 mem=int ansi=3911118 opt=54919 ratio=71.22 result=ok shape="input 16x32x64, filter 3x3, pad 1, stride 1"
+MP v0 int 54919 1 input 16x32x64, filter 3x3, pad 1, stride 1
+PM v0 psram_miss=0 dbus=8 insn=43623 store=0 tie=0 dep=4235 checked=1 input 16x32x64, filter 3x3, pad 1, stride 1
+POOL_OUTPUT mem=int bytes=32768 raw=0x3fca91d0 gold0=0x3fcb1270 gold1=0x3fcb9290 guard=64 failures=0 result=ok shape="input 16x32x64, filter 3x3, pad 1, stride 1"
+POOL_INPUT mem=int bytes=32768 in0=0x3fc99190 in1=0x3fca11b0 result=ok shape="input 16x32x64, filter 3x3, pad 1, stride 1"
+BENCH op=max_pool variant=master mem=ext ansi=3945850 opt=112132 ratio=35.19 result=ok shape="input 32x16x64, filter 3x3, pad 1, stride 1"
+MP master ext 112132 1 input 32x16x64, filter 3x3, pad 1, stride 1
+PM master psram_miss=23 dbus=19704 insn=45776 store=2453 tie=0 dep=575 checked=1 input 32x16x64, filter 3x3, pad 1, stride 1
+BENCH op=max_pool variant=v0 mem=ext ansi=3945850 opt=141740 ratio=27.84 result=ok shape="input 32x16x64, filter 3x3, pad 1, stride 1"
+MP v0 ext 141740 1 input 32x16x64, filter 3x3, pad 1, stride 1
+PM v0 psram_miss=22 dbus=7944 insn=40967 store=1299 tie=0 dep=3979 checked=1 input 32x16x64, filter 3x3, pad 1, stride 1
+POOL_OUTPUT mem=ext bytes=32768 raw=0x3c0509f0 gold0=0x3fc99190 gold1=0x3fca11b0 guard=64 failures=0 result=ok shape="input 32x16x64, filter 3x3, pad 1, stride 1"
+POOL_INPUT mem=ext bytes=32768 in0=0x3c0409b0 in1=0x3c0489d0 result=ok shape="input 32x16x64, filter 3x3, pad 1, stride 1"
+MP master int 48770 1 input 32x16x64, filter 3x3, pad 1, stride 1
+PM master psram_miss=0 dbus=8 insn=44858 store=0 tie=0 dep=576 checked=1 input 32x16x64, filter 3x3, pad 1, stride 1
+BENCH op=max_pool variant=v0 mem=int ansi=3898285 opt=51367 ratio=75.89 result=ok shape="input 32x16x64, filter 3x3, pad 1, stride 1"
+MP v0 int 51367 1 input 32x16x64, filter 3x3, pad 1, stride 1
+PM v0 psram_miss=0 dbus=8 insn=40967 store=0 tie=0 dep=3979 checked=1 input 32x16x64, filter 3x3, pad 1, stride 1
+POOL_OUTPUT mem=int bytes=32768 raw=0x3fca91d0 gold0=0x3fcb1270 gold1=0x3fcb9290 guard=64 failures=0 result=ok shape="input 32x16x64, filter 3x3, pad 1, stride 1"
+POOL_INPUT mem=int bytes=32768 in0=0x3fc99190 in1=0x3fca11b0 result=ok shape="input 32x16x64, filter 3x3, pad 1, stride 1"
+BENCH op=max_pool variant=master mem=ext ansi=3843916 opt=120582 ratio=31.88 result=ok shape="input 64x8x64, filter 3x3, pad 1, stride 1"
+MP master ext 120582 1 input 64x8x64, filter 3x3, pad 1, stride 1
+PM master psram_miss=22 dbus=19320 insn=43632 store=2551 tie=0 dep=567 checked=1 input 64x8x64, filter 3x3, pad 1, stride 1
+BENCH op=max_pool variant=v0 mem=ext ansi=3843916 opt=148891 ratio=25.82 result=ok shape="input 64x8x64, filter 3x3, pad 1, stride 1"
+MP v0 ext 148891 1 input 64x8x64, filter 3x3, pad 1, stride 1
+PM v0 psram_miss=21 dbus=7688 insn=39255 store=3233 tie=0 dep=3659 checked=1 input 64x8x64, filter 3x3, pad 1, stride 1
+POOL_OUTPUT mem=ext bytes=32768 raw=0x3c0509f0 gold0=0x3fc99190 gold1=0x3fca11b0 guard=64 failures=0 result=ok shape="input 64x8x64, filter 3x3, pad 1, stride 1"
+POOL_INPUT mem=ext bytes=32768 in0=0x3c0409b0 in1=0x3c0489d0 result=ok shape="input 64x8x64, filter 3x3, pad 1, stride 1"
+MP master int 47578 1 input 64x8x64, filter 3x3, pad 1, stride 1
+PM master psram_miss=0 dbus=8 insn=43330 store=0 tie=0 dep=576 checked=1 input 64x8x64, filter 3x3, pad 1, stride 1
+BENCH op=max_pool variant=v0 mem=int ansi=3790492 opt=48823 ratio=77.64 result=ok shape="input 64x8x64, filter 3x3, pad 1, stride 1"
+MP v0 int 48823 1 input 64x8x64, filter 3x3, pad 1, stride 1
+PM v0 psram_miss=0 dbus=8 insn=39255 store=0 tie=0 dep=3659 checked=1 input 64x8x64, filter 3x3, pad 1, stride 1
+POOL_OUTPUT mem=int bytes=32768 raw=0x3fca91d0 gold0=0x3fcb1270 gold1=0x3fcb9290 guard=64 failures=0 result=ok shape="input 64x8x64, filter 3x3, pad 1, stride 1"
+POOL_INPUT mem=int bytes=32768 in0=0x3fc99190 in1=0x3fca11b0 result=ok shape="input 64x8x64, filter 3x3, pad 1, stride 1"
+BENCH op=max_pool variant=master mem=ext ansi=4103399 opt=123477 ratio=33.23 result=ok shape="input 64x32x16, filter 3x3, pad 1, stride 1"
+MP master ext 123477 1 input 64x32x16, filter 3x3, pad 1, stride 1
+PM master psram_miss=19 dbus=20100 insn=59824 store=941 tie=0 dep=2271 checked=1 input 64x32x16, filter 3x3, pad 1, stride 1
+BENCH op=max_pool variant=v0 mem=ext ansi=4103399 opt=106316 ratio=38.60 result=ok shape="input 64x32x16, filter 3x3, pad 1, stride 1"
+MP v0 ext 106316 1 input 64x32x16, filter 3x3, pad 1, stride 1
+PM v0 psram_miss=19 dbus=8072 insn=40551 store=1208 tie=0 dep=4043 checked=1 input 64x32x16, filter 3x3, pad 1, stride 1
+POOL_OUTPUT mem=ext bytes=32768 raw=0x3c0509f0 gold0=0x3fc99190 gold1=0x3fca11b0 guard=64 failures=0 result=ok shape="input 64x32x16, filter 3x3, pad 1, stride 1"
+POOL_INPUT mem=ext bytes=32768 in0=0x3c0409b0 in1=0x3c0489d0 result=ok shape="input 64x32x16, filter 3x3, pad 1, stride 1"
+BENCH op=max_pool variant=master mem=int ansi=4059915 opt=66914 ratio=60.67 result=ok shape="input 64x32x16, filter 3x3, pad 1, stride 1"
+MP master int 66914 1 input 64x32x16, filter 3x3, pad 1, stride 1
+PM master psram_miss=0 dbus=8 insn=57674 store=0 tie=0 dep=2256 checked=1 input 64x32x16, filter 3x3, pad 1, stride 1
+BENCH op=max_pool variant=v0 mem=int ansi=4059915 opt=50887 ratio=79.78 result=ok shape="input 64x32x16, filter 3x3, pad 1, stride 1"
+MP v0 int 50887 1 input 64x32x16, filter 3x3, pad 1, stride 1
+PM v0 psram_miss=0 dbus=8 insn=40551 store=0 tie=0 dep=4043 checked=1 input 64x32x16, filter 3x3, pad 1, stride 1
+POOL_OUTPUT mem=int bytes=32768 raw=0x3fca91d0 gold0=0x3fcb1270 gold1=0x3fcb9290 guard=64 failures=0 result=ok shape="input 64x32x16, filter 3x3, pad 1, stride 1"
+POOL_INPUT mem=int bytes=32768 in0=0x3fc99190 in1=0x3fca11b0 result=ok shape="input 64x32x16, filter 3x3, pad 1, stride 1"
+BENCH op=max_pool variant=master mem=ext ansi=4032629 opt=123478 ratio=32.66 result=ok shape="input 32x32x32, filter 3x3, pad 1, stride 1"
+MP master ext 123478 1 input 32x32x32, filter 3x3, pad 1, stride 1
+PM master psram_miss=18 dbus=19968 insn=53352 store=1887 tie=0 dep=975 checked=1 input 32x32x32, filter 3x3, pad 1, stride 1
+BENCH op=max_pool variant=v0 mem=ext ansi=4032629 opt=138850 ratio=29.04 result=ok shape="input 32x32x32, filter 3x3, pad 1, stride 1"
+MP v0 ext 138850 1 input 32x32x32, filter 3x3, pad 1, stride 1
+PM v0 psram_miss=18 dbus=8072 insn=41575 store=2934 tie=0 dep=4107 checked=1 input 32x32x32, filter 3x3, pad 1, stride 1
+POOL_OUTPUT mem=ext bytes=32768 raw=0x3c0509f0 gold0=0x3fc99190 gold1=0x3fca11b0 guard=64 failures=0 result=ok shape="input 32x32x32, filter 3x3, pad 1, stride 1"
+POOL_INPUT mem=ext bytes=32768 in0=0x3c0409b0 in1=0x3c0489d0 result=ok shape="input 32x32x32, filter 3x3, pad 1, stride 1"
+BENCH op=max_pool variant=master mem=int ansi=3987788 opt=57426 ratio=69.44 result=ok shape="input 32x32x32, filter 3x3, pad 1, stride 1"
+MP master int 57426 1 input 32x32x32, filter 3x3, pad 1, stride 1
+PM master psram_miss=0 dbus=8 insn=51202 store=0 tie=0 dep=960 checked=1 input 32x32x32, filter 3x3, pad 1, stride 1
+BENCH op=max_pool variant=v0 mem=int ansi=3987788 opt=52231 ratio=76.35 result=ok shape="input 32x32x32, filter 3x3, pad 1, stride 1"
+MP v0 int 52231 1 input 32x32x32, filter 3x3, pad 1, stride 1
+PM v0 psram_miss=0 dbus=8 insn=41575 store=0 tie=0 dep=4107 checked=1 input 32x32x32, filter 3x3, pad 1, stride 1
+POOL_OUTPUT mem=int bytes=32768 raw=0x3fca91d0 gold0=0x3fcb1270 gold1=0x3fcb9290 guard=64 failures=0 result=ok shape="input 32x32x32, filter 3x3, pad 1, stride 1"
+POOL_INPUT mem=int bytes=32768 in0=0x3fc99190 in1=0x3fca11b0 result=ok shape="input 32x32x32, filter 3x3, pad 1, stride 1"
+BENCH op=max_pool variant=master mem=ext ansi=3881261 opt=111342 ratio=34.86 result=ok shape="input 16x16x128, filter 3x3, pad 1, stride 1"
+MP master ext 111342 1 input 16x16x128, filter 3x3, pad 1, stride 1
+PM master psram_miss=20 dbus=19432 insn=43872 store=1137 tie=0 dep=479 checked=1 input 16x16x128, filter 3x3, pad 1, stride 1
+BENCH op=max_pool variant=v0 mem=ext ansi=3881261 opt=137433 ratio=28.24 result=ok shape="input 16x16x128, filter 3x3, pad 1, stride 1"
+MP v0 ext 137433 1 input 16x16x128, filter 3x3, pad 1, stride 1
+PM v0 psram_miss=19 dbus=7944 insn=43015 store=2025 tie=0 dep=4107 checked=1 input 16x16x128, filter 3x3, pad 1, stride 1
+POOL_OUTPUT mem=ext bytes=32768 raw=0x3c0509f0 gold0=0x3fc99190 gold1=0x3fca11b0 guard=64 failures=0 result=ok shape="input 16x16x128, filter 3x3, pad 1, stride 1"
+POOL_INPUT mem=ext bytes=32768 in0=0x3c0409b0 in1=0x3c0489d0 result=ok shape="input 16x16x128, filter 3x3, pad 1, stride 1"
+BENCH op=max_pool variant=master mem=int ansi=3834029 opt=46062 ratio=83.24 result=ok shape="input 16x16x128, filter 3x3, pad 1, stride 1"
+MP master int 46062 1 input 16x16x128, filter 3x3, pad 1, stride 1
+PM master psram_miss=0 dbus=8 insn=42954 store=0 tie=0 dep=480 checked=1 input 16x16x128, filter 3x3, pad 1, stride 1
+BENCH op=max_pool variant=v0 mem=int ansi=3834029 opt=54055 ratio=70.93 result=ok shape="input 16x16x128, filter 3x3, pad 1, stride 1"
+MP v0 int 54055 1 input 16x16x128, filter 3x3, pad 1, stride 1
+PM v0 psram_miss=0 dbus=8 insn=43015 store=0 tie=0 dep=4107 checked=1 input 16x16x128, filter 3x3, pad 1, stride 1
+POOL_OUTPUT mem=int bytes=32768 raw=0x3fca91d0 gold0=0x3fcb1270 gold1=0x3fcb9290 guard=64 failures=0 result=ok shape="input 16x16x128, filter 3x3, pad 1, stride 1"
+POOL_INPUT mem=int bytes=32768 in0=0x3fc99190 in1=0x3fca11b0 result=ok shape="input 16x16x128, filter 3x3, pad 1, stride 1"
+BENCH op=max_pool variant=master mem=ext ansi=6024798 opt=224383 ratio=26.85 result=ok shape="input 32x32x48, filter 3x3, pad 1, stride 1"
+MP master ext 224383 1 input 32x32x48, filter 3x3, pad 1, stride 1
+PM master psram_miss=806 dbus=29948 insn=74744 store=10360 tie=0 dep=1695 checked=1 input 32x32x48, filter 3x3, pad 1, stride 1
+BENCH op=max_pool variant=v0 mem=ext ansi=6024798 opt=265207 ratio=22.72 result=ok shape="input 32x32x48, filter 3x3, pad 1, stride 1"
+MP v0 ext 265207 1 input 32x32x48, filter 3x3, pad 1, stride 1
+PM v0 psram_miss=797 dbus=12104 insn=61927 store=7556 tie=0 dep=6155 checked=1 input 32x32x48, filter 3x3, pad 1, stride 1
+POOL_OUTPUT mem=ext bytes=49152 raw=0x3c0589f0 gold0=0x3fc99190 gold1=0x3fca51b0 guard=64 failures=0 result=ok shape="input 32x32x48, filter 3x3, pad 1, stride 1"
+POOL_INPUT mem=ext bytes=49152 in0=0x3c0409b0 in1=0x3c04c9d0 result=ok shape="input 32x32x48, filter 3x3, pad 1, stride 1"
+BENCH op=max_pool variant=master mem=int ansi=5958597 opt=79958 ratio=74.52 result=ok shape="input 32x32x48, filter 3x3, pad 1, stride 1"
+MP master int 79958 1 input 32x32x48, filter 3x3, pad 1, stride 1
+PM master psram_miss=0 dbus=8 insn=72594 store=0 tie=0 dep=1680 checked=1 input 32x32x48, filter 3x3, pad 1, stride 1
+BENCH op=max_pool variant=v0 mem=int ansi=5958597 opt=77895 ratio=76.50 result=ok shape="input 32x32x48, filter 3x3, pad 1, stride 1"
+MP v0 int 77895 1 input 32x32x48, filter 3x3, pad 1, stride 1
+PM v0 psram_miss=0 dbus=8 insn=61927 store=0 tie=0 dep=6155 checked=1 input 32x32x48, filter 3x3, pad 1, stride 1
+POOL_OUTPUT mem=int bytes=49152 raw=0x3fcb11d0 gold0=0x3fcbd270 gold1=0x3fcc9290 guard=64 failures=0 result=ok shape="input 32x32x48, filter 3x3, pad 1, stride 1"
+POOL_INPUT mem=int bytes=49152 in0=0x3fc99190 in1=0x3fca51b0 result=ok shape="input 32x32x48, filter 3x3, pad 1, stride 1"
+BENCH op=max_pool variant=master mem=ext ansi=5981265 opt=220237 ratio=27.16 result=ok shape="input 32x24x64, filter 3x3, pad 1, stride 1"
+MP master ext 220237 1 input 32x24x64, filter 3x3, pad 1, stride 1
+PM master psram_miss=806 dbus=29816 insn=68976 store=11222 tie=0 dep=775 checked=1 input 32x24x64, filter 3x3, pad 1, stride 1
+BENCH op=max_pool variant=v0 mem=ext ansi=5981265 opt=269940 ratio=22.16 result=ok shape="input 32x24x64, filter 3x3, pad 1, stride 1"
+MP v0 ext 269940 1 input 32x24x64, filter 3x3, pad 1, stride 1
+PM v0 psram_miss=797 dbus=12040 insn=61623 store=6626 tie=0 dep=6091 checked=1 input 32x24x64, filter 3x3, pad 1, stride 1
+POOL_OUTPUT mem=ext bytes=49152 raw=0x3c0589f0 gold0=0x3fc99190 gold1=0x3fca51b0 guard=64 failures=0 result=ok shape="input 32x24x64, filter 3x3, pad 1, stride 1"
+POOL_INPUT mem=ext bytes=49152 in0=0x3c0409b0 in1=0x3c04c9d0 result=ok shape="input 32x24x64, filter 3x3, pad 1, stride 1"
+BENCH op=max_pool variant=master mem=int ansi=5913846 opt=72810 ratio=81.22 result=ok shape="input 32x24x64, filter 3x3, pad 1, stride 1"
+MP master int 72810 1 input 32x24x64, filter 3x3, pad 1, stride 1
+PM master psram_miss=0 dbus=8 insn=67442 store=0 tie=0 dep=768 checked=1 input 32x24x64, filter 3x3, pad 1, stride 1
+BENCH op=max_pool variant=v0 mem=int ansi=5913846 opt=77463 ratio=76.34 result=ok shape="input 32x24x64, filter 3x3, pad 1, stride 1"
+MP v0 int 77463 1 input 32x24x64, filter 3x3, pad 1, stride 1
+PM v0 psram_miss=0 dbus=8 insn=61623 store=0 tie=0 dep=6091 checked=1 input 32x24x64, filter 3x3, pad 1, stride 1
+POOL_OUTPUT mem=int bytes=49152 raw=0x3fcb11d0 gold0=0x3fcbd270 gold1=0x3fcc9290 guard=64 failures=0 result=ok shape="input 32x24x64, filter 3x3, pad 1, stride 1"
+POOL_INPUT mem=int bytes=49152 in0=0x3fc99190 in1=0x3fca51b0 result=ok shape="input 32x24x64, filter 3x3, pad 1, stride 1"
+BENCH op=max_pool variant=master mem=ext ansi=5888569 opt=222396 ratio=26.48 result=ok shape="input 16x24x128, filter 3x3, pad 1, stride 1"
+MP master ext 222396 1 input 16x24x128, filter 3x3, pad 1, stride 1
+PM master psram_miss=809 dbus=29416 insn=66240 store=11693 tie=0 dep=679 checked=1 input 16x24x128, filter 3x3, pad 1, stride 1
+BENCH op=max_pool variant=v0 mem=ext ansi=5888569 opt=270111 ratio=21.80 result=ok shape="input 16x24x128, filter 3x3, pad 1, stride 1"
+MP v0 ext 270111 1 input 16x24x128, filter 3x3, pad 1, stride 1
+PM v0 psram_miss=800 dbus=12040 insn=64695 store=8080 tie=0 dep=6283 checked=1 input 16x24x128, filter 3x3, pad 1, stride 1
+POOL_OUTPUT mem=ext bytes=49152 raw=0x3c0589f0 gold0=0x3fc99190 gold1=0x3fca51b0 guard=64 failures=0 result=ok shape="input 16x24x128, filter 3x3, pad 1, stride 1"
+POOL_INPUT mem=ext bytes=49152 in0=0x3c0409b0 in1=0x3c04c9d0 result=ok shape="input 16x24x128, filter 3x3, pad 1, stride 1"
+BENCH op=max_pool variant=master mem=int ansi=5816313 opt=69046 ratio=84.24 result=ok shape="input 16x24x128, filter 3x3, pad 1, stride 1"
+MP master int 69046 1 input 16x24x128, filter 3x3, pad 1, stride 1
+PM master psram_miss=0 dbus=8 insn=64706 store=0 tie=0 dep=672 checked=1 input 16x24x128, filter 3x3, pad 1, stride 1
+BENCH op=max_pool variant=v0 mem=int ansi=5816313 opt=81495 ratio=71.37 result=ok shape="input 16x24x128, filter 3x3, pad 1, stride 1"
+MP v0 int 81495 1 input 16x24x128, filter 3x3, pad 1, stride 1
+PM v0 psram_miss=0 dbus=8 insn=64695 store=0 tie=0 dep=6283 checked=1 input 16x24x128, filter 3x3, pad 1, stride 1
+POOL_OUTPUT mem=int bytes=49152 raw=0x3fcb11d0 gold0=0x3fcbd270 gold1=0x3fcc9290 guard=64 failures=0 result=ok shape="input 16x24x128, filter 3x3, pad 1, stride 1"
+POOL_INPUT mem=int bytes=49152 in0=0x3fc99190 in1=0x3fca51b0 result=ok shape="input 16x24x128, filter 3x3, pad 1, stride 1"
+BENCH op=max_pool variant=master mem=ext ansi=8012312 opt=199359 ratio=40.19 result=ok shape="input 8x64x64, filter 5x5, pad 2, stride 1"
+MP master ext 199359 1 input 8x64x64, filter 5x5, pad 2, stride 1
+PM master psram_miss=22 dbus=46792 insn=99308 store=2355 tie=0 dep=3007 checked=1 input 8x64x64, filter 5x5, pad 2, stride 1
+BENCH op=max_pool variant=v0 mem=ext ansi=8012312 opt=164449 ratio=48.72 result=ok shape="input 8x64x64, filter 5x5, pad 2, stride 1"
+MP v0 ext 164449 1 input 8x64x64, filter 5x5, pad 2, stride 1
+PM v0 psram_miss=21 dbus=12104 insn=60838 store=2522 tie=0 dep=8523 checked=1 input 8x64x64, filter 5x5, pad 2, stride 1
+POOL_OUTPUT mem=ext bytes=32768 raw=0x3c0509f0 gold0=0x3fc99190 gold1=0x3fca11b0 guard=64 failures=0 result=ok shape="input 8x64x64, filter 5x5, pad 2, stride 1"
+POOL_INPUT mem=ext bytes=32768 in0=0x3c0409b0 in1=0x3c0489d0 result=ok shape="input 8x64x64, filter 5x5, pad 2, stride 1"
+MP master int 112510 1 input 8x64x64, filter 5x5, pad 2, stride 1
+PM master psram_miss=0 dbus=8 insn=93588 store=0 tie=0 dep=3204 checked=1 input 8x64x64, filter 5x5, pad 2, stride 1
+BENCH op=max_pool variant=v0 mem=int ansi=7958144 opt=77576 ratio=102.59 result=ok shape="input 8x64x64, filter 5x5, pad 2, stride 1"
+MP v0 int 77576 1 input 8x64x64, filter 5x5, pad 2, stride 1
+PM v0 psram_miss=0 dbus=8 insn=60838 store=0 tie=0 dep=8523 checked=1 input 8x64x64, filter 5x5, pad 2, stride 1
+POOL_OUTPUT mem=int bytes=32768 raw=0x3fca91d0 gold0=0x3fcb1270 gold1=0x3fcb9290 guard=64 failures=0 result=ok shape="input 8x64x64, filter 5x5, pad 2, stride 1"
+POOL_INPUT mem=int bytes=32768 in0=0x3fc99190 in1=0x3fca11b0 result=ok shape="input 8x64x64, filter 5x5, pad 2, stride 1"
+BENCH op=max_pool variant=master mem=ext ansi=8403545 opt=193520 ratio=43.42 result=ok shape="input 16x32x64, filter 5x5, pad 2, stride 1"
+MP master ext 193520 1 input 16x32x64, filter 5x5, pad 2, stride 1
+PM master psram_miss=23 dbus=49672 insn=94108 store=2821 tie=0 dep=2271 checked=1 input 16x32x64, filter 5x5, pad 2, stride 1
+BENCH op=max_pool variant=v0 mem=ext ansi=8403545 opt=167706 ratio=50.11 result=ok shape="input 16x32x64, filter 5x5, pad 2, stride 1"
+MP v0 ext 167706 1 input 16x32x64, filter 5x5, pad 2, stride 1
+PM v0 psram_miss=22 dbus=11912 insn=55526 store=3661 tie=0 dep=8075 checked=1 input 16x32x64, filter 5x5, pad 2, stride 1
+POOL_OUTPUT mem=ext bytes=32768 raw=0x3c0509f0 gold0=0x3fc99190 gold1=0x3fca11b0 guard=64 failures=0 result=ok shape="input 16x32x64, filter 5x5, pad 2, stride 1"
+POOL_INPUT mem=ext bytes=32768 in0=0x3c0409b0 in1=0x3c0489d0 result=ok shape="input 16x32x64, filter 5x5, pad 2, stride 1"
+BENCH op=max_pool variant=master mem=int ansi=8353340 opt=108030 ratio=77.32 result=ok shape="input 16x32x64, filter 5x5, pad 2, stride 1"
+MP master int 108030 1 input 16x32x64, filter 5x5, pad 2, stride 1
+PM master psram_miss=0 dbus=8 insn=91556 store=0 tie=0 dep=2372 checked=1 input 16x32x64, filter 5x5, pad 2, stride 1
+BENCH op=max_pool variant=v0 mem=int ansi=8353340 opt=70792 ratio=118.00 result=ok shape="input 16x32x64, filter 5x5, pad 2, stride 1"
+MP v0 int 70792 1 input 16x32x64, filter 5x5, pad 2, stride 1
+PM v0 psram_miss=0 dbus=8 insn=55526 store=0 tie=0 dep=8075 checked=1 input 16x32x64, filter 5x5, pad 2, stride 1
+POOL_OUTPUT mem=int bytes=32768 raw=0x3fca91d0 gold0=0x3fcb1270 gold1=0x3fcb9290 guard=64 failures=0 result=ok shape="input 16x32x64, filter 5x5, pad 2, stride 1"
+POOL_INPUT mem=int bytes=32768 in0=0x3fc99190 in1=0x3fca11b0 result=ok shape="input 16x32x64, filter 5x5, pad 2, stride 1"
+BENCH op=max_pool variant=master mem=ext ansi=8363900 opt=181620 ratio=46.05 result=ok shape="input 32x16x64, filter 5x5, pad 2, stride 1"
+MP master ext 181620 1 input 32x16x64, filter 5x5, pad 2, stride 1
+PM master psram_miss=19 dbus=49672 insn=89420 store=2358 tie=0 dep=1903 checked=1 input 32x16x64, filter 5x5, pad 2, stride 1
+BENCH op=max_pool variant=v0 mem=ext ansi=8363900 opt=156541 ratio=53.43 result=ok shape="input 32x16x64, filter 5x5, pad 2, stride 1"
+MP v0 ext 156541 1 input 32x16x64, filter 5x5, pad 2, stride 1
+PM v0 psram_miss=18 dbus=11528 insn=52294 store=2325 tie=0 dep=7563 checked=1 input 32x16x64, filter 5x5, pad 2, stride 1
+POOL_OUTPUT mem=ext bytes=32768 raw=0x3c0509f0 gold0=0x3fc99190 gold1=0x3fca11b0 guard=64 failures=0 result=ok shape="input 32x16x64, filter 5x5, pad 2, stride 1"
+POOL_INPUT mem=ext bytes=32768 in0=0x3c0409b0 in1=0x3c0489d0 result=ok shape="input 32x16x64, filter 5x5, pad 2, stride 1"
+BENCH op=max_pool variant=master mem=int ansi=8315939 opt=103486 ratio=80.36 result=ok shape="input 32x16x64, filter 5x5, pad 2, stride 1"
+MP master int 103486 1 input 32x16x64, filter 5x5, pad 2, stride 1
+PM master psram_miss=0 dbus=8 insn=88452 store=0 tie=0 dep=1956 checked=1 input 32x16x64, filter 5x5, pad 2, stride 1
+BENCH op=max_pool variant=v0 mem=int ansi=8315939 opt=66536 ratio=124.98 result=ok shape="input 32x16x64, filter 5x5, pad 2, stride 1"
+MP v0 int 66536 1 input 32x16x64, filter 5x5, pad 2, stride 1
+PM v0 psram_miss=0 dbus=8 insn=52294 store=0 tie=0 dep=7563 checked=1 input 32x16x64, filter 5x5, pad 2, stride 1
+POOL_OUTPUT mem=int bytes=32768 raw=0x3fca91d0 gold0=0x3fcb1270 gold1=0x3fcb9290 guard=64 failures=0 result=ok shape="input 32x16x64, filter 5x5, pad 2, stride 1"
+POOL_INPUT mem=int bytes=32768 in0=0x3fc99190 in1=0x3fca11b0 result=ok shape="input 32x16x64, filter 5x5, pad 2, stride 1"
+BENCH op=max_pool variant=master mem=ext ansi=7878494 opt=178909 ratio=44.04 result=ok shape="input 64x8x64, filter 5x5, pad 2, stride 1"
+MP master ext 178909 1 input 64x8x64, filter 5x5, pad 2, stride 1
+PM master psram_miss=19 dbus=46792 insn=82900 store=2391 tie=0 dep=1719 checked=1 input 64x8x64, filter 5x5, pad 2, stride 1
+BENCH op=max_pool variant=v0 mem=ext ansi=7878494 opt=161453 ratio=48.80 result=ok shape="input 64x8x64, filter 5x5, pad 2, stride 1"
+MP v0 ext 161453 1 input 64x8x64, filter 5x5, pad 2, stride 1
+PM v0 psram_miss=18 dbus=10760 insn=49526 store=3098 tie=0 dep=6731 checked=1 input 64x8x64, filter 5x5, pad 2, stride 1
+POOL_OUTPUT mem=ext bytes=32768 raw=0x3c0509f0 gold0=0x3fc99190 gold1=0x3fca11b0 guard=64 failures=0 result=ok shape="input 64x8x64, filter 5x5, pad 2, stride 1"
+POOL_INPUT mem=ext bytes=32768 in0=0x3c0409b0 in1=0x3c0489d0 result=ok shape="input 64x8x64, filter 5x5, pad 2, stride 1"
+BENCH op=max_pool variant=master mem=int ansi=7827217 opt=96606 ratio=81.02 result=ok shape="input 64x8x64, filter 5x5, pad 2, stride 1"
+MP master int 96606 1 input 64x8x64, filter 5x5, pad 2, stride 1
+PM master psram_miss=0 dbus=8 insn=82724 store=0 tie=0 dep=1748 checked=1 input 64x8x64, filter 5x5, pad 2, stride 1
+BENCH op=max_pool variant=v0 mem=int ansi=7827217 opt=62680 ratio=124.88 result=ok shape="input 64x8x64, filter 5x5, pad 2, stride 1"
+MP v0 int 62680 1 input 64x8x64, filter 5x5, pad 2, stride 1
+PM v0 psram_miss=0 dbus=8 insn=49526 store=0 tie=0 dep=6731 checked=1 input 64x8x64, filter 5x5, pad 2, stride 1
+POOL_OUTPUT mem=int bytes=32768 raw=0x3fca91d0 gold0=0x3fcb1270 gold1=0x3fcb9290 guard=64 failures=0 result=ok shape="input 64x8x64, filter 5x5, pad 2, stride 1"
+POOL_INPUT mem=int bytes=32768 in0=0x3fc99190 in1=0x3fca11b0 result=ok shape="input 64x8x64, filter 5x5, pad 2, stride 1"
+BENCH op=max_pool variant=master mem=ext ansi=8864454 opt=329514 ratio=26.90 result=ok shape="input 64x32x16, filter 5x5, pad 2, stride 1"
+MP master ext 329514 1 input 64x32x16, filter 5x5, pad 2, stride 1
+PM master psram_miss=19 dbus=52456 insn=177692 store=36 tie=0 dep=55199 checked=1 input 64x32x16, filter 5x5, pad 2, stride 1
+BENCH op=max_pool variant=v0 mem=ext ansi=8864454 opt=122904 ratio=72.13 result=ok shape="input 64x32x16, filter 5x5, pad 2, stride 1"
+MP v0 ext 122904 1 input 64x32x16, filter 5x5, pad 2, stride 1
+PM v0 psram_miss=19 dbus=11912 insn=52358 store=496 tie=0 dep=7883 checked=1 input 64x32x16, filter 5x5, pad 2, stride 1
+POOL_OUTPUT mem=ext bytes=32768 raw=0x3c0509f0 gold0=0x3fc99190 gold1=0x3fca11b0 guard=64 failures=0 result=ok shape="input 64x32x16, filter 5x5, pad 2, stride 1"
+POOL_INPUT mem=ext bytes=32768 in0=0x3c0409b0 in1=0x3c0489d0 result=ok shape="input 64x32x16, filter 5x5, pad 2, stride 1"
+BENCH op=max_pool variant=master mem=int ansi=8820097 opt=271854 ratio=32.44 result=ok shape="input 64x32x16, filter 5x5, pad 2, stride 1"
+MP master int 271854 1 input 64x32x16, filter 5x5, pad 2, stride 1
+PM master psram_miss=0 dbus=8 insn=175140 store=0 tie=0 dep=55300 checked=1 input 64x32x16, filter 5x5, pad 2, stride 1
+BENCH op=max_pool variant=v0 mem=int ansi=8820097 opt=66664 ratio=132.31 result=ok shape="input 64x32x16, filter 5x5, pad 2, stride 1"
+MP v0 int 66664 1 input 64x32x16, filter 5x5, pad 2, stride 1
+PM v0 psram_miss=0 dbus=8 insn=52358 store=0 tie=0 dep=7883 checked=1 input 64x32x16, filter 5x5, pad 2, stride 1
+POOL_OUTPUT mem=int bytes=32768 raw=0x3fca91d0 gold0=0x3fcb1270 gold1=0x3fcb9290 guard=64 failures=0 result=ok shape="input 64x32x16, filter 5x5, pad 2, stride 1"
+POOL_INPUT mem=int bytes=32768 in0=0x3fc99190 in1=0x3fca11b0 result=ok shape="input 64x32x16, filter 5x5, pad 2, stride 1"
+BENCH op=max_pool variant=master mem=ext ansi=8688969 opt=209830 ratio=41.41 result=ok shape="input 32x32x32, filter 5x5, pad 2, stride 1"
+MP master ext 209830 1 input 32x32x32, filter 5x5, pad 2, stride 1
+PM master psram_miss=19 dbus=51528 insn=125256 store=936 tie=0 dep=3807 checked=1 input 32x32x32, filter 5x5, pad 2, stride 1
+BENCH op=max_pool variant=v0 mem=ext ansi=8688969 opt=151033 ratio=57.53 result=ok shape="input 32x32x32, filter 5x5, pad 2, stride 1"
+MP v0 ext 151033 1 input 32x32x32, filter 5x5, pad 2, stride 1
+PM v0 psram_miss=18 dbus=11912 insn=53414 store=2536 tie=0 dep=7947 checked=1 input 32x32x32, filter 5x5, pad 2, stride 1
+POOL_OUTPUT mem=ext bytes=32768 raw=0x3c0509f0 gold0=0x3fc99190 gold1=0x3fca11b0 guard=64 failures=0 result=ok shape="input 32x32x32, filter 5x5, pad 2, stride 1"
+POOL_INPUT mem=ext bytes=32768 in0=0x3c0409b0 in1=0x3c0489d0 result=ok shape="input 32x32x32, filter 5x5, pad 2, stride 1"
+BENCH op=max_pool variant=master mem=int ansi=8641985 opt=148126 ratio=58.34 result=ok shape="input 32x32x32, filter 5x5, pad 2, stride 1"
+MP master int 148126 1 input 32x32x32, filter 5x5, pad 2, stride 1
+PM master psram_miss=0 dbus=8 insn=122704 store=0 tie=0 dep=3908 checked=1 input 32x32x32, filter 5x5, pad 2, stride 1
+BENCH op=max_pool variant=v0 mem=int ansi=8641985 opt=68040 ratio=127.01 result=ok shape="input 32x32x32, filter 5x5, pad 2, stride 1"
+MP v0 int 68040 1 input 32x32x32, filter 5x5, pad 2, stride 1
+PM v0 psram_miss=0 dbus=8 insn=53414 store=0 tie=0 dep=7947 checked=1 input 32x32x32, filter 5x5, pad 2, stride 1
+POOL_OUTPUT mem=int bytes=32768 raw=0x3fca91d0 gold0=0x3fcb1270 gold1=0x3fcb9290 guard=64 failures=0 result=ok shape="input 32x32x32, filter 5x5, pad 2, stride 1"
+POOL_INPUT mem=int bytes=32768 in0=0x3fc99190 in1=0x3fca11b0 result=ok shape="input 32x32x32, filter 5x5, pad 2, stride 1"
+BENCH op=max_pool variant=master mem=ext ansi=8099580 opt=175199 ratio=46.23 result=ok shape="input 16x16x128, filter 5x5, pad 2, stride 1"
+MP master ext 175199 1 input 16x16x128, filter 5x5, pad 2, stride 1
+PM master psram_miss=20 dbus=47880 insn=84628 store=2488 tie=0 dep=1135 checked=1 input 16x16x128, filter 5x5, pad 2, stride 1
+BENCH op=max_pool variant=v0 mem=ext ansi=8099580 opt=151660 ratio=53.41 result=ok shape="input 16x16x128, filter 5x5, pad 2, stride 1"
+MP v0 ext 151660 1 input 16x16x128, filter 5x5, pad 2, stride 1
+PM v0 psram_miss=19 dbus=11528 insn=54406 store=1897 tie=0 dep=7691 checked=1 input 16x16x128, filter 5x5, pad 2, stride 1
+POOL_OUTPUT mem=ext bytes=32768 raw=0x3c0509f0 gold0=0x3fc99190 gold1=0x3fca11b0 guard=64 failures=0 result=ok shape="input 16x16x128, filter 5x5, pad 2, stride 1"
+POOL_INPUT mem=ext bytes=32768 in0=0x3c0409b0 in1=0x3c0489d0 result=ok shape="input 16x16x128, filter 5x5, pad 2, stride 1"
+BENCH op=max_pool variant=master mem=int ansi=8048931 opt=95582 ratio=84.21 result=ok shape="input 16x16x128, filter 5x5, pad 2, stride 1"
+MP master int 95582 1 input 16x16x128, filter 5x5, pad 2, stride 1
+PM master psram_miss=0 dbus=8 insn=83660 store=0 tie=0 dep=1188 checked=1 input 16x16x128, filter 5x5, pad 2, stride 1
+BENCH op=max_pool variant=v0 mem=int ansi=8048931 opt=69288 ratio=116.17 result=ok shape="input 16x16x128, filter 5x5, pad 2, stride 1"
+MP v0 int 69288 1 input 16x16x128, filter 5x5, pad 2, stride 1
+PM v0 psram_miss=0 dbus=8 insn=54406 store=0 tie=0 dep=7691 checked=1 input 16x16x128, filter 5x5, pad 2, stride 1
+POOL_OUTPUT mem=int bytes=32768 raw=0x3fca91d0 gold0=0x3fcb1270 gold1=0x3fcb9290 guard=64 failures=0 result=ok shape="input 16x16x128, filter 5x5, pad 2, stride 1"
+POOL_INPUT mem=int bytes=32768 in0=0x3fc99190 in1=0x3fca11b0 result=ok shape="input 16x16x128, filter 5x5, pad 2, stride 1"
+BENCH op=max_pool variant=master mem=ext ansi=13009607 opt=353127 ratio=36.84 result=ok shape="input 32x32x48, filter 5x5, pad 2, stride 1"
+MP master ext 353127 1 input 32x32x48, filter 5x5, pad 2, stride 1
+PM master psram_miss=809 dbus=77288 insn=198480 store=3436 tie=0 dep=27487 checked=1 input 32x32x48, filter 5x5, pad 2, stride 1
+BENCH op=max_pool variant=v0 mem=ext ansi=13009607 opt=284522 ratio=45.72 result=ok shape="input 32x32x48, filter 5x5, pad 2, stride 1"
+MP v0 ext 284522 1 input 32x32x48, filter 5x5, pad 2, stride 1
+PM v0 psram_miss=800 dbus=17864 insn=79686 store=7870 tie=0 dep=11915 checked=1 input 32x32x48, filter 5x5, pad 2, stride 1
+POOL_OUTPUT mem=ext bytes=49152 raw=0x3c0589f0 gold0=0x3fc99190 gold1=0x3fca51b0 guard=64 failures=0 result=ok shape="input 32x32x48, filter 5x5, pad 2, stride 1"
+POOL_INPUT mem=ext bytes=49152 in0=0x3c0409b0 in1=0x3c04c9d0 result=ok shape="input 32x32x48, filter 5x5, pad 2, stride 1"
+BENCH op=max_pool variant=master mem=int ansi=12939895 opt=255698 ratio=50.61 result=ok shape="input 32x32x48, filter 5x5, pad 2, stride 1"
+MP master int 255698 1 input 32x32x48, filter 5x5, pad 2, stride 1
+PM master psram_miss=0 dbus=8 insn=195928 store=0 tie=0 dep=27588 checked=1 input 32x32x48, filter 5x5, pad 2, stride 1
+BENCH op=max_pool variant=v0 mem=int ansi=12939895 opt=101608 ratio=127.35 result=ok shape="input 32x32x48, filter 5x5, pad 2, stride 1"
+MP v0 int 101608 1 input 32x32x48, filter 5x5, pad 2, stride 1
+PM v0 psram_miss=0 dbus=8 insn=79686 store=0 tie=0 dep=11915 checked=1 input 32x32x48, filter 5x5, pad 2, stride 1
+POOL_OUTPUT mem=int bytes=49152 raw=0x3fcb11d0 gold0=0x3fcbd270 gold1=0x3fcc9290 guard=64 failures=0 result=ok shape="input 32x32x48, filter 5x5, pad 2, stride 1"
+POOL_INPUT mem=int bytes=49152 in0=0x3fc99190 in1=0x3fca51b0 result=ok shape="input 32x32x48, filter 5x5, pad 2, stride 1"
+BENCH op=max_pool variant=master mem=ext ansi=1901969 opt=31695 ratio=60.01 result=ok shape="input 8x32x64, filter 3x3, pad 1, stride 1"
+MP master ext 31695 1 input 8x32x64, filter 3x3, pad 1, stride 1
+PM master psram_miss=0 dbus=9592 insn=27424 store=123 tie=0 dep=831 checked=1 input 8x32x64, filter 3x3, pad 1, stride 1
+BENCH op=max_pool variant=v0 mem=ext ansi=1901969 opt=30599 ratio=62.16 result=ok shape="input 8x32x64, filter 3x3, pad 1, stride 1"
+MP v0 ext 30599 1 input 8x32x64, filter 3x3, pad 1, stride 1
+PM v0 psram_miss=0 dbus=4040 insn=24295 store=153 tie=0 dep=2251 checked=1 input 8x32x64, filter 3x3, pad 1, stride 1
+POOL_OUTPUT mem=ext bytes=16384 raw=0x3c0489f0 gold0=0x3fc99190 gold1=0x3fc9d1b0 guard=64 failures=0 result=ok shape="input 8x32x64, filter 3x3, pad 1, stride 1"
+POOL_INPUT mem=ext bytes=16384 in0=0x3c0409b0 in1=0x3c0449d0 result=ok shape="input 8x32x64, filter 3x3, pad 1, stride 1"
+BENCH op=max_pool variant=master mem=int ansi=1901969 opt=29026 ratio=65.53 result=ok shape="input 8x32x64, filter 3x3, pad 1, stride 1"
+MP master int 29026 1 input 8x32x64, filter 3x3, pad 1, stride 1
+PM master psram_miss=0 dbus=8 insn=25274 store=0 tie=0 dep=816 checked=1 input 8x32x64, filter 3x3, pad 1, stride 1
+BENCH op=max_pool variant=v0 mem=int ansi=1901969 opt=30599 ratio=62.16 result=ok shape="input 8x32x64, filter 3x3, pad 1, stride 1"
+MP v0 int 30599 1 input 8x32x64, filter 3x3, pad 1, stride 1
+PM v0 psram_miss=0 dbus=8 insn=24295 store=0 tie=0 dep=2251 checked=1 input 8x32x64, filter 3x3, pad 1, stride 1
+POOL_OUTPUT mem=int bytes=16384 raw=0x3fca11d0 gold0=0x3fca5270 gold1=0x3fca9290 guard=64 failures=0 result=ok shape="input 8x32x64, filter 3x3, pad 1, stride 1"
+POOL_INPUT mem=int bytes=16384 in0=0x3fc99190 in1=0x3fc9d1b0 result=ok shape="input 8x32x64, filter 3x3, pad 1, stride 1"
+BENCH op=max_pool variant=master mem=ext ansi=16149306 opt=1071393 ratio=15.07 result=ok shape="input 64x32x64, filter 3x3, pad 1, stride 1"
+MP master ext 1071393 1 input 64x32x64, filter 3x3, pad 1, stride 1
+PM master psram_miss=4100 dbus=80376 insn=178512 store=325707 tie=0 dep=1167 checked=1 input 64x32x64, filter 3x3, pad 1, stride 1
+BENCH op=max_pool variant=v0 mem=ext ansi=16149306 opt=1209248 ratio=13.35 result=ok shape="input 64x32x64, filter 3x3, pad 1, stride 1"
+MP v0 ext 1209248 1 input 64x32x64, filter 3x3, pad 1, stride 1
+PM v0 psram_miss=4100 dbus=32264 insn=159591 store=169831 tie=0 dep=16139 checked=1 input 64x32x64, filter 3x3, pad 1, stride 1
+POOL_OUTPUT mem=ext bytes=131072 raw=0x3c0809f0 gold0=0x3fc99190 gold1=0x3fcb91b0 guard=64 failures=0 result=ok shape="input 64x32x64, filter 3x3, pad 1, stride 1"
+POOL_INPUT mem=ext bytes=131072 in0=0x3c0409b0 in1=0x3c0609d0 result=ok shape="input 64x32x64, filter 3x3, pad 1, stride 1"
+BENCH op=max_pool variant=master mem=ext ansi=1882721 opt=25095 ratio=75.02 result=ok shape="input 32x8x64, filter 3x3, pad 1, stride 1"
+MP master ext 25095 1 input 32x8x64, filter 3x3, pad 1, stride 1
+PM master psram_miss=0 dbus=9592 insn=22576 store=0 tie=0 dep=375 checked=1 input 32x8x64, filter 3x3, pad 1, stride 1
+BENCH op=max_pool variant=v0 mem=ext ansi=1882721 opt=25271 ratio=74.50 result=ok shape="input 32x8x64, filter 3x3, pad 1, stride 1"
+MP v0 ext 25271 1 input 32x8x64, filter 3x3, pad 1, stride 1
+PM v0 psram_miss=0 dbus=3848 insn=20311 store=0 tie=0 dep=1867 checked=1 input 32x8x64, filter 3x3, pad 1, stride 1
+POOL_OUTPUT mem=ext bytes=16384 raw=0x3c0489f0 gold0=0x3fc99190 gold1=0x3fc9d1b0 guard=64 failures=0 result=ok shape="input 32x8x64, filter 3x3, pad 1, stride 1"
+POOL_INPUT mem=ext bytes=16384 in0=0x3c0409b0 in1=0x3c0449d0 result=ok shape="input 32x8x64, filter 3x3, pad 1, stride 1"
+BENCH op=max_pool variant=master mem=int ansi=1882721 opt=24730 ratio=76.13 result=ok shape="input 32x8x64, filter 3x3, pad 1, stride 1"
+MP master int 24730 1 input 32x8x64, filter 3x3, pad 1, stride 1
+PM master psram_miss=0 dbus=8 insn=22274 store=0 tie=0 dep=384 checked=1 input 32x8x64, filter 3x3, pad 1, stride 1
+BENCH op=max_pool variant=v0 mem=int ansi=1882721 opt=25271 ratio=74.50 result=ok shape="input 32x8x64, filter 3x3, pad 1, stride 1"
+MP v0 int 25271 1 input 32x8x64, filter 3x3, pad 1, stride 1
+PM v0 psram_miss=0 dbus=8 insn=20311 store=0 tie=0 dep=1867 checked=1 input 32x8x64, filter 3x3, pad 1, stride 1
+POOL_OUTPUT mem=int bytes=16384 raw=0x3fca11d0 gold0=0x3fca5270 gold1=0x3fca9290 guard=64 failures=0 result=ok shape="input 32x8x64, filter 3x3, pad 1, stride 1"
+POOL_INPUT mem=int bytes=16384 in0=0x3fc99190 in1=0x3fc9d1b0 result=ok shape="input 32x8x64, filter 3x3, pad 1, stride 1"
+BENCH op=max_pool variant=master mem=ext ansi=16168200 opt=1070715 ratio=15.10 result=ok shape="input 32x64x64, filter 3x3, pad 1, stride 1"
+MP master ext 1070715 1 input 32x64x64, filter 3x3, pad 1, stride 1
+PM master psram_miss=4099 dbus=80376 insn=184976 store=323755 tie=0 dep=1775 checked=1 input 32x64x64, filter 3x3, pad 1, stride 1
+BENCH op=max_pool variant=v0 mem=ext ansi=16168200 opt=1201062 ratio=13.46 result=ok shape="input 32x64x64, filter 3x3, pad 1, stride 1"
+MP v0 ext 1201062 1 input 32x64x64, filter 3x3, pad 1, stride 1
+PM v0 psram_miss=4099 dbus=32520 insn=164903 store=184429 tie=0 dep=16651 checked=1 input 32x64x64, filter 3x3, pad 1, stride 1
+POOL_OUTPUT mem=ext bytes=131072 raw=0x3c0809f0 gold0=0x3fc99190 gold1=0x3fcb91b0 guard=64 failures=0 result=ok shape="input 32x64x64, filter 3x3, pad 1, stride 1"
+POOL_INPUT mem=ext bytes=131072 in0=0x3c0409b0 in1=0x3c0609d0 result=ok shape="input 32x64x64, filter 3x3, pad 1, stride 1"
+BENCH op=max_pool variant=master mem=ext ansi=15945150 opt=1070232 ratio=14.90 result=ok shape="input 128x16x64, filter 3x3, pad 1, stride 1"
+MP master ext 1070232 1 input 128x16x64, filter 3x3, pad 1, stride 1
+PM master psram_miss=4099 dbus=79608 insn=174224 store=332102 tie=0 dep=1151 checked=1 input 128x16x64, filter 3x3, pad 1, stride 1
+BENCH op=max_pool variant=v0 mem=ext ansi=15945150 opt=1210809 ratio=13.17 result=ok shape="input 128x16x64, filter 3x3, pad 1, stride 1"
+MP v0 ext 1210809 1 input 128x16x64, filter 3x3, pad 1, stride 1
+PM v0 psram_miss=4099 dbus=31752 insn=156167 store=161977 tie=0 dep=15499 checked=1 input 128x16x64, filter 3x3, pad 1, stride 1
+POOL_OUTPUT mem=ext bytes=131072 raw=0x3c0809f0 gold0=0x3fc99190 gold1=0x3fcb91b0 guard=64 failures=0 result=ok shape="input 128x16x64, filter 3x3, pad 1, stride 1"
+POOL_INPUT mem=ext bytes=131072 in0=0x3c0409b0 in1=0x3c0609d0 result=ok shape="input 128x16x64, filter 3x3, pad 1, stride 1"
+BENCH op=max_pool variant=master mem=ext ansi=34575746 opt=1521039 ratio=22.73 result=ok shape="input 128x16x64, filter 5x5, pad 2, stride 1"
+MP master ext 1521039 1 input 128x16x64, filter 5x5, pad 2, stride 1
+PM master psram_miss=5890 dbus=204040 insn=350732 store=336416 tie=0 dep=6511 checked=1 input 128x16x64, filter 5x5, pad 2, stride 1
+BENCH op=max_pool variant=v0 mem=ext ansi=34575746 opt=1519229 ratio=22.76 result=ok shape="input 128x16x64, filter 5x5, pad 2, stride 1"
+MP v0 ext 1519229 1 input 128x16x64, filter 5x5, pad 2, stride 1
+PM v0 psram_miss=5890 dbus=46088 insn=201286 store=161501 tie=0 dep=29835 checked=1 input 128x16x64, filter 5x5, pad 2, stride 1
+POOL_OUTPUT mem=ext bytes=131072 raw=0x3c0809f0 gold0=0x3fc99190 gold1=0x3fcb91b0 guard=64 failures=0 result=ok shape="input 128x16x64, filter 5x5, pad 2, stride 1"
+POOL_INPUT mem=ext bytes=131072 in0=0x3c0409b0 in1=0x3c0609d0 result=ok shape="input 128x16x64, filter 5x5, pad 2, stride 1"
+BENCH op=max_pool variant=master mem=ext ansi=15684381 opt=1344990 ratio=11.66 result=ok shape="input 256x8x64, filter 3x3, pad 1, stride 1"
+MP master ext 1344990 1 input 256x8x64, filter 3x3, pad 1, stride 1
+PM master psram_miss=5636 dbus=77688 insn=169968 store=422106 tie=0 dep=1719 checked=1 input 256x8x64, filter 3x3, pad 1, stride 1
+BENCH op=max_pool variant=v0 mem=ext ansi=15684381 opt=1482790 ratio=10.58 result=ok shape="input 256x8x64, filter 3x3, pad 1, stride 1"
+MP v0 ext 1482790 1 input 256x8x64, filter 3x3, pad 1, stride 1
+PM v0 psram_miss=5897 dbus=30728 insn=152919 store=121510 tie=0 dep=14411 checked=1 input 256x8x64, filter 3x3, pad 1, stride 1
+POOL_OUTPUT mem=ext bytes=131072 raw=0x3c0809f0 gold0=0x3fc99190 gold1=0x3fcb91b0 guard=64 failures=0 result=ok shape="input 256x8x64, filter 3x3, pad 1, stride 1"
+POOL_INPUT mem=ext bytes=131072 in0=0x3c0409b0 in1=0x3c0609d0 result=ok shape="input 256x8x64, filter 3x3, pad 1, stride 1"
+Guru Meditation Error: Core  0 panic'ed (Interrupt wdt timeout on CPU0). 
+
+Core  0 register dump:
+PC      : 0x4201fdfc  PS      : 0x00060a34  A0      : 0x8200adb1  A1      : 0x3fced5b0  
+--- 0x4201fdfc: esp_nn_max_pool_s8_ansi at /home/kostis/Desktop/ESP-NN/pr68-cache-locality/experiment/esp-nn/src/pooling/esp_nn_max_pool_ansi.c:53
+A2      : 0x3c054e91  A3      : 0x00004000  A4      : 0x00000040  A5      : 0x00000000  
+A6      : 0x00000002  A7      : 0x00000005  A8      : 0x00000070  A9      : 0x00000017  
+A10     : 0x0000007f  A11     : 0x3c094f70  A12     : 0x00000001  A13     : 0x3c054f91  
+A14     : 0x00000000  A15     : 0x00000005  SAR     : 0x00000020  EXCCAUSE: 0x00000005  
+EXCVADDR: 0x00000000  LBEG    : 0x400570e8  LEND    : 0x400570f3  LCOUNT  : 0x00000000  
+--- 0x400570e8: memset in ROM
+--- 0x400570f3: memset in ROM
+
+
+Backtrace: 0x4201fdf9:0x3fced5b0 0x4200adae:0x3fced620 0x4201b4d1:0x3fced670 0x4201b8d2:0x3fced6b0 0x4200af52:0x3fced710 0x4200b03a:0x3fced820 0x42009b7a:0x3fced850 0x42023346:0x3fced880
+--- 0x4201fdf9: esp_nn_max_pool_s8_ansi at /home/kostis/Desktop/ESP-NN/pr68-cache-locality/experiment/esp-nn/src/pooling/esp_nn_max_pool_ansi.c:45
+--- 0x4200adae: max_ref at /home/kostis/Desktop/ESP-NN/pr68-cache-locality/experiment/esp-nn/bench_app/main/bench_pooling.c:116
+--- 0x4201b4d1: time_calls at /home/kostis/Desktop/ESP-NN/pr68-cache-locality/experiment/esp-nn/bench_app/components/bench_harness/bench.c:147
+--- 0x4201b8d2: bench_run at /home/kostis/Desktop/ESP-NN/pr68-cache-locality/experiment/esp-nn/bench_app/components/bench_harness/bench.c:249
+--- 0x4200af52: run_shape at /home/kostis/Desktop/ESP-NN/pr68-cache-locality/experiment/esp-nn/bench_app/main/bench_pooling.c:188
+--- 0x4200b03a: bench_pooling at /home/kostis/Desktop/ESP-NN/pr68-cache-locality/experiment/esp-nn/bench_app/main/bench_pooling.c:217
+--- 0x42009b7a: bench_task at /home/kostis/Desktop/ESP-NN/pr68-cache-locality/experiment/esp-nn/bench_app/main/bench_main.c:38
+--- 0x42023346: vPortTaskWrapper at /home/kostis/Desktop/ESP-NN/pr68-reviewer-repro/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:147
+
+
+Core  1 register dump:
+PC      : 0x40379196  PS      : 0x00060034  A0      : 0x82022d01  A1      : 0x3fc98da0  
+--- 0x40379196: esp_cpu_wait_for_intr at /home/kostis/Desktop/ESP-NN/pr68-reviewer-repro/esp-idf/components/esp_hw_support/cpu.c:64
+A2      : 0x00000000  A3      : 0x00000000  A4      : 0x3fc96a00  A5      : 0x3fc969e0  
+A6      : 0x40375580  A7      : 0x00000001  A8      : 0x00000000  A9      : 0x00000000  
+--- 0x40375580: ipc_task at /home/kostis/Desktop/ESP-NN/pr68-reviewer-repro/esp-idf/components/esp_system/esp_ipc.c:53
+A10     : 0x00000000  A11     : 0x00000000  A12     : 0x3fc969e0  A13     : 0x3fc969c0  
+A14     : 0x00000001  A15     : 0x00000000  SAR     : 0x00000000  EXCCAUSE: 0x00000005  
+EXCVADDR: 0x00000000  LBEG    : 0x00000000  LEND    : 0x00000000  LCOUNT  : 0x00000000  
+
+
+Backtrace: 0x40379193:0x3fc98da0 0x42022cfe:0x3fc98dc0 0x42023cd2:0x3fc98de0 0x42023346:0x3fc98e00
+--- 0x40379193: xt_utils_wait_for_intr at /home/kostis/Desktop/ESP-NN/pr68-reviewer-repro/esp-idf/components/xtensa/include/xt_utils.h:82(inlined by) esp_cpu_wait_for_intr at /home/kostis/Desktop/ESP-NN/pr68-reviewer-repro/esp-idf/components/esp_hw_support/cpu.c:55
+--- 0x42022cfe: esp_vApplicationIdleHook at /home/kostis/Desktop/ESP-NN/pr68-reviewer-repro/esp-idf/components/esp_system/freertos_hooks.c:58
+--- 0x42023cd2: prvIdleTask at /home/kostis/Desktop/ESP-NN/pr68-reviewer-repro/esp-idf/components/freertos/FreeRTOS-Kernel/tasks.c:4350
+--- 0x42023346: vPortTaskWrapper at /home/kostis/Desktop/ESP-NN/pr68-reviewer-repro/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:147
+
+
+
+
+ELF file SHA256: 183a5ea89
+
+Rebooting...
+ESP-ROM:esp32s3-20210327
+Build:Mar 27 2021
+rst:0xc (RTC_SW_CPU_RST),boot:0x2a (SPI_FAST_FLASH_BOOT)
+Saved PC:0x4037bc91
+--- 0x4037bc91: esp_restart_noos at /home/kostis/Desktop/ESP-NN/pr68-reviewer-repro/esp-idf/components/esp_system/port/soc/esp32s3/system_internal.c:171
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fce2820,len:0x14f0
+load:0x403c8700,len:0xde4
+--- 0x403c8700: _stext at ??:?
+load:0x403cb700,len:0x2f58
+entry 0x403c8904
+--- 0x403c8904: call_start_cpu0 at /home/kostis/Desktop/ESP-NN/pr68-reviewer-repro/esp-idf/components/bootloader/subproject/main/bootloader_start.c:27
+[0;32mI (24) boot: ESP-IDF v6.1 2nd stage bootloader[0m
+[0;32mI (24) boot: compile time Nov 27 2026 19:34:43[0m
+[0;32mI (24) boot: Multicore bootloader[0m
+[0;32mI (25) boot: chip revision: v0.2[0m
+[0;32mI (27) boot: efuse block revision: v1.3[0m
+[0;32mI (30) boot.esp32s3: Boot SPI Speed : 80MHz[0m
+[0;32mI (34) boot.esp32s3: SPI Mode       : DIO[0m
+[0;32mI (38) boot.esp32s3: SPI Flash Size : 8MB[0m
+[0;32mI (42) boot: Enabling RNG early entropy source...[0m
+[0;32mI (46) boot: Partition Table:[0m
+[0;32mI (49) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (55) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (62) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (68) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (75) boot: End of partition table[0m
+[0;32mI (78) esp_image: segment 0: paddr=00010020 vaddr=3c030020 size=0ab98h ( 43928) map[0m
+[0;32mI (94) esp_image: segment 1: paddr=0001abc0 vaddr=3fc91600 size=03618h ( 13848) load[0m
+[0;32mI (97) esp_image: segment 2: paddr=0001e1e0 vaddr=40374000 size=01e38h (  7736) load[0m
+[0;32mI (102) esp_image: segment 3: paddr=00020020 vaddr=42000020 size=25660h (153184) map[0m
+[0;32mI (136) esp_image: segment 4: paddr=00045688 vaddr=40375e38 size=0b744h ( 46916) load[0m
+[0;32mI (147) esp_image: segment 5: paddr=00050dd4 vaddr=50000000 size=00024h (    36) load[0m
+[0;32mI (153) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (153) boot: Disabling RNG early entropy source...[0m
+[0;32mI (165) octal_psram: vendor id    : 0x0d (AP)[0m
+[0;32mI (165) octal_psram: dev id       : 0x02 (generation 3)[0m
+[0;32mI (165) octal_psram: density      : 0x03 (64 Mbit)[0m
+[0;32mI (167) octal_psram: good-die     : 0x01 (Pass)[0m
+[0;32mI (171) octal_psram: Latency      : 0x01 (Fixed)[0m
+[0;32mI (176) octal_psram: VCC          : 0x01 (3V)[0m
+[0;32mI (180) octal_psram: SRF          : 0x01 (Fast Refresh)[0m
+[0;32mI (185) octal_psram: BurstType    : 0x01 (Hybrid Wrap)[0m
+[0;32mI (190) octal_psram: BurstLen     : 0x01 (32 Byte)[0m
+[0;32mI (194) octal_psram: Readlatency  : 0x02 (10 cycles@Fixed)[0m
+[0;32mI (199) octal_psram: DriveStrength: 0x00 (1/1)[0m
+[0;32mI (203) MSPI Timing: Enter psram timing tuning[0m
+[0;32mI (208) esp_psram: Found 8MB PSRAM device[0m
+[0;32mI (211) esp_psram: Speed: 80MHz[0m
+[0;32mI (214) cpu_start: Multicore app[0m
+[0;32mI (519) esp_psram: SPI SRAM memory test OK[0m
+[0;32mI (527) cpu_start: GPIO 44 and 43 are used as console UART I/O pins[0m
+[0;32mI (528) cpu_start: Pro cpu start user code[0m
+[0;32mI (528) cpu_start: cpu freq: 240000000 Hz[0m
+[0;32mI (529) app_init: Application information:[0m
+[0;32mI (533) app_init: Project name:     bench_app[0m
+[0;32mI (537) app_init: App version:      pr68-locality[0m
+[0;32mI (542) app_init: Compile time:     Nov 27 2026 19:35:36[0m
+[0;32mI (547) app_init: ELF file SHA256:  183a5ea89...[0m
+[0;32mI (551) app_init: ESP-IDF:          v6.1[0m
+[0;32mI (555) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (559) efuse_init: Max chip rev:     v0.99 [0m
+[0;32mI (563) efuse_init: Chip rev:         v0.2[0m
+[0;32mI (566) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (573) heap_init: At 3FC95700 len 00054010 (336 KiB): RAM[0m
+[0;32mI (578) heap_init: At 3FCE9710 len 00005724 (21 KiB): RAM[0m
+[0;32mI (583) heap_init: At 600FE000 len 00001FE8 (7 KiB): RTCRAM[0m
+[0;32mI (588) esp_psram: Adding pool of 8192K of PSRAM memory to heap allocator[0m
+[0;32mI (595) spi_flash: detected chip: gd[0m
+[0;32mI (598) spi_flash: flash io: dio[0m
+[0;32mI (601) sleep_gpio: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (607) sleep_gpio: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (614) main_task: Started on CPU0[0m
+[0;32mI (614) main_task: Calling app_main()[0m
+BENCH_START target=esp32s3 idf=v6.1 cpu_mhz=240 psram=1 iters=9 seed=0xc0ffee42
+BENCH op=conv variant=esp_nn mem=ext ansi=4727760 opt=123306 ratio=38.34 result=ok shape="input 10x10x64, filter 64x1x1x64, pad 0, stride 1"
+BENCH op=conv variant=esp_nn mem=ext ansi=316374 opt=17664 ratio=17.91 result=ok shape="input 8x8x16, filter 16x1x1x16, pad 0, stride 1"
+BENCH op=conv variant=esp_nn mem=ext ansi=1349660 opt=70824 ratio=19.06 result=ok shape="input 8x8x3, filter 64x3x3x3, pad 0, stride 1"
+BENCH op=conv variant=esp_nn mem=ext ansi=2399214 opt=99119 ratio=24.21 result=ok shape="input 10x10x3, filter 64x3x3x3, pad 0, stride 1"
+BENCH op=conv variant=esp_nn mem=int ansi=359826 opt=18653 ratio=19.29 result=ok shape="input 8x8x16, filter 16x3x3x16, pad 0, stride 2"
+BENCH op=depthwise_conv variant=esp_nn mem=ext ansi=1138115 opt=86357 ratio=13.18 result=ok shape="input 18x18x16, filter 1x3x3x16, pad (0,0), stride (1,1)"
+BENCH op=depthwise_conv variant=esp_nn mem=ext ansi=871457 opt=66773 ratio=13.05 result=ok shape="input 16x16x16, filter 1x3x3x16, pad (0,0), stride (1,1)"
+BENCH op=depthwise_conv variant=esp_nn mem=int ansi=422629 opt=37090 ratio=11.39 result=ok shape="input 10x10x16, filter 1x3x3x16, pad (1,1), stride (1,1)"
+BENCH op=depthwise_conv variant=esp_nn mem=ext ansi=1280645 opt=260655 ratio=4.91 result=ok shape="input 12x12x4, filter 8x5x5x4, pad (1,1), stride (1,1)"
+BENCH op=depthwise_conv variant=esp_nn mem=int ansi=10740503 opt=2135840 ratio=5.03 result=ok shape="input 1x384x128, filter 1x1x3x128, pad (0,1), stride (1,1)"
+BENCH op=depthwise_conv variant=esp_nn mem=int ansi=5359218 opt=1071013 ratio=5.00 result=ok shape="input 1x192x256, filter 1x1x3x256, pad (0,1), stride (1,2)"
+BENCH op=fully_connected variant=esp_nn mem=int ansi=8447 opt=770 ratio=10.97 result=ok shape="length 271, 3 outputs, input offset 7"
+BENCH op=fully_connected variant=esp_nn_operands_8mod16 mem=int ansi=8447 opt=1558 ratio=5.42 result=ok shape="length 271, 3 outputs, input offset 7"
+BENCH op=fully_connected variant=esp_nn mem=ext ansi=680818 opt=28560 ratio=23.84 result=ok shape="length 256, 256 outputs, input offset -3"
+BENCH op=fully_connected variant=esp_nn_operands_8mod16 mem=ext ansi=680818 opt=108729 ratio=6.26 result=ok shape="length 256, 256 outputs, input offset -3"
+BENCH op=fully_connected variant=esp_nn mem=ext ansi=672037 opt=26630 ratio=25.24 result=ok shape="length 512, 128 outputs, input offset -3"
+BENCH op=fully_connected variant=esp_nn_operands_8mod16 mem=ext ansi=672037 opt=102869 ratio=6.53 result=ok shape="length 512, 128 outputs, input offset -3"
+BENCH op=fully_connected variant=esp_nn mem=ext ansi=1183431 opt=288924 ratio=4.10 result=ok shape="length 320, 320 outputs, input offset -3"
+BENCH op=fully_connected variant=esp_nn_operands_8mod16 mem=ext ansi=1183431 opt=311524 ratio=3.80 result=ok shape="length 320, 320 outputs, input offset -3"
+BENCH op=fully_connected variant=esp_nn mem=ext ansi=348237 opt=15588 ratio=22.34 result=ok shape="length 128, 256 outputs, input offset -3"
+BENCH op=fully_connected variant=esp_nn_operands_8mod16 mem=ext ansi=348237 opt=59064 ratio=5.90 result=ok shape="length 128, 256 outputs, input offset -3"
+BENCH op=fully_connected variant=esp_nn mem=ext ansi=184397 opt=13284 ratio=13.88 result=ok shape="length 64, 256 outputs, input offset -3"
+BENCH op=fully_connected variant=esp_nn_operands_8mod16 mem=ext ansi=184397 opt=38584 ratio=4.78 result=ok shape="length 64, 256 outputs, input offset -3"
+BENCH op=fully_connected variant=esp_nn mem=ext ansi=348237 opt=15332 ratio=22.71 result=ok shape="length 128, 256 outputs, input offset 0"
+BENCH op=fully_connected variant=esp_nn_operands_8mod16 mem=ext ansi=348237 opt=59064 ratio=5.90 result=ok shape="length 128, 256 outputs, input offset 0"
+BENCH op=fully_connected variant=esp_nn mem=int ansi=2007117 opt=47332 ratio=42.41 result=ok shape="length 384, 512 outputs, input offset 7"
+BENCH op=fully_connected variant=esp_nn mem=int ansi=2007117 opt=35912 ratio=55.89 result=ok shape="length 384, 512 outputs, input offset 7, worker on"
+BENCH op=fully_connected_batch variant=esp_nn mem=int ansi=753611 opt=95263 ratio=7.91 result=ok shape="batch 16, length 64, 64 outputs"
+BENCH op=fully_connected_batch variant=esp_nn_scratch mem=int ansi=753611 opt=29493 ratio=25.55 result=ok shape="batch 16, length 64, 64 outputs"
+BENCH op=fully_connected_batch variant=esp_nn mem=int ansi=3012445 opt=368607 ratio=8.17 result=ok shape="batch 32, length 64, 128 outputs"
+BENCH op=fully_connected_batch variant=esp_nn_scratch mem=int ansi=3012445 opt=94197 ratio=31.98 result=ok shape="batch 32, length 64, 128 outputs"
+BENCH op=fully_connected_batch variant=esp_nn mem=int ansi=1056287 opt=102815 ratio=10.27 result=ok shape="batch 4, length 128, 192 outputs"
+BENCH op=fully_connected_batch variant=esp_nn_scratch mem=int ansi=1056287 opt=62342 ratio=16.94 result=ok shape="batch 4, length 128, 192 outputs"
+BENCH op=fully_connected_batch variant=esp_nn mem=int ansi=1100287 opt=107095 ratio=10.27 result=ok shape="batch 4, length 128, 200 outputs"
+BENCH op=fully_connected_batch variant=esp_nn_scratch mem=int ansi=1100287 opt=65033 ratio=16.92 result=ok shape="batch 4, length 128, 200 outputs"
+BENCH op=fully_connected_batch variant=esp_nn_scratch mem=int ansi=2606327 opt=53512 ratio=48.71 result=ok shape="batch 48, length 160, 32 outputs"
+BENCH op=fully_connected_batch variant=esp_nn mem=int ansi=22531780 opt=1780575 ratio=12.65 result=ok shape="batch 64, length 128, 256 outputs"
+BENCH op=fully_connected_batch variant=esp_nn_scratch mem=int ansi=22531780 opt=505202 ratio=44.60 result=ok shape="batch 64, length 128, 256 outputs"
+BENCH op=fully_connected_batch variant=esp_nn mem=int ansi=66744 opt=10107 ratio=6.60 result=ok shape="batch 5, length 32, 32 outputs"
+BENCH op=fully_connected_batch variant=esp_nn_scratch mem=int ansi=66744 opt=8050 ratio=8.29 result=ok shape="batch 5, length 32, 32 outputs"
+BENCH op=fully_connected_batch variant=esp_nn mem=int ansi=273101 opt=67874 ratio=4.02 result=ok shape="batch 66, length 16, 16 outputs"
+BENCH op=fully_connected_batch variant=esp_nn_scratch mem=int ansi=273101 opt=18395 ratio=14.85 result=ok shape="batch 66, length 16, 16 outputs"
+BENCH op=add variant=esp_nn mem=ext ansi=271410 opt=60397 ratio=4.49 result=ok shape="size 1615"
+BENCH op=mul variant=esp_nn mem=ext ansi=117960 opt=6782 ratio=17.39 result=ok shape="size 1615"
+BENCH op=mul_broadcast variant=esp_nn mem=ext ansi=2097963 opt=148991 ratio=14.08 result=ok shape="49 positions x 576 channels"
+POOL_CACHE ictrl=0xb dctrl=0x15 icache_kib=16 icache_ways=8 icache_line=32 dcache_kib=64 dcache_ways_config=8 dcache_line=64 psram_mhz_config=80
+BENCH op=max_pool variant=master mem=int ansi=489649 opt=11954 ratio=40.96 result=ok shape="input 16x16x16, filter 3x3, pad 1, stride 1"
+MP master int 11954 1 input 16x16x16, filter 3x3, pad 1, stride 1
+PM master psram_miss=0 dbus=8 insn=9466 store=0 tie=0 dep=816 checked=1 input 16x16x16, filter 3x3, pad 1, stride 1
+BENCH op=max_pool variant=v0 mem=int ansi=489649 opt=7239 ratio=67.64 result=ok shape="input 16x16x16, filter 3x3, pad 1, stride 1"
+MP v0 int 7239 1 input 16x16x16, filter 3x3, pad 1, stride 1
+PM v0 psram_miss=0 dbus=8 insn=5830 store=0 tie=0 dep=523 checked=1 input 16x16x16, filter 3x3, pad 1, stride 1
+POOL_OUTPUT mem=int bytes=4096 raw=0x3fc9a1b0 gold0=0x3fc9b250 gold1=0x3fc9c270 guard=64 failures=0 result=ok shape="input 16x16x16, filter 3x3, pad 1, stride 1"
+BENCH op=avg_pool variant=esp_nn mem=int ansi=513355 opt=149374 ratio=3.44 result=ok shape="input 16x16x16, filter 3x3, pad 1, stride 1"
+POOL_INPUT mem=int bytes=4096 in0=0x3fceda60 in1=0x3fc99190 result=ok shape="input 16x16x16, filter 3x3, pad 1, stride 1"
+BENCH op=max_pool variant=master mem=ext ansi=489649 opt=13087 ratio=37.41 result=ok shape="input 16x16x16, filter 3x3, pad 1, stride 1"
+MP master ext 13087 1 input 16x16x16, filter 3x3, pad 1, stride 1
+PM master psram_miss=0 dbus=2436 insn=10384 store=0 tie=0 dep=815 checked=1 input 16x16x16, filter 3x3, pad 1, stride 1
+BENCH op=max_pool variant=v0 mem=ext ansi=489649 opt=7239 ratio=67.64 result=ok shape="input 16x16x16, filter 3x3, pad 1, stride 1"
+MP v0 ext 7239 1 input 16x16x16, filter 3x3, pad 1, stride 1
+PM v0 psram_miss=0 dbus=1000 insn=5831 store=0 tie=0 dep=523 checked=1 input 16x16x16, filter 3x3, pad 1, stride 1
+POOL_OUTPUT mem=ext bytes=4096 raw=0x3c0429f0 gold0=0x3fceda60 gold1=0x3fc99190 guard=64 failures=0 result=ok shape="input 16x16x16, filter 3x3, pad 1, stride 1"
+POOL_INPUT mem=ext bytes=4096 in0=0x3c0409b0 in1=0x3c0419d0 result=ok shape="input 16x16x16, filter 3x3, pad 1, stride 1"
+BENCH op=max_pool variant=master mem=ext ansi=891213 opt=12837 ratio=69.43 result=ok shape="input 6x6x128, filter 5x5, pad 2, stride 1"
+MP master ext 12837 1 input 6x6x128, filter 5x5, pad 2, stride 1
+PM master psram_miss=0 dbus=5160 insn=10978 store=0 tie=0 dep=245 checked=1 input 6x6x128, filter 5x5, pad 2, stride 1
+BENCH op=max_pool variant=v0 mem=ext ansi=891213 opt=10748 ratio=82.92 result=ok shape="input 6x6x128, filter 5x5, pad 2, stride 1"
+MP v0 ext 10748 1 input 6x6x128, filter 5x5, pad 2, stride 1
+PM v0 psram_miss=0 dbus=1448 insn=8506 store=0 tie=0 dep=971 checked=1 input 6x6x128, filter 5x5, pad 2, stride 1
+POOL_OUTPUT mem=ext bytes=4608 raw=0x3c042df0 gold0=0x3fceda60 gold1=0x3fc99190 guard=64 failures=0 result=ok shape="input 6x6x128, filter 5x5, pad 2, stride 1"
+POOL_INPUT mem=ext bytes=4608 in0=0x3c0409b0 in1=0x3c041bd0 result=ok shape="input 6x6x128, filter 5x5, pad 2, stride 1"
+MP master ext 54002 1 input 12x12x128, filter 5x5, pad 2, stride 1
+PM master psram_miss=0 dbus=25608 insn=46720 store=7 tie=0 dep=707 checked=1 input 12x12x128, filter 5x5, pad 2, stride 1
+BENCH op=max_pool variant=v0 mem=ext ansi=4324813 opt=40070 ratio=107.93 result=ok shape="input 12x12x128, filter 5x5, pad 2, stride 1"
+MP v0 ext 40070 1 input 12x12x128, filter 5x5, pad 2, stride 1
+PM v0 psram_miss=0 dbus=6344 insn=31246 store=0 tie=0 dep=4235 checked=1 input 12x12x128, filter 5x5, pad 2, stride 1
+POOL_OUTPUT mem=ext bytes=18432 raw=0x3c0499f0 gold0=0x3fc99190 gold1=0x3fc9d9b0 guard=64 failures=0 result=ok shape="input 12x12x128, filter 5x5, pad 2, stride 1"
+BENCH op=avg_pool variant=esp_nn mem=ext ansi=4249629 opt=948182 ratio=4.48 result=ok shape="input 12x12x128, filter 5x5, pad 2, stride 1"
+POOL_INPUT mem=ext bytes=18432 in0=0x3c0409b0 in1=0x3c0451d0 result=ok shape="input 12x12x128, filter 5x5, pad 2, stride 1"
+BENCH op=max_pool variant=master mem=ext ansi=13007564 opt=305887 ratio=42.52 result=ok shape="input 20x20x128, filter 5x5, pad 2, stride 1"
+MP master ext 305887 1 input 20x20x128, filter 5x5, pad 2, stride 1
+PM master psram_miss=1010 dbus=77064 insn=133800 store=43612 tie=0 dep=1659 checked=1 input 20x20x128, filter 5x5, pad 2, stride 1
+BENCH op=max_pool variant=v0 mem=ext ansi=13007564 opt=338817 ratio=38.39 result=ok shape="input 20x20x128, filter 5x5, pad 2, stride 1"
+MP v0 ext 338817 1 input 20x20x128, filter 5x5, pad 2, stride 1
+PM v0 psram_miss=1006 dbus=18248 insn=83966 store=46908 tie=0 dep=12171 checked=1 input 20x20x128, filter 5x5, pad 2, stride 1
+POOL_OUTPUT mem=ext bytes=51200 raw=0x3c0599f0 gold0=0x3fc99190 gold1=0x3fca59b0 guard=64 failures=0 result=ok shape="input 20x20x128, filter 5x5, pad 2, stride 1"
+POOL_INPUT mem=ext bytes=51200 in0=0x3c0409b0 in1=0x3c04d1d0 result=ok shape="input 20x20x128, filter 5x5, pad 2, stride 1"
+BENCH op=max_pool variant=master mem=ext ansi=8024238 opt=377682 ratio=21.25 result=ok shape="input 32x32x64, filter 3x3, pad 1, stride 1"
+MP master ext 377682 1 input 32x32x64, filter 3x3, pad 1, stride 1
+PM master psram_miss=1301 dbus=39928 insn=92176 store=73679 tie=0 dep=975 checked=1 input 32x32x64, filter 3x3, pad 1, stride 1
+BENCH op=max_pool variant=v0 mem=ext ansi=8024238 opt=441702 ratio=18.17 result=ok shape="input 32x32x64, filter 3x3, pad 1, stride 1"
+MP v0 ext 441702 1 input 32x32x64, filter 3x3, pad 1, stride 1
+PM v0 psram_miss=1301 dbus=16136 insn=82279 store=55371 tie=0 dep=8203 checked=1 input 32x32x64, filter 3x3, pad 1, stride 1
+POOL_OUTPUT mem=ext bytes=65536 raw=0x3c0609f0 gold0=0x3fc99190 gold1=0x3fca91b0 guard=64 failures=0 result=ok shape="input 32x32x64, filter 3x3, pad 1, stride 1"
+POOL_INPUT mem=ext bytes=65536 in0=0x3c0409b0 in1=0x3c0509d0 result=ok shape="input 32x32x64, filter 3x3, pad 1, stride 1"
+BENCH op=max_pool variant=master mem=ext ansi=12508062 opt=836646 ratio=14.95 result=ok shape="input 56x56x32, filter 3x3, pad 1, stride 1"
+MP master ext 836646 1 input 56x56x32, filter 3x3, pad 1, stride 1
+PM master psram_miss=3139 dbus=61824 insn=153816 store=153339 tie=0 dep=1719 checked=1 input 56x56x32, filter 3x3, pad 1, stride 1
+BENCH op=max_pool variant=v0 mem=ext ansi=12508062 opt=903836 ratio=13.84 result=ok shape="input 56x56x32, filter 3x3, pad 1, stride 1"
+MP v0 ext 903836 1 input 56x56x32, filter 3x3, pad 1, stride 1
+PM v0 psram_miss=3139 dbus=24872 insn=123703 store=141531 tie=0 dep=12555 checked=1 input 56x56x32, filter 3x3, pad 1, stride 1
+POOL_OUTPUT mem=ext bytes=100352 raw=0x3c0719f0 gold0=0x3fc99190 gold1=0x3fcb19b0 guard=64 failures=0 result=ok shape="input 56x56x32, filter 3x3, pad 1, stride 1"
+POOL_INPUT mem=ext bytes=100352 in0=0x3c0409b0 in1=0x3c0591d0 result=ok shape="input 56x56x32, filter 3x3, pad 1, stride 1"
+BENCH op=max_pool variant=master mem=ext ansi=1016497 opt=36805 ratio=27.62 result=ok shape="input 16x16x16, filter 5x5, pad 2, stride 1"
+MP master ext 36805 1 input 16x16x16, filter 5x5, pad 2, stride 1
+PM master psram_miss=0 dbus=5992 insn=24268 store=0 tie=0 dep=6575 checked=1 input 16x16x16, filter 5x5, pad 2, stride 1
+BENCH op=max_pool variant=v0 mem=ext ansi=1016497 opt=9144 ratio=111.17 result=ok shape="input 16x16x16, filter 5x5, pad 2, stride 1"
+MP v0 ext 9144 1 input 16x16x16, filter 5x5, pad 2, stride 1
+PM v0 psram_miss=0 dbus=1448 insn=7254 store=0 tie=0 dep=971 checked=1 input 16x16x16, filter 5x5, pad 2, stride 1
+POOL_OUTPUT mem=ext bytes=4096 raw=0x3c0429f0 gold0=0x3fceda60 gold1=0x3fc99190 guard=64 failures=0 result=ok shape="input 16x16x16, filter 5x5, pad 2, stride 1"
+POOL_INPUT mem=ext bytes=4096 in0=0x3c0409b0 in1=0x3c0419d0 result=ok shape="input 16x16x16, filter 5x5, pad 2, stride 1"
+BENCH op=max_pool variant=master mem=int ansi=1016497 opt=35630 ratio=28.53 result=ok shape="input 16x16x16, filter 5x5, pad 2, stride 1"
+MP master int 35630 1 input 16x16x16, filter 5x5, pad 2, stride 1
+PM master psram_miss=0 dbus=8 insn=23300 store=0 tie=0 dep=6628 checked=1 input 16x16x16, filter 5x5, pad 2, stride 1
+BENCH op=max_pool variant=v0 mem=int ansi=1016497 opt=9144 ratio=111.17 result=ok shape="input 16x16x16, filter 5x5, pad 2, stride 1"
+MP v0 int 9144 1 input 16x16x16, filter 5x5, pad 2, stride 1
+PM v0 psram_miss=0 dbus=8 insn=7253 store=0 tie=0 dep=971 checked=1 input 16x16x16, filter 5x5, pad 2, stride 1
+POOL_OUTPUT mem=int bytes=4096 raw=0x3fc9a1b0 gold0=0x3fc9b250 gold1=0x3fc9c270 guard=64 failures=0 result=ok shape="input 16x16x16, filter 5x5, pad 2, stride 1"
+POOL_INPUT mem=int bytes=4096 in0=0x3fceda60 in1=0x3fc99190 result=ok shape="input 16x16x16, filter 5x5, pad 2, stride 1"
+BENCH op=max_pool variant=master mem=int ansi=891213 opt=12882 ratio=69.18 result=ok shape="input 6x6x128, filter 5x5, pad 2, stride 1"
+MP master int 12882 1 input 6x6x128, filter 5x5, pad 2, stride 1
+PM master psram_miss=0 dbus=8 insn=11000 store=0 tie=0 dep=268 checked=1 input 6x6x128, filter 5x5, pad 2, stride 1
+BENCH op=max_pool variant=v0 mem=int ansi=891213 opt=10748 ratio=82.92 result=ok shape="input 6x6x128, filter 5x5, pad 2, stride 1"
+MP v0 int 10748 1 input 6x6x128, filter 5x5, pad 2, stride 1
+PM v0 psram_miss=0 dbus=8 insn=8505 store=0 tie=0 dep=971 checked=1 input 6x6x128, filter 5x5, pad 2, stride 1
+POOL_OUTPUT mem=int bytes=4608 raw=0x3fc9a3b0 gold0=0x3fc9b650 gold1=0x3fc9c870 guard=64 failures=0 result=ok shape="input 6x6x128, filter 5x5, pad 2, stride 1"
+POOL_INPUT mem=int bytes=4608 in0=0x3fceda60 in1=0x3fc99190 result=ok shape="input 6x6x128, filter 5x5, pad 2, stride 1"
+MP master int 52998 1 input 12x12x128, filter 5x5, pad 2, stride 1
+PM master psram_miss=0 dbus=8 insn=46148 store=0 tie=0 dep=748 checked=1 input 12x12x128, filter 5x5, pad 2, stride 1
+BENCH op=max_pool variant=v0 mem=int ansi=4324581 opt=39728 ratio=108.85 result=ok shape="input 12x12x128, filter 5x5, pad 2, stride 1"
+MP v0 int 39728 1 input 12x12x128, filter 5x5, pad 2, stride 1
+PM v0 psram_miss=0 dbus=8 insn=31246 store=0 tie=0 dep=4235 checked=1 input 12x12x128, filter 5x5, pad 2, stride 1
+POOL_OUTPUT mem=int bytes=18432 raw=0x3fca21d0 gold0=0x3fca6a70 gold1=0x3fcab290 guard=64 failures=0 result=ok shape="input 12x12x128, filter 5x5, pad 2, stride 1"
+POOL_INPUT mem=int bytes=18432 in0=0x3fc99190 in1=0x3fc9d9b0 result=ok shape="input 12x12x128, filter 5x5, pad 2, stride 1"
+BENCH op=max_pool variant=master mem=int ansi=12921564 opt=150838 ratio=85.67 result=ok shape="input 20x20x128, filter 5x5, pad 2, stride 1"
+MP master int 150838 1 input 20x20x128, filter 5x5, pad 2, stride 1
+PM master psram_miss=0 dbus=8 insn=132436 store=0 tie=0 dep=1724 checked=1 input 20x20x128, filter 5x5, pad 2, stride 1
+BENCH op=max_pool variant=v0 mem=int ansi=12921564 opt=107040 ratio=120.72 result=ok shape="input 20x20x128, filter 5x5, pad 2, stride 1"
+MP v0 int 107040 1 input 20x20x128, filter 5x5, pad 2, stride 1
+PM v0 psram_miss=0 dbus=8 insn=83966 store=0 tie=0 dep=12171 checked=1 input 20x20x128, filter 5x5, pad 2, stride 1
+POOL_OUTPUT mem=int bytes=51200 raw=0x3fcb21d0 gold0=0x3fcbea70 gold1=0x3fccb290 guard=64 failures=0 result=ok shape="input 20x20x128, filter 5x5, pad 2, stride 1"
+POOL_INPUT mem=int bytes=51200 in0=0x3fc99190 in1=0x3fca59b0 result=ok shape="input 20x20x128, filter 5x5, pad 2, stride 1"
+BENCH op=max_pool variant=master mem=ext ansi=3881491 opt=126784 ratio=30.61 result=ok shape="input 8x64x64, filter 3x3, pad 1, stride 1"
+MP master ext 126784 1 input 8x64x64, filter 3x3, pad 1, stride 1
+PM master psram_miss=20 dbus=19320 insn=54944 store=2379 tie=0 dep=1631 checked=1 input 8x64x64, filter 3x3, pad 1, stride 1
+BENCH op=max_pool variant=v0 mem=ext ansi=3881491 opt=146759 ratio=26.45 result=ok shape="input 8x64x64, filter 3x3, pad 1, stride 1"
+MP v0 ext 146759 1 input 8x64x64, filter 3x3, pad 1, stride 1
+PM v0 psram_miss=19 dbus=8136 insn=48551 store=1621 tie=0 dep=4555 checked=1 input 8x64x64, filter 3x3, pad 1, stride 1
+POOL_OUTPUT mem=ext bytes=32768 raw=0x3c0509f0 gold0=0x3fc99190 gold1=0x3fca11b0 guard=64 failures=0 result=ok shape="input 8x64x64, filter 3x3, pad 1, stride 1"
+POOL_INPUT mem=ext bytes=32768 in0=0x3c0409b0 in1=0x3c0489d0 result=ok shape="input 8x64x64, filter 3x3, pad 1, stride 1"
+BENCH op=max_pool variant=master mem=int ansi=3835404 opt=57602 ratio=66.58 result=ok shape="input 8x64x64, filter 3x3, pad 1, stride 1"
+MP master int 57602 1 input 8x64x64, filter 3x3, pad 1, stride 1
+PM master psram_miss=0 dbus=8 insn=50330 store=0 tie=0 dep=1584 checked=1 input 8x64x64, filter 3x3, pad 1, stride 1
+BENCH op=max_pool variant=v0 mem=int ansi=3835404 opt=61255 ratio=62.61 result=ok shape="input 8x64x64, filter 3x3, pad 1, stride 1"
+MP v0 int 61255 1 input 8x64x64, filter 3x3, pad 1, stride 1
+PM v0 psram_miss=0 dbus=8 insn=48551 store=0 tie=0 dep=4555 checked=1 input 8x64x64, filter 3x3, pad 1, stride 1
+POOL_OUTPUT mem=int bytes=32768 raw=0x3fca91d0 gold0=0x3fcb1270 gold1=0x3fcb9290 guard=64 failures=0 result=ok shape="input 8x64x64, filter 3x3, pad 1, stride 1"
+POOL_INPUT mem=int bytes=32768 in0=0x3fc99190 in1=0x3fca11b0 result=ok shape="input 8x64x64, filter 3x3, pad 1, stride 1"
+BENCH op=max_pool variant=master mem=ext ansi=3958711 opt=124099 ratio=31.90 result=ok shape="input 16x32x64, filter 3x3, pad 1, stride 1"
+MP master ext 124099 1 input 16x32x64, filter 3x3, pad 1, stride 1
+PM master psram_miss=22 dbus=19704 insn=49008 store=2525 tie=0 dep=879 checked=1 input 16x32x64, filter 3x3, pad 1, stride 1
+BENCH op=max_pool variant=v0 mem=ext ansi=3958711 opt=151055 ratio=26.21 result=ok shape="input 16x32x64, filter 3x3, pad 1, stride 1"
+MP v0 ext 151055 1 input 16x32x64, filter 3x3, pad 1, stride 1
+PM v0 psram_miss=21 dbus=8072 insn=43623 store=2945 tie=0 dep=4235 checked=1 input 16x32x64, filter 3x3, pad 1, stride 1
+POOL_OUTPUT mem=ext bytes=32768 raw=0x3c0509f0 gold0=0x3fc99190 gold1=0x3fca11b0 guard=64 failures=0 result=ok shape="input 16x32x64, filter 3x3, pad 1, stride 1"
+POOL_INPUT mem=ext bytes=32768 in0=0x3c0409b0 in1=0x3c0489d0 result=ok shape="input 16x32x64, filter 3x3, pad 1, stride 1"
+BENCH op=max_pool variant=master mem=int ansi=3911114 opt=51634 ratio=75.75 result=ok shape="input 16x32x64, filter 3x3, pad 1, stride 1"
+MP master int 51634 1 input 16x32x64, filter 3x3, pad 1, stride 1
+PM master psram_miss=0 dbus=8 insn=46858 store=0 tie=0 dep=864 checked=1 input 16x32x64, filter 3x3, pad 1, stride 1
+BENCH op=max_pool variant=v0 mem=int ansi=3911114 opt=54919 ratio=71.22 result=ok shape="input 16x32x64, filter 3x3, pad 1, stride 1"
+MP v0 int 54919 1 input 16x32x64, filter 3x3, pad 1, stride 1
+PM v0 psram_miss=0 dbus=8 insn=43623 store=0 tie=0 dep=4235 checked=1 input 16x32x64, filter 3x3, pad 1, stride 1
+POOL_OUTPUT mem=int bytes=32768 raw=0x3fca91d0 gold0=0x3fcb1270 gold1=0x3fcb9290 guard=64 failures=0 result=ok shape="input 16x32x64, filter 3x3, pad 1, stride 1"
+POOL_INPUT mem=int bytes=32768 in0=0x3fc99190 in1=0x3fca11b0 result=ok shape="input 16x32x64, filter 3x3, pad 1, stride 1"
+BENCH op=max_pool variant=master mem=ext ansi=3945850 opt=112132 ratio=35.19 result=ok shape="input 32x16x64, filter 3x3, pad 1, stride 1"
+MP master ext 112132 1 input 32x16x64, filter 3x3, pad 1, stride 1
+PM master psram_miss=23 dbus=19704 insn=45776 store=2453 tie=0 dep=575 checked=1 input 32x16x64, filter 3x3, pad 1, stride 1
+BENCH op=max_pool variant=v0 mem=ext ansi=3945850 opt=141740 ratio=27.84 result=ok shape="input 32x16x64, filter 3x3, pad 1, stride 1"
+MP v0 ext 141740 1 input 32x16x64, filter 3x3, pad 1, stride 1
+PM v0 psram_miss=22 dbus=7944 insn=40967 store=1299 tie=0 dep=3979 checked=1 input 32x16x64, filter 3x3, pad 1, stride 1
+POOL_OUTPUT mem=ext bytes=32768 raw=0x3c0509f0 gold0=0x3fc99190 gold1=0x3fca11b0 guard=64 failures=0 result=ok shape="input 32x16x64, filter 3x3, pad 1, stride 1"
+POOL_INPUT mem=ext bytes=32768 in0=0x3c0409b0 in1=0x3c0489d0 result=ok shape="input 32x16x64, filter 3x3, pad 1, stride 1"
+MP master int 48770 1 input 32x16x64, filter 3x3, pad 1, stride 1
+PM master psram_miss=0 dbus=8 insn=44858 store=0 tie=0 dep=576 checked=1 input 32x16x64, filter 3x3, pad 1, stride 1
+BENCH op=max_pool variant=v0 mem=int ansi=3898285 opt=51367 ratio=75.89 result=ok shape="input 32x16x64, filter 3x3, pad 1, stride 1"
+MP v0 int 51367 1 input 32x16x64, filter 3x3, pad 1, stride 1
+PM v0 psram_miss=0 dbus=8 insn=40967 store=0 tie=0 dep=3979 checked=1 input 32x16x64, filter 3x3, pad 1, stride 1
+POOL_OUTPUT mem=int bytes=32768 raw=0x3fca91d0 gold0=0x3fcb1270 gold1=0x3fcb9290 guard=64 failures=0 result=ok shape="input 32x16x64, filter 3x3, pad 1, stride 1"
+POOL_INPUT mem=int bytes=32768 in0=0x3fc99190 in1=0x3fca11b0 result=ok shape="input 32x16x64, filter 3x3, pad 1, stride 1"
+BENCH op=max_pool variant=master mem=ext ansi=3843916 opt=120582 ratio=31.88 result=ok shape="input 64x8x64, filter 3x3, pad 1, stride 1"
+MP master ext 120582 1 input 64x8x64, filter 3x3, pad 1, stride 1
+PM master psram_miss=22 dbus=19320 insn=43632 store=2551 tie=0 dep=567 checked=1 input 64x8x64, filter 3x3, pad 1, stride 1
+BENCH op=max_pool variant=v0 mem=ext ansi=3843916 opt=148891 ratio=25.82 result=ok shape="input 64x8x64, filter 3x3, pad 1, stride 1"
+MP v0 ext 148891 1 input 64x8x64, filter 3x3, pad 1, stride 1
+PM v0 psram_miss=21 dbus=7688 insn=39255 store=3233 tie=0 dep=3659 checked=1 input 64x8x64, filter 3x3, pad 1, stride 1
+POOL_OUTPUT mem=ext bytes=32768 raw=0x3c0509f0 gold0=0x3fc99190 gold1=0x3fca11b0 guard=64 failures=0 result=ok shape="input 64x8x64, filter 3x3, pad 1, stride 1"
+POOL_INPUT mem=ext bytes=32768 in0=0x3c0409b0 in1=0x3c0489d0 result=ok shape="input 64x8x64, filter 3x3, pad 1, stride 1"
+MP master int 47578 1 input 64x8x64, filter 3x3, pad 1, stride 1
+PM master psram_miss=0 dbus=8 insn=43330 store=0 tie=0 dep=576 checked=1 input 64x8x64, filter 3x3, pad 1, stride 1
+BENCH op=max_pool variant=v0 mem=int ansi=3790492 opt=48823 ratio=77.64 result=ok shape="input 64x8x64, filter 3x3, pad 1, stride 1"
+MP v0 int 48823 1 input 64x8x64, filter 3x3, pad 1, stride 1
+PM v0 psram_miss=0 dbus=8 insn=39255 store=0 tie=0 dep=3659 checked=1 input 64x8x64, filter 3x3, pad 1, stride 1
+POOL_OUTPUT mem=int bytes=32768 raw=0x3fca91d0 gold0=0x3fcb1270 gold1=0x3fcb9290 guard=64 failures=0 result=ok shape="input 64x8x64, filter 3x3, pad 1, stride 1"
+POOL_INPUT mem=int bytes=32768 in0=0x3fc99190 in1=0x3fca11b0 result=ok shape="input 64x8x64, filter 3x3, pad 1, stride 1"
+BENCH op=max_pool variant=master mem=ext ansi=4103396 opt=123477 ratio=33.23 result=ok shape="input 64x32x16, filter 3x3, pad 1, stride 1"
+MP master ext 123477 1 input 64x32x16, filter 3x3, pad 1, stride 1
+PM master psram_miss=19 dbus=20100 insn=59824 store=941 tie=0 dep=2271 checked=1 input 64x32x16, filter 3x3, pad 1, stride 1
+BENCH op=max_pool variant=v0 mem=ext ansi=4103396 opt=106316 ratio=38.60 result=ok shape="input 64x32x16, filter 3x3, pad 1, stride 1"
+MP v0 ext 106316 1 input 64x32x16, filter 3x3, pad 1, stride 1
+PM v0 psram_miss=19 dbus=8072 insn=40551 store=1208 tie=0 dep=4043 checked=1 input 64x32x16, filter 3x3, pad 1, stride 1
+POOL_OUTPUT mem=ext bytes=32768 raw=0x3c0509f0 gold0=0x3fc99190 gold1=0x3fca11b0 guard=64 failures=0 result=ok shape="input 64x32x16, filter 3x3, pad 1, stride 1"
+POOL_INPUT mem=ext bytes=32768 in0=0x3c0409b0 in1=0x3c0489d0 result=ok shape="input 64x32x16, filter 3x3, pad 1, stride 1"
+BENCH op=max_pool variant=master mem=int ansi=4059918 opt=66914 ratio=60.67 result=ok shape="input 64x32x16, filter 3x3, pad 1, stride 1"
+MP master int 66914 1 input 64x32x16, filter 3x3, pad 1, stride 1
+PM master psram_miss=0 dbus=8 insn=57674 store=0 tie=0 dep=2256 checked=1 input 64x32x16, filter 3x3, pad 1, stride 1
+BENCH op=max_pool variant=v0 mem=int ansi=4059918 opt=50887 ratio=79.78 result=ok shape="input 64x32x16, filter 3x3, pad 1, stride 1"
+MP v0 int 50887 1 input 64x32x16, filter 3x3, pad 1, stride 1
+PM v0 psram_miss=0 dbus=8 insn=40551 store=0 tie=0 dep=4043 checked=1 input 64x32x16, filter 3x3, pad 1, stride 1
+POOL_OUTPUT mem=int bytes=32768 raw=0x3fca91d0 gold0=0x3fcb1270 gold1=0x3fcb9290 guard=64 failures=0 result=ok shape="input 64x32x16, filter 3x3, pad 1, stride 1"
+POOL_INPUT mem=int bytes=32768 in0=0x3fc99190 in1=0x3fca11b0 result=ok shape="input 64x32x16, filter 3x3, pad 1, stride 1"
+BENCH op=max_pool variant=master mem=ext ansi=4032632 opt=123478 ratio=32.66 result=ok shape="input 32x32x32, filter 3x3, pad 1, stride 1"
+MP master ext 123478 1 input 32x32x32, filter 3x3, pad 1, stride 1
+PM master psram_miss=18 dbus=19968 insn=53352 store=1887 tie=0 dep=975 checked=1 input 32x32x32, filter 3x3, pad 1, stride 1
+BENCH op=max_pool variant=v0 mem=ext ansi=4032632 opt=138850 ratio=29.04 result=ok shape="input 32x32x32, filter 3x3, pad 1, stride 1"
+MP v0 ext 138850 1 input 32x32x32, filter 3x3, pad 1, stride 1
+PM v0 psram_miss=18 dbus=8072 insn=41575 store=2934 tie=0 dep=4107 checked=1 input 32x32x32, filter 3x3, pad 1, stride 1
+POOL_OUTPUT mem=ext bytes=32768 raw=0x3c0509f0 gold0=0x3fc99190 gold1=0x3fca11b0 guard=64 failures=0 result=ok shape="input 32x32x32, filter 3x3, pad 1, stride 1"
+POOL_INPUT mem=ext bytes=32768 in0=0x3c0409b0 in1=0x3c0489d0 result=ok shape="input 32x32x32, filter 3x3, pad 1, stride 1"
+MP master int 57426 1 input 32x32x32, filter 3x3, pad 1, stride 1
+PM master psram_miss=0 dbus=8 insn=51202 store=0 tie=0 dep=960 checked=1 input 32x32x32, filter 3x3, pad 1, stride 1
+BENCH op=max_pool variant=v0 mem=int ansi=3987784 opt=52231 ratio=76.35 result=ok shape="input 32x32x32, filter 3x3, pad 1, stride 1"
+MP v0 int 52231 1 input 32x32x32, filter 3x3, pad 1, stride 1
+PM v0 psram_miss=0 dbus=8 insn=41575 store=0 tie=0 dep=4107 checked=1 input 32x32x32, filter 3x3, pad 1, stride 1
+POOL_OUTPUT mem=int bytes=32768 raw=0x3fca91d0 gold0=0x3fcb1270 gold1=0x3fcb9290 guard=64 failures=0 result=ok shape="input 32x32x32, filter 3x3, pad 1, stride 1"
+POOL_INPUT mem=int bytes=32768 in0=0x3fc99190 in1=0x3fca11b0 result=ok shape="input 32x32x32, filter 3x3, pad 1, stride 1"
+BENCH op=max_pool variant=master mem=ext ansi=3881264 opt=111342 ratio=34.86 result=ok shape="input 16x16x128, filter 3x3, pad 1, stride 1"
+MP master ext 111342 1 input 16x16x128, filter 3x3, pad 1, stride 1
+PM master psram_miss=20 dbus=19432 insn=43872 store=1137 tie=0 dep=479 checked=1 input 16x16x128, filter 3x3, pad 1, stride 1
+BENCH op=max_pool variant=v0 mem=ext ansi=3881264 opt=137433 ratio=28.24 result=ok shape="input 16x16x128, filter 3x3, pad 1, stride 1"
+MP v0 ext 137433 1 input 16x16x128, filter 3x3, pad 1, stride 1
+PM v0 psram_miss=19 dbus=7944 insn=43015 store=2025 tie=0 dep=4107 checked=1 input 16x16x128, filter 3x3, pad 1, stride 1
+POOL_OUTPUT mem=ext bytes=32768 raw=0x3c0509f0 gold0=0x3fc99190 gold1=0x3fca11b0 guard=64 failures=0 result=ok shape="input 16x16x128, filter 3x3, pad 1, stride 1"
+POOL_INPUT mem=ext bytes=32768 in0=0x3c0409b0 in1=0x3c0489d0 result=ok shape="input 16x16x128, filter 3x3, pad 1, stride 1"
+BENCH op=max_pool variant=master mem=int ansi=3834027 opt=46062 ratio=83.24 result=ok shape="input 16x16x128, filter 3x3, pad 1, stride 1"
+MP master int 46062 1 input 16x16x128, filter 3x3, pad 1, stride 1
+PM master psram_miss=0 dbus=8 insn=42954 store=0 tie=0 dep=480 checked=1 input 16x16x128, filter 3x3, pad 1, stride 1
+BENCH op=max_pool variant=v0 mem=int ansi=3834027 opt=54055 ratio=70.93 result=ok shape="input 16x16x128, filter 3x3, pad 1, stride 1"
+MP v0 int 54055 1 input 16x16x128, filter 3x3, pad 1, stride 1
+PM v0 psram_miss=0 dbus=8 insn=43015 store=0 tie=0 dep=4107 checked=1 input 16x16x128, filter 3x3, pad 1, stride 1
+POOL_OUTPUT mem=int bytes=32768 raw=0x3fca91d0 gold0=0x3fcb1270 gold1=0x3fcb9290 guard=64 failures=0 result=ok shape="input 16x16x128, filter 3x3, pad 1, stride 1"
+POOL_INPUT mem=int bytes=32768 in0=0x3fc99190 in1=0x3fca11b0 result=ok shape="input 16x16x128, filter 3x3, pad 1, stride 1"
+BENCH op=max_pool variant=master mem=ext ansi=6024801 opt=224383 ratio=26.85 result=ok shape="input 32x32x48, filter 3x3, pad 1, stride 1"
+MP master ext 224383 1 input 32x32x48, filter 3x3, pad 1, stride 1
+PM master psram_miss=806 dbus=29948 insn=74744 store=10360 tie=0 dep=1695 checked=1 input 32x32x48, filter 3x3, pad 1, stride 1
+BENCH op=max_pool variant=v0 mem=ext ansi=6024801 opt=265207 ratio=22.72 result=ok shape="input 32x32x48, filter 3x3, pad 1, stride 1"
+MP v0 ext 265207 1 input 32x32x48, filter 3x3, pad 1, stride 1
+PM v0 psram_miss=797 dbus=12104 insn=61927 store=7556 tie=0 dep=6155 checked=1 input 32x32x48, filter 3x3, pad 1, stride 1
+POOL_OUTPUT mem=ext bytes=49152 raw=0x3c0589f0 gold0=0x3fc99190 gold1=0x3fca51b0 guard=64 failures=0 result=ok shape="input 32x32x48, filter 3x3, pad 1, stride 1"
+POOL_INPUT mem=ext bytes=49152 in0=0x3c0409b0 in1=0x3c04c9d0 result=ok shape="input 32x32x48, filter 3x3, pad 1, stride 1"
+BENCH op=max_pool variant=master mem=int ansi=5958597 opt=79958 ratio=74.52 result=ok shape="input 32x32x48, filter 3x3, pad 1, stride 1"
+MP master int 79958 1 input 32x32x48, filter 3x3, pad 1, stride 1
+PM master psram_miss=0 dbus=8 insn=72594 store=0 tie=0 dep=1680 checked=1 input 32x32x48, filter 3x3, pad 1, stride 1
+BENCH op=max_pool variant=v0 mem=int ansi=5958597 opt=77895 ratio=76.50 result=ok shape="input 32x32x48, filter 3x3, pad 1, stride 1"
+MP v0 int 77895 1 input 32x32x48, filter 3x3, pad 1, stride 1
+PM v0 psram_miss=0 dbus=8 insn=61927 store=0 tie=0 dep=6155 checked=1 input 32x32x48, filter 3x3, pad 1, stride 1
+POOL_OUTPUT mem=int bytes=49152 raw=0x3fcb11d0 gold0=0x3fcbd270 gold1=0x3fcc9290 guard=64 failures=0 result=ok shape="input 32x32x48, filter 3x3, pad 1, stride 1"
+POOL_INPUT mem=int bytes=49152 in0=0x3fc99190 in1=0x3fca51b0 result=ok shape="input 32x32x48, filter 3x3, pad 1, stride 1"
+BENCH op=max_pool variant=master mem=ext ansi=5981265 opt=220237 ratio=27.16 result=ok shape="input 32x24x64, filter 3x3, pad 1, stride 1"
+MP master ext 220237 1 input 32x24x64, filter 3x3, pad 1, stride 1
+PM master psram_miss=806 dbus=29816 insn=68976 store=11222 tie=0 dep=775 checked=1 input 32x24x64, filter 3x3, pad 1, stride 1
+BENCH op=max_pool variant=v0 mem=ext ansi=5981265 opt=269940 ratio=22.16 result=ok shape="input 32x24x64, filter 3x3, pad 1, stride 1"
+MP v0 ext 269940 1 input 32x24x64, filter 3x3, pad 1, stride 1
+PM v0 psram_miss=797 dbus=12040 insn=61623 store=6626 tie=0 dep=6091 checked=1 input 32x24x64, filter 3x3, pad 1, stride 1
+POOL_OUTPUT mem=ext bytes=49152 raw=0x3c0589f0 gold0=0x3fc99190 gold1=0x3fca51b0 guard=64 failures=0 result=ok shape="input 32x24x64, filter 3x3, pad 1, stride 1"
+POOL_INPUT mem=ext bytes=49152 in0=0x3c0409b0 in1=0x3c04c9d0 result=ok shape="input 32x24x64, filter 3x3, pad 1, stride 1"
+BENCH op=max_pool variant=master mem=int ansi=5913845 opt=72810 ratio=81.22 result=ok shape="input 32x24x64, filter 3x3, pad 1, stride 1"
+MP master int 72810 1 input 32x24x64, filter 3x3, pad 1, stride 1
+PM master psram_miss=0 dbus=8 insn=67442 store=0 tie=0 dep=768 checked=1 input 32x24x64, filter 3x3, pad 1, stride 1
+BENCH op=max_pool variant=v0 mem=int ansi=5913845 opt=77463 ratio=76.34 result=ok shape="input 32x24x64, filter 3x3, pad 1, stride 1"
+MP v0 int 77463 1 input 32x24x64, filter 3x3, pad 1, stride 1
+PM v0 psram_miss=0 dbus=8 insn=61623 store=0 tie=0 dep=6091 checked=1 input 32x24x64, filter 3x3, pad 1, stride 1
+POOL_OUTPUT mem=int bytes=49152 raw=0x3fcb11d0 gold0=0x3fcbd270 gold1=0x3fcc9290 guard=64 failures=0 result=ok shape="input 32x24x64, filter 3x3, pad 1, stride 1"
+POOL_INPUT mem=int bytes=49152 in0=0x3fc99190 in1=0x3fca51b0 result=ok shape="input 32x24x64, filter 3x3, pad 1, stride 1"
+BENCH op=max_pool variant=master mem=ext ansi=5888566 opt=222396 ratio=26.48 result=ok shape="input 16x24x128, filter 3x3, pad 1, stride 1"
+MP master ext 222396 1 input 16x24x128, filter 3x3, pad 1, stride 1
+PM master psram_miss=809 dbus=29416 insn=66240 store=11693 tie=0 dep=679 checked=1 input 16x24x128, filter 3x3, pad 1, stride 1
+BENCH op=max_pool variant=v0 mem=ext ansi=5888566 opt=270111 ratio=21.80 result=ok shape="input 16x24x128, filter 3x3, pad 1, stride 1"
+MP v0 ext 270111 1 input 16x24x128, filter 3x3, pad 1, stride 1
+PM v0 psram_miss=800 dbus=12040 insn=64695 store=8080 tie=0 dep=6283 checked=1 input 16x24x128, filter 3x3, pad 1, stride 1
+POOL_OUTPUT mem=ext bytes=49152 raw=0x3c0589f0 gold0=0x3fc99190 gold1=0x3fca51b0 guard=64 failures=0 result=ok shape="input 16x24x128, filter 3x3, pad 1, stride 1"
+POOL_INPUT mem=ext bytes=49152 in0=0x3c0409b0 in1=0x3c04c9d0 result=ok shape="input 16x24x128, filter 3x3, pad 1, stride 1"
+BENCH op=max_pool variant=master mem=int ansi=5816311 opt=69046 ratio=84.24 result=ok shape="input 16x24x128, filter 3x3, pad 1, stride 1"
+MP master int 69046 1 input 16x24x128, filter 3x3, pad 1, stride 1
+PM master psram_miss=0 dbus=8 insn=64706 store=0 tie=0 dep=672 checked=1 input 16x24x128, filter 3x3, pad 1, stride 1
+BENCH op=max_pool variant=v0 mem=int ansi=5816311 opt=81495 ratio=71.37 result=ok shape="input 16x24x128, filter 3x3, pad 1, stride 1"
+MP v0 int 81495 1 input 16x24x128, filter 3x3, pad 1, stride 1
+PM v0 psram_miss=0 dbus=8 insn=64695 store=0 tie=0 dep=6283 checked=1 input 16x24x128, filter 3x3, pad 1, stride 1
+POOL_OUTPUT mem=int bytes=49152 raw=0x3fcb11d0 gold0=0x3fcbd270 gold1=0x3fcc9290 guard=64 failures=0 result=ok shape="input 16x24x128, filter 3x3, pad 1, stride 1"
+POOL_INPUT mem=int bytes=49152 in0=0x3fc99190 in1=0x3fca51b0 result=ok shape="input 16x24x128, filter 3x3, pad 1, stride 1"
+BENCH op=max_pool variant=master mem=ext ansi=8012315 opt=199359 ratio=40.19 result=ok shape="input 8x64x64, filter 5x5, pad 2, stride 1"
+MP master ext 199359 1 input 8x64x64, filter 5x5, pad 2, stride 1
+PM master psram_miss=22 dbus=46792 insn=99308 store=2355 tie=0 dep=3007 checked=1 input 8x64x64, filter 5x5, pad 2, stride 1
+BENCH op=max_pool variant=v0 mem=ext ansi=8012315 opt=164449 ratio=48.72 result=ok shape="input 8x64x64, filter 5x5, pad 2, stride 1"
+MP v0 ext 164449 1 input 8x64x64, filter 5x5, pad 2, stride 1
+PM v0 psram_miss=21 dbus=12104 insn=60838 store=2522 tie=0 dep=8523 checked=1 input 8x64x64, filter 5x5, pad 2, stride 1
+POOL_OUTPUT mem=ext bytes=32768 raw=0x3c0509f0 gold0=0x3fc99190 gold1=0x3fca11b0 guard=64 failures=0 result=ok shape="input 8x64x64, filter 5x5, pad 2, stride 1"
+POOL_INPUT mem=ext bytes=32768 in0=0x3c0409b0 in1=0x3c0489d0 result=ok shape="input 8x64x64, filter 5x5, pad 2, stride 1"
+MP master int 112510 1 input 8x64x64, filter 5x5, pad 2, stride 1
+PM master psram_miss=0 dbus=8 insn=93588 store=0 tie=0 dep=3204 checked=1 input 8x64x64, filter 5x5, pad 2, stride 1
+BENCH op=max_pool variant=v0 mem=int ansi=7958144 opt=77576 ratio=102.59 result=ok shape="input 8x64x64, filter 5x5, pad 2, stride 1"
+MP v0 int 77576 1 input 8x64x64, filter 5x5, pad 2, stride 1
+PM v0 psram_miss=0 dbus=8 insn=60838 store=0 tie=0 dep=8523 checked=1 input 8x64x64, filter 5x5, pad 2, stride 1
+POOL_OUTPUT mem=int bytes=32768 raw=0x3fca91d0 gold0=0x3fcb1270 gold1=0x3fcb9290 guard=64 failures=0 result=ok shape="input 8x64x64, filter 5x5, pad 2, stride 1"
+POOL_INPUT mem=int bytes=32768 in0=0x3fc99190 in1=0x3fca11b0 result=ok shape="input 8x64x64, filter 5x5, pad 2, stride 1"
+BENCH op=max_pool variant=master mem=ext ansi=8403536 opt=193520 ratio=43.42 result=ok shape="input 16x32x64, filter 5x5, pad 2, stride 1"
+MP master ext 193520 1 input 16x32x64, filter 5x5, pad 2, stride 1
+PM master psram_miss=23 dbus=49672 insn=94108 store=2821 tie=0 dep=2271 checked=1 input 16x32x64, filter 5x5, pad 2, stride 1
+BENCH op=max_pool variant=v0 mem=ext ansi=8403536 opt=167705 ratio=50.11 result=ok shape="input 16x32x64, filter 5x5, pad 2, stride 1"
+MP v0 ext 167705 1 input 16x32x64, filter 5x5, pad 2, stride 1
+PM v0 psram_miss=22 dbus=11912 insn=55526 store=3661 tie=0 dep=8075 checked=1 input 16x32x64, filter 5x5, pad 2, stride 1
+POOL_OUTPUT mem=ext bytes=32768 raw=0x3c0509f0 gold0=0x3fc99190 gold1=0x3fca11b0 guard=64 failures=0 result=ok shape="input 16x32x64, filter 5x5, pad 2, stride 1"
+POOL_INPUT mem=ext bytes=32768 in0=0x3c0409b0 in1=0x3c0489d0 result=ok shape="input 16x32x64, filter 5x5, pad 2, stride 1"
+BENCH op=max_pool variant=master mem=int ansi=8353347 opt=108030 ratio=77.32 result=ok shape="input 16x32x64, filter 5x5, pad 2, stride 1"
+MP master int 108030 1 input 16x32x64, filter 5x5, pad 2, stride 1
+PM master psram_miss=0 dbus=8 insn=91556 store=0 tie=0 dep=2372 checked=1 input 16x32x64, filter 5x5, pad 2, stride 1
+BENCH op=max_pool variant=v0 mem=int ansi=8353347 opt=70792 ratio=118.00 result=ok shape="input 16x32x64, filter 5x5, pad 2, stride 1"
+MP v0 int 70792 1 input 16x32x64, filter 5x5, pad 2, stride 1
+PM v0 psram_miss=0 dbus=8 insn=55526 store=0 tie=0 dep=8075 checked=1 input 16x32x64, filter 5x5, pad 2, stride 1
+POOL_OUTPUT mem=int bytes=32768 raw=0x3fca91d0 gold0=0x3fcb1270 gold1=0x3fcb9290 guard=64 failures=0 result=ok shape="input 16x32x64, filter 5x5, pad 2, stride 1"
+POOL_INPUT mem=int bytes=32768 in0=0x3fc99190 in1=0x3fca11b0 result=ok shape="input 16x32x64, filter 5x5, pad 2, stride 1"
+BENCH op=max_pool variant=master mem=ext ansi=8363899 opt=181620 ratio=46.05 result=ok shape="input 32x16x64, filter 5x5, pad 2, stride 1"
+MP master ext 181620 1 input 32x16x64, filter 5x5, pad 2, stride 1
+PM master psram_miss=19 dbus=49672 insn=89420 store=2358 tie=0 dep=1903 checked=1 input 32x16x64, filter 5x5, pad 2, stride 1
+BENCH op=max_pool variant=v0 mem=ext ansi=8363899 opt=156541 ratio=53.43 result=ok shape="input 32x16x64, filter 5x5, pad 2, stride 1"
+MP v0 ext 156541 1 input 32x16x64, filter 5x5, pad 2, stride 1
+PM v0 psram_miss=18 dbus=11528 insn=52294 store=2325 tie=0 dep=7563 checked=1 input 32x16x64, filter 5x5, pad 2, stride 1
+POOL_OUTPUT mem=ext bytes=32768 raw=0x3c0509f0 gold0=0x3fc99190 gold1=0x3fca11b0 guard=64 failures=0 result=ok shape="input 32x16x64, filter 5x5, pad 2, stride 1"
+POOL_INPUT mem=ext bytes=32768 in0=0x3c0409b0 in1=0x3c0489d0 result=ok shape="input 32x16x64, filter 5x5, pad 2, stride 1"
+MP master int 103486 1 input 32x16x64, filter 5x5, pad 2, stride 1
+PM master psram_miss=0 dbus=8 insn=88452 store=0 tie=0 dep=1956 checked=1 input 32x16x64, filter 5x5, pad 2, stride 1
+BENCH op=max_pool variant=v0 mem=int ansi=8315938 opt=66536 ratio=124.98 result=ok shape="input 32x16x64, filter 5x5, pad 2, stride 1"
+MP v0 int 66536 1 input 32x16x64, filter 5x5, pad 2, stride 1
+PM v0 psram_miss=0 dbus=8 insn=52294 store=0 tie=0 dep=7563 checked=1 input 32x16x64, filter 5x5, pad 2, stride 1
+POOL_OUTPUT mem=int bytes=32768 raw=0x3fca91d0 gold0=0x3fcb1270 gold1=0x3fcb9290 guard=64 failures=0 result=ok shape="input 32x16x64, filter 5x5, pad 2, stride 1"
+POOL_INPUT mem=int bytes=32768 in0=0x3fc99190 in1=0x3fca11b0 result=ok shape="input 32x16x64, filter 5x5, pad 2, stride 1"
+BENCH op=max_pool variant=master mem=ext ansi=7878491 opt=178909 ratio=44.04 result=ok shape="input 64x8x64, filter 5x5, pad 2, stride 1"
+MP master ext 178909 1 input 64x8x64, filter 5x5, pad 2, stride 1
+PM master psram_miss=19 dbus=46792 insn=82900 store=2391 tie=0 dep=1719 checked=1 input 64x8x64, filter 5x5, pad 2, stride 1
+BENCH op=max_pool variant=v0 mem=ext ansi=7878491 opt=161453 ratio=48.80 result=ok shape="input 64x8x64, filter 5x5, pad 2, stride 1"
+MP v0 ext 161453 1 input 64x8x64, filter 5x5, pad 2, stride 1
+PM v0 psram_miss=18 dbus=10760 insn=49526 store=3098 tie=0 dep=6731 checked=1 input 64x8x64, filter 5x5, pad 2, stride 1
+POOL_OUTPUT mem=ext bytes=32768 raw=0x3c0509f0 gold0=0x3fc99190 gold1=0x3fca11b0 guard=64 failures=0 result=ok shape="input 64x8x64, filter 5x5, pad 2, stride 1"
+POOL_INPUT mem=ext bytes=32768 in0=0x3c0409b0 in1=0x3c0489d0 result=ok shape="input 64x8x64, filter 5x5, pad 2, stride 1"
+BENCH op=max_pool variant=master mem=int ansi=7827218 opt=96606 ratio=81.02 result=ok shape="input 64x8x64, filter 5x5, pad 2, stride 1"
+MP master int 96606 1 input 64x8x64, filter 5x5, pad 2, stride 1
+PM master psram_miss=0 dbus=8 insn=82724 store=0 tie=0 dep=1748 checked=1 input 64x8x64, filter 5x5, pad 2, stride 1
+BENCH op=max_pool variant=v0 mem=int ansi=7827218 opt=62680 ratio=124.88 result=ok shape="input 64x8x64, filter 5x5, pad 2, stride 1"
+MP v0 int 62680 1 input 64x8x64, filter 5x5, pad 2, stride 1
+PM v0 psram_miss=0 dbus=8 insn=49526 store=0 tie=0 dep=6731 checked=1 input 64x8x64, filter 5x5, pad 2, stride 1
+POOL_OUTPUT mem=int bytes=32768 raw=0x3fca91d0 gold0=0x3fcb1270 gold1=0x3fcb9290 guard=64 failures=0 result=ok shape="input 64x8x64, filter 5x5, pad 2, stride 1"
+POOL_INPUT mem=int bytes=32768 in0=0x3fc99190 in1=0x3fca11b0 result=ok shape="input 64x8x64, filter 5x5, pad 2, stride 1"
+BENCH op=max_pool variant=master mem=ext ansi=8864460 opt=329514 ratio=26.90 result=ok shape="input 64x32x16, filter 5x5, pad 2, stride 1"
+MP master ext 329514 1 input 64x32x16, filter 5x5, pad 2, stride 1
+PM master psram_miss=19 dbus=52456 insn=177692 store=36 tie=0 dep=55199 checked=1 input 64x32x16, filter 5x5, pad 2, stride 1
+BENCH op=max_pool variant=v0 mem=ext ansi=8864460 opt=122904 ratio=72.13 result=ok shape="input 64x32x16, filter 5x5, pad 2, stride 1"
+MP v0 ext 122904 1 input 64x32x16, filter 5x5, pad 2, stride 1
+PM v0 psram_miss=19 dbus=11912 insn=52358 store=496 tie=0 dep=7883 checked=1 input 64x32x16, filter 5x5, pad 2, stride 1
+POOL_OUTPUT mem=ext bytes=32768 raw=0x3c0509f0 gold0=0x3fc99190 gold1=0x3fca11b0 guard=64 failures=0 result=ok shape="input 64x32x16, filter 5x5, pad 2, stride 1"
+POOL_INPUT mem=ext bytes=32768 in0=0x3c0409b0 in1=0x3c0489d0 result=ok shape="input 64x32x16, filter 5x5, pad 2, stride 1"
+BENCH op=max_pool variant=master mem=int ansi=8820099 opt=271854 ratio=32.44 result=ok shape="input 64x32x16, filter 5x5, pad 2, stride 1"
+MP master int 271854 1 input 64x32x16, filter 5x5, pad 2, stride 1
+PM master psram_miss=0 dbus=8 insn=175140 store=0 tie=0 dep=55300 checked=1 input 64x32x16, filter 5x5, pad 2, stride 1
+BENCH op=max_pool variant=v0 mem=int ansi=8820099 opt=66664 ratio=132.31 result=ok shape="input 64x32x16, filter 5x5, pad 2, stride 1"
+MP v0 int 66664 1 input 64x32x16, filter 5x5, pad 2, stride 1
+PM v0 psram_miss=0 dbus=8 insn=52358 store=0 tie=0 dep=7883 checked=1 input 64x32x16, filter 5x5, pad 2, stride 1
+POOL_OUTPUT mem=int bytes=32768 raw=0x3fca91d0 gold0=0x3fcb1270 gold1=0x3fcb9290 guard=64 failures=0 result=ok shape="input 64x32x16, filter 5x5, pad 2, stride 1"
+POOL_INPUT mem=int bytes=32768 in0=0x3fc99190 in1=0x3fca11b0 result=ok shape="input 64x32x16, filter 5x5, pad 2, stride 1"
+BENCH op=max_pool variant=master mem=ext ansi=8688969 opt=209830 ratio=41.41 result=ok shape="input 32x32x32, filter 5x5, pad 2, stride 1"
+MP master ext 209830 1 input 32x32x32, filter 5x5, pad 2, stride 1
+PM master psram_miss=19 dbus=51528 insn=125256 store=936 tie=0 dep=3807 checked=1 input 32x32x32, filter 5x5, pad 2, stride 1
+BENCH op=max_pool variant=v0 mem=ext ansi=8688969 opt=151033 ratio=57.53 result=ok shape="input 32x32x32, filter 5x5, pad 2, stride 1"
+MP v0 ext 151033 1 input 32x32x32, filter 5x5, pad 2, stride 1
+PM v0 psram_miss=18 dbus=11912 insn=53414 store=2536 tie=0 dep=7947 checked=1 input 32x32x32, filter 5x5, pad 2, stride 1
+POOL_OUTPUT mem=ext bytes=32768 raw=0x3c0509f0 gold0=0x3fc99190 gold1=0x3fca11b0 guard=64 failures=0 result=ok shape="input 32x32x32, filter 5x5, pad 2, stride 1"
+POOL_INPUT mem=ext bytes=32768 in0=0x3c0409b0 in1=0x3c0489d0 result=ok shape="input 32x32x32, filter 5x5, pad 2, stride 1"
+BENCH op=max_pool variant=master mem=int ansi=8641984 opt=148126 ratio=58.34 result=ok shape="input 32x32x32, filter 5x5, pad 2, stride 1"
+MP master int 148126 1 input 32x32x32, filter 5x5, pad 2, stride 1
+PM master psram_miss=0 dbus=8 insn=122704 store=0 tie=0 dep=3908 checked=1 input 32x32x32, filter 5x5, pad 2, stride 1
+BENCH op=max_pool variant=v0 mem=int ansi=8641984 opt=68040 ratio=127.01 result=ok shape="input 32x32x32, filter 5x5, pad 2, stride 1"
+MP v0 int 68040 1 input 32x32x32, filter 5x5, pad 2, stride 1
+PM v0 psram_miss=0 dbus=8 insn=53414 store=0 tie=0 dep=7947 checked=1 input 32x32x32, filter 5x5, pad 2, stride 1
+POOL_OUTPUT mem=int bytes=32768 raw=0x3fca91d0 gold0=0x3fcb1270 gold1=0x3fcb9290 guard=64 failures=0 result=ok shape="input 32x32x32, filter 5x5, pad 2, stride 1"
+POOL_INPUT mem=int bytes=32768 in0=0x3fc99190 in1=0x3fca11b0 result=ok shape="input 32x32x32, filter 5x5, pad 2, stride 1"
+BENCH op=max_pool variant=master mem=ext ansi=8099583 opt=175199 ratio=46.23 result=ok shape="input 16x16x128, filter 5x5, pad 2, stride 1"
+MP master ext 175199 1 input 16x16x128, filter 5x5, pad 2, stride 1
+PM master psram_miss=20 dbus=47880 insn=84628 store=2488 tie=0 dep=1135 checked=1 input 16x16x128, filter 5x5, pad 2, stride 1
+BENCH op=max_pool variant=v0 mem=ext ansi=8099583 opt=151660 ratio=53.41 result=ok shape="input 16x16x128, filter 5x5, pad 2, stride 1"
+MP v0 ext 151660 1 input 16x16x128, filter 5x5, pad 2, stride 1
+PM v0 psram_miss=19 dbus=11528 insn=54406 store=1897 tie=0 dep=7691 checked=1 input 16x16x128, filter 5x5, pad 2, stride 1
+POOL_OUTPUT mem=ext bytes=32768 raw=0x3c0509f0 gold0=0x3fc99190 gold1=0x3fca11b0 guard=64 failures=0 result=ok shape="input 16x16x128, filter 5x5, pad 2, stride 1"
+POOL_INPUT mem=ext bytes=32768 in0=0x3c0409b0 in1=0x3c0489d0 result=ok shape="input 16x16x128, filter 5x5, pad 2, stride 1"
+BENCH op=max_pool variant=master mem=int ansi=8048928 opt=95582 ratio=84.21 result=ok shape="input 16x16x128, filter 5x5, pad 2, stride 1"
+MP master int 95582 1 input 16x16x128, filter 5x5, pad 2, stride 1
+PM master psram_miss=0 dbus=8 insn=83660 store=0 tie=0 dep=1188 checked=1 input 16x16x128, filter 5x5, pad 2, stride 1
+BENCH op=max_pool variant=v0 mem=int ansi=8048928 opt=69288 ratio=116.17 result=ok shape="input 16x16x128, filter 5x5, pad 2, stride 1"
+MP v0 int 69288 1 input 16x16x128, filter 5x5, pad 2, stride 1
+PM v0 psram_miss=0 dbus=8 insn=54406 store=0 tie=0 dep=7691 checked=1 input 16x16x128, filter 5x5, pad 2, stride 1
+POOL_OUTPUT mem=int bytes=32768 raw=0x3fca91d0 gold0=0x3fcb1270 gold1=0x3fcb9290 guard=64 failures=0 result=ok shape="input 16x16x128, filter 5x5, pad 2, stride 1"
+POOL_INPUT mem=int bytes=32768 in0=0x3fc99190 in1=0x3fca11b0 result=ok shape="input 16x16x128, filter 5x5, pad 2, stride 1"
+BENCH op=max_pool variant=master mem=ext ansi=13009607 opt=353127 ratio=36.84 result=ok shape="input 32x32x48, filter 5x5, pad 2, stride 1"
+MP master ext 353127 1 input 32x32x48, filter 5x5, pad 2, stride 1
+PM master psram_miss=809 dbus=77288 insn=198480 store=3436 tie=0 dep=27487 checked=1 input 32x32x48, filter 5x5, pad 2, stride 1
+BENCH op=max_pool variant=v0 mem=ext ansi=13009607 opt=284522 ratio=45.72 result=ok shape="input 32x32x48, filter 5x5, pad 2, stride 1"
+MP v0 ext 284522 1 input 32x32x48, filter 5x5, pad 2, stride 1
+PM v0 psram_miss=800 dbus=17864 insn=79686 store=7870 tie=0 dep=11915 checked=1 input 32x32x48, filter 5x5, pad 2, stride 1
+POOL_OUTPUT mem=ext bytes=49152 raw=0x3c0589f0 gold0=0x3fc99190 gold1=0x3fca51b0 guard=64 failures=0 result=ok shape="input 32x32x48, filter 5x5, pad 2, stride 1"
+POOL_INPUT mem=ext bytes=49152 in0=0x3c0409b0 in1=0x3c04c9d0 result=ok shape="input 32x32x48, filter 5x5, pad 2, stride 1"
+BENCH op=max_pool variant=master mem=int ansi=12939890 opt=255698 ratio=50.61 result=ok shape="input 32x32x48, filter 5x5, pad 2, stride 1"
+MP master int 255698 1 input 32x32x48, filter 5x5, pad 2, stride 1
+PM master psram_miss=0 dbus=8 insn=195928 store=0 tie=0 dep=27588 checked=1 input 32x32x48, filter 5x5, pad 2, stride 1
+BENCH op=max_pool variant=v0 mem=int ansi=12939890 opt=101608 ratio=127.35 result=ok shape="input 32x32x48, filter 5x5, pad 2, stride 1"
+MP v0 int 101608 1 input 32x32x48, filter 5x5, pad 2, stride 1
+PM v0 psram_miss=0 dbus=8 insn=79686 store=0 tie=0 dep=11915 checked=1 input 32x32x48, filter 5x5, pad 2, stride 1
+POOL_OUTPUT mem=int bytes=49152 raw=0x3fcb11d0 gold0=0x3fcbd270 gold1=0x3fcc9290 guard=64 failures=0 result=ok shape="input 32x32x48, filter 5x5, pad 2, stride 1"
+POOL_INPUT mem=int bytes=49152 in0=0x3fc99190 in1=0x3fca51b0 result=ok shape="input 32x32x48, filter 5x5, pad 2, stride 1"
+BENCH op=max_pool variant=master mem=ext ansi=1901969 opt=31695 ratio=60.01 result=ok shape="input 8x32x64, filter 3x3, pad 1, stride 1"
+MP master ext 31695 1 input 8x32x64, filter 3x3, pad 1, stride 1
+PM master psram_miss=0 dbus=9592 insn=27424 store=123 tie=0 dep=831 checked=1 input 8x32x64, filter 3x3, pad 1, stride 1
+BENCH op=max_pool variant=v0 mem=ext ansi=1901969 opt=30599 ratio=62.16 result=ok shape="input 8x32x64, filter 3x3, pad 1, stride 1"
+MP v0 ext 30599 1 input 8x32x64, filter 3x3, pad 1, stride 1
+PM v0 psram_miss=0 dbus=4040 insn=24295 store=153 tie=0 dep=2251 checked=1 input 8x32x64, filter 3x3, pad 1, stride 1
+POOL_OUTPUT mem=ext bytes=16384 raw=0x3c0489f0 gold0=0x3fc99190 gold1=0x3fc9d1b0 guard=64 failures=0 result=ok shape="input 8x32x64, filter 3x3, pad 1, stride 1"
+POOL_INPUT mem=ext bytes=16384 in0=0x3c0409b0 in1=0x3c0449d0 result=ok shape="input 8x32x64, filter 3x3, pad 1, stride 1"
+BENCH op=max_pool variant=master mem=int ansi=1901969 opt=29026 ratio=65.53 result=ok shape="input 8x32x64, filter 3x3, pad 1, stride 1"
+MP master int 29026 1 input 8x32x64, filter 3x3, pad 1, stride 1
+PM master psram_miss=0 dbus=8 insn=25274 store=0 tie=0 dep=816 checked=1 input 8x32x64, filter 3x3, pad 1, stride 1
+BENCH op=max_pool variant=v0 mem=int ansi=1901969 opt=30599 ratio=62.16 result=ok shape="input 8x32x64, filter 3x3, pad 1, stride 1"
+MP v0 int 30599 1 input 8x32x64, filter 3x3, pad 1, stride 1
+PM v0 psram_miss=0 dbus=8 insn=24295 store=0 tie=0 dep=2251 checked=1 input 8x32x64, filter 3x3, pad 1, stride 1
+POOL_OUTPUT mem=int bytes=16384 raw=0x3fca11d0 gold0=0x3fca5270 gold1=0x3fca9290 guard=64 failures=0 result=ok shape="input 8x32x64, filter 3x3, pad 1, stride 1"
+POOL_INPUT mem=int bytes=16384 in0=0x3fc99190 in1=0x3fc9d1b0 result=ok shape="input 8x32x64, filter 3x3, pad 1, stride 1"
+BENCH op=max_pool variant=master mem=ext ansi=16149312 opt=1071393 ratio=15.07 result=ok shape="input 64x32x64, filter 3x3, pad 1, stride 1"
+MP master ext 1071393 1 input 64x32x64, filter 3x3, pad 1, stride 1
+PM master psram_miss=4100 dbus=80376 insn=178512 store=325702 tie=0 dep=1167 checked=1 input 64x32x64, filter 3x3, pad 1, stride 1
+BENCH op=max_pool variant=v0 mem=ext ansi=16149312 opt=1209248 ratio=13.35 result=ok shape="input 64x32x64, filter 3x3, pad 1, stride 1"
+MP v0 ext 1209248 1 input 64x32x64, filter 3x3, pad 1, stride 1
+PM v0 psram_miss=4100 dbus=32264 insn=159591 store=169844 tie=0 dep=16139 checked=1 input 64x32x64, filter 3x3, pad 1, stride 1
+POOL_OUTPUT mem=ext bytes=131072 raw=0x3c0809f0 gold0=0x3fc99190 gold1=0x3fcb91b0 guard=64 failures=0 result=ok shape="input 64x32x64, filter 3x3, pad 1, stride 1"
+POOL_INPUT mem=ext bytes=131072 in0=0x3c0409b0 in1=0x3c0609d0 result=ok shape="input 64x32x64, filter 3x3, pad 1, stride 1"
+BENCH op=max_pool variant=master mem=ext ansi=1882721 opt=25095 ratio=75.02 result=ok shape="input 32x8x64, filter 3x3, pad 1, stride 1"
+MP master ext 25095 1 input 32x8x64, filter 3x3, pad 1, stride 1
+PM master psram_miss=0 dbus=9592 insn=22576 store=0 tie=0 dep=375 checked=1 input 32x8x64, filter 3x3, pad 1, stride 1
+BENCH op=max_pool variant=v0 mem=ext ansi=1882721 opt=25271 ratio=74.50 result=ok shape="input 32x8x64, filter 3x3, pad 1, stride 1"
+MP v0 ext 25271 1 input 32x8x64, filter 3x3, pad 1, stride 1
+PM v0 psram_miss=0 dbus=3848 insn=20311 store=0 tie=0 dep=1867 checked=1 input 32x8x64, filter 3x3, pad 1, stride 1
+POOL_OUTPUT mem=ext bytes=16384 raw=0x3c0489f0 gold0=0x3fc99190 gold1=0x3fc9d1b0 guard=64 failures=0 result=ok shape="input 32x8x64, filter 3x3, pad 1, stride 1"
+POOL_INPUT mem=ext bytes=16384 in0=0x3c0409b0 in1=0x3c0449d0 result=ok shape="input 32x8x64, filter 3x3, pad 1, stride 1"
+BENCH op=max_pool variant=master mem=int ansi=1882721 opt=24730 ratio=76.13 result=ok shape="input 32x8x64, filter 3x3, pad 1, stride 1"
+MP master int 24730 1 input 32x8x64, filter 3x3, pad 1, stride 1
+PM master psram_miss=0 dbus=8 insn=22274 store=0 tie=0 dep=384 checked=1 input 32x8x64, filter 3x3, pad 1, stride 1
+BENCH op=max_pool variant=v0 mem=int ansi=1882721 opt=25271 ratio=74.50 result=ok shape="input 32x8x64, filter 3x3, pad 1, stride 1"
+MP v0 int 25271 1 input 32x8x64, filter 3x3, pad 1, stride 1
+PM v0 psram_miss=0 dbus=8 insn=20311 store=0 tie=0 dep=1867 checked=1 input 32x8x64, filter 3x3, pad 1, stride 1
+POOL_OUTPUT mem=int bytes=16384 raw=0x3fca11d0 gold0=0x3fca5270 gold1=0x3fca9290 guard=64 failures=0 result=ok shape="input 32x8x64, filter 3x3, pad 1, stride 1"
+POOL_INPUT mem=int bytes=16384 in0=0x3fc99190 in1=0x3fc9d1b0 result=ok shape="input 32x8x64, filter 3x3, pad 1, stride 1"
+BENCH op=max_pool variant=master mem=ext ansi=16168206 opt=1070715 ratio=15.10 result=ok shape="input 32x64x64, filter 3x3, pad 1, stride 1"
+MP master ext 1070715 1 input 32x64x64, filter 3x3, pad 1, stride 1
+PM master psram_miss=4099 dbus=80376 insn=184976 store=323755 tie=0 dep=1775 checked=1 input 32x64x64, filter 3x3, pad 1, stride 1
+BENCH op=max_pool variant=v0 mem=ext ansi=16168206 opt=1201062 ratio=13.46 result=ok shape="input 32x64x64, filter 3x3, pad 1, stride 1"
+MP v0 ext 1201062 1 input 32x64x64, filter 3x3, pad 1, stride 1
+PM v0 psram_miss=4099 dbus=32520 insn=164903 store=184429 tie=0 dep=16651 checked=1 input 32x64x64, filter 3x3, pad 1, stride 1
+POOL_OUTPUT mem=ext bytes=131072 raw=0x3c0809f0 gold0=0x3fc99190 gold1=0x3fcb91b0 guard=64 failures=0 result=ok shape="input 32x64x64, filter 3x3, pad 1, stride 1"
+POOL_INPUT mem=ext bytes=131072 in0=0x3c0409b0 in1=0x3c0609d0 result=ok shape="input 32x64x64, filter 3x3, pad 1, stride 1"
+BENCH op=max_pool variant=master mem=ext ansi=15945150 opt=1070232 ratio=14.90 result=ok shape="input 128x16x64, filter 3x3, pad 1, stride 1"
+MP master ext 1070232 1 input 128x16x64, filter 3x3, pad 1, stride 1
+PM master psram_miss=4099 dbus=79608 insn=174224 store=332107 tie=0 dep=1151 checked=1 input 128x16x64, filter 3x3, pad 1, stride 1
+BENCH op=max_pool variant=v0 mem=ext ansi=15945150 opt=1210809 ratio=13.17 result=ok shape="input 128x16x64, filter 3x3, pad 1, stride 1"
+MP v0 ext 1210809 1 input 128x16x64, filter 3x3, pad 1, stride 1
+PM v0 psram_miss=4099 dbus=31752 insn=156167 store=161977 tie=0 dep=15499 checked=1 input 128x16x64, filter 3x3, pad 1, stride 1
+POOL_OUTPUT mem=ext bytes=131072 raw=0x3c0809f0 gold0=0x3fc99190 gold1=0x3fcb91b0 guard=64 failures=0 result=ok shape="input 128x16x64, filter 3x3, pad 1, stride 1"
+POOL_INPUT mem=ext bytes=131072 in0=0x3c0409b0 in1=0x3c0609d0 result=ok shape="input 128x16x64, filter 3x3, pad 1, stride 1"
+BENCH op=max_pool variant=master mem=ext ansi=34575770 opt=1521039 ratio=22.73 result=ok shape="input 128x16x64, filter 5x5, pad 2, stride 1"
+MP master ext 1521039 1 input 128x16x64, filter 5x5, pad 2, stride 1
+PM master psram_miss=5890 dbus=204040 insn=350732 store=336415 tie=0 dep=6511 checked=1 input 128x16x64, filter 5x5, pad 2, stride 1
+BENCH op=max_pool variant=v0 mem=ext ansi=34575770 opt=1519229 ratio=22.76 result=ok shape="input 128x16x64, filter 5x5, pad 2, stride 1"
+MP v0 ext 1519229 1 input 128x16x64, filter 5x5, pad 2, stride 1
+PM v0 psram_miss=5890 dbus=46088 insn=201286 store=161500 tie=0 dep=29835 checked=1 input 128x16x64, filter 5x5, pad 2, stride 1
+POOL_OUTPUT mem=ext bytes=131072 raw=0x3c0809f0 gold0=0x3fc99190 gold1=0x3fcb91b0 guard=64 failures=0 result=ok shape="input 128x16x64, filter 5x5, pad 2, stride 1"
+POOL_INPUT mem=ext bytes=131072 in0=0x3c0409b0 in1=0x3c0609d0 result=ok shape="input 128x16x64, filter 5x5, pad 2, stride 1"
+BENCH op=max_pool variant=master mem=ext ansi=15684405 opt=1344990 ratio=11.66 result=ok shape="input 256x8x64, filter 3x3, pad 1, stride 1"
+MP master ext 1344990 1 input 256x8x64, filter 3x3, pad 1, stride 1
+PM master psram_miss=5636 dbus=77688 insn=169968 store=422106 tie=0 dep=1719 checked=1 input 256x8x64, filter 3x3, pad 1, stride 1
+BENCH op=max_pool variant=v0 mem=ext ansi=15684405 opt=1482790 ratio=10.58 result=ok shape="input 256x8x64, filter 3x3, pad 1, stride 1"
+MP v0 ext 1482790 1 input 256x8x64, filter 3x3, pad 1, stride 1
+PM v0 psram_miss=5897 dbus=30728 insn=152919 store=121510 tie=0 dep=14411 checked=1 input 256x8x64, filter 3x3, pad 1, stride 1
+POOL_OUTPUT mem=ext bytes=131072 raw=0x3c0809f0 gold0=0x3fc99190 gold1=0x3fcb91b0 guard=64 failures=0 result=ok shape="input 256x8x64, filter 3x3, pad 1, stride 1"
+POOL_INPUT mem=ext bytes=131072 in0=0x3c0409b0 in1=0x3c0609d0 result=ok shape="input 256x8x64, filter 3x3, pad 1, stride 1"
+Guru Meditation Error: Core  0 panic'ed (Interrupt wdt timeout on CPU0). 
+
+Core  0 register dump:
+PC      : 0x4201fdfc  PS      : 0x00060a34  A0      : 0x8200adb1  A1      : 0x3fced5b0  
+--- 0x4201fdfc: esp_nn_max_pool_s8_ansi at /home/kostis/Desktop/ESP-NN/pr68-cache-locality/experiment/esp-nn/src/pooling/esp_nn_max_pool_ansi.c:53
+A2      : 0x3c05ce83  A3      : 0x00004000  A4      : 0x00000040  A5      : 0x00000000  
+A6      : 0x00000004  A7      : 0x00000005  A8      : 0x00000077  A9      : 0x0000004b  
+A10     : 0x0000007f  A11     : 0x3c094f70  A12     : 0x00000003  A13     : 0x3c05cf03  
+A14     : 0x00000000  A15     : 0x00000005  SAR     : 0x00000020  EXCCAUSE: 0x00000005  
+EXCVADDR: 0x00000000  LBEG    : 0x400570e8  LEND    : 0x400570f3  LCOUNT  : 0x00000000  
+--- 0x400570e8: memset in ROM
+--- 0x400570f3: memset in ROM
+
+
+Backtrace: 0x4201fdf9:0x3fced5b0 0x4200adae:0x3fced620 0x4201b4d1:0x3fced670 0x4201b8d2:0x3fced6b0 0x4200af52:0x3fced710 0x4200b03a:0x3fced820 0x42009b7a:0x3fced850 0x42023346:0x3fced880
+--- 0x4201fdf9: esp_nn_max_pool_s8_ansi at /home/kostis/Desktop/ESP-NN/pr68-cache-locality/experiment/esp-nn/src/pooling/esp_nn_max_pool_ansi.c:45
+--- 0x4200adae: max_ref at /home/kostis/Desktop/ESP-NN/pr68-cache-locality/experiment/esp-nn/bench_app/main/bench_pooling.c:116
+--- 0x4201b4d1: time_calls at /home/kostis/Desktop/ESP-NN/pr68-cache-locality/experiment/esp-nn/bench_app/components/bench_harness/bench.c:147
+--- 0x4201b8d2: bench_run at /home/kostis/Desktop/ESP-NN/pr68-cache-locality/experiment/esp-nn/bench_app/components/bench_harness/bench.c:249
+--- 0x4200af52: run_shape at /home/kostis/Desktop/ESP-NN/pr68-cache-locality/experiment/esp-nn/bench_app/main/bench_pooling.c:188
+--- 0x4200b03a: bench_pooling at /home/kostis/Desktop/ESP-NN/pr68-cache-locality/experiment/esp-nn/bench_app/main/bench_pooling.c:217
+--- 0x42009b7a: bench_task at /home/kostis/Desktop/ESP-NN/pr68-cache-locality/experiment/esp-nn/bench_app/main/bench_main.c:38
+--- 0x42023346: vPortTaskWrapper at /home/kostis/Desktop/ESP-NN/pr68-reviewer-repro/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:147
+
+
+Core  1 register dump:
+PC      : 0x40379196  PS      : 0x00060034  A0      : 0x82022d01  A1      : 0x3fc98da0  
+--- 0x40379196: esp_cpu_wait_for_intr at /home/kostis/Desktop/ESP-NN/pr68-reviewer-repro/esp-idf/components/esp_hw_support/cpu.c:64
+A2      : 0x00000000  A3      : 0x00000000  A4      : 0x3fc96a00  A5      : 0x3fc969e0  
+A6      : 0x40375580  A7      : 0x00000001  A8      : 0x00000000  A9      : 0x00000000  
+--- 0x40375580: ipc_task at /home/kostis/Desktop/ESP-NN/pr68-reviewer-repro/esp-idf/components/esp_system/esp_ipc.c:53
+A10     : 0x00000000  A11     : 0x00000000  A12     : 0x3fc969e0  A13     : 0x3fc969c0  
+A14     : 0x00000001  A15     : 0x00000000  SAR     : 0x00000000  EXCCAUSE: 0x00000005  
+EXCVADDR: 0x00000000  LBEG    : 0x00000000  LEND    : 0x00000000  LCOUNT  : 0x00000000  
+
+
+Backtrace: 0x40379193:0x3fc98da0 0x42022cfe:0x3fc98dc0 0x42023cd2:0x3fc98de0 0x42023346:0x3fc98e00
+--- 0x40379193: xt_utils_wait_for_intr at /home/kostis/Desktop/ESP-NN/pr68-reviewer-repro/esp-idf/components/xtensa/include/xt_utils.h:82(inlined by) esp_cpu_wait_for_intr at /home/kostis/Desktop/ESP-NN/pr68-reviewer-repro/esp-idf/components/esp_hw_support/cpu.c:55
+--- 0x42022cfe: esp_vApplicationIdleHook at /home/kostis/Desktop/ESP-NN/pr68-reviewer-repro/esp-idf/components/esp_system/freertos_hooks.c:58
+--- 0x42023cd2: prvIdleTask at /home/kostis/Desktop/ESP-NN/pr68-reviewer-repro/esp-idf/components/freertos/FreeRTOS-Kernel/tasks.c:4350
+--- 0x42023346: vPortTaskWrapper at /home/kostis/Desktop/ESP-NN/pr68-reviewer-repro/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:147
+
+
+
+
+ELF file SHA256: 183a5ea89
+
+Rebooting...
+ESP-ROM:esp32s3-20210327
+Build:Mar 27 2021
+rst:0xc (RTC_SW_CPU_RST),boot:0x2a (SPI_FAST_FLASH_BOOT)
+Saved PC:0x4037bc91
+--- 0x4037bc91: esp_restart_noos at /home/kostis/Desktop/ESP-NN/pr68-reviewer-repro/esp-idf/components/esp_system/port/soc/esp32s3/system_internal.c:171
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fce2820,len:0x14f0
+load:0x403c8700,len:0xde4
+--- 0x403c8700: _stext at ??:?
+load:0x403cb700,len:0x2f58
+entry 0x403c8904
+--- 0x403c8904: call_start_cpu0 at /home/kostis/Desktop/ESP-NN/pr68-reviewer-repro/esp-idf/components/bootloader/subproject/main/bootloader_start.c:27
+[0;32mI (24) boot: ESP-IDF v6.1 2nd stage bootloader[0m
+[0;32mI (24) boot: compile time Nov 27 2026 19:34:43[0m
+[0;32mI (24) boot: Multicore bootloader[0m
+[0;32mI (25) boot: chip revision: v0.2[0m
+[0;32mI (27) boot: efuse block revision: v1.3[0m
+[0;32mI (30) boot.esp32s3: Boot SPI Speed : 80MHz[0m
+[0;32mI (34) boot.esp32s3: SPI Mode       : DIO[0m
+[0;32mI (38) boot.esp32s3: SPI Flash Size : 8MB[0m
+[0;32mI (42) boot: Enabling RNG early entropy source...[0m
+[0;32mI (46) boot: Partition Table:[0m
+[0;32mI (49) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (55) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (62) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (68) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (75) boot: End of partition table[0m
+[0;32mI (78) esp_image: segment 0: paddr=00010020 vaddr=3c030020 size=0ab98h ( 43928) map[0m
+[0;32mI (94) esp_image: segment 1: paddr=0001abc0 vaddr=3fc91600 size=03618h ( 13848) load[0m
+[0;32mI (97) esp_image: segment 2: paddr=0001e1e0 vaddr=40374000 size=01e38h (  7736) load[0m
+[0;32mI (102) esp_image: segment 3: paddr=00020020 vaddr=42000020 size=25660h (153184) map[0m
+[0;32mI (136) esp_image: segment 4: paddr=00045688 vaddr=40375e38 size=0b744h ( 46916) load[0m
+[0;32mI (147) esp_image: segment 5: paddr=00050dd4 vaddr=50000000 size=00024h (    36) load[0m
+[0;32mI (153) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (153) boot: Disabling RNG early entropy source...[0m
+[0;32mI (165) octal_psram: vendor id    : 0x0d (AP)[0m
+[0;32mI (165) octal_psram: dev id       : 0x02 (generation 3)[0m
+[0;32mI (165) octal_psram: density      : 0x03 (64 Mbit)[0m
+[0;32mI (167) octal_psram: good-die     : 0x01 (Pass)[0m
+[0;32mI (171) octal_psram: Latency      : 0x01 (Fixed)[0m
+[0;32mI (176) octal_psram: VCC          : 0x01 (3V)[0m
+[0;32mI (180) octal_psram: SRF          : 0x01 (Fast Refresh)[0m
+[0;32mI (185) octal_psram: BurstType    : 0x01 (Hybrid Wrap)[0m
+[0;32mI (190) octal_psram: BurstLen     : 0x01 (32 Byte)[0m
+[0;32mI (194) octal_psram: Readlatency  : 0x02 (10 cycles@Fixed)[0m
+[0;32mI (199) octal_psram: DriveStrength: 0x00 (1/1)[0m
+[0;32mI (203) MSPI Timing: Enter psram timing tuning[0m
+[0;32mI (208) esp_psram: Found 8MB PSRAM device[0m
+[0;32mI (211) esp_psram: Speed: 80MHz[0m
+[0;32mI (214) cpu_start: Multicore app[0m
+[0;32mI (519) esp_psram: SPI SRAM memory test OK[0m
+[0;32mI (527) cpu_start: GPIO 44 and 43 are used as console UART I/O pins[0m
+[0;32mI (528) cpu_start: Pro cpu start user code[0m
+[0;32mI (528) cpu_start: cpu freq: 240000000 Hz[0m
+[0;32mI (529) app_init: Application information:[0m
+[0;32mI (533) app_init: Project name:     bench_app[0m
+[0;32mI (537) app_init: App version:      pr68-locality[0m
+[0;32mI (542) app_init: Compile time:     Nov 27 2026 19:35:36[0m
+[0;32mI (547) app_init: ELF file SHA256:  183a5ea89...[0m
+[0;32mI (551) app_init: ESP-IDF:          v6.1[0m
+[0;32mI (555) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (559) efuse_init: Max chip rev:     v0.99 [0m
+[0;32mI (563) efuse_init: Chip rev:         v0.2[0m
+[0;32mI (566) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (573) heap_init: At 3FC95700 len 00054010 (336 KiB): RAM[0m
+[0;32mI (578) heap_init: At 3FCE9710 len 00005724 (21 KiB): RAM[0m
+[0;32mI (583) heap_init: At 600FE000 len 00001FE8 (7 KiB): RTCRAM[0m
+[0;32mI (588) esp_psram: Adding pool of 8192K of PSRAM memory to heap allocator[0m
+[0;32mI (595) spi_flash: detected chip: gd[0m
+[0;32mI (598) spi_flash: flash io: dio[0m
+[0;32mI (601) sleep_gpio: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (607) sleep_gpio: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (614) main_task: Started on CPU0[0m
+[0;32mI (614) main_task: Calling app_main()[0m
+BENCH_START target=esp32s3 idf=v6.1 cpu_mhz=240 psram=1 iters=9 seed=0xc0ffee42
+BENCH op=conv variant=esp_nn mem=ext ansi=4727760 opt=123306 ratio=38.34 result=ok shape="input 10x10x64, filter 64x1x1x64, pad 0, stride 1"
+BENCH op=conv variant=esp_nn mem=ext ansi=316374 opt=17664 ratio=17.91 result=ok shape="input 8x8x16, filter 16x1x1x16, pad 0, stride 1"
+BENCH op=conv variant=esp_nn mem=ext ansi=1349660 opt=70824 ratio=19.06 result=ok shape="input 8x8x3, filter 64x3x3x3, pad 0, stride 1"
+BENCH op=conv variant=esp_nn mem=ext ansi=2399213 opt=99119 ratio=24.21 result=ok shape="input 10x10x3, filter 64x3x3x3, pad 0, stride 1"
+BENCH op=conv variant=esp_nn mem=int ansi=359826 opt=18653 ratio=19.29 result=ok shape="input 8x8x16, filter 16x3x3x16, pad 0, stride 2"
+BENCH op=depthwise_conv variant=esp_nn mem=ext ansi=1138115 opt=86357 ratio=13.18 result=ok shape="input 18x18x16, filter 1x3x3x16, pad (0,0), stride (1,1)"
+BENCH op=depthwise_conv variant=esp_nn mem=ext ansi=871457 opt=66773 ratio=13.05 result=ok shape="input 16x16x16, filter 1x3x3x16, pad (0,0), stride (1,1)"
+BENCH op=depthwise_conv variant=esp_nn mem=int ansi=422629 opt=37090 ratio=11.39 result=ok shape="input 10x10x16, filter 1x3x3x16, pad (1,1), stride (1,1)"
+BENCH op=depthwise_conv variant=esp_nn mem=ext ansi=1280645 opt=260655 ratio=4.91 result=ok shape="input 12x12x4, filter 8x5x5x4, pad (1,1), stride (1,1)"
+BENCH op=depthwise_conv variant=esp_nn mem=int ansi=10740498 opt=2135840 ratio=5.03 result=ok shape="input 1x384x128, filter 1x1x3x128, pad (0,1), stride (1,1)"
+BENCH op=depthwise_conv variant=esp_nn mem=int ansi=5359219 opt=1071013 ratio=5.00 result=ok shape="input 1x192x256, filter 1x1x3x256, pad (0,1), stride (1,2)"
+BENCH op=fully_connected variant=esp_nn mem=int ansi=8447 opt=770 ratio=10.97 result=ok shape="length 271, 3 outputs, input offset 7"
+BENCH op=fully_connected variant=esp_nn_operands_8mod16 mem=int ansi=8447 opt=1558 ratio=5.42 result=ok shape="length 271, 3 outputs, input offset 7"
+BENCH op=fully_connected variant=esp_nn mem=ext ansi=680818 opt=28560 ratio=23.84 result=ok shape="length 256, 256 outputs, input offset -3"
+BENCH op=fully_connected variant=esp_nn_operands_8mod16 mem=ext ansi=680818 opt=108729 ratio=6.26 result=ok shape="length 256, 256 outputs, input offset -3"
+BENCH op=fully_connected variant=esp_nn mem=ext ansi=672037 opt=26630 ratio=25.24 result=ok shape="length 512, 128 outputs, input offset -3"
+BENCH op=fully_connected variant=esp_nn_operands_8mod16 mem=ext ansi=672037 opt=102869 ratio=6.53 result=ok shape="length 512, 128 outputs, input offset -3"
+BENCH op=fully_connected variant=esp_nn mem=ext ansi=1183431 opt=288924 ratio=4.10 result=ok shape="length 320, 320 outputs, input offset -3"
+BENCH op=fully_connected variant=esp_nn_operands_8mod16 mem=ext ansi=1183431 opt=311524 ratio=3.80 result=ok shape="length 320, 320 outputs, input offset -3"
+BENCH op=fully_connected variant=esp_nn mem=ext ansi=348237 opt=15588 ratio=22.34 result=ok shape="length 128, 256 outputs, input offset -3"
+BENCH op=fully_connected variant=esp_nn_operands_8mod16 mem=ext ansi=348237 opt=59064 ratio=5.90 result=ok shape="length 128, 256 outputs, input offset -3"
+BENCH op=fully_connected variant=esp_nn mem=ext ansi=184397 opt=13284 ratio=13.88 result=ok shape="length 64, 256 outputs, input offset -3"
+BENCH op=fully_connected variant=esp_nn_operands_8mod16 mem=ext ansi=184397 opt=38584 ratio=4.78 result=ok shape="length 64, 256 outputs, input offset -3"
+BENCH op=fully_connected variant=esp_nn mem=ext ansi=348237 opt=15332 ratio=22.71 result=ok shape="length 128, 256 outputs, input offset 0"
+BENCH op=fully_connected variant=esp_nn_operands_8mod16 mem=ext ansi=348237 opt=59064 ratio=5.90 result=ok shape="length 128, 256 outputs, input offset 0"
+BENCH op=fully_connected variant=esp_nn mem=int ansi=2007117 opt=47332 ratio=42.41 result=ok shape="length 384, 512 outputs, input offset 7"
+BENCH op=fully_connected variant=esp_nn mem=int ansi=2007117 opt=35912 ratio=55.89 result=ok shape="length 384, 512 outputs, input offset 7, worker on"
+BENCH op=fully_connected_batch variant=esp_nn mem=int ansi=753611 opt=95263 ratio=7.91 result=ok shape="batch 16, length 64, 64 outputs"
+BENCH op=fully_connected_batch variant=esp_nn_scratch mem=int ansi=753611 opt=29493 ratio=25.55 result=ok shape="batch 16, length 64, 64 outputs"
+BENCH op=fully_connected_batch variant=esp_nn mem=int ansi=3012445 opt=368607 ratio=8.17 result=ok shape="batch 32, length 64, 128 outputs"
+BENCH op=fully_connected_batch variant=esp_nn_scratch mem=int ansi=3012445 opt=94197 ratio=31.98 result=ok shape="batch 32, length 64, 128 outputs"
+BENCH op=fully_connected_batch variant=esp_nn mem=int ansi=1056287 opt=102815 ratio=10.27 result=ok shape="batch 4, length 128, 192 outputs"
+BENCH op=fully_connected_batch variant=esp_nn_scratch mem=int ansi=1056287 opt=62342 ratio=16.94 result=ok shape="batch 4, length 128, 192 outputs"
+BENCH op=fully_connected_batch variant=esp_nn mem=int ansi=1100287 opt=107095 ratio=10.27 result=ok shape="batch 4, length 128, 200 outputs"
+BENCH op=fully_connected_batch variant=esp_nn_scratch mem=int ansi=1100287 opt=65033 ratio=16.92 result=ok shape="batch 4, length 128, 200 outputs"
+BENCH op=fully_connected_batch variant=esp_nn_scratch mem=int ansi=2606325 opt=53512 ratio=48.71 result=ok shape="batch 48, length 160, 32 outputs"
+BENCH op=fully_connected_batch variant=esp_nn mem=int ansi=22531799 opt=1780575 ratio=12.65 result=ok shape="batch 64, length 128, 256 outputs"
+BENCH op=fully_connected_batch variant=esp_nn_scratch mem=int ansi=22531799 opt=505202 ratio=44.60 result=ok shape="batch 64, length 128, 256 outputs"
+BENCH op=fully_connected_batch variant=esp_nn mem=int ansi=66744 opt=10107 ratio=6.60 result=ok shape="batch 5, length 32, 32 outputs"
+BENCH op=fully_connected_batch variant=esp_nn_scratch mem=int ansi=66744 opt=8050 ratio=8.29 result=ok shape="batch 5, length 32, 32 outputs"
+BENCH op=fully_connected_batch variant=esp_nn mem=int ansi=273101 opt=67874 ratio=4.02 result=ok shape="batch 66, length 16, 16 outputs"
+BENCH op=fully_connected_batch variant=esp_nn_scratch mem=int ansi=273101 opt=18395 ratio=14.85 result=ok shape="batch 66, length 16, 16 outputs"
+BENCH op=add variant=esp_nn mem=ext ansi=271410 opt=60397 ratio=4.49 result=ok shape="size 1615"
+BENCH op=mul variant=esp_nn mem=ext ansi=117960 opt=6782 ratio=17.39 result=ok shape="size 1615"
+BENCH op=mul_broadcast variant=esp_nn mem=ext ansi=2097963 opt=148991 ratio=14.08 result=ok shape="49 positions x 576 channels"
+POOL_CACHE ictrl=0xb dctrl=0x15 icache_kib=16 icache_ways=8 icache_line=32 dcache_kib=64 dcache_ways_config=8 dcache_line=64 psram_mhz_config=80
+BENCH op=max_pool variant=master mem=int ansi=489649 opt=11954 ratio=40.96 result=ok shape="input 16x16x16, filter 3x3, pad 1, stride 1"
+MP master int 11954 1 input 16x16x16, filter 3x3, pad 1, stride 1
+PM master psram_miss=0 dbus=8 insn=9466 store=0 tie=0 dep=816 checked=1 input 16x16x16, filter 3x3, pad 1, stride 1
+BENCH op=max_pool variant=v0 mem=int ansi=489649 opt=7239 ratio=67.64 result=ok shape="input 16x16x16, filter 3x3, pad 1, stride 1"
+MP v0 int 7239 1 input 16x16x16, filter 3x3, pad 1, stride 1
+PM v0 psram_miss=0 dbus=8 insn=5830 store=0 tie=0 dep=523 checked=1 input 16x16x16, filter 3x3, pad 1, stride 1
+POOL_OUTPUT mem=int bytes=4096 raw=0x3fc9a1b0 gold0=0x3fc9b250 gold1=0x3fc9c270 guard=64 failures=0 result=ok shape="input 16x16x16, filter 3x3, pad 1, stride 1"
+BENCH op=avg_pool variant=esp_nn mem=int ansi=513355 opt=149374 ratio=3.44 result=ok shape="input 16x16x16, filter 3x3, pad 1, stride 1"
+POOL_INPUT mem=int bytes=4096 in0=0x3fceda60 in1=0x3fc99190 result=ok shape="input 16x16x16, filter 3x3, pad 1, stride 1"
+BENCH op=max_pool variant=master mem=ext ansi=489649 opt=13087 ratio=37.41 result=ok shape="input 16x16x16, filter 3x3, pad 1, stride 1"
+MP master ext 13087 1 input 16x16x16, filter 3x3, pad 1, stride 1
+PM master psram_miss=0 dbus=2436 insn=10384 store=0 tie=0 dep=815 checked=1 input 16x16x16, filter 3x3, pad 1, stride 1
+BENCH op=max_pool variant=v0 mem=ext ansi=489649 opt=7239 ratio=67.64 result=ok shape="input 16x16x16, filter 3x3, pad 1, stride 1"
+MP v0 ext 7239 1 input 16x16x16, filter 3x3, pad 1, stride 1
+PM v0 psram_miss=0 dbus=1000 insn=5831 store=0 tie=0 dep=523 checked=1 input 16x16x16, filter 3x3, pad 1, stride 1
+POOL_OUTPUT mem=ext bytes=4096 raw=0x3c0429f0 gold0=0x3fceda60 gold1=0x3fc99190 guard=64 failures=0 result=ok shape="input 16x16x16, filter 3x3, pad 1, stride 1"
+POOL_INPUT mem=ext bytes=4096 in0=0x3c0409b0 in1=0x3c0419d0 result=ok shape="input 16x16x16, filter 3x3, pad 1, stride 1"
+BENCH op=max_pool variant=master mem=ext ansi=891213 opt=12837 ratio=69.43 result=ok shape="input 6x6x128, filter 5x5, pad 2, stride 1"
+MP master ext 12837 1 input 6x6x128, filter 5x5, pad 2, stride 1
+PM master psram_miss=0 dbus=5160 insn=10978 store=0 tie=0 dep=245 checked=1 input 6x6x128, filter 5x5, pad 2, stride 1
+BENCH op=max_pool variant=v0 mem=ext ansi=891213 opt=10748 ratio=82.92 result=ok shape="input 6x6x128, filter 5x5, pad 2, stride 1"
+MP v0 ext 10748 1 input 6x6x128, filter 5x5, pad 2, stride 1
+PM v0 psram_miss=0 dbus=1448 insn=8506 store=0 tie=0 dep=971 checked=1 input 6x6x128, filter 5x5, pad 2, stride 1
+POOL_OUTPUT mem=ext bytes=4608 raw=0x3c042df0 gold0=0x3fceda60 gold1=0x3fc99190 guard=64 failures=0 result=ok shape="input 6x6x128, filter 5x5, pad 2, stride 1"
+POOL_INPUT mem=ext bytes=4608 in0=0x3c0409b0 in1=0x3c041bd0 result=ok shape="input 6x6x128, filter 5x5, pad 2, stride 1"
+MP master ext 54002 1 input 12x12x128, filter 5x5, pad 2, stride 1
+PM master psram_miss=0 dbus=25608 insn=46720 store=7 tie=0 dep=707 checked=1 input 12x12x128, filter 5x5, pad 2, stride 1
+BENCH op=max_pool variant=v0 mem=ext ansi=4324813 opt=40070 ratio=107.93 result=ok shape="input 12x12x128, filter 5x5, pad 2, stride 1"
+MP v0 ext 40070 1 input 12x12x128, filter 5x5, pad 2, stride 1
+PM v0 psram_miss=0 dbus=6344 insn=31246 store=0 tie=0 dep=4235 checked=1 input 12x12x128, filter 5x5, pad 2, stride 1
+POOL_OUTPUT mem=ext bytes=18432 raw=0x3c0499f0 gold0=0x3fc99190 gold1=0x3fc9d9b0 guard=64 failures=0 result=ok shape="input 12x12x128, filter 5x5, pad 2, stride 1"
+BENCH op=avg_pool variant=esp_nn mem=ext ansi=4249629 opt=948182 ratio=4.48 result=ok shape="input 12x12x128, filter 5x5, pad 2, stride 1"
+POOL_INPUT mem=ext bytes=18432 in0=0x3c0409b0 in1=0x3c0451d0 result=ok shape="input 12x12x128, filter 5x5, pad 2, stride 1"
+BENCH op=max_pool variant=master mem=ext ansi=13007564 opt=305887 ratio=42.52 result=ok shape="input 20x20x128, filter 5x5, pad 2, stride 1"
+MP master ext 305887 1 input 20x20x128, filter 5x5, pad 2, stride 1
+PM master psram_miss=1010 dbus=77064 insn=133800 store=43612 tie=0 dep=1659 checked=1 input 20x20x128, filter 5x5, pad 2, stride 1
+BENCH op=max_pool variant=v0 mem=ext ansi=13007564 opt=338817 ratio=38.39 result=ok shape="input 20x20x128, filter 5x5, pad 2, stride 1"
+MP v0 ext 338817 1 input 20x20x128, filter 5x5, pad 2, stride 1
+PM v0 psram_miss=1006 dbus=18248 insn=83966 store=47392 tie=0 dep=12171 checked=1 input 20x20x128, filter 5x5, pad 2, stride 1
+POOL_OUTPUT mem=ext bytes=51200 raw=0x3c0599f0 gold0=0x3fc99190 gold1=0x3fca59b0 guard=64 failures=0 result=ok shape="input 20x20x128, filter 5x5, pad 2, stride 1"
+POOL_INPUT mem=ext bytes=51200 in0=0x3c0409b0 in1=0x3c04d1d0 result=ok shape="input 20x20x128, filter 5x5, pad 2, stride 1"
+BENCH op=max_pool variant=master mem=ext ansi=8024241 opt=377682 ratio=21.25 result=ok shape="input 32x32x64, filter 3x3, pad 1, stride 1"
+MP master ext 377682 1 input 32x32x64, filter 3x3, pad 1, stride 1
+PM master psram_miss=1301 dbus=39928 insn=92176 store=73679 tie=0 dep=975 checked=1 input 32x32x64, filter 3x3, pad 1, stride 1
+BENCH op=max_pool variant=v0 mem=ext ansi=8024241 opt=441702 ratio=18.17 result=ok shape="input 32x32x64, filter 3x3, pad 1, stride 1"
+MP v0 ext 441702 1 input 32x32x64, filter 3x3, pad 1, stride 1
+PM v0 psram_miss=1301 dbus=16136 insn=82279 store=55371 tie=0 dep=8203 checked=1 input 32x32x64, filter 3x3, pad 1, stride 1
+POOL_OUTPUT mem=ext bytes=65536 raw=0x3c0609f0 gold0=0x3fc99190 gold1=0x3fca91b0 guard=64 failures=0 result=ok shape="input 32x32x64, filter 3x3, pad 1, stride 1"
+POOL_INPUT mem=ext bytes=65536 in0=0x3c0409b0 in1=0x3c0509d0 result=ok shape="input 32x32x64, filter 3x3, pad 1, stride 1"
+BENCH op=max_pool variant=master mem=ext ansi=12508065 opt=836646 ratio=14.95 result=ok shape="input 56x56x32, filter 3x3, pad 1, stride 1"
+MP master ext 836646 1 input 56x56x32, filter 3x3, pad 1, stride 1
+PM master psram_miss=3139 dbus=61824 insn=153816 store=153339 tie=0 dep=1719 checked=1 input 56x56x32, filter 3x3, pad 1, stride 1
+BENCH op=max_pool variant=v0 mem=ext ansi=12508065 opt=903836 ratio=13.84 result=ok shape="input 56x56x32, filter 3x3, pad 1, stride 1"
+MP v0 ext 903836 1 input 56x56x32, filter 3x3, pad 1, stride 1
+PM v0 psram_miss=3139 dbus=24872 insn=123703 store=141531 tie=0 dep=12555 checked=1 input 56x56x32, filter 3x3, pad 1, stride 1
+POOL_OUTPUT mem=ext bytes=100352 raw=0x3c0719f0 gold0=0x3fc99190 gold1=0x3fcb19b0 guard=64 failures=0 result=ok shape="input 56x56x32, filter 3x3, pad 1, stride 1"
+POOL_INPUT mem=ext bytes=100352 in0=0x3c0409b0 in1=0x3c0591d0 result=ok shape="input 56x56x32, filter 3x3, pad 1, stride 1"
+BENCH op=max_pool variant=master mem=ext ansi=1016497 opt=36805 ratio=27.62 result=ok shape="input 16x16x16, filter 5x5, pad 2, stride 1"
+MP master ext 36805 1 input 16x16x16, filter 5x5, pad 2, stride 1
+PM master psram_miss=0 dbus=5992 insn=24268 store=0 tie=0 dep=6575 checked=1 input 16x16x16, filter 5x5, pad 2, stride 1
+BENCH op=max_pool variant=v0 mem=ext ansi=1016497 opt=9144 ratio=111.17 result=ok shape="input 16x16x16, filter 5x5, pad 2, stride 1"
+MP v0 ext 9144 1 input 16x16x16, filter 5x5, pad 2, stride 1
+PM v0 psram_miss=0 dbus=1448 insn=7254 store=0 tie=0 dep=971 checked=1 input 16x16x16, filter 5x5, pad 2, stride 1
+POOL_OUTPUT mem=ext bytes=4096 raw=0x3c0429f0 gold0=0x3fceda60 gold1=0x3fc99190 guard=64 failures=0 result=ok shape="input 16x16x16, filter 5x5, pad 2, stride 1"
+POOL_INPUT mem=ext bytes=4096 in0=0x3c0409b0 in1=0x3c0419d0 result=ok shape="input 16x16x16, filter 5x5, pad 2, stride 1"
+BENCH op=max_pool variant=master mem=int ansi=1016497 opt=35630 ratio=28.53 result=ok shape="input 16x16x16, filter 5x5, pad 2, stride 1"
+MP master int 35630 1 input 16x16x16, filter 5x5, pad 2, stride 1
+PM master psram_miss=0 dbus=8 insn=23300 store=0 tie=0 dep=6628 checked=1 input 16x16x16, filter 5x5, pad 2, stride 1
+BENCH op=max_pool variant=v0 mem=int ansi=1016497 opt=9144 ratio=111.17 result=ok shape="input 16x16x16, filter 5x5, pad 2, stride 1"
+MP v0 int 9144 1 input 16x16x16, filter 5x5, pad 2, stride 1
+PM v0 psram_miss=0 dbus=8 insn=7253 store=0 tie=0 dep=971 checked=1 input 16x16x16, filter 5x5, pad 2, stride 1
+POOL_OUTPUT mem=int bytes=4096 raw=0x3fc9a1b0 gold0=0x3fc9b250 gold1=0x3fc9c270 guard=64 failures=0 result=ok shape="input 16x16x16, filter 5x5, pad 2, stride 1"
+POOL_INPUT mem=int bytes=4096 in0=0x3fceda60 in1=0x3fc99190 result=ok shape="input 16x16x16, filter 5x5, pad 2, stride 1"
+BENCH op=max_pool variant=master mem=int ansi=891213 opt=12882 ratio=69.18 result=ok shape="input 6x6x128, filter 5x5, pad 2, stride 1"
+MP master int 12882 1 input 6x6x128, filter 5x5, pad 2, stride 1
+PM master psram_miss=0 dbus=8 insn=11000 store=0 tie=0 dep=268 checked=1 input 6x6x128, filter 5x5, pad 2, stride 1
+BENCH op=max_pool variant=v0 mem=int ansi=891213 opt=10748 ratio=82.92 result=ok shape="input 6x6x128, filter 5x5, pad 2, stride 1"
+MP v0 int 10748 1 input 6x6x128, filter 5x5, pad 2, stride 1
+PM v0 psram_miss=0 dbus=8 insn=8505 store=0 tie=0 dep=971 checked=1 input 6x6x128, filter 5x5, pad 2, stride 1
+POOL_OUTPUT mem=int bytes=4608 raw=0x3fc9a3b0 gold0=0x3fc9b650 gold1=0x3fc9c870 guard=64 failures=0 result=ok shape="input 6x6x128, filter 5x5, pad 2, stride 1"
+POOL_INPUT mem=int bytes=4608 in0=0x3fceda60 in1=0x3fc99190 result=ok shape="input 6x6x128, filter 5x5, pad 2, stride 1"
+MP master int 52998 1 input 12x12x128, filter 5x5, pad 2, stride 1
+PM master psram_miss=0 dbus=8 insn=46148 store=0 tie=0 dep=748 checked=1 input 12x12x128, filter 5x5, pad 2, stride 1
+BENCH op=max_pool variant=v0 mem=int ansi=4324583 opt=39728 ratio=108.85 result=ok shape="input 12x12x128, filter 5x5, pad 2, stride 1"
+MP v0 int 39728 1 input 12x12x128, filter 5x5, pad 2, stride 1
+PM v0 psram_miss=0 dbus=8 insn=31246 store=0 tie=0 dep=4235 checked=1 input 12x12x128, filter 5x5, pad 2, stride 1
+POOL_OUTPUT mem=int bytes=18432 raw=0x3fca21d0 gold0=0x3fca6a70 gold1=0x3fcab290 guard=64 failures=0 result=ok shape="input 12x12x128, filter 5x5, pad 2, stride 1"
+POOL_INPUT mem=int bytes=18432 in0=0x3fc99190 in1=0x3fc9d9b0 result=ok shape="input 12x12x128, filter 5x5, pad 2, stride 1"
+BENCH op=max_pool variant=master mem=int ansi=12921563 opt=150838 ratio=85.67 result=ok shape="input 20x20x128, filter 5x5, pad 2, stride 1"
+MP master int 150838 1 input 20x20x128, filter 5x5, pad 2, stride 1
+PM master psram_miss=0 dbus=8 insn=132436 store=0 tie=0 dep=1724 checked=1 input 20x20x128, filter 5x5, pad 2, stride 1
+BENCH op=max_pool variant=v0 mem=int ansi=12921563 opt=107040 ratio=120.72 result=ok shape="input 20x20x128, filter 5x5, pad 2, stride 1"
+MP v0 int 107040 1 input 20x20x128, filter 5x5, pad 2, stride 1
+PM v0 psram_miss=0 dbus=8 insn=83966 store=0 tie=0 dep=12171 checked=1 input 20x20x128, filter 5x5, pad 2, stride 1
+POOL_OUTPUT mem=int bytes=51200 raw=0x3fcb21d0 gold0=0x3fcbea70 gold1=0x3fccb290 guard=64 failures=0 result=ok shape="input 20x20x128, filter 5x5, pad 2, stride 1"
+POOL_INPUT mem=int bytes=51200 in0=0x3fc99190 in1=0x3fca59b0 result=ok shape="input 20x20x128, filter 5x5, pad 2, stride 1"
+BENCH op=max_pool variant=master mem=ext ansi=3881485 opt=126784 ratio=30.61 result=ok shape="input 8x64x64, filter 3x3, pad 1, stride 1"
+MP master ext 126784 1 input 8x64x64, filter 3x3, pad 1, stride 1
+PM master psram_miss=20 dbus=19320 insn=54944 store=2379 tie=0 dep=1631 checked=1 input 8x64x64, filter 3x3, pad 1, stride 1
+BENCH op=max_pool variant=v0 mem=ext ansi=3881485 opt=146759 ratio=26.45 result=ok shape="input 8x64x64, filter 3x3, pad 1, stride 1"
+MP v0 ext 146759 1 input 8x64x64, filter 3x3, pad 1, stride 1
+PM v0 psram_miss=19 dbus=8136 insn=48551 store=1627 tie=0 dep=4555 checked=1 input 8x64x64, filter 3x3, pad 1, stride 1
+POOL_OUTPUT mem=ext bytes=32768 raw=0x3c0509f0 gold0=0x3fc99190 gold1=0x3fca11b0 guard=64 failures=0 result=ok shape="input 8x64x64, filter 3x3, pad 1, stride 1"
+POOL_INPUT mem=ext bytes=32768 in0=0x3c0409b0 in1=0x3c0489d0 result=ok shape="input 8x64x64, filter 3x3, pad 1, stride 1"
+tride 1"
+MP master int 57602 1 input 8x64x64, filter 3x3, pad 1, stride 1
+PM master psram_miss=0 dbus=8 insn=50330 store=0 tie=0 dep=1584 checked=1 input 8x64x64, filter 3x3, pad 1, stride 1
+BENCH op=max_pool variant=v0 mem=int ansi=3835404 opt=61255 ratio=62.61 result=ok shape="input 8x64x64, filter 3x3, pad 1, stride 1"
+MP v0 int 61255 1 input 8x64x64, filter 3x3, pad 1, stride 1
+PM v0 psram_miss=0 dbus=8 insn=48551 store=0 tie=0 dep=4555 checked=1 input 8x64x64, filter 3x3, pad 1, stride 1
+POOL_OUTPUT mem=int bytes=32768 raw=0x3fca91d0 gold0=0x3fcb1270 gold1=0x3fcb9290 guard=64 failures=0 result=ok shape="input 8x64x64, filter 3x3, pad 1, stride 1"
+POOL_INPUT mem=int bytes=32768 in0=0x3fc99190 in1=0x3fca11b0 result=ok shape="input 8x64x64, filter 3x3, pad 1, stride 1"
+BENCH op=max_pool variant=master mem=ext ansi=3958711 opt=124099 ratio=31.90 result=ok shape="input 16x32x64, filter 3x3, pad 1, stride 1"
+MP master ext 124099 1 input 16x32x64, filter 3x3, pad 1, stride 1
+PM master psram_miss=22 dbus=19704 insn=49008 store=2525 tie=0 dep=879 checked=1 input 16x32x64, filter 3x3, pad 1, stride 1
+BENCH op=max_pool variant=v0 mem=ext ansi=3958711 opt=151055 ratio=26.21 result=ok shape="input 16x32x64, filter 3x3, pad 1, stride 1"
+MP v0 ext 151055 1 input 16x32x64, filter 3x3, pad 1, stride 1
+PM v0 psram_miss=21 dbus=8072 insn=43623 store=2945 tie=0 dep=4235 checked=1 input 16x32x64, filter 3x3, pad 1, stride 1
+POOL_OUTPUT mem=ext bytes=32768 raw=0x3c0509f0 gold0=0x3fc99190 gold1=0x3fca11b0 guard=64 failures=0 result=ok shape="input 16x32x64, filter 3x3, pad 1, stride 1"
+POOL_INPUT mem=ext bytes=32768 in0=0x3c0409b0 in1=0x3c0489d0 result=ok shape="input 16x32x64, filter 3x3, pad 1, stride 1"
+BENCH op=max_pool variant=master mem=int ansi=3911116 opt=51634 ratio=75.75 result=ok shape="input 16x32x64, filter 3x3, pad 1, stride 1"
+MP master int 51634 1 input 16x32x64, filter 3x3, pad 1, stride 1
+PM master psram_miss=0 dbus=8 insn=46858 store=0 tie=0 dep=864 checked=1 input 16x32x64, filter 3x3, pad 1, stride 1
+BENCH op=max_pool variant=v0 mem=int ansi=3911116 opt=54919 ratio=71.22 result=ok shape="input 16x32x64, filter 3x3, pad 1, stride 1"
+MP v0 int 54919 1 input 16x32x64, filter 3x3, pad 1, stride 1
+PM v0 psram_miss=0 dbus=8 insn=43623 store=0 tie=0 dep=4235 checked=1 input 16x32x64, filter 3x3, pad 1, stride 1
+POOL_OUTPUT mem=int bytes=32768 raw=0x3fca91d0 gold0=0x3fcb1270 gold1=0x3fcb9290 guard=64 failures=0 result=ok shape="input 16x32x64, filter 3x3, pad 1, stride 1"
+POOL_INPUT mem=int bytes=32768 in0=0x3fc99190 in1=0x3fca11b0 result=ok shape="input 16x32x64, filter 3x3, pad 1, stride 1"
+BENCH op=max_pool variant=master mem=ext ansi=3945847 opt=112132 ratio=35.19 result=ok shape="input 32x16x64, filter 3x3, pad 1, stride 1"
+MP master ext 112132 1 input 32x16x64, filter 3x3, pad 1, stride 1
+PM master psram_miss=23 dbus=19704 insn=45776 store=2453 tie=0 dep=575 checked=1 input 32x16x64, filter 3x3, pad 1, stride 1
+BENCH op=max_pool variant=v0 mem=ext ansi=3945847 opt=141740 ratio=27.84 result=ok shape="input 32x16x64, filter 3x3, pad 1, stride 1"
+MP v0 ext 141740 1 input 32x16x64, filter 3x3, pad 1, stride 1
+PM v0 psram_miss=22 dbus=7944 insn=40967 store=1299 tie=0 dep=3979 checked=1 input 32x16x64, filter 3x3, pad 1, stride 1
+POOL_OUTPUT mem=ext bytes=32768 raw=0x3c0509f0 gold0=0x3fc99190 gold1=0x3fca11b0 guard=64 failures=0 result=ok shape="input 32x16x64, filter 3x3, pad 1, stride 1"
+POOL_INPUT mem=ext bytes=32768 in0=0x3c0409b0 in1=0x3c0489d0 result=ok shape="input 32x16x64, filter 3x3, pad 1, stride 1"
+BENCH op=max_pool variant=master mem=int ansi=3898282 opt=48770 ratio=79.93 result=ok shape="input 32x16x64, filter 3x3, pad 1, stride 1"
+MP master int 48770 1 input 32x16x64, filter 3x3, pad 1, stride 1
+PM master psram_miss=0 dbus=8 insn=44858 store=0 tie=0 dep=576 checked=1 input 32x16x64, filter 3x3, pad 1, stride 1
+BENCH op=max_pool variant=v0 mem=int ansi=3898282 opt=51367 ratio=75.89 result=ok shape="input 32x16x64, filter 3x3, pad 1, stride 1"
+MP v0 int 51367 1 input 32x16x64, filter 3x3, pad 1, stride 1
+PM v0 psram_miss=0 dbus=8 insn=40967 store=0 tie=0 dep=3979 checked=1 input 32x16x64, filter 3x3, pad 1, stride 1
+POOL_OUTPUT mem=int bytes=32768 raw=0x3fca91d0 gold0=0x3fcb1270 gold1=0x3fcb9290 guard=64 failures=0 result=ok shape="input 32x16x64, filter 3x3, pad 1, stride 1"
+POOL_INPUT mem=int bytes=32768 in0=0x3fc99190 in1=0x3fca11b0 result=ok shape="input 32x16x64, filter 3x3, pad 1, stride 1"
+BENCH op=max_pool variant=master mem=ext ansi=3843916 opt=120582 ratio=31.88 result=ok shape="input 64x8x64, filter 3x3, pad 1, stride 1"
+MP master ext 120582 1 input 64x8x64, filter 3x3, pad 1, stride 1
+PM master psram_miss=22 dbus=19320 insn=43632 store=2551 tie=0 dep=567 checked=1 input 64x8x64, filter 3x3, pad 1, stride 1
+BENCH op=max_pool variant=v0 mem=ext ansi=3843916 opt=148891 ratio=25.82 result=ok shape="input 64x8x64, filter 3x3, pad 1, stride 1"
+MP v0 ext 148891 1 input 64x8x64, filter 3x3, pad 1, stride 1
+PM v0 psram_miss=21 dbus=7688 insn=39255 store=3233 tie=0 dep=3659 checked=1 input 64x8x64, filter 3x3, pad 1, stride 1
+POOL_OUTPUT mem=ext bytes=32768 raw=0x3c0509f0 gold0=0x3fc99190 gold1=0x3fca11b0 guard=64 failures=0 result=ok shape="input 64x8x64, filter 3x3, pad 1, stride 1"
+POOL_INPUT mem=ext bytes=32768 in0=0x3c0409b0 in1=0x3c0489d0 result=ok shape="input 64x8x64, filter 3x3, pad 1, stride 1"
+MP master int 47578 1 input 64x8x64, filter 3x3, pad 1, stride 1
+PM master psram_miss=0 dbus=8 insn=43330 store=0 tie=0 dep=576 checked=1 input 64x8x64, filter 3x3, pad 1, stride 1
+BENCH op=max_pool variant=v0 mem=int ansi=3790492 opt=48823 ratio=77.64 result=ok shape="input 64x8x64, filter 3x3, pad 1, stride 1"
+MP v0 int 48823 1 input 64x8x64, filter 3x3, pad 1, stride 1
+PM v0 psram_miss=0 dbus=8 insn=39255 store=0 tie=0 dep=3659 checked=1 input 64x8x64, filter 3x3, pad 1, stride 1
+POOL_OUTPUT mem=int bytes=32768 raw=0x3fca91d0 gold0=0x3fcb1270 gold1=0x3fcb9290 guard=64 failures=0 result=ok shape="input 64x8x64, filter 3x3, pad 1, stride 1"
+POOL_INPUT mem=int bytes=32768 in0=0x3fc99190 in1=0x3fca11b0 result=ok shape="input 64x8x64, filter 3x3, pad 1, stride 1"
+BENCH op=max_pool variant=master mem=ext ansi=4103393 opt=123477 ratio=33.23 result=ok shape="input 64x32x16, filter 3x3, pad 1, stride 1"
+MP master ext 123477 1 input 64x32x16, filter 3x3, pad 1, stride 1
+PM master psram_miss=19 dbus=20100 insn=59824 store=941 tie=0 dep=2271 checked=1 input 64x32x16, filter 3x3, pad 1, stride 1
+BENCH op=max_pool variant=v0 mem=ext ansi=4103393 opt=106316 ratio=38.60 result=ok shape="input 64x32x16, filter 3x3, pad 1, stride 1"
+MP v0 ext 106316 1 input 64x32x16, filter 3x3, pad 1, stride 1
+PM v0 psram_miss=19 dbus=8072 insn=40551 store=1208 tie=0 dep=4043 checked=1 input 64x32x16, filter 3x3, pad 1, stride 1
+POOL_OUTPUT mem=ext bytes=32768 raw=0x3c0509f0 gold0=0x3fc99190 gold1=0x3fca11b0 guard=64 failures=0 result=ok shape="input 64x32x16, filter 3x3, pad 1, stride 1"
+POOL_INPUT mem=ext bytes=32768 in0=0x3c0409b0 in1=0x3c0489d0 result=ok shape="input 64x32x16, filter 3x3, pad 1, stride 1"
+BENCH op=max_pool variant=master mem=int ansi=4059917 opt=66914 ratio=60.67 result=ok shape="input 64x32x16, filter 3x3, pad 1, stride 1"
+MP master int 66914 1 input 64x32x16, filter 3x3, pad 1, stride 1
+PM master psram_miss=0 dbus=8 insn=57674 store=0 tie=0 dep=2256 checked=1 input 64x32x16, filter 3x3, pad 1, stride 1
+BENCH op=max_pool variant=v0 mem=int ansi=4059917 opt=50887 ratio=79.78 result=ok shape="input 64x32x16, filter 3x3, pad 1, stride 1"
+MP v0 int 50887 1 input 64x32x16, filter 3x3, pad 1, stride 1
+PM v0 psram_miss=0 dbus=8 insn=40551 store=0 tie=0 dep=4043 checked=1 input 64x32x16, filter 3x3, pad 1, stride 1
+POOL_OUTPUT mem=int bytes=32768 raw=0x3fca91d0 gold0=0x3fcb1270 gold1=0x3fcb9290 guard=64 failures=0 result=ok shape="input 64x32x16, filter 3x3, pad 1, stride 1"
+POOL_INPUT mem=int bytes=32768 in0=0x3fc99190 in1=0x3fca11b0 result=ok shape="input 64x32x16, filter 3x3, pad 1, stride 1"
+BENCH op=max_pool variant=master mem=ext ansi=4032629 opt=123478 ratio=32.66 result=ok shape="input 32x32x32, filter 3x3, pad 1, stride 1"
+MP master ext 123478 1 input 32x32x32, filter 3x3, pad 1, stride 1
+PM master psram_miss=18 dbus=19968 insn=53352 store=1887 tie=0 dep=975 checked=1 input 32x32x32, filter 3x3, pad 1, stride 1
+BENCH op=max_pool variant=v0 mem=ext ansi=4032629 opt=138850 ratio=29.04 result=ok shape="input 32x32x32, filter 3x3, pad 1, stride 1"
+MP v0 ext 138850 1 input 32x32x32, filter 3x3, pad 1, stride 1
+PM v0 psram_miss=18 dbus=8072 insn=41575 store=2934 tie=0 dep=4107 checked=1 input 32x32x32, filter 3x3, pad 1, stride 1
+POOL_OUTPUT mem=ext bytes=32768 raw=0x3c0509f0 gold0=0x3fc99190 gold1=0x3fca11b0 guard=64 failures=0 result=ok shape="input 32x32x32, filter 3x3, pad 1, stride 1"
+POOL_INPUT mem=ext bytes=32768 in0=0x3c0409b0 in1=0x3c0489d0 result=ok shape="input 32x32x32, filter 3x3, pad 1, stride 1"
+BENCH op=max_pool variant=master mem=int ansi=3987788 opt=57426 ratio=69.44 result=ok shape="input 32x32x32, filter 3x3, pad 1, stride 1"
+MP master int 57426 1 input 32x32x32, filter 3x3, pad 1, stride 1
+PM master psram_miss=0 dbus=8 insn=51202 store=0 tie=0 dep=960 checked=1 input 32x32x32, filter 3x3, pad 1, stride 1
+BENCH op=max_pool variant=v0 mem=int ansi=3987788 opt=52231 ratio=76.35 result=ok shape="input 32x32x32, filter 3x3, pad 1, stride 1"
+MP v0 int 52231 1 input 32x32x32, filter 3x3, pad 1, stride 1
+PM v0 psram_miss=0 dbus=8 insn=41575 store=0 tie=0 dep=4107 checked=1 input 32x32x32, filter 3x3, pad 1, stride 1
+POOL_OUTPUT mem=int bytes=32768 raw=0x3fca91d0 gold0=0x3fcb1270 gold1=0x3fcb9290 guard=64 failures=0 result=ok shape="input 32x32x32, filter 3x3, pad 1, stride 1"
+POOL_INPUT mem=int bytes=32768 in0=0x3fc99190 in1=0x3fca11b0 result=ok shape="input 32x32x32, filter 3x3, pad 1, stride 1"
+BENCH op=max_pool variant=master mem=ext ansi=3881261 opt=111342 ratio=34.86 result=ok shape="input 16x16x128, filter 3x3, pad 1, stride 1"
+MP master ext 111342 1 input 16x16x128, filter 3x3, pad 1, stride 1
+PM master psram_miss=20 dbus=19432 insn=43872 store=1137 tie=0 dep=479 checked=1 input 16x16x128, filter 3x3, pad 1, stride 1
+BENCH op=max_pool variant=v0 mem=ext ansi=3881261 opt=137433 ratio=28.24 result=ok shape="input 16x16x128, filter 3x3, pad 1, stride 1"
+MP v0 ext 137433 1 input 16x16x128, filter 3x3, pad 1, stride 1
+PM v0 psram_miss=19 dbus=7944 insn=43015 store=2025 tie=0 dep=4107 checked=1 input 16x16x128, filter 3x3, pad 1, stride 1
+POOL_OUTPUT mem=ext bytes=32768 raw=0x3c0509f0 gold0=0x3fc99190 gold1=0x3fca11b0 guard=64 failures=0 result=ok shape="input 16x16x128, filter 3x3, pad 1, stride 1"
+POOL_INPUT mem=ext bytes=32768 in0=0x3c0409b0 in1=0x3c0489d0 result=ok shape="input 16x16x128, filter 3x3, pad 1, stride 1"
+BENCH op=max_pool variant=master mem=int ansi=3834029 opt=46062 ratio=83.24 result=ok shape="input 16x16x128, filter 3x3, pad 1, stride 1"
+MP master int 46062 1 input 16x16x128, filter 3x3, pad 1, stride 1
+PM master psram_miss=0 dbus=8 insn=42954 store=0 tie=0 dep=480 checked=1 input 16x16x128, filter 3x3, pad 1, stride 1
+BENCH op=max_pool variant=v0 mem=int ansi=3834029 opt=54055 ratio=70.93 result=ok shape="input 16x16x128, filter 3x3, pad 1, stride 1"
+MP v0 int 54055 1 input 16x16x128, filter 3x3, pad 1, stride 1
+PM v0 psram_miss=0 dbus=8 insn=43015 store=0 tie=0 dep=4107 checked=1 input 16x16x128, filter 3x3, pad 1, stride 1
+POOL_OUTPUT mem=int bytes=32768 raw=0x3fca91d0 gold0=0x3fcb1270 gold1=0x3fcb9290 guard=64 failures=0 result=ok shape="input 16x16x128, filter 3x3, pad 1, stride 1"
+POOL_INPUT mem=int bytes=32768 in0=0x3fc99190 in1=0x3fca11b0 result=ok shape="input 16x16x128, filter 3x3, pad 1, stride 1"
+BENCH op=max_pool variant=master mem=ext ansi=6024795 opt=224383 ratio=26.85 result=ok shape="input 32x32x48, filter 3x3, pad 1, stride 1"
+MP master ext 224383 1 input 32x32x48, filter 3x3, pad 1, stride 1
+PM master psram_miss=806 dbus=29948 insn=74744 store=10360 tie=0 dep=1695 checked=1 input 32x32x48, filter 3x3, pad 1, stride 1
+BENCH op=max_pool variant=v0 mem=ext ansi=6024795 opt=265206 ratio=22.72 result=ok shape="input 32x32x48, filter 3x3, pad 1, stride 1"
+MP v0 ext 265206 1 input 32x32x48, filter 3x3, pad 1, stride 1
+PM v0 psram_miss=797 dbus=12104 insn=61927 store=7556 tie=0 dep=6155 checked=1 input 32x32x48, filter 3x3, pad 1, stride 1
+POOL_OUTPUT mem=ext bytes=49152 raw=0x3c0589f0 gold0=0x3fc99190 gold1=0x3fca51b0 guard=64 failures=0 result=ok shape="input 32x32x48, filter 3x3, pad 1, stride 1"
+POOL_INPUT mem=ext bytes=49152 in0=0x3c0409b0 in1=0x3c04c9d0 result=ok shape="input 32x32x48, filter 3x3, pad 1, stride 1"
+BENCH op=max_pool variant=master mem=int ansi=5958600 opt=79958 ratio=74.52 result=ok shape="input 32x32x48, filter 3x3, pad 1, stride 1"
+MP master int 79958 1 input 32x32x48, filter 3x3, pad 1, stride 1
+PM master psram_miss=0 dbus=8 insn=72594 store=0 tie=0 dep=1680 checked=1 input 32x32x48, filter 3x3, pad 1, stride 1
+BENCH op=max_pool variant=v0 mem=int ansi=5958600 opt=77895 ratio=76.50 result=ok shape="input 32x32x48, filter 3x3, pad 1, stride 1"
+MP v0 int 77895 1 input 32x32x48, filter 3x3, pad 1, stride 1
+PM v0 psram_miss=0 dbus=8 insn=61927 store=0 tie=0 dep=6155 checked=1 input 32x32x48, filter 3x3, pad 1, stride 1
+POOL_OUTPUT mem=int bytes=49152 raw=0x3fcb11d0 gold0=0x3fcbd270 gold1=0x3fcc9290 guard=64 failures=0 result=ok shape="input 32x32x48, filter 3x3, pad 1, stride 1"
+POOL_INPUT mem=int bytes=49152 in0=0x3fc99190 in1=0x3fca51b0 result=ok shape="input 32x32x48, filter 3x3, pad 1, stride 1"
+BENCH op=max_pool variant=master mem=ext ansi=5981265 opt=220237 ratio=27.16 result=ok shape="input 32x24x64, filter 3x3, pad 1, stride 1"
+MP master ext 220237 1 input 32x24x64, filter 3x3, pad 1, stride 1
+PM master psram_miss=806 dbus=29816 insn=68976 store=11222 tie=0 dep=775 checked=1 input 32x24x64, filter 3x3, pad 1, stride 1
+BENCH op=max_pool variant=v0 mem=ext ansi=5981265 opt=269940 ratio=22.16 result=ok shape="input 32x24x64, filter 3x3, pad 1, stride 1"
+MP v0 ext 269940 1 input 32x24x64, filter 3x3, pad 1, stride 1
+PM v0 psram_miss=797 dbus=12040 insn=61623 store=6626 tie=0 dep=6091 checked=1 input 32x24x64, filter 3x3, pad 1, stride 1
+POOL_OUTPUT mem=ext bytes=49152 raw=0x3c0589f0 gold0=0x3fc99190 gold1=0x3fca51b0 guard=64 failures=0 result=ok shape="input 32x24x64, filter 3x3, pad 1, stride 1"
+POOL_INPUT mem=ext bytes=49152 in0=0x3c0409b0 in1=0x3c04c9d0 result=ok shape="input 32x24x64, filter 3x3, pad 1, stride 1"
+BENCH op=max_pool variant=master mem=int ansi=5913845 opt=72810 ratio=81.22 result=ok shape="input 32x24x64, filter 3x3, pad 1, stride 1"
+MP master int 72810 1 input 32x24x64, filter 3x3, pad 1, stride 1
+PM master psram_miss=0 dbus=8 insn=67442 store=0 tie=0 dep=768 checked=1 input 32x24x64, filter 3x3, pad 1, stride 1
+BENCH op=max_pool variant=v0 mem=int ansi=5913845 opt=77463 ratio=76.34 result=ok shape="input 32x24x64, filter 3x3, pad 1, stride 1"
+MP v0 int 77463 1 input 32x24x64, filter 3x3, pad 1, stride 1
+PM v0 psram_miss=0 dbus=8 insn=61623 store=0 tie=0 dep=6091 checked=1 input 32x24x64, filter 3x3, pad 1, stride 1
+POOL_OUTPUT mem=int bytes=49152 raw=0x3fcb11d0 gold0=0x3fcbd270 gold1=0x3fcc9290 guard=64 failures=0 result=ok shape="input 32x24x64, filter 3x3, pad 1, stride 1"
+P

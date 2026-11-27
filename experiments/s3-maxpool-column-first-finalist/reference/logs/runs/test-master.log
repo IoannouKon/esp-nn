@@ -1,0 +1,1058 @@
+Executing action: monitor
+Running idf_monitor in directory /home/kostis/Desktop/ESP-NN/pr68-reviewer-repro/master/esp-nn/test_app
+Executing "/home/kostis/Desktop/ESP-NN/pr68-reviewer-repro/python_env/idf6.1_py3.10_env/bin/python /home/kostis/Desktop/ESP-NN/pr68-reviewer-repro/esp-idf/tools/idf_monitor.py -p /dev/ttyACM0 -b 115200 --toolchain-prefix xtensa-esp32s3-elf- --target esp32s3 --revision 0 /home/kostis/Desktop/ESP-NN/pr68-reviewer-repro/master/esp-nn/test_app/build/test_app.elf /home/kostis/Desktop/ESP-NN/pr68-reviewer-repro/master/esp-nn/test_app/build/bootloader/bootloader.elf --no-reset -m '/home/kostis/Desktop/ESP-NN/pr68-reviewer-repro/python_env/idf6.1_py3.10_env/bin/python' '/home/kostis/Desktop/ESP-NN/pr68-reviewer-repro/esp-idf/tools/idf.py' '--ccache' '-p' '/dev/ttyACM0'"...
+--- esp-idf-monitor 1.11.0 on /dev/ttyACM0 115200
+--- Quit: Ctrl+] | Menu: Ctrl+T | Help: Ctrl+T followed by Ctrl+H
+[0;32mI (136) esp_image: segment 3: paddr=0004f5cc vaddr=3fc941c8 size[0m[32m[ 84] passed [pad: (1, 1), stride: (1, 1) out: (400, 40), filter: (3, 3, 32), ch_mult 1][0m
+[0mTEST: depthwise_conv_s8, passed=85, failed=0, skipped=0
+
+######## Running esp_nn_conv_s8_test ##########
+[32m[  0] passed [pad: (0, 0), stride: (1, 1) out: ( 10, 10, 64), filter: (1, 1, 64)]
+[0m[32m[  1] passed [pad: (0, 0), stride: (1, 1) out: (  4,  4,  8), filter: (1, 1, 20)]
+[0m[32m[  2] passed [pad: (0, 0), stride: (1, 1) out: (  8,  8, 64), filter: (3, 3,  3)]
+[0m[32m[  3] passed [pad: (0, 0), stride: (1, 1) out: ( 10, 10, 64), filter: (1, 1,  3)]
+[0m[32m[  4] passed [pad: (1, 1), stride: (1, 1) out: ( 10, 10, 64), filter: (3, 3, 12)]
+[0m[32m[  5] passed [pad: (0, 0), stride: (2, 2) out: (  8,  8, 16), filter: (1, 1, 16)]
+[0m[32m[  6] passed [pad: (0, 0), stride: (1, 1) out: (  2,  2,  8), filter: (1, 1,  8)]
+[0m[32m[  7] passed [pad: (0, 0), stride: (2, 2) out: ( 54, 54, 16), filter: (6, 6,  3)]
+[0m[32m[  8] passed [pad: (0, 0), stride: (2, 2) out: (  2,  2, 16), filter: (6, 6,  5)]
+[0m[32m[  9] passed [pad: (1, 1), stride: (1, 1) out: (  3,  3,  1), filter: (3, 3, 32)]
+[0m[32m[ 10] passed [pad: (0, 0), stride: (2, 2) out: (  1,  3,  3), filter: (3, 3,  1)]
+[0m[32m[ 11] passed [pad: (0, 0), stride: (2, 2) out: (  1,  3,  4), filter: (3, 3,  3)]
+[0m[32m[ 12] passed [pad: (0, 0), stride: (1, 1) out: (  8,  8, 16), filter: (1, 1, 16)]
+[0m[32m[ 13] passed [pad: (0, 0), stride: (1, 1) out: (  8,  8, 16), filter: (1, 1, 16)]
+[0m[32m[ 14] passed [pad: (0, 0), stride: (1, 1) out: (  8,  8, 16), filter: (1, 1, 16)]
+[0m[32m[ 15] passed [pad: (0, 0), stride: (1, 1) out: ( 48, 48, 32), filter: (1, 1, 32)]
+
+CAPTURE_RESET_SENT
+[0m[32m[ 16] passed [pad: (0, 0), stride: (1, 1) out: ( 48, 48, 32), filter: (1, 1, 32)]
+ESP-ROM:esp32s3-20210327
+Build:Mar 27 2021
+rst:0x15 (USB_UART_CHIP_RESET),boot:0x2a (SPI_FAST_FLASH_BOOT)
+Saved PC:0x42016610
+--- 0x42016610: esp_nn_conv_s8_ansi at /home/kostis/Desktop/ESP-NN/pr68-reviewer-repro/master/esp-nn/src/convolution/esp_nn_conv_ansi.c:170
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fce2820,len:0x14f0
+load:0x403c8700,len:0xde4
+--- 0x403c8700: _stext at ??:?
+load:0x403cb700,len:0x2f58
+entry 0x403c8904
+--- 0x403c8904: call_start_cpu0 at /home/kostis/Desktop/ESP-NN/pr68-reviewer-repro/esp-idf/components/bootloader/subproject/main/bootloader_start.c:27
+[0;32mI (24) boot: ESP-IDF v6.1 2nd stage bootloader[0m
+[0;32mI (24) boot: compile time Nov 27 2026 19:13:19[0m
+[0;32mI (25) boot: Multicore bootloader[0m
+[0;32mI (25) boot: chip revision: v0.2[0m
+[0;32mI (27) boot: efuse block revision: v1.3[0m
+[0;32mI (31) boot.esp32s3: Boot SPI Speed : 80MHz[0m
+[0;32mI (35) boot.esp32s3: SPI Mode       : DIO[0m
+[0;32mI (39) boot.esp32s3: SPI Flash Size : 8MB[0m
+[0;32mI (42) boot: Enabling RNG early entropy source...[0m
+[0;32mI (47) boot: Partition Table:[0m
+[0;32mI (49) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (56) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (62) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (69) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (75) boot: End of partition table[0m
+[0;32mI (79) esp_image: segment 0: paddr=00010020 vaddr=3c030020 size=0d628h ( 54824) map[0m
+[0;32mI (96) esp_image: segment 1: paddr=0001d650 vaddr=3fc91800 size=029c8h ( 10696) load[0m
+[0;32mI (99) esp_image: segment 2: paddr=00020020 vaddr=42000020 size=2f5a4h (193956) map[0m
+[0;32mI (136) esp_image: segment 3: paddr=0004f5cc vaddr=3fc941c8 size=00d08h (  3336) load[0m
+[0;32mI (137) esp_image: segment 4: paddr=000502dc vaddr=40374000 size=0d798h ( 55192) load[0m
+[0;32mI (153) esp_image: segment 5: paddr=0005da7c vaddr=50000000 size=00024h (    36) load[0m
+[0;32mI (159) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (159) boot: Disabling RNG early entropy source...[0m
+[0;32mI (171) octal_psram: vendor id    : 0x0d (AP)[0m
+[0;32mI (171) octal_psram: dev id       : 0x02 (generation 3)[0m
+[0;32mI (171) octal_psram: density      : 0x03 (64 Mbit)[0m
+[0;32mI (173) octal_psram: good-die     : 0x01 (Pass)[0m
+[0;32mI (177) octal_psram: Latency      : 0x01 (Fixed)[0m
+[0;32mI (181) octal_psram: VCC          : 0x01 (3V)[0m
+[0;32mI (186) octal_psram: SRF          : 0x01 (Fast Refresh)[0m
+[0;32mI (191) octal_psram: BurstType    : 0x01 (Hybrid Wrap)[0m
+[0;32mI (195) octal_psram: BurstLen     : 0x01 (32 Byte)[0m
+[0;32mI (200) octal_psram: Readlatency  : 0x02 (10 cycles@Fixed)[0m
+[0;32mI (205) octal_psram: DriveStrength: 0x00 (1/1)[0m
+[0;32mI (209) MSPI Timing: Enter psram timing tuning[0m
+[0;32mI (214) esp_psram: Found 8MB PSRAM device[0m
+[0;32mI (217) esp_psram: Speed: 80MHz[0m
+[0;32mI (220) cpu_start: Multicore app[0m
+[0;32mI (525) esp_psram: SPI SRAM memory test OK[0m
+[0;32mI (533) cpu_start: GPIO 44 and 43 are used as console UART I/O pins[0m
+[0;32mI (534) cpu_start: Pro cpu start user code[0m
+[0;32mI (534) cpu_start: cpu freq: 240000000 Hz[0m
+[0;32mI (535) app_init: Application information:[0m
+[0;32mI (539) app_init: Project name:     test_app[0m
+[0;32mI (543) app_init: App version:      pr68-repro[0m
+[0;32mI (547) app_init: Compile time:     Nov 27 2026 19:14:07[0m
+[0;32mI (552) app_init: ELF file SHA256:  3111f816e...[0m
+[0;32mI (557) app_init: ESP-IDF:          v6.1[0m
+[0;32mI (560) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (564) efuse_init: Max chip rev:     v0.99 [0m
+[0;32mI (568) efuse_init: Chip rev:         v0.2[0m
+[0;32mI (572) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (578) heap_init: At 3FC95F80 len 00053790 (333 KiB): RAM[0m
+[0;32mI (583) heap_init: At 3FCE9710 len 00005724 (21 KiB): RAM[0m
+[0;32mI (588) heap_init: At 600FE000 len 00001FE8 (7 KiB): RTCRAM[0m
+[0;32mI (594) esp_psram: Adding pool of 8192K of PSRAM memory to heap allocator[0m
+[0;32mI (601) spi_flash: detected chip: gd[0m
+[0;32mI (603) spi_flash: flash io: dio[0m
+[0;32mI (607) sleep_gpio: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (613) sleep_gpio: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (620) main_task: Started on CPU0[0m
+[0;32mI (620) main_task: Calling app_main()[0m
+DUAL_CORE: active
+[0;32mI (630) test_app: Running s8 tests...[0m
+[32mesp_nn_add_elementwise_s8_test[0] passed
+[0m[32mesp_nn_add_elementwise_s8_test[1] passed
+[0m[32mesp_nn_add_elementwise_s8_test[2] passed
+[0m[32mesp_nn_add_elementwise_s8_test[3] passed
+[0m[32mesp_nn_add_elementwise_s8_test[4] passed
+[0m[32mesp_nn_add_elementwise_s8_test[5] passed
+[0m[32mesp_nn_add_elementwise_s8_test[6] passed
+[0m[32mesp_nn_add_elementwise_s8_test[7] passed
+[0m[32mesp_nn_add_elementwise_s8_test[8] passed
+[0m[32mesp_nn_add_elementwise_s8_test[9] passed
+[0mTEST: add_s8, passed=10, failed=0, skipped=0
+[32mesp_nn_mul_elementwise_s8_test[0] passed
+[0m[32mesp_nn_mul_elementwise_s8_test[1] passed
+[0m[32mesp_nn_mul_elementwise_s8_test[2] passed
+[0m[32mesp_nn_mul_elementwise_s8_test[3] passed
+[0m[32mesp_nn_mul_elementwise_s8_test[4] passed
+[0m[32mesp_nn_mul_elementwise_s8_test[5] passed
+[0m[32mesp_nn_mul_elementwise_s8_test[6] passed
+[0m[32mesp_nn_mul_elementwise_s8_test[7] passed
+[0m[32mesp_nn_mul_elementwise_s8_test[8] passed
+[0m[32mesp_nn_mul_elementwise_s8_test[9] passed
+[0m[32mesp_nn_mul_elementwise_s8_test[10] passed
+[0m[32mesp_nn_mul_elementwise_s8_test[11] passed
+[0m[32mesp_nn_mul_elementwise_s8_test[12] passed
+[0m[32mesp_nn_mul_elementwise_s8_test[13] passed
+[0m[32mesp_nn_mul_elementwise_s8_test[14] passed
+[0m[32mesp_nn_mul_elementwise_s8_test[15] passed
+[0mTEST: mul_s8, passed=16, failed=0, skipped=0
+[32mesp_nn_mul_broadcast_channel_s8_test[0] passed
+[0m[32mesp_nn_mul_broadcast_channel_s8_test[1] passed
+[0m[32mesp_nn_mul_broadcast_channel_s8_test[2] passed
+[0m[32mesp_nn_mul_broadcast_channel_s8_test[3] passed
+[0m[32mesp_nn_mul_broadcast_channel_s8_test[4] passed
+[0m[32mesp_nn_mul_broadcast_channel_s8_test[5] passed
+[0m[32mesp_nn_mul_broadcast_channel_s8_test[6] passed
+[0m[32mesp_nn_mul_broadcast_channel_s8_test[7] passed
+[0m[32mesp_nn_mul_broadcast_channel_s8_test[8] passed
+[0m[32mesp_nn_mul_broadcast_channel_s8_test[9] passed
+[0m[32mesp_nn_mul_broadcast_channel_s8_test[10] passed
+[0m[32mesp_nn_mul_broadcast_channel_s8_test[11] passed
+[0m[32mesp_nn_mul_broadcast_channel_s8_test[12] passed
+[0m[32mesp_nn_mul_broadcast_channel_s8_test[13] passed
+[0m[32mesp_nn_mul_broadcast_channel_s8_test[14] passed
+[0mTEST: mul_broadcast_ch_s8, passed=15, failed=0, skipped=0
+[32mesp_nn_mul_s8_sweep_test[lengths and alignments] passed
+[0m[32mesp_nn_mul_s8_sweep_test[shifts] passed
+[0m[32mesp_nn_mul_s8_sweep_test[multipliers] passed
+[0m[32mesp_nn_mul_s8_sweep_test[offsets and ranges] passed
+[0m[32mesp_nn_mul_s8_sweep_test[random] passed
+[0mTEST: mul_sweep_s8, passed=5, failed=0, skipped=0
+
+######## Running esp_nn_depthwise_conv_s8_test ##########
+[32m[  0] passed [pad: (0, 0), stride: (1, 1) out: ( 16, 16), filter: (3, 3, 16), ch_mult 1]
+[0m[32m[  1] passed [pad: (1, 1), stride: (1, 1) out: ( 10, 10), filter: (3, 3, 16), ch_mult 1]
+[0m[32m[  2] passed [pad: (1, 1), stride: (1, 1) out: ( 10, 10), filter: (3, 3, 24), ch_mult 1]
+[0m[32m[  3] passed [pad: (1, 1), stride: (1, 1) out: ( 10, 10), filter: (3, 3, 24), ch_mult 1]
+[0m[32m[  4] passed [pad: (1, 1), stride: (1, 1) out: (  6,  6), filter: (3, 3,  4), ch_mult 8]
+[0m[32m[  5] passed [pad: (1, 1), stride: (1, 1) out: ( 12, 12), filter: (5, 5,  4), ch_mult 8]
+[0m[32m[  6] passed [pad: (1, 1), stride: (1, 1) out: (  6,  6), filter: (3, 3,  4), ch_mult 4]
+[0m[32m[  7] passed [pad: (0, 0), stride: (2, 2) out: (  2,  2), filter: (3, 3, 16), ch_mult 1]
+[0m[32m[  8] passed [pad: (0, 0), stride: (2, 2) out: ( 13, 13), filter: (3, 3, 64), ch_mult 1]
+[0m[32m[  9] passed [pad: (0, 0), stride: (2, 2) out: (  2,  2), filter: (3, 3, 16), ch_mult 1]
+[0m[32m[ 10] passed [pad: (1, 1), stride: (2, 2) out: (  3,  3), filter: (3, 3, 16), ch_mult 1]
+[0m[32m[ 11] passed [pad: (1, 1), stride: (2, 2) out: (  3,  3), filter: (3, 3, 16), ch_mult 1]
+[0m[32m[ 12] passed [pad: (1, 1), stride: (2, 2) out: (  3,  3), filter: (3, 3, 16), ch_mult 1]
+[0m[32m[ 13] passed [pad: (0, 0), stride: (2, 2) out: (  2,  2), filter: (3, 3, 16), ch_mult 1]
+[0m[32m[ 14] passed [pad: (0, 0), stride: (1, 1) out: (  4,  4), filter: (3, 3, 16), ch_mult 1]
+[0m[32m[ 15] passed [pad: (1, 1), stride: (1, 1) out: ( 48, 48), filter: (3, 3,  8), ch_mult 1]
+[0m[32m[ 16] passed [pad: (0, 0), stride: (2, 2) out: (  5,  5), filter: (3, 3,  8), ch_mult 1]
+[0m[32m[ 17] passed [pad: (1, 1), stride: (1, 1) out: (  8,  8), filter: (3, 3, 16), ch_mult 1]
+[0m[32m[ 18] passed [pad: (1, 0), stride: (2, 2) out: ( 25, 10), filter: (3, 3, 32), ch_mult 1]
+[0m[32m[ 19] passed [pad: (0, 1), stride: (1, 1) out: (  1,384), filter: (1, 3,128), ch_mult 1]
+[0m[32m[ 20] passed [pad: (0, 1), stride: (1, 2) out: (  1, 96), filter: (1, 3,256), ch_mult 1]
+[0m[32m[ 21] passed [pad: (0, 1), stride: (1, 1) out: (  1,384), filter: (1, 3,168), ch_mult 1]
+[0m[32m[ 22] passed [pad: (0, 1), stride: (1, 2) out: (  1, 96), filter: (1, 3,328), ch_mult 1]
+[0m[32m[ 23] passed [pad: (0, 1), stride: (1, 1) out: (  1,384), filter: (1, 3,128), ch_mult 1]
+[0m[32m[ 24] passed [pad: (0, 1), stride: (1, 2) out: (  1, 96), filter: (1, 3,256), ch_mult 1]
+[0m[32m[ 25] passed [pad: (0, 2), stride: (1, 1) out: (  1,256), filter: (1, 5,128), ch_mult 1]
+[0m[32m[ 26] passed [pad: (0, 1), stride: (1, 1) out: (  1,128), filter: (1, 3,256), ch_mult 1]
+[0m[32m[ 27] passed [pad: (1, 1), stride: (1, 1) out: (  9,  5), filter: (3, 3,384), ch_mult 1]
+[0m[32m[ 28] passed [pad: (1, 1), stride: (1, 1) out: (  5,  3), filter: (3, 3,640), ch_mult 1]
+[0m[32m[ 29] passed [pad: (1, 1), stride: (2, 2) out: (  5,  3), filter: (3, 3,384), ch_mult 1]
+[0m[32m[ 30] passed [pad: (1, 1), stride: (1, 1) out: (  5,  3), filter: (3, 3,640), ch_mult 1]
+[0m[32m[ 31] passed [pad: (1, 1), stride: (1, 1) out: (  9,  5), filter: (3, 3,264), ch_mult 1]
+[0m[32m[ 32] passed [pad: (1, 1), stride: (2, 2) out: (  5,  3), filter: (3, 3,520), ch_mult 1]
+[0m[32m[ 33] passed [pad: (1, 1), stride: (1, 1) out: ( 40, 40), filter: (3, 3, 32), ch_mult 1]
+[0m[32m[ 34] passed [pad: (1, 1), stride: (2, 2) out: ( 21, 21), filter: (3, 3, 32), ch_mult 1]
+[0m[32m[ 35] passed [pad: (0, 1), stride: (1, 1) out: (  1,3072), filter: (1, 3,  8), ch_mult 1]
+[0m[32m[ 36] passed [pad: (0, 0), stride: (1, 1) out: (  1,3072), filter: (1, 1,  8), ch_mult 1]
+[0m[32m[ 37] passed [pad: (2, 2), stride: (1, 1) out: ( 11,  9), filter: (5, 5, 32), ch_mult 1]
+[0m[32m[ 38] passed [pad: (2, 1), stride: (1, 1) out: (  9,  7), filter: (5, 3, 24), ch_mult 1]
+[0m[32m[ 39] passed [pad: (1, 1), stride: (1, 1) out: ( 10,  8), filter: (3, 3, 48), ch_mult 1]
+[0m[32m[ 40] passed [pad: (2, 2), stride: (1, 1) out: ( 11,  9), filter: (5, 5, 32), ch_mult 1]
+[0m[32m[ 41] passed [pad: (1, 1), stride: (1, 1) out: (  8,  8), filter: (3, 3, 32), ch_mult 1]
+[0m[32m[ 42] passed [pad: (0, 0), stride: (1, 1) out: ( 10,  3), filter: (31, 1, 16), ch_mult 1]
+[0m[32m[ 43] passed [pad: (1, 1), stride: (1, 1) out: (  6,  6), filter: (3, 3, 16), ch_mult 1]
+[0m[32m[ 44] passed [pad: (1, 1), stride: (1, 1) out: (  6,  6), filter: (3, 3, 16), ch_mult 1]
+[0m[32m[ 45] passed [pad: (1, 1), stride: (1, 1) out: (  8,  8), filter: (3, 3, 32), ch_mult 1]
+[0m[32m[ 46] passed [pad: (0, 0), stride: (1, 1) out: (  9,  7), filter: (1, 1, 48), ch_mult 1]
+[0m[32m[ 47] passed [pad: (0, 0), stride: (2, 2) out: (  5,  4), filter: (1, 1, 24), ch_mult 1]
+[0m[32m[ 48] passed [pad: (0, 1), stride: (1, 1) out: (  7,  9), filter: (1, 3, 40), ch_mult 1]
+[0m[32m[ 49] passed [pad: (0, 0), stride: (1, 1) out: (  6,  7), filter: (1, 3, 32), ch_mult 1]
+[0m[32m[ 50] passed [pad: (0, 0), stride: (2, 2) out: (  5,  4), filter: (5, 5, 32), ch_mult 1]
+[0m[32m[ 51] passed [pad: (0, 0), stride: (2, 2) out: (  5,  4), filter: (5, 5, 32), ch_mult 1]
+[0m[32m[ 52] passed [pad: (0, 0), stride: (2, 2) out: (  8,  8), filter: (3, 3, 32), ch_mult 1]
+[0m[32m[ 53] passed [pad: (0, 0), stride: (1, 1) out: (  4,  4), filter: (3, 3, 16), ch_mult 1]
+[0m[32m[ 54] passed [pad: (0, 0), stride: (1, 1) out: (  4,  4), filter: (3, 3, 16), ch_mult 1]
+[0m[32m[ 55] passed [pad: (0, 0), stride: (1, 1) out: (  4,  4), filter: (3, 3, 16), ch_mult 1]
+[0m[32m[ 56] passed [pad: (0, 0), stride: (2, 2) out: (  2,  2), filter: (3, 3, 16), ch_mult 1]
+[0m[32m[ 57] passed [pad: (1, 1), stride: (2, 2) out: (  3,  3), filter: (3, 3, 16), ch_mult 1]
+[0m[32m[ 58] passed [pad: (1, 1), stride: (2, 2) out: (  3,  3), filter: (3, 3, 16), ch_mult 1]
+[0m[32m[ 59] passed [pad: (0, 0), stride: (2, 2) out: (  2,  2), filter: (3, 3, 16), ch_mult 1]
+[0m[32m[ 60] passed [pad: (2, 2), stride: (1, 1) out: (  9,  9), filter: (5, 5, 32), ch_mult 1]
+[0m[32m[ 61] passed [pad: (2, 2), stride: (2, 2) out: (  6,  6), filter: (5, 5, 25), ch_mult 1]
+[0m[32m[ 62] passed [pad: (1, 1), stride: (1, 1) out: (  8,  8), filter: (3, 3, 20), ch_mult 1]
+[0m[32m[ 63] passed [pad: (0, 0), stride: (1, 1) out: (  5,  5), filter: (3, 3, 44), ch_mult 1]
+[0m[32m[ 64] passed [pad: (1, 1), stride: (1, 1) out: (  8,  8), filter: (3, 3, 32), ch_mult 1]
+[0m[32m[ 65] passed [pad: (1, 1), stride: (1, 1) out: (  8,  8), filter: (3, 3, 32), ch_mult 1]
+[0m[32m[ 66] passed [pad: (1, 1), stride: (1, 1) out: (  8,  8), filter: (3, 3, 32), ch_mult 1]
+[0m[32m[ 67] passed [pad: (1, 1), stride: (1, 1) out: ( 28, 28), filter: (3, 3, 96), ch_mult 1]
+[0m[32m[ 68] passed [pad: (1, 1), stride: (2, 2) out: ( 19, 19), filter: (3, 3, 96), ch_mult 1]
+[0m[32m[ 69] passed [pad: (1, 1), stride: (1, 1) out: (  9,  9), filter: (3, 3,960), ch_mult 1]
+[0m[32m[ 70] passed [pad: (1, 1), stride: (1, 1) out: ( 14, 14), filter: (3, 3, 48), ch_mult 1]
+[0m[32m[ 71] passed [pad: (1, 1), stride: (2, 2) out: (  8,  8), filter: (3, 3, 40), ch_mult 1]
+[0m[32m[ 72] passed [pad: (1, 1), stride: (1, 1) out: ( 40, 40), filter: (3, 3, 24), ch_mult 1]
+[0m[32m[ 73] passed [pad: (1, 1), stride: (2, 2) out: ( 20, 20), filter: (3, 3, 40), ch_mult 1]
+[0m[32m[ 74] passed [pad: (1, 1), stride: (1, 1) out: ( 40, 40), filter: (3, 3, 48), ch_mult 1]
+[0m[32m[ 75] passed [pad: (1, 1), stride: (1, 1) out: ( 40, 40), filter: (3, 3, 36), ch_mult 1]
+[0m[32m[ 76] passed [pad: (1, 1), stride: (1, 1) out: ( 40, 40), filter: (3, 3, 32), ch_mult 1]
+[0m[32m[ 77] passed [pad: (1, 1), stride: (2, 2) out: ( 21, 21), filter: (3, 3, 48), ch_mult 1]
+[0m[32m[ 78] passed [pad: (1, 1), stride: (1, 1) out: ( 24,100), filter: (3, 3, 32), ch_mult 1]
+[0m[32m[ 79] passed [pad: (1, 1), stride: (1, 1) out: (  7,  7), filter: (3, 3, 72), ch_mult 1]
+[0m[32m[ 80] passed [pad: (1, 1), stride: (1, 1) out: (  7,  7), filter: (3, 3, 96), ch_mult 1]
+[0m[32m[ 81] passed [pad: (1, 1), stride: (2, 2) out: (  5,  5), filter: (3, 3, 64), ch_mult 1]
+[0m[32m[ 82] passed [pad: (4, 0), stride: (1, 1) out: (1100,  1), filter: (9, 1, 16), ch_mult 1]
+[0m[32m[ 83] passed [pad: (0, 0), stride: (1, 1) out: (  8,  8), filter: (3, 3,1032), ch_mult 1]
+[0m[32m[ 84] passed [pad: (1, 1), stride: (1, 1) out: (400, 40), filter: (3, 3, 32), ch_mult 1]
+[0mTEST: depthwise_conv_s8, passed=85, failed=0, skipped=0
+
+######## Running esp_nn_conv_s8_test ##########
+[32m[  0] passed [pad: (0, 0), stride: (1, 1) out: ( 10, 10, 64), filter: (1, 1, 64)]
+[0m[32m[  1] passed [pad: (0, 0), stride: (1, 1) out: (  4,  4,  8), filter: (1, 1, 20)]
+[0m[32m[  2] passed [pad: (0, 0), stride: (1, 1) out: (  8,  8, 64), filter: (3, 3,  3)]
+[0m[32m[  3] passed [pad: (0, 0), stride: (1, 1) out: ( 10, 10, 64), filter: (1, 1,  3)]
+[0m[32m[  4] passed [pad: (1, 1), stride: (1, 1) out: ( 10, 10, 64), filter: (3, 3, 12)]
+[0m[32m[  5] passed [pad: (0, 0), stride: (2, 2) out: (  8,  8, 16), filter: (1, 1, 16)]
+[0m[32m[  6] passed [pad: (0, 0), stride: (1, 1) out: (  2,  2,  8), filter: (1, 1,  8)]
+[0m[32m[  7] passed [pad: (0, 0), stride: (2, 2) out: ( 54, 54, 16), filter: (6, 6,  3)]
+[0m[32m[  8] passed [pad: (0, 0), stride: (2, 2) out: (  2,  2, 16), filter: (6, 6,  5)]
+[0m[32m[  9] passed [pad: (1, 1), stride: (1, 1) out: (  3,  3,  1), filter: (3, 3, 32)]
+[0m[32m[ 10] passed [pad: (0, 0), stride: (2, 2) out: (  1,  3,  3), filter: (3, 3,  1)]
+[0m[32m[ 11] passed [pad: (0, 0), stride: (2, 2) out: (  1,  3,  4), filter: (3, 3,  3)]
+[0m[32m[ 12] passed [pad: (0, 0), stride: (1, 1) out: (  8,  8, 16), filter: (1, 1, 16)]
+[0m[32m[ 13] passed [pad: (0, 0), stride: (1, 1) out: (  8,  8, 16), filter: (1, 1, 16)]
+[0m[32m[ 14] passed [pad: (0, 0), stride: (1, 1) out: (  8,  8, 16), filter: (1, 1, 16)]
+[0m[32m[ 15] passed [pad: (0, 0), stride: (1, 1) out: ( 48, 48, 32), filter: (1, 1, 32)]
+[0m[32m[ 16] passed [pad: (0, 0), stride: (1, 1) out: ( 48, 48, 32), filter: (1, 1, 32)]
+[0m[32m[ 17] passed [pad: (0, 0), stride: (1, 1) out: ( 24, 24, 32), filter: (1, 1, 32)]
+[0m[32m[ 18] passed [pad: (1, 1), stride: (2, 2) out: (  4,  4, 16), filter: (5, 5, 16)]
+[0m[32m[ 19] passed [pad: (1, 0), stride: (2, 2) out: (  4,  4, 16), filter: (3, 3, 16)]
+[0m[32m[ 20] passed [pad: (0, 0), stride: (2, 2) out: (  4,  4, 16), filter: (3, 3, 16)]
+[0m[32m[ 21] passed [pad: (0, 0), stride: (1, 1) out: (  8,  8, 16), filter: (2, 2, 16)]
+[0m[32m[ 22] passed [pad: (0, 0), stride: (1, 1) out: (  5,  3,240), filter: (1, 1,640)]
+[0m[32m[ 23] passed [pad: (0, 0), stride: (1, 1) out: (  5,  3,256), filter: (1, 1,240)]
+[0m[32m[ 24] passed [pad: (0, 0), stride: (1, 1) out: (  5,  3,640), filter: (1, 1,160)]
+[0m[32m[ 25] passed [pad: (0, 0), stride: (1, 1) out: (  5,  3,240), filter: (1, 1,640)]
+[0m[32m[ 26] passed [pad: (0, 0), stride: (1, 1) out: (  5,  3,640), filter: (1, 1,264)]
+[0m[32m[ 27] passed [pad: (0, 0), stride: (1, 1) out: (  5,  3, 16), filter: (1, 1, 16)]
+[0m[32m[ 28] passed [pad: (0, 0), stride: (1, 1) out: (  5,  3, 16), filter: (1, 1, 16)]
+[0m[32m[ 29] passed [pad: (0, 0), stride: (1, 1) out: (  8,  8,128), filter: (1, 1, 64)]
+[0m[32m[ 30] passed [pad: (1, 1), stride: (2, 2) out: (  6,  6, 64), filter: (3, 3, 32)]
+[0m[32m[ 31] passed [pad: (0, 0), stride: (1, 1) out: ( 10, 10,128), filter: (1, 1,256)]
+[0m[32m[ 32] passed [pad: (0, 0), stride: (1, 1) out: (  6,  4, 24), filter: (1, 1, 33)]
+[0m[32m[ 33] passed [pad: (0, 0), stride: (2, 2) out: (  6,  6, 48), filter: (3, 3, 48)]
+[0m[32m[ 34] passed [pad: (0, 0), stride: (1, 1) out: ( 20, 20, 32), filter: (1, 1, 32)]
+[0m[32m[ 35] passed [pad: (0, 0), stride: (2, 2) out: ( 10, 10, 16), filter: (3, 3,  3)]
+[0m[32m[ 36] passed [pad: (1, 1), stride: (1, 1) out: ( 12, 12, 48), filter: (3, 3, 48)]
+[0m[32m[ 37] passed [pad: (1, 1), stride: (2, 2) out: (  7,  7, 48), filter: (3, 3, 48)]
+[0m[32m[ 38] passed [pad: (1, 1), stride: (1, 1) out: (  6,  6,128), filter: (3, 3,128)]
+[0m[32m[ 39] passed [pad: (0, 0), stride: (2, 2) out: (  1,  1, 16), filter: (3, 3, 16)]
+[0m[32m[ 40] passed [pad: (0, 0), stride: (2, 2) out: (  1,  1, 16), filter: (3, 3,272)]
+[0m[32m[ 41] passed [pad: (1, 1), stride: (1, 1) out: (700,  4,  8), filter: (3, 3,  1)]
+[0m[32m[ 42] passed [pad: (1, 1), stride: (1, 1) out: ( 16, 16, 96), filter: (3, 3,128)]
+[0m[32m[ 43] passed [pad: (0, 0), stride: (2, 2) out: ( 12, 12,128), filter: (3, 3,128)]
+[0m[32m[ 44] passed [pad: (1, 1), stride: (1, 1) out: ( 12, 12, 64), filter: (3, 3,128)]
+[0m[32m[ 45] passed [pad: (0, 0), stride: (2, 2) out: (  6,  6,256), filter: (3, 3,128)]
+[0m[32m[ 46] passed [pad: (1, 1), stride: (1, 1) out: (  6,  6, 64), filter: (3, 3,256)]
+[0m[32m[ 47] passed [pad: (1, 1), stride: (1, 1) out: ( 32, 16, 32), filter: (3, 3,  1)]
+[0m[32m[ 48] passed [pad: (1, 1), stride: (1, 1) out: ( 32, 16, 32), filter: (3, 3, 32)]
+[0m[32m[ 49] passed [pad: (1, 1), stride: (1, 1) out: ( 32, 16, 64), filter: (3, 3, 32)]
+[0m[32m[ 50] passed [pad: (1, 1), stride: (1, 1) out: ( 32, 16, 32), filter: (3, 3,  2)]
+[0m[32m[ 51] passed [pad: (1, 1), stride: (2, 2) out: ( 16,  8, 32), filter: (3, 3, 32)]
+[0m[32m[ 52] passed [pad: (1, 1), stride: (1, 1) out: ( 96,  8, 64), filter: (3, 3, 32)]
+[0m[32m[ 53] passed [pad: (0, 0), stride: (1, 1) out: (  5,  5, 32), filter: (1, 1, 32)]
+[0m[32m[ 54] passed [pad: (0, 0), stride: (1, 1) out: (  7,  7, 32), filter: (1, 1, 32)]
+[0m[32m[ 55] passed [pad: (0, 0), stride: (2, 2) out: (  1,  1,  8), filter: (3, 3,  3)]
+[0m[32m[ 56] passed [pad: (0, 0), stride: (2, 2) out: (  4,  1,  8), filter: (3, 3,  3)]
+[0m[32m[ 57] passed [pad: (0, 0), stride: (2, 2) out: (  1,  4,  8), filter: (3, 3,  4)]
+[0m[32m[ 58] passed [pad: (0, 0), stride: (1, 1) out: (32773,  2,  8), filter: (1, 1,  8)]
+[0m[32m[ 59] passed [pad: (0, 0), stride: (1, 1) out: (  4,  4,  8), filter: (1, 1,  8)]
+[0m[32m[ 60] passed [pad: (1, 1), stride: (1, 1) out: (  6,  6,  8), filter: (3, 3,  6)]
+[0m[32m[ 61] passed [pad: (1, 1), stride: (1, 1) out: (  4,  4,  8), filter: (3, 3,  8)]
+[0m[32m[ 62] passed [pad: (1, 1), stride: (1, 1) out: (  5,  5,  8), filter: (3, 3,  3)]
+[0m[32m[ 63] passed [pad: (0, 0), stride: (1, 1) out: (  2,  2,  8), filter: (3, 3,  8)]
+[0m[32m[ 64] passed [pad: (0, 0), stride: (1, 1) out: (  4,  4,  8), filter: (1, 1, 12)]
+[0m[32m[ 65] passed [pad: (1, 1), stride: (1, 1) out: (  6,  6,192), filter: (3, 3, 64)]
+[0m[32m[ 66] passed [pad: (1, 1), stride: (1, 1) out: (  6,  6,  4), filter: (1, 1,  3)]
+[0m[32m[ 67] passed [pad: (0, 0), stride: (1, 1) out: ( 10,  2, 16), filter: (1, 1, 24)]
+[0m[32m[ 68] passed [pad: (0, 0), stride: (1, 1) out: ( 10,  2, 24), filter: (1, 1, 40)]
+[0m[32m[ 69] passed [pad: (0, 0), stride: (1, 1) out: (  6,  6, 16), filter: (1, 1, 48)]
+[0m[32m[ 70] passed [pad: (0, 0), stride: (1, 1) out: (  4,  4,256), filter: (1, 1,264)]
+[0m[32m[ 71] passed [pad: (0, 0), stride: (1, 1) out: (  6,  5, 32), filter: (1, 1, 24)]
+[0m[32m[ 72] passed [pad: (0, 0), stride: (1, 1) out: ( 10, 10,384), filter: (1, 1,128)]
+[0m[32m[ 73] passed [pad: (1, 1), stride: (1, 1) out: (  6,  6, 64), filter: (3, 3,256)]
+[0mTEST: conv_s8, passed=74, failed=0, skipped=0
+[32mrelu6 [ 0] passed [size 1615, unalign 0]
+[0m[32mrelu6 [ 1] passed [size 1, unalign 0]
+[0m[32mrelu6 [ 2] passed [size 3, unalign 0]
+[0m[32mrelu6 [ 3] passed [size 7, unalign 0]
+[0m[32mrelu6 [ 4] passed [size 8, unalign 0]
+[0m[32mrelu6 [ 5] passed [size 12, unalign 0]
+[0m[32mrelu6 [ 6] passed [size 15, unalign 0]
+[0m[32mrelu6 [ 7] passed [size 16, unalign 0]
+[0m[32mrelu6 [ 8] passed [size 32, unalign 0]
+[0m[32mrelu6 [ 9] passed [size 256, unalign 0]
+[0m[32mrelu6 [10] passed [size 17, unalign 0]
+[0m[32mrelu6 [11] passed [size 33, unalign 0]
+[0m[32mrelu6 [12] passed [size 100, unalign 0]
+[0m[32mrelu6 [13] passed [size 1615, unalign 1]
+[0m[32mrelu6 [14] passed [size 256, unalign 4]
+[0m[32mrelu6 [15] passed [size 100, unalign 15]
+[0m[32mrelu6 [16] passed [size 32, unalign 3]
+[0m[32mrelu6 [17] passed [size 16, unalign 8]
+[0m[32mrelu6 [18] passed [size 15, unalign 1]
+[0m[32mrelu6 [19] passed [size 7, unalign 13]
+[0m[32mrelu6 [20] passed [size 1, unalign 15]
+[0mTEST: relu6_s8, passed=21, failed=0, skipped=0
+[32mavg_pool [ 0] passed [in 16x16x16, f 3x3, s 1x1, p 1x1]
+[0m[32mavg_pool [ 1] passed [in 16x16x4, f 3x3, s 1x1, p 1x1]
+[0m[32mavg_pool [ 2] passed [in 16x16x8, f 3x3, s 1x1, p 1x1]
+[0m[32mavg_pool [ 3] passed [in 16x16x32, f 3x3, s 1x1, p 1x1]
+[0m[32mavg_pool [ 4] passed [in 16x16x64, f 3x3, s 1x1, p 1x1]
+[0m[32mavg_pool [ 5] passed [in 16x16x16, f 1x1, s 1x1, p 0x0]
+[0m[32mavg_pool [ 6] passed [in 16x16x16, f 2x2, s 1x1, p 0x0]
+[0m[32mavg_pool [ 7] passed [in 16x16x16, f 5x5, s 1x1, p 2x2]
+[0m[32mavg_pool [ 8] passed [in 16x16x16, f 3x3, s 2x2, p 1x1]
+[0m[32mavg_pool [ 9] passed [in 24x24x32, f 3x3, s 2x2, p 1x1]
+[0m[32mavg_pool [10] passed [in 6x6x128, f 6x6, s 1x1, p 0x0]
+[0m[32mavg_pool [11] passed [in 16x16x16, f 3x3, s 1x1, p 0x0]
+[0m[32mavg_pool [12] passed [in 16x8x16, f 3x3, s 1x1, p 1x1]
+[0m[32mavg_pool [13] passed [in 8x16x16, f 3x3, s 1x1, p 1x1]
+[0m[32mavg_pool [14] passed [in 16x8x12, f 3x3, s 1x1, p 1x1]
+[0m[32mavg_pool [15] passed [in 8x16x12, f 3x3, s 1x1, p 1x1]
+[0m[32mavg_pool [16] passed [in 5x24x32, f 2x2, s 2x2, p 0x0]
+[0m[32mavg_pool [17] passed [in 6x6x16, f 2x2, s 1x1, p 2x2]
+[0m[32mavg_pool [18] passed [in 6x5x12, f 2x2, s 1x1, p 2x2]
+[0m[32mavg_pool [19] passed [in 1x8x16, f 1x2, s 3x1, p 1x0]
+[0m[32mavg_pool [20] passed [in 6x6x20, f 2x2, s 1x1, p 2x2]
+[0mTEST: avg_pool_s8, passed=21, failed=0, skipped=0
+[32mmax_pool [ 0] passed [in 16x16x16, f 3x3, s 1x1, p 1x1]
+[0m[32mmax_pool [ 1] passed [in 16x16x4, f 3x3, s 1x1, p 1x1]
+[0m[32mmax_pool [ 2] passed [in 16x16x8, f 3x3, s 1x1, p 1x1]
+[0m[32mmax_pool [ 3] passed [in 16x16x32, f 3x3, s 1x1, p 1x1]
+[0m[32mmax_pool [ 4] passed [in 16x16x64, f 3x3, s 1x1, p 1x1]
+[0m[32mmax_pool [ 5] passed [in 16x16x16, f 1x1, s 1x1, p 0x0]
+[0m[32mmax_pool [ 6] passed [in 16x16x16, f 2x2, s 1x1, p 0x0]
+[0m[32mmax_pool [ 7] passed [in 16x16x16, f 5x5, s 1x1, p 2x2]
+[0m[32mmax_pool [ 8] passed [in 16x16x16, f 3x3, s 2x2, p 1x1]
+[0m[32mmax_pool [ 9] passed [in 24x24x32, f 3x3, s 2x2, p 1x1]
+[0m[32mmax_pool [10] passed [in 6x6x128, f 6x6, s 1x1, p 0x0]
+[0m[32mmax_pool [11] passed [in 16x16x16, f 3x3, s 1x1, p 0x0]
+[0m[32mmax_pool [12] passed [in 16x16x16, f 3x3, s 1x1, p 1x1]
+[0m[32mmax_pool [13] passed [in 16x16x12, f 3x3, s 1x1, p 1x1]
+[0m[32mmax_pool [14] passed [in 16x16x4, f 2x2, s 2x2, p 0x0]
+[0m[32mmax_pool [15] passed [in 9x7x20, f 3x3, s 2x2, p 1x1]
+[0m[32mmax_pool [16] passed [in 6x6x16, f 2x2, s 1x1, p 2x2]
+[0m[32mmax_pool [17] passed [in 6x5x12, f 2x2, s 1x1, p 2x2]
+[0m[32mmax_pool [18] passed [in 1x8x16, f 1x2, s 3x1, p 1x0]
+[0m[32mmax_pool [19] passed [in 6x6x16, f 2x2, s 1x1, p 2x2]
+[0m[32mmax_pool [20] passed [in 12x12x20, f 2x2, s 2x2, p 0x0]
+[0m[32mmax_pool [21] passed [in 9x9x28, f 2x2, s 1x1, p 0x0]
+[0m[32mmax_pool [22] passed [in 9x9x28, f 3x3, s 1x1, p 0x0]
+[0m[32mmax_pool [23] passed [in 9x9x36, f 3x3, s 2x2, p 0x0]
+[0m[32mmax_pool [24] passed [in 9x9x44, f 3x3, s 1x1, p 0x0]
+[0m[32mmax_pool [25] passed [in 12x12x16, f 2x2, s 2x2, p 0x0]
+[0m[32mmax_pool [26] passed [in 12x12x32, f 2x2, s 2x2, p 0x0]
+[0m[32mmax_pool [27] passed [in 10x10x16, f 3x3, s 1x1, p 1x1]
+[0m[32mmax_pool [28] passed [in 10x10x48, f 3x3, s 2x2, p 0x0]
+[0m[32mmax_pool [29] passed [in 12x12x32, f 2x2, s 2x2, p 0x0]
+[0m[32mmax_pool [30] passed [in 12x12x48, f 2x2, s 2x2, p 0x0]
+[0m[32mmax_pool [31] passed [in 10x10x32, f 3x3, s 1x1, p 1x1]
+[0m[32mmax_pool [32] passed [in 8x8x16, f 2x2, s 2x2, p 0x0]
+[0mTEST: max_pool_s8, passed=33, failed=0, skipped=0
+
+######## Running esp_nn_fully_connected_s8_test ##########
+[32m[  0] passed [row_len 271, out_ch 3, in_off    0]
+[0m[32m[  1] passed [row_len 271, out_ch 3, in_off    5]
+[0m[32m[  2] passed [row_len 271, out_ch 3, in_off   -1]
+[0m[32m[  3] passed [row_len 271, out_ch 3, in_off    1]
+[0m[32m[  4] passed [row_len 1, out_ch 16, in_off  127]
+[0m[32m[  5] passed [row_len 16, out_ch 8, in_off -128]
+[0m[32m[  6] passed [row_len 8, out_ch 8, in_off  110]
+[0m[32m[  7] passed [row_len 8, out_ch 15, in_off  128]
+[0m[32m[  8] passed [row_len 8, out_ch 1, in_off    0]
+[0m[32m[  9] passed [row_len 7, out_ch 8, in_off    5]
+[0m[32m[ 10] passed [row_len 6, out_ch 8, in_off   -1]
+[0m[32m[ 11] passed [row_len 2, out_ch 8, in_off    1]
+[0m[32m[ 12] passed [row_len 1, out_ch 8, in_off  127]
+[0m[32m[ 13] passed [row_len 3, out_ch 8, in_off -128]
+[0m[32m[ 14] passed [row_len 4, out_ch 8, in_off  110]
+[0mTEST: fc_s8, passed=15, failed=0, skipped=0
+
+######## Running esp_nn_fully_connected_per_ch_s8_test ##########
+[32m[  0] passed [row_len 271, out_ch 3, in_off    0]
+[0m[32m[  1] passed [row_len 271, out_ch 3, in_off    5]
+[0m[32m[  2] passed [row_len 271, out_ch 3, in_off   -1]
+[0m[32m[  3] passed [row_len 271, out_ch 3, in_off    1]
+[0m[32m[  4] passed [row_len 1, out_ch 16, in_off  127]
+[0m[32m[  5] passed [row_len 16, out_ch 8, in_off -128]
+[0m[32m[  6] passed [row_len 8, out_ch 8, in_off  110]
+[0m[32m[  7] passed [row_len 8, out_ch 15, in_off  128]
+[0m[32m[  8] passed [row_len 8, out_ch 1, in_off    0]
+[0m[32m[  9] passed [row_len 7, out_ch 8, in_off    5]
+[0m[32m[ 10] passed [row_len 4, out_ch 8, in_off   -1]
+[0m[32m[ 11] passed [row_len 4, out_ch 8, in_off    1]
+[0m[32m[ 12] passed [row_len 7, out_ch 8, in_off  127]
+[0m[32m[ 13] passed [row_len 3, out_ch 8, in_off -128]
+[0m[32m[ 14] passed [row_len 3, out_ch 8, in_off  110]
+[0mTEST: fc_per_ch_s8, passed=15, failed=0, skipped=0
+
+######## Running esp_nn_fully_connected_per_ch_s8_batch_test ##########
+[32m[  0] passed [B 48, row_len 160, out_ch 32, in_off 5, filt_off 0, bias 0, in_align 0, f_align 0]
+[0m[32m[  1] passed [B 48, row_len 64, out_ch 16, in_off 0, filt_off 0, bias 0, in_align 0, f_align 0]
+[0m[32m[  2] passed [B 8, row_len 80, out_ch 8, in_off -3, filt_off 0, bias 0, in_align 0, f_align 0]
+[0m[32m[  3] passed [B 4, row_len 33, out_ch 5, in_off 7, filt_off 0, bias 0, in_align 0, f_align 0]
+[0m[32m[  4] passed [B 1, row_len 128, out_ch 12, in_off 11, filt_off 0, bias 0, in_align 0, f_align 0]
+[0m[32m[  5] passed [B 1, row_len 256, out_ch 16, in_off 128, filt_off 0, bias 0, in_align 0, f_align 0]
+[0m[32m[  6] passed [B 4, row_len 64, out_ch 8, in_off 5, filt_off 0, bias 0, in_align 8, f_align 4]
+[0m[32m[  7] passed [B 4, row_len 64, out_ch 8, in_off -3, filt_off 0, bias 0, in_align 4, f_align 4]
+[0m[32m[  8] passed [B 4, row_len 64, out_ch 8, in_off 5, filt_off 0, bias 0, in_align 0, f_align 4]
+[0m[32m[  9] passed [B 4, row_len 64, out_ch 8, in_off -3, filt_off 0, bias 0, in_align 8, f_align 0]
+[0m[32m[ 10] passed [B 4, row_len 64, out_ch 128, in_off 5, filt_off 0, bias 0, in_align 8, f_align 12]
+[0m[32m[ 11] passed [B 4, row_len 64, out_ch 128, in_off 5, filt_off 0, bias 0, in_align 0, f_align 0]
+[0m[32m[ 12] passed [B 4, row_len 7, out_ch 8, in_off 5, filt_off 0, bias 1, in_align 0, f_align 0]
+[0m[32m[ 13] passed [B 4, row_len 64, out_ch 8, in_off 5, filt_off 0, bias 1, in_align 0, f_align 0]
+[0m[32m[ 14] passed [B 4, row_len 64, out_ch 8, in_off 5, filt_off 7, bias 1, in_align 0, f_align 0]
+[0mTEST: fc_per_ch_s8_batch, passed=15, failed=0, skipped=0
+
+######## Running esp_nn_fully_connected_per_ch_s8_batch_1x1_test ##########
+FC_BATCH_1X1 name=m16_k64_n64 mismatch=0 expect=1 path=1 dual=1
+[32m[m16_k64_n64] passed
+[0mFC_BATCH_1X1 name=m32_k64_n128 mismatch=0 expect=1 path=1 dual=1
+[32m[m32_k64_n128] passed
+[0mFC_BATCH_1X1 name=m4_k128_n192 mismatch=0 expect=1 path=1 dual=1
+[32m[m4_k128_n192] passed
+[0mFC_BATCH_1X1 name=m4_k128_n200 mismatch=0 expect=1 path=1 dual=1
+[32m[m4_k128_n200] passed
+[0mFC_BATCH_1X1 name=m16_k128_n200 mismatch=0 expect=1 path=1 dual=1
+[32m[m16_k128_n200] passed
+[0mFC_BATCH_1X1 name=m64_k128_n256 mismatch=0 expect=1 path=1 dual=1
+[32m[m64_k128_n256] passed
+[0mFC_BATCH_1X1 name=m48_k160_n32 mismatch=0 expect=1 path=1 dual=1
+[32m[m48_k160_n32] passed
+[0mFC_BATCH_1X1 name=filt7_m16_k64_n64 mismatch=0 expect=0 path=0 dual=1
+[32m[filt7_m16_k64_n64] passed
+[0mFC_BATCH_1X1 name=misalign_m16_k64_n64 mismatch=0 expect=0 path=0 dual=1
+[32m[misalign_m16_k64_n64] passed
+[0mFC_BATCH_1X1 name=noscratch_m16_k64_n64 mismatch=0 expect=0 path=0 dual=1
+[32m[noscratch_m16_k64_n64] passed
+[0mFC_BATCH_1X1 name=tiny_m2_k32_n32 mismatch=0 expect=0 path=0 dual=1
+[32m[tiny_m2_k32_n32] passed
+[0mFC_BATCH_1X1 name=edge_m3_k8_n8 mismatch=0 expect=1 path=1 dual=1
+[32m[edge_m3_k8_n8] passed
+[0mFC_BATCH_1X1 name=odd_m3_k40_n8 mismatch=0 expect=1 path=1 dual=1
+[32m[odd_m3_k40_n8] passed
+[0mFC_BATCH_1X1 name=odd_m16_k40_n8 mismatch=0 expect=1 path=1 dual=1
+[32m[odd_m16_k40_n8] passed
+[0mFC_BATCH_1X1 name=out4_m4_k64_n4 mismatch=0 expect=0 path=0 dual=1
+[32m[out4_m4_k64_n4] passed
+[0mFC_BATCH_1X1 name=m1_k8_n4 mismatch=0 expect=0 path=0 dual=1
+[32m[m1_k8_n4] passed
+[0mFC_BATCH_1X1 name=odd_m1_k40_n4 mismatch=0 expect=0 path=0 dual=1
+[32m[odd_m1_k40_n4] passed
+[0mFC_BATCH_1X1 name=dual_m1_k128_n256 mismatch=0 expect=1 path=1 dual=1
+[32m[dual_m1_k128_n256] passed
+[0mFC_BATCH_1X1 name=dual_m2_k256_n128 mismatch=0 expect=1 path=1 dual=1
+[32m[dual_m2_k256_n128] passed
+[0mFC_BATCH_1X1 name=oddrow_m1_k41_n640 mismatch=0 expect=0 path=0 dual=1
+[32m[oddrow_m1_k41_n640] passed
+[0mFC_BATCH_1X1 name=nodual_m2_k128_n32 mismatch=0 expect=0 path=0 dual=1
+[32m[nodual_m2_k128_n32] passed
+[0mFC_BATCH_1X1 name=below_m4_k7_n16 mismatch=0 expect=0 path=0 dual=1
+[32m[below_m4_k7_n16] passed
+[0mFC_BATCH_1X1 name=s3out_m4_k16_n7 mismatch=0 expect=0 path=0 dual=1
+[32m[s3out_m4_k16_n7] passed
+[0mFC_BATCH_1X1 name=nobias_m4_k64_n16 mismatch=0 expect=1 path=1 dual=1
+[32m[nobias_m4_k64_n16] passed
+[0mFC_BATCH_1X1 name=nobias_m16_k64_n16 mismatch=0 expect=1 path=1 dual=1
+[32m[nobias_m16_k64_n16] passed
+[0mFC_BATCH_1X1 name=clamp_m4_k16_n16 mismatch=0 expect=1 path=1 dual=1
+[32m[clamp_m4_k16_n16] passed
+[0mFC_BATCH_1X1 name=clamp_m16_k16_n16 mismatch=0 expect=1 path=1 dual=1
+[32m[clamp_m16_k16_n16] passed
+[0mFC_BATCH_1X1 name=short_m16_k64_n64 mismatch=0 expect=0 path=0 dual=1
+[32m[short_m16_k64_n64] passed
+[0mFC_BATCH_1X1 name=unsized_m16_k64_n64 mismatch=0 expect=0 path=0 dual=1
+[32m[unsized_m16_k64_n64] passed
+[0mFC_BATCH_1X1 name=misfilt_m16_k64_n64 mismatch=0 expect=0 path=0 dual=1
+[32m[misfilt_m16_k64_n64] passed
+[0mFC_BATCH_1X1 name=zero_in_m4_k8_n8 mismatch=0 expect=1 path=1 dual=1
+[32m[zero_in_m4_k8_n8] passed
+[0mFC_BATCH_1X1 name=zero_in_m16_k8_n8 mismatch=0 expect=1 path=1 dual=1
+[32m[zero_in_m16_k8_n8] passed
+[0mFC_BATCH_1X1 name=inoff_m3_k9_n8 mismatch=0 expect=1 path=1 dual=1
+[32m[inoff_m3_k9_n8] passed
+[0mFC_BATCH_1X1 name=inoff_m16_k9_n8 mismatch=0 expect=1 path=1 dual=1
+[32m[inoff_m16_k9_n8] passed
+[0mFC_BATCH_1X1 name=m16_k4_n8 mismatch=0 expect=0 path=0 dual=1
+[32m[m16_k4_n8] passed
+[0mFC_BATCH_1X1 name=m32_k7_n16 mismatch=0 expect=0 path=0 dual=1
+[32m[m32_k7_n16] passed
+[0m[32m[batches_above_u16] stayed on fully connected
+[0m[32m[batches_u16_ok] entered the 1x1 path
+[0m[32m[s3_out_misaligned] stayed on fully connected
+[0m[32m[s3_fc_preferred] passed
+[0m[32m[fc_scratch_size] got=3136 odd=472
+[0mTEST: fc_per_ch_s8_batch_1x1, passed=41, failed=0, skipped=0
+
+######## Running esp_nn_fully_connected_align_s8_test ##########
+geometry: row_len 1280, filter_offset 0, input_offset -3 (esp-nn#34)
+[32m-- exact-sized bounded dot-product inputs: passed
+[0m-- sweep A: input misalignment, out_ch 2, filter aligned --
+[32m[input off       0] per-tensor 0/8, per-channel 0/8, guard pt 0 pc 0[0m
+[32m[input off       1] per-tensor 0/8, per-channel 0/8, guard pt 0 pc 0[0m
+[32m[input off       2] per-tensor 0/8, per-channel 0/8, guard pt 0 pc 0[0m
+[32m[input off       3] per-tensor 0/8, per-channel 0/8, guard pt 0 pc 0[0m
+[32m[input off       4] per-tensor 0/8, per-channel 0/8, guard pt 0 pc 0[0m
+[32m[input off       5] per-tensor 0/8, per-channel 0/8, guard pt 0 pc 0[0m
+[32m[input off       6] per-tensor 0/8, per-channel 0/8, guard pt 0 pc 0[0m
+[32m[input off       7] per-tensor 0/8, per-channel 0/8, guard pt 0 pc 0[0m
+[32m[input off       8] per-tensor 0/8, per-channel 0/8, guard pt 0 pc 0[0m
+[32m[input off       9] per-tensor 0/8, per-channel 0/8, guard pt 0 pc 0[0m
+[32m[input off      10] per-tensor 0/8, per-channel 0/8, guard pt 0 pc 0[0m
+[32m[input off      11] per-tensor 0/8, per-channel 0/8, guard pt 0 pc 0[0m
+[32m[input off      12] per-tensor 0/8, per-channel 0/8, guard pt 0 pc 0[0m
+[32m[input off      13] per-tensor 0/8, per-channel 0/8, guard pt 0 pc 0[0m
+[32m[input off      14] per-tensor 0/8, per-channel 0/8, guard pt 0 pc 0[0m
+[32m[input off      15] per-tensor 0/8, per-channel 0/8, guard pt 0 pc 0[0m
+-- sweep B: filter misalignment, out_ch 2, input aligned --
+[32m[filter off      0] per-tensor 0/8, per-channel 0/8, guard pt 0 pc 0[0m
+[32m[filter off      1] per-tensor 0/8, per-channel 0/8, guard pt 0 pc 0[0m
+[32m[filter off      2] per-tensor 0/8, per-channel 0/8, guard pt 0 pc 0[0m
+[32m[filter off      3] per-tensor 0/8, per-channel 0/8, guard pt 0 pc 0[0m
+[32m[filter off      4] per-tensor 0/8, per-channel 0/8, guard pt 0 pc 0[0m
+[32m[filter off      5] per-tensor 0/8, per-channel 0/8, guard pt 0 pc 0[0m
+[32m[filter off      6] per-tensor 0/8, per-channel 0/8, guard pt 0 pc 0[0m
+[32m[filter off      7] per-tensor 0/8, per-channel 0/8, guard pt 0 pc 0[0m
+[32m[filter off      8] per-tensor 0/8, per-channel 0/8, guard pt 0 pc 0[0m
+[32m[filter off      9] per-tensor 0/8, per-channel 0/8, guard pt 0 pc 0[0m
+[32m[filter off     10] per-tensor 0/8, per-channel 0/8, guard pt 0 pc 0[0m
+[32m[filter off     11] per-tensor 0/8, per-channel 0/8, guard pt 0 pc 0[0m
+[32m[filter off     12] per-tensor 0/8, per-channel 0/8, guard pt 0 pc 0[0m
+[32m[filter off     13] per-tensor 0/8, per-channel 0/8, guard pt 0 pc 0[0m
+[32m[filter off     14] per-tensor 0/8, per-channel 0/8, guard pt 0 pc 0[0m
+[32m[filter off     15] per-tensor 0/8, per-channel 0/8, guard pt 0 pc 0[0m
+-- sweep C: out_ch sweep, input off 0 --
+[32m[out_ch          1] per-tensor 0/8, per-channel 0/8, guard pt 0 pc 0[0m
+[32m[out_ch          2] per-tensor 0/8, per-channel 0/8, guard pt 0 pc 0[0m
+[32m[out_ch          3] per-tensor 0/8, per-channel 0/8, guard pt 0 pc 0[0m
+[32m[out_ch          7] per-tensor 0/8, per-channel 0/8, guard pt 0 pc 0[0m
+[32m[out_ch          8] per-tensor 0/8, per-channel 0/8, guard pt 0 pc 0[0m
+[32m[out_ch         15] per-tensor 0/8, per-channel 0/8, guard pt 0 pc 0[0m
+[32m[out_ch         16] per-tensor 0/8, per-channel 0/8, guard pt 0 pc 0[0m
+-- sweep C: out_ch sweep, input off 4 --
+[32m[out_ch          1] per-tensor 0/8, per-channel 0/8, guard pt 0 pc 0[0m
+[32m[out_ch          2] per-tensor 0/8, per-channel 0/8, guard pt 0 pc 0[0m
+[32m[out_ch          3] per-tensor 0/8, per-channel 0/8, guard pt 0 pc 0[0m
+[32m[out_ch          7] per-tensor 0/8, per-channel 0/8, guard pt 0 pc 0[0m
+[32m[out_ch          8] per-tensor 0/8, per-channel 0/8, guard pt 0 pc 0[0m
+[32m[out_ch         15] per-tensor 0/8, per-channel 0/8, guard pt 0 pc 0[0m
+[32m[out_ch         16] per-tensor 0/8, per-channel 0/8, guard pt 0 pc 0[0m
+-- sweep D0: small row_len, out_ch 2, input off 0/1/8 --
+  row_len  1 / in off 0: [32mper-tensor 0/8, per-channel 0/8, guard pt 0 pc 0[0m
+  row_len  1 / in off 1: [32mper-tensor 0/8, per-channel 0/8, guard pt 0 pc 0[0m
+  row_len  1 / in off 8: [32mper-tensor 0/8, per-channel 0/8, guard pt 0 pc 0[0m
+  row_len  5 / in off 0: [32mper-tensor 0/8, per-channel 0/8, guard pt 0 pc 0[0m
+  row_len  5 / in off 1: [32mper-tensor 0/8, per-channel 0/8, guard pt 0 pc 0[0m
+  row_len  5 / in off 8: [32mper-tensor 0/8, per-channel 0/8, guard pt 0 pc 0[0m
+  row_len  8 / in off 0: [32mper-tensor 0/8, per-channel 0/8, guard pt 0 pc 0[0m
+  row_len  8 / in off 1: [32mper-tensor 0/8, per-channel 0/8, guard pt 0 pc 0[0m
+  row_len  8 / in off 8: [32mper-tensor 0/8, per-channel 0/8, guard pt 0 pc 0[0m
+  row_len 15 / in off 0: [32mper-tensor 0/8, per-channel 0/8, guard pt 0 pc 0[0m
+  row_len 15 / in off 1: [32mper-tensor 0/8, per-channel 0/8, guard pt 0 pc 0[0m
+  row_len 15 / in off 8: [32mper-tensor 0/8, per-channel 0/8, guard pt 0 pc 0[0m
+  row_len 16 / in off 0: [32mper-tensor 0/8, per-channel 0/8, guard pt 0 pc 0[0m
+  row_len 16 / in off 1: [32mper-tensor 0/8, per-channel 0/8, guard pt 0 pc 0[0m
+  row_len 16 / in off 8: [32mper-tensor 0/8, per-channel 0/8, guard pt 0 pc 0[0m
+  row_len 17 / in off 0: [32mper-tensor 0/8, per-channel 0/8, guard pt 0 pc 0[0m
+  row_len 17 / in off 1: [32mper-tensor 0/8, per-channel 0/8, guard pt 0 pc 0[0m
+  row_len 17 / in off 8: [32mper-tensor 0/8, per-channel 0/8, guard pt 0 pc 0[0m
+-- sweep D: row_len 1271 (odd), out_ch 2, input misalignment --
+[32m[input off       0] per-tensor 0/8, per-channel 0/8, guard pt 0 pc 0[0m
+[32m[input off       1] per-tensor 0/8, per-channel 0/8, guard pt 0 pc 0[0m
+[32m[input off       4] per-tensor 0/8, per-channel 0/8, guard pt 0 pc 0[0m
+[32m[input off       8] per-tensor 0/8, per-channel 0/8, guard pt 0 pc 0[0m
+-- sweep E: input + filter misalignment, out_ch 2 --
+  in off 0 / filt off 0: [32mper-tensor 0/8, per-channel 0/8, guard pt 0 pc 0[0m
+  in off 0 / filt off 1: [32mper-tensor 0/8, per-channel 0/8, guard pt 0 pc 0[0m
+  in off 0 / filt off 4: [32mper-tensor 0/8, per-channel 0/8, guard pt 0 pc 0[0m
+  in off 0 / filt off 8: [32mper-tensor 0/8, per-channel 0/8, guard pt 0 pc 0[0m
+  in off 1 / filt off 0: [32mper-tensor 0/8, per-channel 0/8, guard pt 0 pc 0[0m
+  in off 1 / filt off 1: [32mper-tensor 0/8, per-channel 0/8, guard pt 0 pc 0[0m
+  in off 1 / filt off 4: [32mper-tensor 0/8, per-channel 0/8, guard pt 0 pc 0[0m
+  in off 1 / filt off 8: [32mper-tensor 0/8, per-channel 0/8, guard pt 0 pc 0[0m
+  in off 4 / filt off 0: [32mper-tensor 0/8, per-channel 0/8, guard pt 0 pc 0[0m
+  in off 4 / filt off 1: [32mper-tensor 0/8, per-channel 0/8, guard pt 0 pc 0[0m
+  in off 4 / filt off 4: [32mper-tensor 0/8, per-channel 0/8, guard pt 0 pc 0[0m
+  in off 4 / filt off 8: [32mper-tensor 0/8, per-channel 0/8, guard pt 0 pc 0[0m
+  in off 8 / filt off 0: [32mper-tensor 0/8, per-channel 0/8, guard pt 0 pc 0[0m
+  in off 8 / filt off 1: [32mper-tensor 0/8, per-channel 0/8, guard pt 0 pc 0[0m
+  in off 8 / filt off 4: [32mper-tensor 0/8, per-channel 0/8, guard pt 0 pc 0[0m
+  in off 8 / filt off 8: [32mper-tensor 0/8, per-channel 0/8, guard pt 0 pc 0[0m
+-- sweep F: input offset 128/127/-128/0/129/-129, row_len 16/48/33/271, filter off 0/4 --
+  in_off  128 / row_len  16 / filt off 0: [32mper-tensor 0/8, per-channel 0/8, guard pt 0 pc 0[0m
+  in_off  128 / row_len  16 / filt off 4: [32mper-tensor 0/8, per-channel 0/8, guard pt 0 pc 0[0m
+  in_off  128 / row_len  48 / filt off 0: [32mper-tensor 0/8, per-channel 0/8, guard pt 0 pc 0[0m
+  in_off  128 / row_len  48 / filt off 4: [32mper-tensor 0/8, per-channel 0/8, guard pt 0 pc 0[0m
+  in_off  128 / row_len  33 / filt off 0: [32mper-tensor 0/8, per-channel 0/8, guard pt 0 pc 0[0m
+  in_off  128 / row_len  33 / filt off 4: [32mper-tensor 0/8, per-channel 0/8, guard pt 0 pc 0[0m
+  in_off  128 / row_len 271 / filt off 0: [32mper-tensor 0/8, per-channel 0/8, guard pt 0 pc 0[0m
+  in_off  128 / row_len 271 / filt off 4: [32mper-tensor 0/8, per-channel 0/8, guard pt 0 pc 0[0m
+  in_off  127 / row_len  16 / filt off 0: [32mper-tensor 0/8, per-channel 0/8, guard pt 0 pc 0[0m
+  in_off  127 / row_len  16 / filt off 4: [32mper-tensor 0/8, per-channel 0/8, guard pt 0 pc 0[0m
+  in_off  127 / row_len  48 / filt off 0: [32mper-tensor 0/8, per-channel 0/8, guard pt 0 pc 0[0m
+  in_off  127 / row_len  48 / filt off 4: [32mper-tensor 0/8, per-channel 0/8, guard pt 0 pc 0[0m
+  in_off  127 / row_len  33 / filt off 0: [32mper-tensor 0/8, per-channel 0/8, guard pt 0 pc 0[0m
+  in_off  127 / row_len  33 / filt off 4: [32mper-tensor 0/8, per-channel 0/8, guard pt 0 pc 0[0m
+  in_off  127 / row_len 271 / filt off 0: [32mper-tensor 0/8, per-channel 0/8, guard pt 0 pc 0[0m
+  in_off  127 / row_len 271 / filt off 4: [32mper-tensor 0/8, per-channel 0/8, guard pt 0 pc 0[0m
+  in_off -128 / row_len  16 / filt off 0: [32mper-tensor 0/8, per-channel 0/8, guard pt 0 pc 0[0m
+  in_off -128 / row_len  16 / filt off 4: [32mper-tensor 0/8, per-channel 0/8, guard pt 0 pc 0[0m
+  in_off -128 / row_len  48 / filt off 0: [32mper-tensor 0/8, per-channel 0/8, guard pt 0 pc 0[0m
+  in_off -128 / row_len  48 / filt off 4: [32mper-tensor 0/8, per-channel 0/8, guard pt 0 pc 0[0m
+  in_off -128 / row_len  33 / filt off 0: [32mper-tensor 0/8, per-channel 0/8, guard pt 0 pc 0[0m
+  in_off -128 / row_len  33 / filt off 4: [32mper-tensor 0/8, per-channel 0/8, guard pt 0 pc 0[0m
+  in_off -128 / row_len 271 / filt off 0: [32mper-tensor 0/8, per-channel 0/8, guard pt 0 pc 0[0m
+  in_off -128 / row_len 271 / filt off 4: [32mper-tensor 0/8, per-channel 0/8, guard pt 0 pc 0[0m
+  in_off    0 / row_len  16 / filt off 0: [32mper-tensor 0/8, per-channel 0/8, guard pt 0 pc 0[0m
+  in_off    0 / row_len  16 / filt off 4: [32mper-tensor 0/8, per-channel 0/8, guard pt 0 pc 0[0m
+  in_off    0 / row_len  48 / filt off 0: [32mper-tensor 0/8, per-channel 0/8, guard pt 0 pc 0[0m
+  in_off    0 / row_len  48 / filt off 4: [32mper-tensor 0/8, per-channel 0/8, guard pt 0 pc 0[0m
+  in_off    0 / row_len  33 / filt off 0: [32mper-tensor 0/8, per-channel 0/8, guard pt 0 pc 0[0m
+  in_off    0 / row_len  33 / filt off 4: [32mper-tensor 0/8, per-channel 0/8, guard pt 0 pc 0[0m
+  in_off    0 / row_len 271 / filt off 0: [32mper-tensor 0/8, per-channel 0/8, guard pt 0 pc 0[0m
+  in_off    0 / row_len 271 / filt off 4: [32mper-tensor 0/8, per-channel 0/8, guard pt 0 pc 0[0m
+  in_off  129 / row_len  16 / filt off 0: [32mper-tensor 0/8, per-channel 0/8, guard pt 0 pc 0[0m
+  in_off  129 / row_len  16 / filt off 4: [32mper-tensor 0/8, per-channel 0/8, guard pt 0 pc 0[0m
+  in_off  129 / row_len  48 / filt off 0: [32mper-tensor 0/8, per-channel 0/8, guard pt 0 pc 0[0m
+  in_off  129 / row_len  48 / filt off 4: [32mper-tensor 0/8, per-channel 0/8, guard pt 0 pc 0[0m
+  in_off  129 / row_len  33 / filt off 0: [32mper-tensor 0/8, per-channel 0/8, guard pt 0 pc 0[0m
+  in_off  129 / row_len  33 / filt off 4: [32mper-tensor 0/8, per-channel 0/8, guard pt 0 pc 0[0m
+  in_off  129 / row_len 271 / filt off 0: [32mper-tensor 0/8, per-channel 0/8, guard pt 0 pc 0[0m
+  in_off  129 / row_len 271 / filt off 4: [32mper-tensor 0/8, per-channel 0/8, guard pt 0 pc 0[0m
+  in_off -129 / row_len  16 / filt off 0: [32mper-tensor 0/8, per-channel 0/8, guard pt 0 pc 0[0m
+  in_off -129 / row_len  16 / filt off 4: [32mper-tensor 0/8, per-channel 0/8, guard pt 0 pc 0[0m
+  in_off -129 / row_len  48 / filt off 0: [32mper-tensor 0/8, per-channel 0/8, guard pt 0 pc 0[0m
+  in_off -129 / row_len  48 / filt off 4: [32mper-tensor 0/8, per-channel 0/8, guard pt 0 pc 0[0m
+  in_off -129 / row_len  33 / filt off 0: [32mper-tensor 0/8, per-channel 0/8, guard pt 0 pc 0[0m
+  in_off -129 / row_len  33 / filt off 4: [32mper-tensor 0/8, per-channel 0/8, guard pt 0 pc 0[0m
+  in_off -129 / row_len 271 / filt off 0: [32mper-tensor 0/8, per-channel 0/8, guard pt 0 pc 0[0m
+  in_off -129 / row_len 271 / filt off 4: [32mper-tensor 0/8, per-channel 0/8, guard pt 0 pc 0[0m
+TEST: fc_align_s8, passed=133, failed=0, skipped=0
+
+######## Running esp_nn_alignment_s8_test ##########
+[32mconv align [5x5 in 8 out 8 f 1x1 s 1 p 0]: 25 passed
+[0m[32mconv align [5x5 in 16 out 8 f 1x1 s 1 p 0]: 25 passed
+[0m[32mconv align [5x5 in 8 out 8 f 3x3 s 1 p 1]: 25 passed
+[0m[32mconv align [6x5 in 8 out 16 f 3x3 s 2 p 1]: 25 passed
+[0m[32mdepthwise align [5x5 ch 8 x1 f 3x3 s 1 p 1]: 25 passed
+[0m[32mdepthwise align [5x5 ch 16 x1 f 3x3 s 1 p 1]: 25 passed
+[0m[32mdepthwise align [5x5 ch 16 x1 f 3x3 s 1 p 0]: 25 passed
+[0m[32mdepthwise align [5x5 ch 8 x8 f 3x3 s 1 p 1]: 25 passed
+[0m[32mdepthwise align [5x5 ch 6 x2 f 3x3 s 1 p 1]: 25 passed
+[0m[32mdepthwise align [5x5 ch 8 x1 f 5x5 s 1 p 2]: 25 passed
+[0m[32mdepthwise align [5x5 ch 24 x1 f 3x3 s 1 p 1]: 25 passed
+[0m[32mdepthwise align [5x5 ch 12 x1 f 3x3 s 1 p 1]: 25 passed
+[0m[32mdepthwise align [1x9 ch 16 x1 f 1x3 s 1 p 0]: 25 passed
+[0m[32mavg_pool align [5x5 ch 8 f 3 s 1 p 0]: 5 passed
+[0m[32mavg_pool align [5x5 ch 12 f 3 s 2 p 1]: 5 passed
+[0m[32mavg_pool align [5x5 ch 6 f 3 s 1 p 0]: 5 passed
+[0m[32mmax_pool align [5x5 ch 8 f 3 s 1 p 0]: 5 passed
+[0m[32mmax_pool align [5x5 ch 12 f 3 s 2 p 1]: 5 passed
+[0m[32mmax_pool align [5x5 ch 6 f 3 s 1 p 0]: 5 passed
+[0m[32mmean align [4x4 ch 8]: 5 passed
+[0m[32msoftmax align [1x16]: 5 passed
+[0m[32msoftmax align [2x36]: 5 passed
+[0m[32mrelu6 align [16]: 5 passed
+[0m[32mrelu6 align [33]: 5 passed
+[0m[32madd align [16]: 5 passed
+[0m[32madd align [33]: 5 passed
+[0m[32mmul align [16]: 5 passed
+[0m[32mmul align [33]: 5 passed
+[0mTEST: alignment_s8, passed=28, failed=0, skipped=0
+
+######## Running esp_nn_fully_connected_large_s8_test ##########
+[32m[256x256 io -3, operands at 0 mod 16] passed
+[0m[32m[256x256 io -3, operands at 8 mod 16] passed
+[0m[32m[512x128 io -3, operands at 0 mod 16] passed
+[0m[32m[512x128 io -3, operands at 8 mod 16] passed
+[0m[32m[320x320 io -3, operands at 0 mod 16] passed
+[0m[32m[320x320 io -3, operands at 8 mod 16] passed
+[0m[32m[128x256 io -3, operands at 0 mod 16] passed
+[0m[32m[128x256 io -3, operands at 8 mod 16] passed
+[0m[32m[ 64x256 io -3, operands at 0 mod 16] passed
+[0m[32m[ 64x256 io -3, operands at 8 mod 16] passed
+[0m[32m[128x256 io 0, operands at 0 mod 16] passed
+[0m[32m[128x256 io 0, operands at 8 mod 16] passed
+[0m[32m[512x128 io 128, operands at 0 mod 16] passed
+[0m[32m[512x128 io 128, operands at 8 mod 16] passed
+[0m[32m[200x 64 io 128, operands at 0 mod 16] passed
+[0m[32m[200x 64 io 128, operands at 8 mod 16] passed
+[0mTEST: fc_large_s8, passed=16, failed=0, skipped=0
+
+######## Running esp_nn_fully_connected_dual_core_s8_test ##########
+[32m[ 24x192 io 0 per-tensor] passed
+[0m[32m[ 24x192 io 0 per-channel] passed
+[0m[32m[ 24x192 io -128 per-tensor] passed
+[0m[32m[ 24x192 io -128 per-channel] passed
+[0m[32m[384x512 io 0 per-tensor] passed
+[0m[32m[384x512 io 0 per-channel] passed
+[0m[32m[384x512 io -128 per-tensor] passed
+[0m[32m[384x512 io -128 per-channel] passed
+[0m[32m[400x513 io 0 per-tensor] passed
+[0m[32m[400x513 io 0 per-channel] passed
+[0m[32m[400x513 io -128 per-tensor] passed
+[0m[32m[400x513 io -128 per-channel] passed
+[0m[32m[384x530 io 0 per-tensor] passed
+[0m[32m[384x530 io 0 per-channel] passed
+[0m[32m[384x530 io -128 per-tensor] passed
+[0m[32m[384x530 io -128 per-channel] passed
+[0m[32m[ 33x200 io 0 per-tensor] passed
+[0m[32m[ 33x200 io 0 per-channel] passed
+[0m[32m[ 33x200 io -128 per-tensor] passed
+[0m[32m[ 33x200 io -128 per-channel] passed
+[0mTEST: fc_dual_core_s8, passed=20, failed=0, skipped=0
+[32msoftmax [ 0] passed [h 8, w 32, mult 1073741824, shift 23]
+[0m[32msoftmax [ 1] passed [h 1, w 2, mult 1073741824, shift 23]
+[0m[32msoftmax [ 2] passed [h 1, w 4, mult 1073741824, shift 23]
+[0m[32msoftmax [ 3] passed [h 1, w 1, mult 1073741824, shift 23]
+[0m[32msoftmax [ 4] passed [h 1, w 10, mult 1073741824, shift 23]
+[0m[32msoftmax [ 5] passed [h 4, w 10, mult 1073741824, shift 23]
+[0m[32msoftmax [ 6] passed [h 1, w 1000, mult 1073741824, shift 23]
+[0m[32msoftmax [ 7] passed [h 64, w 32, mult 1073741824, shift 23]
+[0m[32msoftmax [ 8] passed [h 8, w 32, mult 1073741824, shift 23]
+[0m[32msoftmax [ 9] passed [h 8, w 32, mult 1073741824, shift 23]
+[0m[32msoftmax [10] passed [h 8, w 32, mult 1073741824, shift 23]
+[0m[32msoftmax [11] passed [h 8, w 32, mult 1073741824, shift 19]
+[0m[32msoftmax [12] passed [h 8, w 32, mult 1717986918, shift 23]
+[0m[32msoftmax [13] passed [h 8, w 32, mult 1073741823, shift 7]
+[0m[32msoftmax [14] passed [h 8, w 32, mult 536870911, shift 5]
+[0m[32msoftmax [15] passed [h 8, w 32, mult 2147483647, shift 10]
+[0m[32msoftmax [16] passed [h 8, w 32, mult 1073741824, shift 31]
+[0m[32msoftmax [17] passed [h 8, w 32, mult 2147483647, shift 31]
+[0m[32msoftmax [18] passed [h 8, w 17, mult 1073741824, shift 23]
+[0m[32msoftmax [19] passed [h 8, w 3, mult 1073741824, shift 23]
+[0m[32msoftmax [20] passed [h 8, w 36, mult 1073741824, shift 23]
+[0m[32msoftmax [21] passed [h 4, w 1000, mult 1073741824, shift 23]
+[0mTEST: softmax_s8, passed=22, failed=0, skipped=0
+
+######## Running esp_nn_hard_swish_s8_test ##########
+[32mhard_swish [ 0] passed [size 1]
+[0m[32mhard_swish [ 1] passed [size 8]
+[0m[32mhard_swish [ 2] passed [size 16]
+[0m[32mhard_swish [ 3] passed [size 32]
+[0m[32mhard_swish [ 4] passed [size 100]
+[0m[32mhard_swish [ 5] passed [size 1024]
+[0m[32mhard_swish [ 6] passed [size 12544]
+[0mTEST: hard_swish_s8, passed=7, failed=0, skipped=0
+
+######## Running esp_nn_mean_nhwc_s8_test ##########
+[32mmean [ 0] passed [7x7x16]
+[0m[32mmean [ 1] passed [7x7x72]
+[0m[32mmean [ 2] passed [14x14x40]
+[0m[32mmean [ 3] passed [14x14x120]
+[0m[32mmean [ 4] passed [28x28x24]
+[0m[32mmean [ 5] passed [1x1x576]
+[0m[32mmean [ 6] passed [3x3x96]
+[0m[32mmean [ 7] passed [7x7x18]
+[0m[32mmean [ 8] passed [5x3x7]
+[0m[32mmean [ 9] passed [1x1x1]
+[0mTEST: mean_nhwc_s8, passed=10, failed=0, skipped=0
+
+######## Running esp_nn_dual_core_test ##########
+[32mdual core: run() without begin() returns false
+[0m
+######## Running esp_nn_depthwise_conv_s8_test ##########
+[32m[  0] passed [pad: (0, 0), stride: (1, 1) out: ( 16, 16), filter: (3, 3, 16), ch_mult 1]
+[0m[32m[  1] passed [pad: (1, 1), stride: (1, 1) out: ( 10, 10), filter: (3, 3, 16), ch_mult 1]
+[0m[32m[  2] passed [pad: (1, 1), stride: (1, 1) out: ( 10, 10), filter: (3, 3, 24), ch_mult 1]
+[0m[32m[  3] passed [pad: (1, 1), stride: (1, 1) out: ( 10, 10), filter: (3, 3, 24), ch_mult 1]
+[0m[32m[  4] passed [pad: (1, 1), stride: (1, 1) out: (  6,  6), filter: (3, 3,  4), ch_mult 8]
+[0m[32m[  5] passed [pad: (1, 1), stride: (1, 1) out: ( 12, 12), filter: (5, 5,  4), ch_mult 8]
+[0m[32m[  6] passed [pad: (1, 1), stride: (1, 1) out: (  6,  6), filter: (3, 3,  4), ch_mult 4]
+[0m[32m[  7] passed [pad: (0, 0), stride: (2, 2) out: (  2,  2), filter: (3, 3, 16), ch_mult 1]
+[0m[32m[  8] passed [pad: (0, 0), stride: (2, 2) out: ( 13, 13), filter: (3, 3, 64), ch_mult 1]
+[0m[32m[  9] passed [pad: (0, 0), stride: (2, 2) out: (  2,  2), filter: (3, 3, 16), ch_mult 1]
+[0m[32m[ 10] passed [pad: (0, 0), stride: (1, 1) out: (  4,  4), filter: (3, 3, 16), ch_mult 1]
+[0m[32m[ 11] passed [pad: (0, 0), stride: (2, 2) out: (  2,  2), filter: (3, 3, 16), ch_mult 1]
+[0m[32m[ 12] passed [pad: (1, 1), stride: (2, 2) out: (  3,  3), filter: (3, 3, 16), ch_mult 1]
+[0m[32m[ 13] passed [pad: (1, 1), stride: (2, 2) out: (  3,  3), filter: (3, 3, 16), ch_mult 1]
+[0m[32m[ 14] passed [pad: (1, 1), stride: (2, 2) out: (  3,  3), filter: (3, 3, 16), ch_mult 1]
+[0m[32m[ 15] passed [pad: (1, 1), stride: (1, 1) out: ( 48, 48), filter: (3, 3,  8), ch_mult 1]
+[0m[32m[ 16] passed [pad: (0, 0), stride: (2, 2) out: (  5,  5), filter: (3, 3,  8), ch_mult 1]
+[0m[32m[ 17] passed [pad: (1, 1), stride: (1, 1) out: (  8,  8), filter: (3, 3, 16), ch_mult 1]
+[0m[32m[ 18] passed [pad: (1, 0), stride: (2, 2) out: ( 25, 10), filter: (3, 3, 32), ch_mult 1]
+[0m[32m[ 19] passed [pad: (0, 1), stride: (1, 1) out: (  1,384), filter: (1, 3,128), ch_mult 1]
+[0m[32m[ 20] passed [pad: (0, 1), stride: (1, 2) out: (  1, 96), filter: (1, 3,256), ch_mult 1]
+[0m[32m[ 21] passed [pad: (0, 1), stride: (1, 1) out: (  1,384), filter: (1, 3,168), ch_mult 1]
+[0m[32m[ 22] passed [pad: (0, 1), stride: (1, 2) out: (  1, 96), filter: (1, 3,328), ch_mult 1]
+[0m[32m[ 23] passed [pad: (0, 1), stride: (1, 1) out: (  1,384), filter: (1, 3,128), ch_mult 1]
+[0m[32m[ 24] passed [pad: (0, 1), stride: (1, 2) out: (  1, 96), filter: (1, 3,256), ch_mult 1]
+[0m[32m[ 25] passed [pad: (0, 2), stride: (1, 1) out: (  1,256), filter: (1, 5,128), ch_mult 1]
+[0m[32m[ 26] passed [pad: (0, 1), stride: (1, 1) out: (  1,128), filter: (1, 3,256), ch_mult 1]
+[0m[32m[ 27] passed [pad: (1, 1), stride: (1, 1) out: (  9,  5), filter: (3, 3,384), ch_mult 1]
+[0m[32m[ 28] passed [pad: (1, 1), stride: (1, 1) out: (  5,  3), filter: (3, 3,640), ch_mult 1]
+[0m[32m[ 29] passed [pad: (1, 1), stride: (2, 2) out: (  5,  3), filter: (3, 3,384), ch_mult 1]
+[0m[32m[ 30] passed [pad: (1, 1), stride: (1, 1) out: (  5,  3), filter: (3, 3,640), ch_mult 1]
+[0m[32m[ 31] passed [pad: (1, 1), stride: (1, 1) out: (  9,  5), filter: (3, 3,264), ch_mult 1]
+[0m[32m[ 32] passed [pad: (1, 1), stride: (2, 2) out: (  5,  3), filter: (3, 3,520), ch_mult 1]
+[0m[32m[ 33] passed [pad: (1, 1), stride: (1, 1) out: ( 40, 40), filter: (3, 3, 32), ch_mult 1]
+[0m[32m[ 34] passed [pad: (1, 1), stride: (2, 2) out: ( 21, 21), filter: (3, 3, 32), ch_mult 1]
+[0m[32m[ 35] passed [pad: (0, 1), stride: (1, 1) out: (  1,3072), filter: (1, 3,  8), ch_mult 1]
+[0m[32m[ 36] passed [pad: (0, 0), stride: (1, 1) out: (  1,3072), filter: (1, 1,  8), ch_mult 1]
+[0m[32m[ 37] passed [pad: (2, 2), stride: (1, 1) out: ( 11,  9), filter: (5, 5, 32), ch_mult 1]
+[0m[32m[ 38] passed [pad: (2, 1), stride: (1, 1) out: (  9,  7), filter: (5, 3, 24), ch_mult 1]
+[0m[32m[ 39] passed [pad: (1, 1), stride: (1, 1) out: ( 10,  8), filter: (3, 3, 48), ch_mult 1]
+[0m[32m[ 40] passed [pad: (2, 2), stride: (1, 1) out: ( 11,  9), filter: (5, 5, 32), ch_mult 1]
+[0m[32m[ 41] passed [pad: (1, 1), stride: (1, 1) out: (  8,  8), filter: (3, 3, 32), ch_mult 1]
+[0m[32m[ 42] passed [pad: (0, 0), stride: (1, 1) out: ( 10,  3), filter: (31, 1, 16), ch_mult 1]
+[0m[32m[ 43] passed [pad: (1, 1), stride: (1, 1) out: (  6,  6), filter: (3, 3, 16), ch_mult 1]
+[0m[32m[ 44] passed [pad: (1, 1), stride: (1, 1) out: (  6,  6), filter: (3, 3, 16), ch_mult 1]
+[0m[32m[ 45] passed [pad: (1, 1), stride: (1, 1) out: (  8,  8), filter: (3, 3, 32), ch_mult 1]
+[0m[32m[ 46] passed [pad: (0, 0), stride: (1, 1) out: (  9,  7), filter: (1, 1, 48), ch_mult 1]
+[0m[32m[ 47] passed [pad: (0, 0), stride: (2, 2) out: (  5,  4), filter: (1, 1, 24), ch_mult 1]
+[0m[32m[ 48] passed [pad: (0, 1), stride: (1, 1) out: (  7,  9), filter: (1, 3, 40), ch_mult 1]
+[0m[32m[ 49] passed [pad: (0, 0), stride: (1, 1) out: (  6,  7), filter: (1, 3, 32), ch_mult 1]
+[0m[32m[ 50] passed [pad: (0, 0), stride: (2, 2) out: (  5,  4), filter: (5, 5, 32), ch_mult 1]
+[0m[32m[ 51] passed [pad: (0, 0), stride: (2, 2) out: (  5,  4), filter: (5, 5, 32), ch_mult 1]
+[0m[32m[ 52] passed [pad: (0, 0), stride: (2, 2) out: (  8,  8), filter: (3, 3, 32), ch_mult 1]
+[0m[32m[ 53] passed [pad: (0, 0), stride: (2, 2) out: (  2,  2), filter: (3, 3, 16), ch_mult 1]
+[0m[32m[ 54] passed [pad: (0, 0), stride: (2, 2) out: (  2,  2), filter: (3, 3, 16), ch_mult 1]
+[0m[32m[ 55] passed [pad: (0, 0), stride: (1, 1) out: (  4,  4), filter: (3, 3, 16), ch_mult 1]
+[0m[32m[ 56] passed [pad: (0, 0), stride: (1, 1) out: (  4,  4), filter: (3, 3, 16), ch_mult 1]
+[0m[32m[ 57] passed [pad: (0, 0), stride: (1, 1) out: (  4,  4), filter: (3, 3, 16), ch_mult 1]
+[0m[32m[ 58] passed [pad: (0, 0), stride: (2, 2) out: (  2,  2), filter: (3, 3, 16), ch_mult 1]
+[0m[32m[ 59] passed [pad: (0, 0), stride: (2, 2) out: (  2,  2), filter: (3, 3, 16), ch_mult 1]
+[0m[32m[ 60] passed [pad: (2, 2), stride: (1, 1) out: (  9,  9), filter: (5, 5, 32), ch_mult 1]
+[0m[32m[ 61] passed [pad: (2, 2), stride: (2, 2) out: (  6,  6), filter: (5, 5, 25), ch_mult 1]
+[0m[32m[ 62] passed [pad: (1, 1), stride: (1, 1) out: (  8,  8), filter: (3, 3, 20), ch_mult 1]
+[0m[32m[ 63] passed [pad: (0, 0), stride: (1, 1) out: (  5,  5), filter: (3, 3, 44), ch_mult 1]
+[0m[32m[ 64] passed [pad: (1, 1), stride: (1, 1) out: (  8,  8), filter: (3, 3, 32), ch_mult 1]
+[0m[32m[ 65] passed [pad: (1, 1), stride: (1, 1) out: (  8,  8), filter: (3, 3, 32), ch_mult 1]
+[0m[32m[ 66] passed [pad: (1, 1), stride: (1, 1) out: (  8,  8), filter: (3, 3, 32), ch_mult 1]
+[0m[32m[ 67] passed [pad: (1, 1), stride: (1, 1) out: ( 28, 28), filter: (3, 3, 96), ch_mult 1]
+[0m[32m[ 68] passed [pad: (1, 1), stride: (2, 2) out: ( 19, 19), filter: (3, 3, 96), ch_mult 1]
+[0m[32m[ 69] passed [pad: (1, 1), stride: (1, 1) out: (  9,  9), filter: (3, 3,960), ch_mult 1]
+[0m[32m[ 70] passed [pad: (1, 1), stride: (1, 1) out: ( 14, 14), filter: (3, 3, 48), ch_mult 1]
+[0m[32m[ 71] passed [pad: (1, 1), stride: (2, 2) out: (  8,  8), filter: (3, 3, 40), ch_mult 1]
+[0m[32m[ 72] passed [pad: (1, 1), stride: (1, 1) out: ( 40, 40), filter: (3, 3, 24), ch_mult 1]
+[0m[32m[ 73] passed [pad: (1, 1), stride: (2, 2) out: ( 20, 20), filter: (3, 3, 40), ch_mult 1]
+[0m[32m[ 74] passed [pad: (1, 1), stride: (1, 1) out: ( 40, 40), filter: (3, 3, 48), ch_mult 1]
+[0m[32m[ 75] passed [pad: (1, 1), stride: (1, 1) out: ( 40, 40), filter: (3, 3, 36), ch_mult 1]
+[0m[32m[ 76] passed [pad: (1, 1), stride: (1, 1) out: ( 40, 40), filter: (3, 3, 32), ch_mult 1]
+[0m[32m[ 77] passed [pad: (1, 1), stride: (2, 2) out: ( 21, 21), filter: (3, 3, 48), ch_mult 1]
+[0m[32m[ 78] passed [pad: (1, 1), stride: (1, 1) out: ( 24,100), filter: (3, 3, 32), ch_mult 1]
+[0m[32m[ 79] passed [pad: (1, 1), stride: (1, 1) out: (  7,  7), filter: (3, 3, 72), ch_mult 1]
+[0m[32m[ 80] passed [pad: (1, 1), stride: (1, 1) out: (  7,  7), filter: (3, 3, 96), ch_mult 1]
+[0m[32m[ 81] passed [pad: (1, 1), stride: (2, 2) out: (  5,  5), filter: (3, 3, 64), ch_mult 1]
+[0m[32m[ 82] passed [pad: (4, 0), stride: (1, 1) out: (1100,  1), filter: (9, 1, 16), ch_mult 1]
+[0m[32m[ 83] passed [pad: (0, 0), stride: (1, 1) out: (  8,  8), filter: (3, 3,1032), ch_mult 1]
+[0m[32m[ 84] passed [pad: (1, 1), stride: (1, 1) out: (400, 40), filter: (3, 3, 32), ch_mult 1]
+[0m
+######## Running esp_nn_conv_s8_test ##########
+[32m[  0] passed [pad: (0, 0), stride: (1, 1) out: ( 10, 10, 64), filter: (1, 1, 64)]
+[0m[32m[  1] passed [pad: (0, 0), stride: (1, 1) out: (  4,  4,  8), filter: (1, 1, 20)]
+[0m[32m[  2] passed [pad: (0, 0), stride: (1, 1) out: (  8,  8, 64), filter: (3, 3,  3)]
+[0m[32m[  3] passed [pad: (0, 0), stride: (1, 1) out: ( 10, 10, 64), filter: (1, 1,  3)]
+[0m[32m[  4] passed [pad: (1, 1), stride: (1, 1) out: ( 10, 10, 64), filter: (3, 3, 12)]
+[0m[32m[  5] passed [pad: (0, 0), stride: (2, 2) out: (  8,  8, 16), filter: (1, 1, 16)]
+[0m[32m[  6] passed [pad: (0, 0), stride: (1, 1) out: (  2,  2,  8), filter: (1, 1,  8)]
+[0m[32m[  7] passed [pad: (0, 0), stride: (2, 2) out: ( 54, 54, 16), filter: (6, 6,  3)]
+[0m[32m[  8] passed [pad: (0, 0), stride: (2, 2) out: (  2,  2, 16), filter: (6, 6,  5)]
+[0m[32m[  9] passed [pad: (1, 1), stride: (1, 1) out: (  3,  3,  1), filter: (3, 3, 32)]
+[0m[32m[ 10] passed [pad: (0, 0), stride: (2, 2) out: (  1,  3,  3), filter: (3, 3,  1)]
+[0m[32m[ 11] passed [pad: (0, 0), stride: (2, 2) out: (  1,  3,  4), filter: (3, 3,  3)]
+[0m[32m[ 12] passed [pad: (0, 0), stride: (1, 1) out: (  8,  8, 16), filter: (1, 1, 16)]
+[0m[32m[ 13] passed [pad: (0, 0), stride: (1, 1) out: (  8,  8, 16), filter: (1, 1, 16)]
+[0m[32m[ 14] passed [pad: (0, 0), stride: (1, 1) out: (  8,  8, 16), filter: (1, 1, 16)]
+[0m[32m[ 15] passed [pad: (0, 0), stride: (1, 1) out: ( 48, 48, 32), filter: (1, 1, 32)]
+[0m[32m[ 16] passed [pad: (0, 0), stride: (1, 1) out: ( 48, 48, 32), filter: (1, 1, 32)]
+[0m[32m[ 17] passed [pad: (0, 0), stride: (1, 1) out: ( 24, 24, 32), filter: (1, 1, 32)]
+[0m[32m[ 18] passed [pad: (1, 1), stride: (2, 2) out: (  4,  4, 16), filter: (5, 5, 16)]
+[0m[32m[ 19] passed [pad: (1, 0), stride: (2, 2) out: (  4,  4, 16), filter: (3, 3, 16)]
+[0m[32m[ 20] passed [pad: (0, 0), stride: (2, 2) out: (  4,  4, 16), filter: (3, 3, 16)]
+[0m[32m[ 21] passed [pad: (0, 0), stride: (1, 1) out: (  8,  8, 16), filter: (2, 2, 16)]
+[0m[32m[ 22] passed [pad: (0, 0), stride: (1, 1) out: (  5,  3,240), filter: (1, 1,640)]
+[0m[32m[ 23] passed [pad: (0, 0), stride: (1, 1) out: (  5,  3,256), filter: (1, 1,240)]
+[0m[32m[ 24] passed [pad: (0, 0), stride: (1, 1) out: (  5,  3,640), filter: (1, 1,160)]
+[0m[32m[ 25] passed [pad: (0, 0), stride: (1, 1) out: (  5,  3,240), filter: (1, 1,640)]
+[0m[32m[ 26] passed [pad: (0, 0), stride: (1, 1) out: (  5,  3,640), filter: (1, 1,264)]
+[0m[32m[ 27] passed [pad: (0, 0), stride: (1, 1) out: (  5,  3, 16), filter: (1, 1, 16)]
+[0m[32m[ 28] passed [pad: (0, 0), stride: (1, 1) out: (  5,  3, 16), filter: (1, 1, 16)]
+[0m[32m[ 29] passed [pad: (0, 0), stride: (1, 1) out: (  8,  8,128), filter: (1, 1, 64)]
+[0m[32m[ 30] passed [pad: (1, 1), stride: (2, 2) out: (  6,  6, 64), filter: (3, 3, 32)]
+[0m[32m[ 31] passed [pad: (0, 0), stride: (1, 1) out: ( 10, 10,128), filter: (1, 1,256)]
+[0m[32m[ 32] passed [pad: (0, 0), stride: (1, 1) out: (  6,  4, 24), filter: (1, 1, 33)]
+[0m[32m[ 33] passed [pad: (0, 0), stride: (2, 2) out: (  6,  6, 48), filter: (3, 3, 48)]
+[0m[32m[ 34] passed [pad: (0, 0), stride: (1, 1) out: ( 20, 20, 32), filter: (1, 1, 32)]
+[0m[32m[ 35] passed [pad: (0, 0), stride: (2, 2) out: ( 10, 10, 16), filter: (3, 3,  3)]
+[0m[32m[ 36] passed [pad: (1, 1), stride: (1, 1) out: ( 12, 12, 48), filter: (3, 3, 48)]
+[0m[32m[ 37] passed [pad: (1, 1), stride: (2, 2) out: (  7,  7, 48), filter: (3, 3, 48)]
+[0m[32m[ 38] passed [pad: (1, 1), stride: (1, 1) out: (  6,  6,128), filter: (3, 3,128)]
+[0m[32m[ 39] passed [pad: (0, 0), stride: (2, 2) out: (  1,  1, 16), filter: (3, 3, 16)]
+[0m[32m[ 40] passed [pad: (0, 0), stride: (2, 2) out: (  1,  1, 16), filter: (3, 3,272)]
+[0m[32m[ 41] passed [pad: (1, 1), stride: (1, 1) out: (700,  4,  8), filter: (3, 3,  1)]
+[0m[32m[ 42] passed [pad: (1, 1), stride: (1, 1) out: ( 16, 16, 96), filter: (3, 3,128)]
+[0m[32m[ 43] passed [pad: (0, 0), stride: (2, 2) out: ( 12, 12,128), filter: (3, 3,128)]
+[0m[32m[ 44] passed [pad: (1, 1), stride: (1, 1) out: ( 12, 12, 64), filter: (3, 3,128)]
+[0m[32m[ 45] passed [pad: (0, 0), stride: (2, 2) out: (  6,  6,256), filter: (3, 3,128)]
+[0m[32m[ 46] passed [pad: (1, 1), stride: (1, 1) out: (  6,  6, 64), filter: (3, 3,256)]
+[0m[32m[ 47] passed [pad: (1, 1), stride: (1, 1) out: ( 32, 16, 32), filter: (3, 3,  1)]
+[0m[32m[ 48] passed [pad: (1, 1), stride: (1, 1) out: ( 32, 16, 32), filter: (3, 3, 32)]
+[0m[32m[ 49] passed [pad: (1, 1), stride: (1, 1) out: ( 32, 16, 64), filter: (3, 3, 32)]
+[0m[32m[ 50] passed [pad: (1, 1), stride: (1, 1) out: ( 32, 16, 32), filter: (3, 3,  2)]
+[0m[32m[ 51] passed [pad: (1, 1), stride: (2, 2) out: ( 16,  8, 32), filter: (3, 3, 32)]
+[0m[32m[ 52] passed [pad: (1, 1), stride: (1, 1) out: ( 96,  8, 64), filter: (3, 3, 32)]
+[0m[32m[ 53] passed [pad: (0, 0), stride: (1, 1) out: (  5,  5, 32), filter: (1, 1, 32)]
+[0m[32m[ 54] passed [pad: (0, 0), stride: (1, 1) out: (  7,  7, 32), filter: (1, 1, 32)]
+[0m[32m[ 55] passed [pad: (0, 0), stride: (2, 2) out: (  1,  1,  8), filter: (3, 3,  3)]
+[0m[32m[ 56] passed [pad: (0, 0), stride: (2, 2) out: (  4,  1,  8), filter: (3, 3,  3)]
+[0m[32m[ 57] passed [pad: (0, 0), stride: (2, 2) out: (  1,  4,  8), filter: (3, 3,  4)]
+[0m[32m[ 58] passed [pad: (0, 0), stride: (1, 1) out: (32773,  2,  8), filter: (1, 1,  8)]
+[0m[32m[ 59] passed [pad: (0, 0), stride: (1, 1) out: (  4,  4,  8), filter: (1, 1,  8)]
+[0m[32m[ 60] passed [pad: (1, 1), stride: (1, 1) out: (  6,  6,  8), filter: (3, 3,  6)]
+[0m[32m[ 61] passed [pad: (1, 1), stride: (1, 1) out: (  4,  4,  8), filter: (3, 3,  8)]
+[0m[32m[ 62] passed [pad: (1, 1), stride: (1, 1) out: (  5,  5,  8), filter: (3, 3,  3)]
+[0m[32m[ 63] passed [pad: (0, 0), stride: (1, 1) out: (  2,  2,  8), filter: (3, 3,  8)]
+[0m[32m[ 64] passed [pad: (0, 0), stride: (1, 1) out: (  4,  4,  8), filter: (1, 1, 12)]
+[0m[32m[ 65] passed [pad: (1, 1), stride: (1, 1) out: (  6,  6,192), filter: (3, 3, 64)]
+[0m[32m[ 66] passed [pad: (1, 1), stride: (1, 1) out: (  6,  6,  4), filter: (1, 1,  3)]
+[0m[32m[ 67] passed [pad: (0, 0), stride: (1, 1) out: ( 10,  2, 16), filter: (1, 1, 24)]
+[0m[32m[ 68] passed [pad: (0, 0), stride: (1, 1) out: ( 10,  2, 24), filter: (1, 1, 40)]
+[0m[32m[ 69] passed [pad: (0, 0), stride: (1, 1) out: (  6,  6, 16), filter: (1, 1, 48)]
+[0m[32m[ 70] passed [pad: (0, 0), stride: (1, 1) out: (  4,  4,256), filter: (1, 1,264)]
+[0m[32m[ 71] passed [pad: (0, 0), stride: (1, 1) out: (  6,  5, 32), filter: (1, 1, 24)]
+[0m[32m[ 72] passed [pad: (0, 0), stride: (1, 1) out: ( 10, 10,384), filter: (1, 1,128)]
+[0m[32m[ 73] passed [pad: (1, 1), stride: (1, 1) out: (  6,  6, 64), filter: (3, 3,256)]
+[0mdual core: contender took the worker 435 times in 454 runs
+[32mdual core: contender bit-exact
+[0m
+######## Running esp_nn_depthwise_conv_s8_test ##########
+[32m[  0] passed [pad: (0, 0), stride: (1, 1) out: ( 16, 16), filter: (3, 3, 16), ch_mult 1]
+[0m[32m[  1] passed [pad: (1, 1), stride: (1, 1) out: ( 10, 10), filter: (3, 3, 16), ch_mult 1]
+[0m[32m[  2] passed [pad: (1, 1), stride: (1, 1) out: ( 10, 10), filter: (3, 3, 24), ch_mult 1]
+[0m[32m[  3] passed [pad: (1, 1), stride: (1, 1) out: ( 10, 10), filter: (3, 3, 24), ch_mult 1]
+[0m[32m[  4] passed [pad: (1, 1), stride: (1, 1) out: (  6,  6), filter: (3, 3,  4), ch_mult 8]
+[0m[32m[  5] passed [pad: (1, 1), stride: (1, 1) out: ( 12, 12), filter: (5, 5,  4), ch_mult 8]
+[0m[32m[  6] passed [pad: (1, 1), stride: (1, 1) out: (  6,  6), filter: (3, 3,  4), ch_mult 4]
+[0m[32m[  7] passed [pad: (0, 0), stride: (2, 2) out: (  2,  2), filter: (3, 3, 16), ch_mult 1]
+[0m[32m[  8] passed [pad: (0, 0), stride: (2, 2) out: ( 13, 13), filter: (3, 3, 64), ch_mult 1]
+[0m[32m[  9] passed [pad: (0, 0), stride: (2, 2) out: (  2,  2), filter: (3, 3, 16), ch_mult 1]
+[0m[32m[ 10] passed [pad: (0, 0), stride: (1, 1) out: (  4,  4), filter: (3, 3, 16), ch_mult 1]
+[0m[32m[ 11] passed [pad: (0, 0), stride: (1, 1) out: (  4,  4), filter: (3, 3, 16), ch_mult 1]
+[0m[32m[ 12] passed [pad: (0, 0), stride: (1, 1) out: (  4,  4), filter: (3, 3, 16), ch_mult 1]
+[0m[32m[ 13] passed [pad: (0, 0), stride: (2, 2) out: (  2,  2), filter: (3, 3, 16), ch_mult 1]
+[0m[32m[ 14] passed [pad: (0, 0), stride: (2, 2) out: (  2,  2), filter: (3, 3, 16), ch_mult 1]
+[0m[32m[ 15] passed [pad: (1, 1), stride: (1, 1) out: ( 48, 48), filter: (3, 3,  8), ch_mult 1]
+[0m[32m[ 16] passed [pad: (0, 0), stride: (2, 2) out: (  5,  5), filter: (3, 3,  8), ch_mult 1]
+[0m[32m[ 17] passed [pad: (1, 1), stride: (1, 1) out: (  8,  8), filter: (3, 3, 16), ch_mult 1]
+[0m[32m[ 18] passed [pad: (1, 0), stride: (2, 2) out: ( 25, 10), filter: (3, 3, 32), ch_mult 1]
+[0m[32m[ 19] passed [pad: (0, 1), stride: (1, 1) out: (  1,384), filter: (1, 3,128), ch_mult 1]
+[0m[32m[ 20] passed [pad: (0, 1), stride: (1, 2) out: (  1, 96), filter: (1, 3,256), ch_mult 1]
+[0m[32m[ 21] passed [pad: (0, 1), stride: (1, 1) out: (  1,384), filter: (1, 3,168), ch_mult 1]
+[0m[32m[ 22] passed [pad: (0, 1), stride: (1, 2) out: (  1, 96), filter: (1, 3,328), ch_mult 1]
+[0m[32m[ 23] passed [pad: (0, 1), stride: (1, 1) out: (  1,384), filter: (1, 3,128), ch_mult 1]
+[0m[32m[ 24] passed [pad: (0, 1), stride: (1, 2) out: (  1, 96), filter: (1, 3,256), ch_mult 1]
+[0m[32m[ 25] passed [pad: (0, 2), stride: (1, 1) out: (  1,256), filter: (1, 5,128), ch_mult 1]
+[0m[32m[ 26] passed [pad: (0, 1), stride: (1, 1) out: (  1,128), filter: (1, 3,256), ch_mult 1]
+[0m[32m[ 27] passed [pad: (1, 1), stride: (1, 1) out: (  9,  5), filter: (3, 3,384), ch_mult 1]
+[0m[32m[ 28] passed [pad: (1, 1), stride: (1, 1) out: (  5,  3), filter: (3, 3,640), ch_mult 1]
+[0m[32m[ 29] passed [pad: (1, 1), stride: (2, 2) out: (  5,  3), filter: (3, 3,384), ch_mult 1]
+[0m[32m[ 30] passed [pad: (1, 1), stride: (1, 1) out: (  5,  3), filter: (3, 3,640), ch_mult 1]
+[0m[32m[ 31] passed [pad: (1, 1), stride: (1, 1) out: (  9,  5), filter: (3, 3,264), ch_mult 1]
+[0m[32m[ 32] passed [pad: (1, 1), stride: (2, 2) out: (  5,  3), filter: (3, 3,520), ch_mult 1]
+[0m[32m[ 33] passed [pad: (1, 1), stride: (1, 1) out: ( 40, 40), filter: (3, 3, 32), ch_mult 1]
+[0m[32m[ 34] passed [pad: (1, 1), stride: (2, 2) out: ( 21, 21), filter: (3, 3, 32), ch_mult 1]
+[0m[32m[ 35] passed [pad: (0, 1), stride: (1, 1) out: (  1,3072), filter: (1, 3,  8), ch_mult 1]
+[0m[32m[ 36] passed [pad: (0, 0), stride: (1, 1) out: (  1,3072), filter: (1, 1,  8), ch_mult 1]
+[0m[32m[ 37] passed [pad: (2, 2), stride: (1, 1) out: ( 11,  9), filter: (5, 5, 32), ch_mult 1]
+[0m[32m[ 38] passed [pad: (2, 1), stride: (1, 1) out: (  9,  7), filter: (5, 3, 24), ch_mult 1]
+[0m[32m[ 39] passed [pad: (1, 1), stride: (1, 1) out: ( 10,  8), filter: (3, 3, 48), ch_mult 1]
+[0m[32m[ 40] passed [pad: (2, 2), stride: (1, 1) out: ( 11,  9), filter: (5, 5, 32), ch_mult 1]
+[0m[32m[ 41] passed [pad: (1, 1), stride: (1, 1) out: (  8,  8), filter: (3, 3, 32), ch_mult 1]
+[0m[32m[ 42] passed [pad: (0, 0), stride: (1, 1) out: ( 10,  3), filter: (31, 1, 16), ch_mult 1]
+[0m[32m[ 43] passed [pad: (1, 1), stride: (1, 1) out: (  6,  6), filter: (3, 3, 16), ch_mult 1]
+[0m[32m[ 44] passed [pad: (1, 1), stride: (1, 1) out: (  6,  6), filter: (3, 3, 16), ch_mult 1]
+[0m[32m[ 45] passed [pad: (1, 1), stride: (1, 1) out: (  8,  8), filter: (3, 3, 32), ch_mult 1]
+[0m[32m[ 46] passed [pad: (0, 0), stride: (1, 1) out: (  9,  7), filter: (1, 1, 48), ch_mult 1]
+[0m[32m[ 47] passed [pad: (0, 0), stride: (2, 2) out: (  5,  4), filter: (1, 1, 24), ch_mult 1]
+[0m[32m[ 48] passed [pad: (0, 1), stride: (1, 1) out: (  7,  9), filter: (1, 3, 40), ch_mult 1]
+[0m[32m[ 49] passed [pad: (0, 0), stride: (1, 1) out: (  6,  7), filter: (1, 3, 32), ch_mult 1]
+[0m[32m[ 50] passed [pad: (0, 0), stride: (2, 2) out: (  5,  4), filter: (5, 5, 32), ch_mult 1]
+[0m[32m[ 51] passed [pad: (0, 0), stride: (2, 2) out: (  5,  4), filter: (5, 5, 32), ch_mult 1]
+[0m[32m[ 52] passed [pad: (0, 0), stride: (2, 2) out: (  8,  8), filter: (3, 3, 32), ch_mult 1]
+[0m[32m[ 53] passed [pad: (0, 0), stride: (1, 1) out: (  4,  4), filter: (3, 3, 16), ch_mult 1]
+[0m[32m[ 54] passed [pad: (0, 0), stride: (1, 1) out: (  4,  4), filter: (3, 3, 16), ch_mult 1]
+[0m[32m[ 55] passed [pad: (0, 0), stride: (1, 1) out: (  4,  4), filter: (3, 3, 16), ch_mult 1]
+[0m[32m[ 56] passed [pad: (0, 0), stride: (1, 1) out: (  4,  4), filter: (3, 3, 16), ch_mult 1]
+[0m[32m[ 57] passed [pad: (0, 0), stride: (2, 2) out: (  2,  2), filter: (3, 3, 16), ch_mult 1]
+[0m[32m[ 58] passed [pad: (1, 1), stride: (2, 2) out: (  3,  3), filter: (3, 3, 16), ch_mult 1]
+[0m[32m[ 59] passed [pad: (0, 0), stride: (1, 1) out: (  4,  4), filter: (3, 3, 16), ch_mult 1]
+[0m[32m[ 60] passed [pad: (2, 2), stride: (1, 1) out: (  9,  9), filter: (5, 5, 32), ch_mult 1]
+[0m[32m[ 61] passed [pad: (2, 2), stride: (2, 2) out: (  6,  6), filter: (5, 5, 25), ch_mult 1]
+[0m[32m[ 62] passed [pad: (1, 1), stride: (1, 1) out: (  8,  8), filter: (3, 3, 20), ch_mult 1]
+[0m[32m[ 63] passed [pad: (0, 0), stride: (1, 1) out: (  5,  5), filter: (3, 3, 44), ch_mult 1]
+[0m[32m[ 64] passed [pad: (1, 1), stride: (1, 1) out: (  8,  8), filter: (3, 3, 32), ch_mult 1]
+[0m[32m[ 65] passed [pad: (1, 1), stride: (1, 1) out: (  8,  8), filter: (3, 3, 32), ch_mult 1]
+[0m[32m[ 66] passed [pad: (1, 1), stride: (1, 1) out: (  8,  8), filter: (3, 3, 32), ch_mult 1]
+[0m[32m[ 67] passed [pad: (1, 1), stride: (1, 1) out: ( 28, 28), filter: (3, 3, 96), ch_mult 1]
+[0m[32m[ 68] passed [pad: (1, 1), stride: (2, 2) out: ( 19, 19), filter: (3, 3, 96), ch_mult 1]
+[0m[32m[ 69] passed [pad: (1, 1), stride: (1, 1) out: (  9,  9), filter: (3, 3,960), ch_mult 1]
+[0m[32m[ 70] passed [pad: (1, 1), stride: (1, 1) out: ( 14, 14), filter: (3, 3, 48), ch_mult 1]
+[0m[32m[ 71] passed [pad: (1, 1), stride: (2, 2) out: (  8,  8), filter: (3, 3, 40), ch_mult 1]
+[0m[32m[ 72] passed [pad: (1, 1), stride: (1, 1) out: ( 40, 40), filter: (3, 3, 24), ch_mult 1]
+[0m[32m[ 73] passed [pad: (1, 1), stride: (2, 2) out: ( 20, 20), filter: (3, 3, 40), ch_mult 1]
+[0m[32m[ 74] passed [pad: (1, 1), stride: (1, 1) out: ( 40, 40), filter: (3, 3, 48), ch_mult 1]
+[0m[32m[ 75] passed [pad: (1, 1), stride: (1, 1) out: ( 40, 40), filter: (3, 3, 36), ch_mult 1]
+[0m[32m[ 76] passed [pad: (1, 1), stride: (1, 1) out: ( 40, 40), filter: (3, 3, 32), ch_mult 1]
+[0m[32m[ 77] passed [pad: (1, 1), stride: (2, 2) out: ( 21, 21), filter: (3, 3, 48), ch_mult 1]
+[0m[32m[ 78] passed [pad: (1, 1), stride: (1, 1) out: ( 24,100), filter: (3, 3, 32), ch_mult 1]
+[0m[32m[ 79] passed [pad: (1, 1), stride: (1, 1) out: (  7,  7), filter: (3, 3, 72), ch_mult 1]
+[0m[32m[ 80] passed [pad: (1, 1), stride: (1, 1) out: (  7,  7), filter: (3, 3, 96), ch_mult 1]
+[0m[32m[ 81] passed [pad: (1, 1), stride: (2, 2) out: (  5,  5), filter: (3, 3, 64), ch_mult 1]
+[0m[32m[ 82] passed [pad: (4, 0), stride: (1, 1) out: (1100,  1), filter: (9, 1, 16), ch_mult 1]
+[0m[32m[ 83] passed [pad: (0, 0), stride: (1, 1) out: (  8,  8), filter: (3, 3,1032), ch_mult 1]
+[0m[32m[ 84] passed [pad: (1, 1), stride: (1, 1) out: (400, 40), filter: (3, 3, 32), ch_mult 1]
+[0m[32mdual core: disable() freed the worker
+[0mTEST: dual_core, passed=247, failed=0, skipped=0
+[0;32mI (32180) test_app: s8 tests done![0m
+
+WORKER_STACK: min_free=3392 of 4096 bytes
+TEST_SUMMARY: passed=849, failed=0, skipped=0
+TEST_RESULT: PASS

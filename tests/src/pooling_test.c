@@ -281,4 +281,13 @@ void esp_nn_max_pool_s8_test()
     run_max_pool_test(5, 5, 16, 5, 5, 1, 1, 2, 2, iter++);
     /* The same geometry takes the reference with activation limits outside int8 */
     run_max_pool_test_act(12, 12, 16, 5, 5, 1, 1, 2, 2, -200, 200, iter++);
+    /* Odd final tiles, rectangular inputs, clamping and a second channel batch. */
+    run_max_pool_test_act(5, 7, 48, 5, 5, 1, 1, 2, 2, -11, 19, iter++);
+    run_max_pool_test_act(9, 5, 32, 5, 5, 1, 1, 2, 2, -37, 55, iter++);
+    run_max_pool_test_act(17, 7, 64, 5, 5, 1, 1, 2, 2, -124, -3, iter++);
+    run_max_pool_test_act(33, 5, 16, 5, 5, 1, 1, 2, 2, 123, 127, iter++);
+    run_max_pool_test_act(13, 7, 160, 3, 3, 1, 1, 1, 1, -9, 11, iter++);
+    run_max_pool_test(3, 3, 32, 3, 3, 1, 1, 1, 1, iter++);
+    run_max_pool_test(13, 4, 32, 3, 3, 1, 1, 1, 1, iter++);
+    run_max_pool_test(4, 13, 32, 3, 3, 1, 1, 1, 1, iter++);
 }

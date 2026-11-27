@@ -25,3 +25,11 @@
 #define S3MP_OUT_ROW_STEP   40
 #define S3MP_ROWS           44
 #define S3MP_ROWS_LEFT      48
+
+/* Layout of the row descriptor shared by the streaming leaves. */
+#define S3MP_STREAM_ROW_BYTES    0
+#define S3MP_STREAM_CHANNELS     4
+#define S3MP_STREAM_ROWS         8
+#define S3MP_STREAM_PAD          12
+#define S3MP_STREAM_BATCH_BYTES  128
+#define S3MP_STREAM_BATCH_SHIFT  7
